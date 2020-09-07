@@ -11,17 +11,22 @@
 
 
 
-<title>Julian F. Ludwig</title>
+<title>Habits</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -68,6 +73,7 @@ h6 {
 }
 </style>
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
 
 
@@ -102,33 +108,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 51px;
+  padding-top: 54px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 59px;
+  margin-top: -59px;
 }
 .section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 59px;
+  margin-top: -59px;
 }
 .section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 59px;
+  margin-top: -59px;
 }
 .section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 59px;
+  margin-top: -59px;
 }
 .section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 59px;
+  margin-top: -59px;
 }
 .section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 59px;
+  margin-top: -59px;
 }
 .dropdown-submenu {
   position: relative;
@@ -248,6 +254,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -257,9 +326,19 @@ $(document).ready(function () {
 <div class="container-fluid main-container">
 
 
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -267,18 +346,39 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My Website</a>
+      <a class="navbar-brand" href="index.html">Julian F. Ludwig</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="https://www.linkedin.com/in/julianfludwig">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="https://github.com/j-ludwig">
+    <span class="fa fa-github"></span>
+     
+  </a>
 </li>
 <li>
-  <a href="teaching.html">Teaching</a>
+  <a href="https://twitter.com/julianfludwig">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://scholar.google.com/citations?hl=de&amp;user=AfUsLZQAAAAJ">
+    <span class="glyphicon glyphicon-education"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.depts.ttu.edu/economics/faculty/Ludwig">
+    <span class="fa fa-building"></span>
+     
+  </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -292,19 +392,64 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Julian F. Ludwig</h1>
 
 </div>
 
 
-<div id="position" class="section level2">
-<h2>Position</h2>
-<p>Assistant Professor</p>
-<p>TTU</p>
+<dl>
+<dt><img src="photos/Julian%20oval.png" alt="logo" style="position:absolute; top:0; right:0; padding:20px;" width="30%"/></dt>
+<dd>
+</dd>
+</dl>
+<div id="julian-f.-ludwig" class="section level2">
+<h2>Julian F. Ludwig</h2>
+<p>Assistant Professor in Economics</p>
+<div id="mailing-address" class="section level4">
+<h4>Mailing Address</h4>
+<p>Department of Economics<br />
+Texas Tech University<br />
+253 Holden Hall<br />
+Lubbock, TX 79409</p>
+</div>
+<div id="office" class="section level4">
+<h4>Office</h4>
+<p>253 Holden Hall</p>
+</div>
+<div id="email" class="section level4">
+<h4>Email</h4>
+<p><a href="mailto:julian.ludwig@ttu.edu" class="email">julian.ludwig@ttu.edu</a></p>
+</div>
+<div id="cv" class="section level4">
+<h4>CV</h4>
+<p>[<a href="cv/2020.06.26%20CV%20Julian%20Ludwig.pdf">PDF</a>]</p>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+</div>
+<div id="research" class="section level2">
+<h2>Research</h2>
+<div id="field-of-interest-empirical-macroeconomics" class="section level4">
+<h4>Field of Interest: Empirical Macroeconomics</h4>
+<p>My research focuses on how beliefs and predictions of people interact with the economy. I try to quantify the timing and accuracy of the information that people gather, and I aim to understand how the gathered information contributes to macro business cycles.</p>
+</div>
+<div id="working-paper-201819-job-market-paper" class="section level4">
+<h4>Working Paper (2018/19 Job Market Paper)</h4>
+<p><a href="research/Ludwig%20ID%20of%20RE%20Models%20under%20IF.pdf">Identification of Rational Expectations Models Under Information Frictions</a><br />
+Identification of full information rational expectations (FIRE) models suffers from Manski’s (1993) reflection problem. I extend the standard rational expectations (RE) model to allow for a more general information structure and introduce a new framework to identify the generalized model with forecaster data. Identification is no longer subject to the reflection problem when two changes are made to the information structure: the addition of news shocks and imperfect information. News shocks provide additional variation in expectations about the future. Imperfect information provides changes in beliefs about past states, through which the feedback between expectations and decisions goes only in one direction. Expectations data are consistent with both. An application to Greenbook forecasts illustrates the importance of both news shocks and learning about the past. When I apply this framework to a Blanchard and Quah (1989) decomposition, I reach qualitatively new results. For example, expansionary supply shocks decrease unemployment. Supply shocks are also particularly subject to both news and information rigidities, so relaxing the information structure is key to correctly identifying these shocks.<br />
+[<a href="research/Ludwig%20ID%20of%20RE%20Models%20under%20IF.pdf">PDF</a>]</p>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+</div>
+<div id="teaching" class="section level2">
+<h2>Teaching</h2>
+<p>ECO 5311: Macroeconomic Theory and Policy<br />
+ECO 4306: Economic and Business Forecasting (supperted by <a href="https://www.datacamp.com/">DataCamp</a>)<br />
+ECO 3323: Principles of Money, Banking and Credit (supperted by <a href="https://www.datacamp.com/">DataCamp</a> and <a href="https://www.pearsonmylabandmastering.com/northamerica/myeconlab/">Pearson MyLab Economics</a>)</p>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -337,6 +482,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
