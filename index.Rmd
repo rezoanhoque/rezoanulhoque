@@ -6,6 +6,7 @@ title: "Julian F. Ludwig"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<<<<<<< HEAD
 
 
 ## Position
@@ -13,6 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 Assistant Professor
 
 
+=======
+>>>>>>> 7239393f386a86e636c0f885db5fa76af18cd1ce
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
