@@ -17,6 +17,7 @@ htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
 
 Assistant Professor in Economics
 
+$~$
 
 #### Mailing Address
 Department of Economics \
