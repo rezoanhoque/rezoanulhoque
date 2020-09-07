@@ -15,15 +15,13 @@ htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
 
 ## Julian F. Ludwig
 
-Assistant Professor in Economics
-
-$~$
-
-#### Mailing Address
+Assistant Professor \
 Department of Economics \
 Texas Tech University \
 253 Holden Hall \
 Lubbock, TX 79409
+
+$~$
 
 #### Office
 253 Holden Hall
@@ -60,8 +58,8 @@ $~$
 
 ## Teaching
 ECO 5311: Macroeconomic Theory and Policy \
-ECO 4306: Economic and Business Forecasting (supperted by [DataCamp](https://www.datacamp.com/)) \
-ECO 3323: Principles of Money, Banking and Credit (supperted by [DataCamp](https://www.datacamp.com/) and [Pearson MyLab Economics](https://www.pearsonmylabandmastering.com/northamerica/myeconlab/))
+ECO 4306: Economic and Business Forecasting (supported by [DataCamp](https://www.datacamp.com/)) \
+ECO 3323: Principles of Money, Banking and Credit (supported by [DataCamp](https://www.datacamp.com/) and [Pearson MyLab Economics](https://www.pearsonmylabandmastering.com/northamerica/myeconlab/))
 
 
 
