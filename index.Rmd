@@ -4,18 +4,19 @@ pagetitle: Julian F. Ludwig
 
 
 
-<!-- ```{r, echo=FALSE,fig.width=.1} -->
-<!-- htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),  -->
-<!--                alt = 'logo',  -->
-<!--                style = 'position:absolute; top:0; right:0; padding:20px;', -->
-<!--                width="30%") -->
-<!-- ``` -->
+
 
 ###### $~$
 
-<div class="column-left">
+```{r, echo=FALSE,fig.width=.1}
+htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
+               alt = 'logo',
+               style = 'position:absolute; top:0; right:0; padding:20px;',
+               width="30%")
+```
 
-### Julian F. Ludwig
+
+## Julian F. Ludwig
 
 
 Assistant Professor \
@@ -34,28 +35,6 @@ Lubbock, TX 79409
 
 
 <br>
-
-
-
-</div>
-<div class="column-right">
-
-```{r, echo=FALSE,fig.width=.1}
-htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"), 
-               alt = 'logo', 
-               style = 'top:0; right:0;',
-               width="80%")
-```
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-</div>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Research
 
