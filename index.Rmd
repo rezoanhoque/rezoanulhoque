@@ -13,13 +13,16 @@ htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
 
 ~ 
 
-## Julian F. Ludwig
+## Julian F. Ludwig {#Home}
 
 Assistant Professor \
 Department of Economics \
 Texas Tech University \
 253 Holden Hall \
 Lubbock, TX 79409
+
+
+$~$
 
 
 #### Office
@@ -38,7 +41,7 @@ julian.ludwig@ttu.edu
 
 $~$
 
-## Research
+## Research  {#Research}
 
 #### Field of Interest: Empirical Macroeconomics 
 My research focuses on how beliefs and predictions of people interact with the economy. I try to quantify the timing and accuracy of the information that people gather, and I aim to understand how the gathered information contributes to macro business cycles.
@@ -55,14 +58,10 @@ Identification of full information rational expectations (FIRE) models suffers f
 
 $~$
 
-## Teaching
+## Teaching  {#Teaching}
 ECO 5311: Macroeconomic Theory and Policy \
 ECO 4306: Economic and Business Forecasting (supported by [DataCamp](https://www.datacamp.com/)) \
 ECO 3323: Principles of Money, Banking and Credit (supported by [DataCamp](https://www.datacamp.com/) and [Pearson MyLab Economics](https://www.pearsonmylabandmastering.com/northamerica/myeconlab/))
-
-
-
-
 
 
 
