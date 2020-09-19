@@ -2,8 +2,8 @@ name: "my-website"
 output_dir: "."
 navbar:
   type: inverse
-  title: "Julian F. Ludwig"
-  left:
+  title: ""
+  right:
   - href: https://www.linkedin.com/in/julianfludwig
     icon: fa-linkedin
   - href: https://github.com/j-ludwig

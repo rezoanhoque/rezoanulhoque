@@ -25,15 +25,11 @@ Lubbock, TX 79409
 $~$
 
 
-#### Office
-253 Holden Hall
+##### Office: [253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall)
 
-#### Email
-julian.ludwig@ttu.edu
+##### Email: julian.ludwig@ttu.edu
 
-
-#### CV
-[[PDF](cv/2020.06.26 CV Julian Ludwig.pdf)]
+##### CV: [[PDF](cv/2020.06.26 CV Julian Ludwig.pdf)]
 
 
 
