@@ -8,13 +8,13 @@ item.active, .list-group-item.active:hover {
   border-color: #808080;
 }
 body, td {
-  font-size: 20px;
+  font-size: 18px;
 }
 pre {
-  font-size: 20px;
+  font-size: 18px;
 }
 .r{
-  font-size: 20px;
+  font-size: 18px;
 }
 .title {
   font-size: 38px;
@@ -32,5 +32,5 @@ h4 { /* Header 3 */
   font-size: 23px;
 }
 h5 { /* Header 3 */
-  font-size: 20px;
+  font-size: 18px;
 }

@@ -14,8 +14,6 @@ navbar:
     icon: glyphicon-education
   - href: https://www.depts.ttu.edu/economics/faculty/Ludwig
     icon: fa-building
-  - href: https://www.depts.ttu.edu/economics/faculty/Ludwig
-    text: "   "
 output:
   html_document:
     css: "styles.css" 
