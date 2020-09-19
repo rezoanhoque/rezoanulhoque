@@ -8,15 +8,15 @@ item.active, .list-group-item.active:hover {
   border-color: #808080;
 }
 body, td {
-  font-size: 18px;
+  font-size: 20px;
 }
 pre {
-  font-size: 18px;
+  font-size: 20px;
 }
-code.r{
-  font-size: 15px;
+.r{
+  font-size: 20px;
 }
-h1.title {
+.title {
   font-size: 38px;
 }
 h1 { /* Header 1 */
@@ -26,11 +26,11 @@ h2 { /* Header 2 */
     font-size: 36px;
 }
 h3 { /* Header 3 */
-  font-size: 19px;
+  font-size: 25px;
 }
 h4 { /* Header 3 */
-  font-size: 22px;
+  font-size: 23px;
 }
 h5 { /* Header 3 */
-  font-size: 18px;
+  font-size: 20px;
 }
