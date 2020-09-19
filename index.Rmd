@@ -12,11 +12,10 @@ pagetitle: Julian F. Ludwig
 htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
                alt = 'logo',
                style = 'position:absolute; top:0; right:0; padding:20px;',
-               width="30%")
+               width="28%")
 ```
 
 
-## Julian F. Ludwig
 
 
 Assistant Professor \

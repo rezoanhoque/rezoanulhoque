@@ -18,6 +18,7 @@ pre {
 }
 .title {
   font-size: 38px;
+  color: black;
 }
 h1 { /* Header 1 */
   font-size: 36px;
@@ -35,16 +36,7 @@ h5 { /* Header 3 */
   font-size: 17px;
 }
 h6 { /* Header 3 */
-  font-size: 4px;
+  font-size: 5px;
 }
 
-.column-left{
-  float: left;
-  width: 66%;
-  text-align: left;
-}
-.column-right{
-  float: right;
-  width: 33%;
-  text-align: right;
-}
+

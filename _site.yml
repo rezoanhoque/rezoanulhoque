@@ -2,7 +2,7 @@ name: "my-website"
 output_dir: "."
 navbar:
   type: inverse
-  title: ""
+  title: '<span style="color:black">Julian F. Ludwig</span>'
   right:
   - href: https://www.linkedin.com/in/julianfludwig
     icon: fa-linkedin
@@ -22,7 +22,6 @@ output:
     css: "styles.css" 
     toc: true
     toc_float: true  
-    toc_collapsed: true
     toc_depth: 3
     theme: lumen
     highlight: default # the looks of r-code-chunk
