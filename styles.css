@@ -7,6 +7,30 @@ item.active, .list-group-item.active:hover {
   background-color: #808080;
   border-color: #808080;
 }
-
-
-
+body, td {
+  font-size: 18px;
+}
+pre {
+  font-size: 18px;
+}
+code.r{
+  font-size: 15px;
+}
+h1.title {
+  font-size: 38px;
+}
+h1 { /* Header 1 */
+  font-size: 33px;
+}
+h2 { /* Header 2 */
+    font-size: 36px;
+}
+h3 { /* Header 3 */
+  font-size: 19px;
+}
+h4 { /* Header 3 */
+  font-size: 22px;
+}
+h5 { /* Header 3 */
+  font-size: 18px;
+}
