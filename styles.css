@@ -14,23 +14,37 @@ pre {
   font-size: 18px;
 }
 .r{
-  font-size: 18px;
+  font-size: 12px;
 }
 .title {
   font-size: 38px;
 }
 h1 { /* Header 1 */
-  font-size: 33px;
+  font-size: 36px;
 }
 h2 { /* Header 2 */
     font-size: 36px;
 }
 h3 { /* Header 3 */
-  font-size: 25px;
+  font-size: 36px;
 }
 h4 { /* Header 3 */
   font-size: 23px;
 }
 h5 { /* Header 3 */
   font-size: 18px;
+}
+h6 { /* Header 3 */
+  font-size: 8px;
+}
+
+.column-left{
+  float: left;
+  width: 66%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 33%;
+  text-align: right;
 }

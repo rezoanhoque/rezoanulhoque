@@ -4,16 +4,19 @@ pagetitle: Julian F. Ludwig
 
 
 
-```{r, echo=FALSE,fig.width=.1}
-htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"), 
-               alt = 'logo', 
-               style = 'position:absolute; top:0; right:0; padding:20px;',
-               width="30%")
-```
+<!-- ```{r, echo=FALSE,fig.width=.1} -->
+<!-- htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),  -->
+<!--                alt = 'logo',  -->
+<!--                style = 'position:absolute; top:0; right:0; padding:20px;', -->
+<!--                width="30%") -->
+<!-- ``` -->
 
-~ 
+###### $~$
 
-## Julian F. Ludwig
+<div class="column-left">
+
+### Julian F. Ludwig
+
 
 Assistant Professor \
 Department of Economics \
@@ -21,9 +24,7 @@ Texas Tech University \
 253 Holden Hall \
 Lubbock, TX 79409
 
-
-$~$
-
+<br>
 
 ##### Office: [253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall)
 
@@ -32,10 +33,29 @@ $~$
 ##### CV: [[PDF](cv/2020.06.26 CV Julian Ludwig.pdf)]
 
 
+<br>
 
 
 
-$~$
+</div>
+<div class="column-right">
+
+```{r, echo=FALSE,fig.width=.1}
+htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"), 
+               alt = 'logo', 
+               style = 'top:0; right:0;',
+               width="80%")
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Research
 
@@ -58,7 +78,6 @@ $~$
 ECO 5311: Macroeconomic Theory and Policy \
 ECO 4306: Economic and Business Forecasting (supported by [DataCamp](https://www.datacamp.com/)) \
 ECO 3323: Principles of Money, Banking and Credit (supported by [DataCamp](https://www.datacamp.com/) and [Pearson MyLab Economics](https://www.pearsonmylabandmastering.com/northamerica/myeconlab/))
-
 
 
 

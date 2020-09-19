@@ -2,7 +2,7 @@ name: "my-website"
 output_dir: "."
 navbar:
   type: inverse
-  title: ""
+  title: "Julian F. Ludwig"
   right:
   - href: https://www.linkedin.com/in/julianfludwig
     icon: fa-linkedin
@@ -16,9 +16,13 @@ navbar:
     icon: fa-building
 output:
   html_document:
+    includes:
+      # after_body: ttuicon.html
+      # in_header: ttuicon.html
     css: "styles.css" 
     toc: true
     toc_float: true  
+    toc_collapsed: true
     toc_depth: 3
     theme: lumen
     highlight: default # the looks of r-code-chunk
