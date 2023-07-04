@@ -56,8 +56,9 @@ $~$
 ECO 5316: Time Series Econometrics (supported by [DataCamp](https://www.datacamp.com/)) \
 ECO 5311: Macroeconomic Theory and Policy \
 ECO 4306: Economic and Business Forecasting (supported by [DataCamp](https://www.datacamp.com/)) \
-ECO 4300-D03: Data Analysis for Economic Research (supported by [DataCamp](https://www.datacamp.com/)) \
+ECO 4300-D03: Data Analysis for Economic Research ([Lecture Notes](daer-book/introduction.html), supported by [DataCamp](https://www.datacamp.com/)) \
 ECO 3323: Principles of Money, Banking and Credit (supported by [DataCamp](https://www.datacamp.com/) and [Pearson MyLab Economics](https://www.pearsonmylabandmastering.com/northamerica/myeconlab/))
+
 
 
 
