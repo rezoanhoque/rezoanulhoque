@@ -20,7 +20,6 @@
   
   
 
-<meta name="author" content="Julian F. Ludwig (Texas Tech University)" />
 
 
 <meta name="date" content="2023-07-04" />
@@ -138,6 +137,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="introduction.html">Data Analysis for Economic Research</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="module-i-introduction-to-r-for-economic-research.html"><a href="module-i-introduction-to-r-for-economic-research.html"><i class="fa fa-check"></i><em>Module I: Introduction to R for Economic Research</em></a></li>
 <li class="chapter" data-level="1" data-path="software-overview.html"><a href="software-overview.html"><i class="fa fa-check"></i><b>1</b> Software Overview</a></li>
@@ -241,6 +243,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.2" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#data-guidelines-3"><i class="fa fa-check"></i><b>18.2</b> Data Guidelines</a></li>
 <li class="chapter" data-level="18.3" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#r-markdown-guidelines-3"><i class="fa fa-check"></i><b>18.3</b> R Markdown Guidelines</a></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://www.julianfludwig.com/" target="blank">Julian F. Ludwig</a></li>
+
 </ul>
 
       </nav>
@@ -287,20 +292,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb193-10"><a href="downloading-data-in-r.html#cb193-10" tabindex="-1"></a></span>
 <span id="cb193-11"><a href="downloading-data-in-r.html#cb193-11" tabindex="-1"></a><span class="co"># Display the most recent downloaded stock prices</span></span>
 <span id="cb193-12"><a href="downloading-data-in-r.html#cb193-12" tabindex="-1"></a><span class="fu">tail</span>(AAPL_stock_price)</span></code></pre></div>
-<pre><code>##            AAPL.Open AAPL.High AAPL.Low
-## 2023-06-26    186.83    188.05   185.23
-## 2023-06-27    185.89    188.39   185.67
-## 2023-06-28    187.93    189.90   187.60
-## 2023-06-29    189.08    190.07   188.94
-## 2023-06-30    191.63    194.48   191.26
-## 2023-07-03    193.78    193.88   191.76
-##            AAPL.Close AAPL.Volume AAPL.Adjusted
-## 2023-06-26     185.27    48088700        185.27
-## 2023-06-27     188.06    50730800        188.06
-## 2023-06-28     189.25    51216800        189.25
-## 2023-06-29     189.59    46347300        189.59
-## 2023-06-30     193.97    85069600        193.97
-## 2023-07-03     192.46    31458200        192.46</code></pre>
+<pre><code>##            AAPL.Open AAPL.High AAPL.Low AAPL.Close AAPL.Volume AAPL.Adjusted
+## 2023-06-26    186.83    188.05   185.23     185.27    48088700        185.27
+## 2023-06-27    185.89    188.39   185.67     188.06    50730800        188.06
+## 2023-06-28    187.93    189.90   187.60     189.25    51216800        189.25
+## 2023-06-29    189.08    190.07   188.94     189.59    46347300        189.59
+## 2023-06-30    191.63    194.48   191.26     193.97    85069600        193.97
+## 2023-07-03    193.78    193.88   191.76     192.46    31458200        192.46</code></pre>
 <p>The arguments in this context are:</p>
 <ul>
 <li><code>Symbols</code>: Specifies the instrument to import. This could be a stock ticker symbol, exchange rate, economic data series, or any other identifier.</li>
@@ -317,7 +315,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb195-4"><a href="downloading-data-in-r.html#cb195-4" tabindex="-1"></a><span class="co"># Plot adjusted Apple share price</span></span>
 <span id="cb195-5"><a href="downloading-data-in-r.html#cb195-5" tabindex="-1"></a><span class="fu">plot</span>(AAPL_stock_price_adj, <span class="at">main =</span> <span class="st">&quot;Apple Share Price&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:apple-stock-price"></span>
-<img src="_main_files/figure-html/apple-stock-price-1.png" alt="Apple Share Price" width="80%" />
+<img src="daer_files/figure-html/apple-stock-price-1.png" alt="Apple Share Price" width="80%" />
 <p class="caption">
 Figure 6.1: Apple Share Price
 </p>
@@ -336,7 +334,7 @@ Figure 6.1: Apple Share Price
 </ul>
 <p>The usage of <code>plot.zoo()</code> provides a more intuitive plotting method for some users, replicating <code>plot()</code>’s behavior with data frames more closely compared to <code>plot.xts()</code>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:apple-stock-price-zoo"></span>
-<img src="_main_files/figure-html/apple-stock-price-zoo-1.png" alt="Apple Share Price Visualized with plot.zoo()" width="80%" />
+<img src="daer_files/figure-html/apple-stock-price-zoo-1.png" alt="Apple Share Price Visualized with plot.zoo()" width="80%" />
 <p class="caption">
 Figure 6.2: Apple Share Price Visualized with plot.zoo()
 </p>
@@ -350,7 +348,7 @@ Figure 6.2: Apple Share Price Visualized with plot.zoo()
 <span id="cb197-6"><a href="downloading-data-in-r.html#cb197-6" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;Logarithm of Apple Share Price&quot;</span>,</span>
 <span id="cb197-7"><a href="downloading-data-in-r.html#cb197-7" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Log of USD Price&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:log-apple-stock-price"></span>
-<img src="_main_files/figure-html/log-apple-stock-price-1.png" alt="Logarithm of Apple Share Price" width="80%" />
+<img src="daer_files/figure-html/log-apple-stock-price-1.png" alt="Logarithm of Apple Share Price" width="80%" />
 <p class="caption">
 Figure 6.3: Logarithm of Apple Share Price
 </p>
@@ -389,7 +387,7 @@ Figure 6.3: Logarithm of Apple Share Price
 <span id="cb201-4"><a href="downloading-data-in-r.html#cb201-4" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, </span>
 <span id="cb201-5"><a href="downloading-data-in-r.html#cb201-5" tabindex="-1"></a>         <span class="at">ylab =</span> <span class="st">&quot;USD per Barrel (159 Litres)&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:oil-price"></span>
-<img src="_main_files/figure-html/oil-price-1.png" alt="OPEC Crude Oil Price" width="80%" />
+<img src="daer_files/figure-html/oil-price-1.png" alt="OPEC Crude Oil Price" width="80%" />
 <p class="caption">
 Figure 6.4: OPEC Crude Oil Price
 </p>
@@ -405,7 +403,7 @@ Figure 6.4: OPEC Crude Oil Price
 <span id="cb202-7"><a href="downloading-data-in-r.html#cb202-7" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, </span>
 <span id="cb202-8"><a href="downloading-data-in-r.html#cb202-8" tabindex="-1"></a>         <span class="at">ylab =</span> <span class="st">&quot;Log of USD per Barrel (159 Litres)&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:log-oil-price"></span>
-<img src="_main_files/figure-html/log-oil-price-1.png" alt="Logarithm of OPEC Crude Oil Price" width="80%" />
+<img src="daer_files/figure-html/log-oil-price-1.png" alt="Logarithm of OPEC Crude Oil Price" width="80%" />
 <p class="caption">
 Figure 6.5: Logarithm of OPEC Crude Oil Price
 </p>
@@ -511,10 +509,7 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
+"search": false,
 "toc": {
 "collapse": "subsection"
 }
