@@ -1,0 +1,19 @@
+﻿Specification,Description,Example
+%a,Abbreviated weekday,"Sun, Thu"
+%A,Full weekday,"Sunday, Thursday"
+%b or %h,Abbreviated month,"May, Jul"
+%B,Full month,"May, July"
+%d,"Day of the month, 0-31","27, 07"
+%j,"Day of the year, 001-366","148, 188"
+%m,"Month, 01-12","05, 07"
+%U,"Week, 01-53, with Sunday as first day of the week","22, 27"
+%w,"Weekday, 0-6, Sunday is 0","0, 4"
+%W,"Week, 00-53, with Monday as first day of the week","21, 27"
+%x,"Date, locale-specific",
+%y,"Year without century, 00-99","84, 05"
+%Y,"Year with century, on input: 00 to 68 prefixed by 20, 69 to 99 prefixed by 19","1984, 2005"
+%C,Century,"19, 20"
+%D,Date formatted %m/%d/%y,5/27/84
+%u,"Weekday, 1-7, Monday is 1","7, 4"
+%n,Newline on output or arbitrary whitespace on input,
+%t,Tab on output or arbitrary whitespace on input,

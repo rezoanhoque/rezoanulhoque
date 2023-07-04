@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Software Installation | Data Analysis for Economic Research</title>
+  <meta name="description" content="2 Software Installation | Data Analysis for Economic Research" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Software Installation | Data Analysis for Economic Research" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Software Installation | Data Analysis for Economic Research" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-07-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="software-overview.html"/>
+<link rel="next" href="rstudio-interface.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="introduction.html">Data Analysis for Economic Research</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-i-introduction-to-r-for-economic-research.html"><a href="module-i-introduction-to-r-for-economic-research.html"><i class="fa fa-check"></i><em>Module I: Introduction to R for Economic Research</em></a></li>
+<li class="chapter" data-level="1" data-path="software-overview.html"><a href="software-overview.html"><i class="fa fa-check"></i><b>1</b> Software Overview</a></li>
+<li class="chapter" data-level="2" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i><b>2</b> Software Installation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="software-installation.html"><a href="software-installation.html#install-r"><i class="fa fa-check"></i><b>2.1</b> Install R</a></li>
+<li class="chapter" data-level="2.2" data-path="software-installation.html"><a href="software-installation.html#install-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="software-installation.html"><a href="software-installation.html#install-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Install R Markdown</a></li>
+<li class="chapter" data-level="2.4" data-path="software-installation.html"><a href="software-installation.html#install-latex"><i class="fa fa-check"></i><b>2.4</b> Install LaTeX</a></li>
+<li class="chapter" data-level="2.5" data-path="software-installation.html"><a href="software-installation.html#install-r-packages"><i class="fa fa-check"></i><b>2.5</b> Install R Packages</a></li>
+<li class="chapter" data-level="2.6" data-path="software-installation.html"><a href="software-installation.html#step-test"><i class="fa fa-check"></i><b>2.6</b> 18-Step Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rstudio-interface.html"><a href="rstudio-interface.html"><i class="fa fa-check"></i><b>3</b> RStudio Interface</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="rstudio-interface.html"><a href="rstudio-interface.html#rstudio-sections"><i class="fa fa-check"></i><b>3.1</b> RStudio Sections</a></li>
+<li class="chapter" data-level="3.2" data-path="rstudio-interface.html"><a href="rstudio-interface.html#r-scripts"><i class="fa fa-check"></i><b>3.2</b> R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html"><i class="fa fa-check"></i><b>4</b> R Data Types and Structures</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#scalar"><i class="fa fa-check"></i><b>4.1</b> Scalar</a></li>
+<li class="chapter" data-level="4.2" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#vector"><i class="fa fa-check"></i><b>4.2</b> Vector</a></li>
+<li class="chapter" data-level="4.3" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#matrix-matrix"><i class="fa fa-check"></i><b>4.3</b> Matrix (<code>matrix</code>)</a></li>
+<li class="chapter" data-level="4.4" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#list-list"><i class="fa fa-check"></i><b>4.4</b> List (<code>list</code>)</a></li>
+<li class="chapter" data-level="4.5" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#data-frame-data.frame"><i class="fa fa-check"></i><b>4.5</b> Data Frame (<code>data.frame</code>)</a></li>
+<li class="chapter" data-level="4.6" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#tibble"><i class="fa fa-check"></i><b>4.6</b> Tibble (<code>tbl_df</code>)</a></li>
+<li class="chapter" data-level="4.7" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#data-table-data.table"><i class="fa fa-check"></i><b>4.7</b> Data Table (<code>data.table</code>)</a></li>
+<li class="chapter" data-level="4.8" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#xts"><i class="fa fa-check"></i><b>4.8</b> Extensible Time Series (<code>xts</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html"><i class="fa fa-check"></i><b>5</b> Importing Data in R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#working-directory"><i class="fa fa-check"></i><b>5.1</b> Working Directory</a></li>
+<li class="chapter" data-level="5.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#yield-curve"><i class="fa fa-check"></i><b>5.2</b> Yield Curve</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-csv-file"><i class="fa fa-check"></i><b>5.2.1</b> Import CSV File</a></li>
+<li class="chapter" data-level="5.2.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-historical-yields"><i class="fa fa-check"></i><b>5.2.2</b> Plotting Historical Yields</a></li>
+<li class="chapter" data-level="5.2.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-yield-curve"><i class="fa fa-check"></i><b>5.2.3</b> Plotting Yield Curve</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#michigan-survey"><i class="fa fa-check"></i><b>5.3</b> Michigan Survey</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-tsv-file"><i class="fa fa-check"></i><b>5.3.1</b> Import TSV File</a></li>
+<li class="chapter" data-level="5.3.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-consumer-indices"><i class="fa fa-check"></i><b>5.3.2</b> Plotting Consumer Indices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#tealbook"><i class="fa fa-check"></i><b>5.4</b> Tealbook</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-excel-workbook"><i class="fa fa-check"></i><b>5.4.1</b> Import Excel Workbook</a></li>
+<li class="chapter" data-level="5.4.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#nowcast-and-backcast"><i class="fa fa-check"></i><b>5.4.2</b> Nowcast and Backcast</a></li>
+<li class="chapter" data-level="5.4.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#information-date-and-realization-date"><i class="fa fa-check"></i><b>5.4.3</b> Information Date and Realization Date</a></li>
+<li class="chapter" data-level="5.4.4" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-forecasts"><i class="fa fa-check"></i><b>5.4.4</b> Plotting Forecasts</a></li>
+<li class="chapter" data-level="5.4.5" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-forecast-errors"><i class="fa fa-check"></i><b>5.4.5</b> Plotting Forecast Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html"><i class="fa fa-check"></i><b>6</b> Downloading Data in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#web-api"><i class="fa fa-check"></i><b>6.1</b> Web API</a></li>
+<li class="chapter" data-level="6.2" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#using-getsymbols"><i class="fa fa-check"></i><b>6.2</b> Using <code>getSymbols()</code></a></li>
+<li class="chapter" data-level="6.3" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#using-quandl"><i class="fa fa-check"></i><b>6.3</b> Using <code>Quandl()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#saving-data"><i class="fa fa-check"></i><b>6.4</b> Saving Data</a></li>
+<li class="chapter" data-level="6.5" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#summary-and-resources"><i class="fa fa-check"></i><b>6.5</b> Summary and Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Writing Reports with R Markdown</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#creating-an-r-markdown-document"><i class="fa fa-check"></i><b>7.1</b> Creating an R Markdown Document</a></li>
+<li class="chapter" data-level="7.2" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#yaml-header"><i class="fa fa-check"></i><b>7.2</b> YAML Header</a></li>
+<li class="chapter" data-level="7.3" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#markdown-syntax"><i class="fa fa-check"></i><b>7.3</b> Markdown Syntax</a></li>
+<li class="chapter" data-level="7.4" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#r-chunks"><i class="fa fa-check"></i><b>7.4</b> R Chunks</a></li>
+<li class="chapter" data-level="7.5" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#embedding-r-variables-into-text"><i class="fa fa-check"></i><b>7.5</b> Embedding R Variables into Text</a></li>
+<li class="chapter" data-level="7.6" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#latex-syntax-for-math"><i class="fa fa-check"></i><b>7.6</b> LaTeX Syntax for Math</a></li>
+<li class="chapter" data-level="7.7" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#printing-tables"><i class="fa fa-check"></i><b>7.7</b> Printing Tables</a></li>
+<li class="chapter" data-level="7.8" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#summary-and-resources-1"><i class="fa fa-check"></i><b>7.8</b> Summary and Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html"><i class="fa fa-check"></i><b>8</b> Learning R with DataCamp</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#preparing-for-the-course"><i class="fa fa-check"></i><b>8.1</b> Preparing for the Course</a></li>
+<li class="chapter" data-level="8.2" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#xp-system-and-course-completion"><i class="fa fa-check"></i><b>8.2</b> XP System and Course Completion</a></li>
+<li class="chapter" data-level="8.3" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#developing-your-skills"><i class="fa fa-check"></i><b>8.3</b> Developing Your Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html"><i class="fa fa-check"></i><b>9</b> Data Report on Yield Curve</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#preparations"><i class="fa fa-check"></i><b>9.1</b> Preparations</a></li>
+<li class="chapter" data-level="9.2" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#data-guidelines"><i class="fa fa-check"></i><b>9.2</b> Data Guidelines</a></li>
+<li class="chapter" data-level="9.3" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#r-markdown-guidelines"><i class="fa fa-check"></i><b>9.3</b> R Markdown Guidelines</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-ii-traditional-economic-indicators.html"><a href="module-ii-traditional-economic-indicators.html"><i class="fa fa-check"></i><em>Module II: Traditional Economic Indicators</em></a></li>
+<li class="chapter" data-level="10" data-path="economic-performance-indicators.html"><a href="economic-performance-indicators.html"><i class="fa fa-check"></i><b>10</b> Economic Performance Indicators</a></li>
+<li class="chapter" data-level="11" data-path="time-series-comparison-of-economic-indicators.html"><a href="time-series-comparison-of-economic-indicators.html"><i class="fa fa-check"></i><b>11</b> Time-Series Comparison of Economic Indicators</a></li>
+<li class="chapter" data-level="12" data-path="cross-sectional-comparison-of-economic-indicators.html"><a href="cross-sectional-comparison-of-economic-indicators.html"><i class="fa fa-check"></i><b>12</b> Cross-Sectional Comparison of Economic Indicators</a></li>
+<li class="chapter" data-level="13" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html"><i class="fa fa-check"></i><b>13</b> Data Report on Traditional Economic Indicators</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#preparations-2"><i class="fa fa-check"></i><b>13.1</b> Preparations</a></li>
+<li class="chapter" data-level="13.2" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#data-guidelines-2"><i class="fa fa-check"></i><b>13.2</b> Data Guidelines</a></li>
+<li class="chapter" data-level="13.3" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#r-markdown-guidelines-2"><i class="fa fa-check"></i><b>13.3</b> R Markdown Guidelines</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-iii-survey--and-text-based-economic-indicators.html"><a href="module-iii-survey--and-text-based-economic-indicators.html"><i class="fa fa-check"></i><em>Module III: Survey- and Text-Based Economic Indicators</em></a></li>
+<li class="chapter" data-level="14" data-path="why-subjective-information-matters.html"><a href="why-subjective-information-matters.html"><i class="fa fa-check"></i><b>14</b> Why Subjective Information Matters</a></li>
+<li class="chapter" data-level="15" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html"><i class="fa fa-check"></i><b>15</b> Michigan Consumer Survey</a></li>
+<li class="chapter" data-level="16" data-path="real-time-and-forecaster-data.html"><a href="real-time-and-forecaster-data.html"><i class="fa fa-check"></i><b>16</b> Real-Time and Forecaster Data</a></li>
+<li class="chapter" data-level="17" data-path="text-based-economic-indicators.html"><a href="text-based-economic-indicators.html"><i class="fa fa-check"></i><b>17</b> Text-Based Economic Indicators</a></li>
+<li class="chapter" data-level="18" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html"><i class="fa fa-check"></i><b>18</b> Data Report on Survey- and Text-Based Economic Indicators</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#preparations-3"><i class="fa fa-check"></i><b>18.1</b> Preparations</a></li>
+<li class="chapter" data-level="18.2" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#data-guidelines-3"><i class="fa fa-check"></i><b>18.2</b> Data Guidelines</a></li>
+<li class="chapter" data-level="18.3" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#r-markdown-guidelines-3"><i class="fa fa-check"></i><b>18.3</b> R Markdown Guidelines</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.julianfludwig.com/" target="blank">Julian F. Ludwig</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis for Economic Research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="software-installation" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Software Installation<a href="software-installation.html#software-installation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>For data analysis, RStudio will serve as your environment for writing code and text. However, as an Integrated Development Environment (IDE), RStudio is not a standalone program; it depends on R, R Markdown, and a LaTeX processor installed on your system. RStudio interacts with these programs in the background to generate an output. Below, you will find the installation instructions for each of these programs. Additionally, a set of 18 steps is provided to help you verify whether R, RStudio, R Markdown, and LaTeX have been installed correctly.</p>
+<div id="install-r" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Install R<a href="software-installation.html#install-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To install <a href="https://www.r-project.org/" target="_blank"><code>R</code></a> on your computer, follow the instructions below:</p>
+<div id="for-macos" class="section level4 unnumbered hasAnchor">
+<h4>For MacOS:<a href="software-installation.html#for-macos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>To download <a href="https://www.r-project.org/" target="_blank"><code>R</code></a> for MacOS, visit the R project website: <a href="https://www.r-project.org/" target="_blank">www.r-project.org</a>.</li>
+<li>Click <a href="https://cran.r-project.org/mirrors.html" target="_blank">CRAN mirror</a> and choose your preferred mirror. It doesn’t really matter which mirror you choose, simply choose a location close to you, e.g. <a href="https://mirrors.nics.utk.edu/cran/" target="_blank">National Institute for Computational Sciences, Oak Ridge, TN</a>.</li>
+<li>Select <a href="https://mirrors.nics.utk.edu/cran/" target="_blank">Download R for macOS</a>.</li>
+<li>Under “Latest release”, read the first paragraph to check whether the program is compatible with your operating system (OS) and processor. To find your computer’s OS and processor, click the top left Apple icon, and click “About this Mac.” Under “macOS”, you will see both the name (e.g. “Ventura”, “Catalina”, “Monterey”) and the number (e.g. “Version 13.4.1”) of the OS, and under “Processor” you will either see that your computer is run by an Intel processor or an Apple silicon (M1/M2) processor.</li>
+<li>If the operating system (OS) and the processor are compatible, click on the first <a href="https://mirrors.nics.utk.edu/cran/bin/macosx/big-sur-x86_64/base/R-4.3.1-x86_64.pkg" target="_blank"><code>R-X.X.X.pkg</code></a> (where <code>X</code> represents the R version numbers). Otherwise, if you have an older OS or an Intel processor, click on a version further down that is compatible with your system.</li>
+<li>Once the file has downloaded, click it to proceed to installation, leaving all default settings as they are.</li>
+</ol>
+</div>
+<div id="for-windows" class="section level4 unnumbered hasAnchor">
+<h4>For Windows:<a href="software-installation.html#for-windows" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>To download <a href="https://www.r-project.org/" target="_blank"><code>R</code></a> for Windows, visit the R project website: <a href="https://www.r-project.org/" target="_blank">www.r-project.org</a>.</li>
+<li>Click <a href="https://cran.r-project.org/mirrors.html" target="_blank">CRAN mirror</a> and choose your preferred mirror. It doesn’t really matter which mirror you choose, simply choose a location close to you, e.g. <a href="https://cran.microsoft.com/" target="_blank">Revolution Analytics, Dallas, TX</a>.</li>
+<li>Select <a href="https://cran.microsoft.com/bin/windows/" target="_blank">Download R for Windows</a>.</li>
+<li>Select “<a href="https://cran.microsoft.com/bin/windows/base/" target="_blank">base</a>”, and read whether the program is compatible with your Windows version.</li>
+<li>If it is compatible, click <a href="https://cran.microsoft.com/bin/windows/base/" target="_blank">Download <code>R-X.X.X</code> for Windows</a> (<code>X</code> are numbers), and otherwise click <a href="https://support.microsoft.com/en-us/topic/update-for-universal-c-runtime-in-windows-c0514201-7fe6-95a3-b0a5-287930f3560c" target="_blank">here</a> for older versions.</li>
+<li>Once the file has downloaded, click it to proceed to installation, leaving all default settings as they are.</li>
+</ol>
+</div>
+</div>
+<div id="install-rstudio" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Install RStudio<a href="software-installation.html#install-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Visit the <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a> website: <a href="https://www.rstudio.com/" target="_blank">www.rstudio.com</a> and navigate to the download page.</li>
+<li>Click <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank">DOWNLOAD</a>.</li>
+<li>Scroll down to “All Installers” section.</li>
+<li>Choose the download that matches your computer. If you have a Mac, it’s most likely “macOS 10.15+”; then click the download link (e.g. “<a href="https://www.rstudio.com/products/rstudio/download/#download" target="_blank">RStudio-2022.07.1-554.dmg</a>”). If you have a Windows, it’s most likely “Windows 10/11” and click the download link (e.g. “<a href="https://www.rstudio.com/products/rstudio/download/#download" target="_blank">RStudio-2022.07.1-554.exe</a>”).</li>
+<li>Open the file when it has downloaded, and install with the default settings.</li>
+</ol>
+</div>
+<div id="install-r-markdown" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Install R Markdown<a href="software-installation.html#install-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://rmarkdown.rstudio.com/" target="_blank"><code>R Markdown</code></a> can be installed from inside the <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a> IDE.</p>
+<ol style="list-style-type: decimal">
+<li>To download <a href="https://rmarkdown.rstudio.com/" target="_blank"><code>R Markdown</code></a>, open <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a>, after you have successfully installed <a href="https://www.r-project.org/" target="_blank"><code>R</code></a> and <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a>.</li>
+<li>In RStudio, find the “Console” window.</li>
+<li>Type the command <code>install.packages("rmarkdown")</code> in the console and press Enter.</li>
+</ol>
+</div>
+<div id="install-latex" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Install LaTeX<a href="software-installation.html#install-latex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When it comes to installing LaTeX, there are several software options available. While most options work well, I recommend using <a href="https://yihui.org/tinytex/" target="_blank"><code>TinyTeX</code></a>. <a href="https://yihui.org/tinytex/" target="_blank"><code>TinyTeX</code></a> as it is an easy-to-maintain LaTeX distribution. Other good alternatives include <a href="https://www.tug.org/mactex/" target="_blank"><code>MacTeX</code></a> and <a href="https://miktex.org/" target="_blank"><code>MiKTeX</code></a>. LaTeX is the underlying program responsible for word processing and generating PDF reports within RStudio.</p>
+<p>To install <a href="https://yihui.org/tinytex/" target="_blank"><code>TinyTeX</code></a> using <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a>, follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Open <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a> after successfully installing <a href="https://www.r-project.org/" target="_blank"><code>R</code></a>, <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a>, and <a href="https://rmarkdown.rstudio.com/" target="_blank"><code>R Markdown</code></a>.</li>
+<li>Locate the “Console” window within RStudio.</li>
+<li>Type <code>install.packages("tinytex")</code> and press Enter.</li>
+<li>Type <code>tinytex::install_tinytex()</code> and press Enter.</li>
+<li>Type <code>install.packages("knitr")</code> and press Enter.</li>
+</ol>
+</div>
+<div id="install-r-packages" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Install R Packages<a href="software-installation.html#install-r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R provides a set of basic functions that can be extended using packages. To install a package (e.g., <code>quantmod</code>), follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Open RStudio.</li>
+<li>In the RStudio window, find the “Console” window.</li>
+<li>Type the command <code>install.packages("quantmod")</code> in the console and press Enter.</li>
+<li>Wait for the installation process to complete. R will download and install the package from the appropriate repository.</li>
+</ol>
+<p>After installation, you can use the package in your script by including the line <code>library("quantmod")</code> at the beginning. Remember to execute the <code>library("quantmod")</code> command each time you want to use functions from the <code>quantmod</code> package in your code.</p>
+<p>It is common practice to load the necessary packages at the beginning of your script, even if you don’t use all of them immediately. This ensures that all the required functions and tools are available when needed and promotes a consistent and organized approach to package management in your code.</p>
+<p>As a side note, the <code>quantmod</code> package includes the <code>getSymbols</code> function, which is commonly used to download financial data, such as the S&amp;P 500 index (<a href="https://finance.yahoo.com/quote/%5EGSPC/" target="_blank">GSPC</a>):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="software-installation.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;quantmod&quot;</span>)</span>
+<span id="cb1-2"><a href="software-installation.html#cb1-2" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="at">Symbols=</span><span class="st">&quot;^GSPC&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;GSPC&quot;</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="software-installation.html#cb3-1" tabindex="-1"></a><span class="fu">head</span>(GSPC)</span></code></pre></div>
+<pre><code>##            GSPC.Open GSPC.High GSPC.Low GSPC.Close GSPC.Volume GSPC.Adjusted
+## 2007-01-03   1418.03   1429.42  1407.86    1416.60  3429160000       1416.60
+## 2007-01-04   1416.60   1421.84  1408.43    1418.34  3004460000       1418.34
+## 2007-01-05   1418.34   1418.34  1405.75    1409.71  2919400000       1409.71
+## 2007-01-08   1409.26   1414.98  1403.97    1412.84  2763340000       1412.84
+## 2007-01-09   1412.84   1415.61  1405.42    1412.11  3038380000       1412.11
+## 2007-01-10   1408.70   1415.99  1405.32    1414.85  2764660000       1414.85</code></pre>
+<p>Here, the <code>getSymbols</code> function retrieves the historical data for the S&amp;P 500 index from Yahoo Finance, and stores it in the <code>GSPC</code> object. The <code>head</code> function then displays the first few rows of the downloaded data.</p>
+<p>R packages provide a wealth of specialized functions for specific tasks. To use a function from a particular package, you can indicate the package by preceding the function with the package name followed by a double colon <code>::</code>. For example, <code>quantmod::getSymbols()</code> specifies the <code>getSymbols()</code> function from the <code>quantmod</code> package. This practice helps to avoid conflicts when multiple packages provide functions with the same name. It also allows users to easily identify the package associated with the function, promoting clarity and reproducibility in code.</p>
+</div>
+<div id="step-test" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> 18-Step Test<a href="software-installation.html#step-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To ensure that <a href="https://www.r-project.org/" target="_blank"><code>R</code></a>, <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a>, <a href="https://rmarkdown.rstudio.com/" target="_blank"><code>R Markdown</code></a>, and <a href="https://www.latex-project.org/" target="_blank"><code>LaTeX</code></a> are installed properly, you can follow the 18-step test provided below. This test will help verify the functionality of the installed programs and identify any potential issues or errors.</p>
+<p>During this process, you may encounter the following issues:</p>
+<ul>
+<li><p><strong>Issue with Generating PDF</strong>: If you are unable to generate a PDF file in step 15, it is likely due to an issue with the installation of <a href="https://www.latex-project.org/">LaTeX</a>. In such cases, please revisit the instructions for installing LaTeX in Chapter <a href="software-installation.html#install-latex">2.4</a> and ensure you have followed them correctly. Alternatively, you can consider installing <a href="https://www.tug.org/mactex/">MacTeX</a> or <a href="https://miktex.org/">MiKTeX</a> instead of <a href="https://yihui.org/tinytex/">TinyTeX</a>.</p></li>
+<li><p><strong>Non-Latin Alphabet Language</strong>: If your computer language is not based on the Latin alphabet (e.g., Chinese, Arabic, Farsi, Russian, etc.), additional instructions may be required. You can refer to this video for specific guidance: <a href="https://youtu.be/pX_fy2fyM30">youtu.be/pX_fy2fyM30</a>.</p></li>
+</ul>
+<p>I encourage you to persist and do your best to install all the required software, even if it takes some time. Downloading and installing programs is a critical skill that is essential in almost every profession today. This is an excellent opportunity to acquire this skill.</p>
+<p>Keep going and don’t hesitate to seek additional support or resources if needed. It’s common to encounter challenges when installing software, and resources like <a href="http://google.com" target="_blank">google.com</a> and <a href="http://stackoverflow.com/questions/tagged/r" target="_blank">stackoverflow.com</a> can provide helpful answers and suggestions. If you encounter an error, simply copy and paste the error message into a search engine, and you’ll likely find solutions and guidance from the community.</p>
+<p>If you fail to install R, RStudio, and LaTeX, I recommend using <a href="https://rstudio.cloud/" target="_blank">RStudio Cloud</a>, an online platform where you can perform all the necessary tasks directly in your web browser. You can access RStudio Cloud at <a href="https://rstudio.cloud/" target="_blank">rstudio.cloud</a>. While signing up is free, please note that some features may require a fee.</p>
+<div id="make-a-plot" class="section level4 unnumbered hasAnchor">
+<h4>Make a Plot<a href="software-installation.html#make-a-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To continue with the test, make sure you have <a href="https://www.r-project.org/" target="_blank"><code>R</code></a>, <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a>, <a href="https://rmarkdown.rstudio.com/" target="_blank"><code>R Markdown</code></a>, and <a href="https://www.latex-project.org/" target="_blank"><code>LaTeX</code></a> installed and are connected to the internet. Follow the steps below in RStudio:</p>
+<ol style="list-style-type: decimal">
+<li>Type and execute <code>install.packages("quantmod")</code> in the RStudio console.</li>
+<li>Click on the top-left plus sign <img src="files/icons-rstudio/plus.png" target="_blank" alt="plus" /> then click <code>R Script</code>.</li>
+<li>Click <code>File</code> - <code>Save As...</code> then choose a familiar folder.</li>
+<li>Copy and paste the following R code into your R Script:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="software-installation.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;quantmod&quot;</span>)</span>
+<span id="cb5-2"><a href="software-installation.html#cb5-2" tabindex="-1"></a>treasury10y <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="at">Symbols =</span> <span class="st">&quot;GS10&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>, <span class="at">auto.assign =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-3"><a href="software-installation.html#cb5-3" tabindex="-1"></a><span class="fu">plot</span>(treasury10y, <span class="at">main =</span> <span class="st">&quot;10-Year Treasury Rate&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-plot"></span>
+<img src="daer_files/figure-html/r-plot-1.png" alt="R Plot" width="80%" />
+<p class="caption">
+Figure 2.1: R Plot
+</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Click on <code>Source</code>: <img src="files/icons-rstudio/source.png" target="_blank" alt="source" /> (or use the shortcut Ctrl+Shift+Enter or Cmd+Shift+Return).</li>
+</ol>
+<p>You should now see a plot of the 10-year Treasury rate on your screen. Compare it to the rate displayed on <a href="https://fred.stlouisfed.org/series/GS10" target="_blank">fred.stlouisfed.org/series/GS10</a>.</p>
+</div>
+<div id="save-plot-as-pdf" class="section level4 unnumbered hasAnchor">
+<h4>Save Plot as PDF<a href="software-installation.html#save-plot-as-pdf" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Continue with the following steps in RStudio:</p>
+<ol start="6" style="list-style-type: decimal">
+<li>Add the line: <code>pdf(file="myplot.pdf",width=6,height=4)</code> before the plot function, and add <code>dev.off()</code> after the plot:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="software-installation.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;quantmod&quot;</span>)</span>
+<span id="cb6-2"><a href="software-installation.html#cb6-2" tabindex="-1"></a>treasury10y <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="at">Symbols =</span> <span class="st">&quot;GS10&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>, <span class="at">auto.assign =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-3"><a href="software-installation.html#cb6-3" tabindex="-1"></a><span class="fu">pdf</span>(<span class="at">file =</span> <span class="st">&quot;myplot.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">4</span>)</span>
+<span id="cb6-4"><a href="software-installation.html#cb6-4" tabindex="-1"></a><span class="fu">plot</span>(treasury10y, <span class="at">main =</span> <span class="st">&quot;10-Year Treasury Rate&quot;</span>)</span>
+<span id="cb6-5"><a href="software-installation.html#cb6-5" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li>Click on <code>Source</code>: <img src="files/icons-rstudio/source.png" target="_blank" alt="source" /> (or use the shortcut Ctrl+Shift+Enter or Cmd+Shift+Return).</li>
+<li>Now navigate to the same folder on your computer where you saved the R script.</li>
+<li>There should be a file called <code>myplot.pdf</code> - open it.</li>
+</ol>
+<p>You should now see the PDF version of the plot displaying the Treasury rate. If you encounter no error message but cannot locate the <code>myplot.pdf</code> file, it’s possible that R saved it in a different folder than where the R script is located. To check where R saves the plot, type <code>getwd()</code> in the console, which stands for “get working directory.” If you want to change the working directory and have R save the files in a different folder, type <code>setwd("/Users/.../...")</code>, replacing <code>"/Users/.../..."</code> with the path to the desired folder.</p>
+</div>
+<div id="run-marked-code" class="section level4 unnumbered hasAnchor">
+<h4>Run Marked Code<a href="software-installation.html#run-marked-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To run only one line or one variable, mark it and then click <code>Run</code>: <img src="files/icons-rstudio/run.png" target="_blank" alt="run" /> (or use the shortcut Ctrl+Enter or Cmd+Return). Follow these steps in RStudio:</p>
+<ol start="10" style="list-style-type: decimal">
+<li>Mark the variable <code>treasury10y</code>:</li>
+</ol>
+<p><img src="files/icons-rstudio/markvariable.png" style="width:70.0%" /></p>
+<ol start="11" style="list-style-type: decimal">
+<li>Click <code>Run</code>: <img src="files/icons-rstudio/run.png" alt="run" /> (or use shortcut Ctrl+Enter or Cmd+Return)</li>
+</ol>
+<p>You should see the data displayed in your console, ending with 2023-06-01 3.75.</p>
+</div>
+<div id="create-pdf-with-r-markdown" class="section level4 unnumbered hasAnchor">
+<h4>Create PDF with R Markdown<a href="software-installation.html#create-pdf-with-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Next, let’s ensure that <a href="https://rmarkdown.rstudio.com/" target="_blank"><code>R Markdown</code></a> is working. If you have installed <a href="https://www.latex-project.org/" target="_blank"><code>LaTeX</code></a> and <code>knitr</code>, follow these steps in RStudio:</p>
+<ol start="12" style="list-style-type: decimal">
+<li>Click on the top-left plus sign <img src="files/icons-rstudio/plus.png" alt="plus" /> then click <code>R Markdown...</code></li>
+<li>A dialog box will appear - select <code>Document</code> and choose <code>PDF</code>, then click <code>OK</code>:</li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:new-rmarkdown"></span>
+<img src="files/icons-rstudio/openrmarkdown-big.png" alt="New R Markdown" width="80%" />
+<p class="caption">
+Figure 2.2: New R Markdown
+</p>
+</div>
+<p>You should now see a file with text and code.</p>
+<ol start="14" style="list-style-type: decimal">
+<li>Click <code>File</code> - <code>Save As...</code> and choose a familiar folder to save the file.</li>
+<li>Click <code>Knit</code>: <img src="files/icons-rstudio/knit.png" alt="knit" /> (or use the shortcut Ctrl+Shift+K or Cmd+Shift+K).</li>
+</ol>
+<p>A PDF file should appear on your screen and also in your chosen folder.</p>
+<ol start="16" style="list-style-type: decimal">
+<li>Next, locate the following lines:</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="software-installation.html#cb7-1" tabindex="-1"></a><span class="dv">16</span> <span class="st">```</span><span class="at">{r cars}</span></span>
+<span id="cb7-2"><a href="software-installation.html#cb7-2" tabindex="-1"></a><span class="at">17 summary(cars)</span></span>
+<span id="cb7-3"><a href="software-installation.html#cb7-3" tabindex="-1"></a><span class="at">18 </span><span class="st">```</span></span></code></pre></div>
+<ol start="17" style="list-style-type: decimal">
+<li>Replace these lines with the following (do not copy the line numbers):</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="software-installation.html#cb8-1" tabindex="-1"></a><span class="dv">16</span> <span class="st">```</span><span class="at">{r, message=FALSE,warning=FALSE,echo=FALSE}</span></span>
+<span id="cb8-2"><a href="software-installation.html#cb8-2" tabindex="-1"></a><span class="at">17 library(&quot;quantmod&quot;)</span></span>
+<span id="cb8-3"><a href="software-installation.html#cb8-3" tabindex="-1"></a><span class="at">18 treasury10y &lt;- getSymbols(Symbols=&quot;GS10&quot;,src=&quot;FRED&quot;,auto.assign=FALSE)</span></span>
+<span id="cb8-4"><a href="software-installation.html#cb8-4" tabindex="-1"></a><span class="at">19 plot(treasury10y,main=&quot;10-Year Treasury Rate&quot;)</span></span>
+<span id="cb8-5"><a href="software-installation.html#cb8-5" tabindex="-1"></a><span class="at">20 </span><span class="st">```</span></span></code></pre></div>
+<ol start="18" style="list-style-type: decimal">
+<li>Click <code>Knit</code>: <img src="files/icons-rstudio/knit.png" alt="knit" /> (or use the shortcut Ctrl+Shift+K or Cmd+Shift+K).</li>
+</ol>
+<p>You should now see a file that looks similar to this:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:example-rmarkdown"></span>
+<img src="files/icons-rstudio/example_rmarkdown_medium.png" alt="PDF File Produced with R Markdown" width="80%" />
+<p class="caption">
+Figure 2.3: PDF File Produced with R Markdown
+</p>
+</div>
+<p>Hint: You can set <code>echo=TRUE</code> to include R code in your report.</p>
+<p>You can now change the title of the file and the text to create a professional report. If you click the arrow next to <code>Knit</code>: <img src="files/icons-rstudio/knitdown.png" alt="knitdown" /> you have options to export your file as an HTML or Word document instead of a PDF document, which is convenient when designing a website or writing an app:</p>
+</div>
+<div id="troubleshooting" class="section level4 unnumbered hasAnchor">
+<h4>Troubleshooting<a href="software-installation.html#troubleshooting" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>That’s it! If everything worked as expected, you’re good to go. If not, continue troubleshooting until it works.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="software-overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rstudio-interface.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
