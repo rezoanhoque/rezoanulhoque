@@ -360,14 +360,14 @@ Figure 7.1: New R Markdown
 </div>
 <div id="embedding-r-variables-into-text" class="section level2 hasAnchor" number="7.5">
 <h2><span class="header-section-number">7.5</span> Embedding R Variables into Text<a href="writing-reports-with-r-markdown.html#embedding-r-variables-into-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A key strength of R Markdown is the ability to incorporate R variables directly within the Markdown text. This enables a dynamic text where the values are updated as the variables change. You can accomplish this by using the `r my_var` syntax. Furthermore, you can format these numbers for enhanced readability.</p>
+<p>A key strength of R Markdown is the ability to incorporate R variables directly within the Markdown text. This enables a dynamic text where the values are updated as the variables change. You can accomplish this by using the <code>`r variable`</code> syntax. Furthermore, you can format these numbers for enhanced readability.</p>
 <p>To insert the value of an R variable into your text, you encase the variable name in backticks and prepend it with <code>r</code>. Here’s an illustration:</p>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="writing-reports-with-r-markdown.html#cb210-1" tabindex="-1"></a><span class="co"># R variable defined inside R chunk</span></span>
 <span id="cb210-2"><a href="writing-reports-with-r-markdown.html#cb210-2" tabindex="-1"></a>my_var <span class="ot">&lt;-</span> <span class="fl">123234.53983</span></span></code></pre></div>
 <p>To refer to this variable in your Markdown text, you can write the following text (outside of an R chunk):</p>
 <pre class="rmarkdown"><code>The total amount is `r my_var` USD.</code></pre>
 <p>The output will be: “The total amount is 1.2323454^{5} USD.”</p>
-<p>That’s because when the R Markdown document is knitted, `r my_var` will be replaced by the current value of <code>my_var</code> in your R environment, dynamically embedding the value of <code>my_var</code> into your text.</p>
+<p>That’s because when the R Markdown document is knitted, <code>`r my_var`</code> will be replaced by the current value of <code>my_var</code> in your R environment, dynamically embedding the value of <code>my_var</code> into your text.</p>
 <p>Additionally, you can format numbers for better readability by avoiding scientific notation, rounding, and adding a comma as a thousands separator. To do this, you can use the <code>formatC()</code> function in R as follows:</p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="writing-reports-with-r-markdown.html#cb212-1" tabindex="-1"></a><span class="co"># R variable with formatting, defined inside R chunk</span></span>
 <span id="cb212-2"><a href="writing-reports-with-r-markdown.html#cb212-2" tabindex="-1"></a>my_var_formatted <span class="ot">&lt;-</span> <span class="fu">formatC</span>(my_var, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>

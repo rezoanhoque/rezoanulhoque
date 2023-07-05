@@ -832,14 +832,12 @@ Figure 5.5: Forecast Error of Inflation
 <span id="cb187-2"><a href="importing-data-in-r.html#cb187-2" tabindex="-1"></a><span class="fu">sd</span>(gPGDP_qtr<span class="sc">$</span>error_F1_B1, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1.237391</code></pre>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="importing-data-in-r.html#cb189-1" tabindex="-1"></a><span class="co"># Compute volatility of FE before Great Moderation</span></span>
-<span id="cb189-2"><a href="importing-data-in-r.html#cb189-2" tabindex="-1"></a><span class="fu">sd</span>(gPGDP_qtr<span class="sc">$</span>error_F1_B1[</span>
-<span id="cb189-3"><a href="importing-data-in-r.html#cb189-3" tabindex="-1"></a>    gPGDP_qtr<span class="sc">$</span>date <span class="sc">&lt;=</span> <span class="fu">as.yearqtr</span>(<span class="st">&quot;1985-01-01&quot;</span>)], </span>
-<span id="cb189-4"><a href="importing-data-in-r.html#cb189-4" tabindex="-1"></a>   <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb189-2"><a href="importing-data-in-r.html#cb189-2" tabindex="-1"></a><span class="fu">sd</span>(gPGDP_qtr<span class="sc">$</span>error_F1_B1[gPGDP_qtr<span class="sc">$</span>date <span class="sc">&lt;=</span> <span class="fu">as.yearqtr</span>(<span class="st">&quot;1985-01-01&quot;</span>)], </span>
+<span id="cb189-3"><a href="importing-data-in-r.html#cb189-3" tabindex="-1"></a>   <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1.728324</code></pre>
 <div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="importing-data-in-r.html#cb191-1" tabindex="-1"></a><span class="co"># Compute volatility of FE at &amp; after Great Moderation</span></span>
-<span id="cb191-2"><a href="importing-data-in-r.html#cb191-2" tabindex="-1"></a><span class="fu">sd</span>(gPGDP_qtr<span class="sc">$</span>error_F1_B1[</span>
-<span id="cb191-3"><a href="importing-data-in-r.html#cb191-3" tabindex="-1"></a>    gPGDP_qtr<span class="sc">$</span>date <span class="sc">&gt;</span> <span class="fu">as.yearqtr</span>(<span class="st">&quot;1985-01-01&quot;</span>)], </span>
-<span id="cb191-4"><a href="importing-data-in-r.html#cb191-4" tabindex="-1"></a>   <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb191-2"><a href="importing-data-in-r.html#cb191-2" tabindex="-1"></a><span class="fu">sd</span>(gPGDP_qtr<span class="sc">$</span>error_F1_B1[gPGDP_qtr<span class="sc">$</span>date <span class="sc">&gt;</span> <span class="fu">as.yearqtr</span>(<span class="st">&quot;1985-01-01&quot;</span>)], </span>
+<span id="cb191-3"><a href="importing-data-in-r.html#cb191-3" tabindex="-1"></a>   <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 0.8499342</code></pre>
 </div>
 </div>

@@ -200,23 +200,20 @@ ui$link$datacamp <- "https://www.datacamp.com/"
 
 # Introduction {-}
 
-This book is designed to help students get ready for careers in Economics and Finance. Professions in these fields require a firm grip on data interpretation and effective presentation techniques. Therefore, a substantial portion of this book is dedicated to fostering skills in data science and analytics. Readers are expected to invest considerable time in learning programming languages and producing data reports.
+This book is your guide to preparing for a career in Economics and Finance. In these fields, you need to be good at interpreting data and presenting it effectively. This book will help you build your data science and analytics skills and apply those to answer questions in the fields of Economics and Finance.
 
-```{r foo, echo = FALSE}
-```
+But it's not all about programming skills. We also delve into the world of economic indicators, offering insights into business cycles and regional differences in economic performance. You'll learn about traditional measures like GDP growth, inflation, money supply, and interest rates. But we also cover survey- and text-based indicators that have recently gained popularity. These include consumer confidence indices, forecaster data, real-time data, and text-based indicators of economic uncertainty. The latter is derived from language analysis of newspapers, social media posts, or Google searches.
 
+If you work your way through this book, you'll be ready to analyze data on a wide range of economic and financial topics. Your learning progress will be assessed based on the completion of [DataCamp](https://www.datacamp.com){target="_blank"} courses and the production of three data reports.
 
-Alongside these technical skills, this book delivers a comprehensive understanding of key macroeconomic indicators. It not only explores traditional indicators like GDP growth, inflation, money supply, and interest rates, but also ventures into survey- and text-based indicators. These encompass consumer confidence indices, forecaster data, real-time data, and text-based indicators of economic uncertainty. The latter are derived from the analysis of economic uncertainty-related language in newspapers, social media sites, or Google searches.
-
-Engaging diligently with this book will equip students with the ability to conduct data analyses on diverse economic and financial topics. The assessment of learning outcomes will be determined based on the completion of DataCamp courses and the crafting of three data reports.
-
-The book is organized into three modules:
+The book is divided into three modules:
 
 - [*Module I: Introduction to R for Economic Research*]
 - [*Module II: Traditional Economic Indicators*]
 - [*Module III: Survey- and Text-Based Economic Indicators*]
 
-Each module is designed to build upon the knowledge gained in the previous one, providing a thorough and comprehensive learning experience.
+Each module builds on the previous one, providing you with a coherent learning journey.
+
 
 
 # *Module I: Introduction to R for Economic Research* {-} 
@@ -1769,13 +1766,11 @@ mean(gPGDP_qtr$error_F1_B1, na.rm = TRUE)
 sd(gPGDP_qtr$error_F1_B1, na.rm = TRUE)
 
 # Compute volatility of FE before Great Moderation
-sd(gPGDP_qtr$error_F1_B1[
-    gPGDP_qtr$date <= as.yearqtr("1985-01-01")], 
+sd(gPGDP_qtr$error_F1_B1[gPGDP_qtr$date <= as.yearqtr("1985-01-01")], 
    na.rm = TRUE)
 
 # Compute volatility of FE at & after Great Moderation
-sd(gPGDP_qtr$error_F1_B1[
-    gPGDP_qtr$date > as.yearqtr("1985-01-01")], 
+sd(gPGDP_qtr$error_F1_B1[gPGDP_qtr$date > as.yearqtr("1985-01-01")], 
    na.rm = TRUE)
 ```
 
@@ -1971,8 +1966,7 @@ AAPL_df <- as.data.frame(AAPL_stock_price)
 AAPL_df$Date <- rownames(AAPL_df)
 
 # Position the date column first
-AAPL_df <- AAPL_df[, c(ncol(AAPL_df), 
-                       seq(1, ncol(AAPL_df) - 1))]
+AAPL_df <- AAPL_df[, c(ncol(AAPL_df), seq(1, ncol(AAPL_df) - 1))]
 
 # Save data in various formats
 write_csv(x = AAPL_df, file = "AAPL.csv", na = "NA")
@@ -2138,11 +2132,11 @@ The aforementioned code modifies the default settings for all chunks in the docu
 
 ```{r, echo = FALSE}
 my_var_label <- "\`r my_var\`"
-my_var_label_text <- "\\`r my_var\\`"
+my_var_label_text <- "\\\`r my_var\\\`"
 my_var_formatted_label <- "\`r my_var_formatted\`"
 ```
 
-A key strength of R Markdown is the ability to incorporate R variables directly within the Markdown text. This enables a dynamic text where the values are updated as the variables change. You can accomplish this by using the `r my_var_label_text` syntax. Furthermore, you can format these numbers for enhanced readability.
+A key strength of R Markdown is the ability to incorporate R variables directly within the Markdown text. This enables a dynamic text where the values are updated as the variables change. You can accomplish this by using the `` `r "\u0060r variable\u0060"` `` syntax. Furthermore, you can format these numbers for enhanced readability.
 
 To insert the value of an R variable into your text, you encase the variable name in backticks and prepend it with `r `. Here's an illustration:
 
@@ -2154,12 +2148,12 @@ my_var <- 123234.53983
 To refer to this variable in your Markdown text, you can write the following text (outside of an R chunk):
 
 ````rmarkdown
-The total amount is `r my_var_label` USD.
+The total amount is `r "\u0060r my_var\u0060"` USD.
 ````
 
 The output will be: "The total amount is `r my_var` USD."
 
-That's because when the R Markdown document is knitted, `r my_var_label_text` will be replaced by the current value of `my_var` in your R environment, dynamically embedding the value of `my_var` into your text.
+That's because when the R Markdown document is knitted, `` `r "\u0060r my_var\u0060"` `` will be replaced by the current value of `my_var` in your R environment, dynamically embedding the value of `my_var` into your text.
 
 Additionally, you can format numbers for better readability by avoiding scientific notation, rounding, and adding a comma as a thousands separator. To do this, you can use the `formatC()` function in R as follows:
 
@@ -2171,7 +2165,7 @@ my_var_formatted <- formatC(my_var, format = "f", digits = 2, big.mark = ",")
 Then, in your text:
 
 ````rmarkdown
-The total amount is `r my_var_formatted_label` USD.
+The total amount is `r "\u0060r my_var_formatted\u0060"` USD.
 ````
 
 The output will be: "The total amount is `r my_var_formatted` USD."
@@ -2616,7 +2610,7 @@ Throughout this module, you will engage in the following activities:
 Your progress will be evaluated based on:
 
 1. **DataCamp Course Completion**: Completion of the designated DataCamp courses, specifically [Introduction to Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2){target="_blank"} and [Joining Data with dplyr](https://app.datacamp.com/learn/courses/joining-data-with-dplyr){target="_blank"}, forms a key part of your assessment.
-2. **Data Report on Survey- and Text-Based Economic Indicators**: Craft a data report on survey- and text-based economic indicators of your choice using R Markdown. This report will serve as a practical demonstration of your grasp of R, RStudio, R Markdown, and the survey- and text-based indicators. The report should exhibit your ability to analyze and interpret survey- and text-based data, and the quality of your report will form a significant part of your module assessment. Refer to Chapter \@ref(data-report-on-survey--and-text-based-economic-indicators) for guidelines on this task.
+2. **Data Report on Survey- and Text-Based Economic Indicators**: Craft a data report on survey- and text-based economic indicators of your choice using R Markdown. This report will serve as a practical demonstration of your grasp of R, RStudio, R Markdown, and the survey- and text-based indicators. The report should exhibit your ability to analyze and interpret survey- and text-based data, and the quality of your report will form a significant part of your module assessment. Refer to Chapter \@ref(data-report-on-survey\--and-text-based-economic-indicators) for guidelines on this task.
 
 Recall that comprehending the intricacies of survey- and text-based economic indicators is a slow process. Make sure to immerse yourself fully in each concept before progressing to the next. Never hesitate to ask for help if you face any challenges during your learning process. Good luck with your exploration of survey- and text-based economic indicators!
 
