@@ -8,7 +8,7 @@ output:
     config:
       toc:
         before: |
-          <li><a href="introduction.html">Data Analysis for Economic Research</a></li>
+          <li><a href="index.html">Data Analysis for Economic Research</a></li>
         after: |
           <li><a href="https://www.julianfludwig.com/" target="blank">Julian F. Ludwig</a></li>
       # edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
@@ -21,6 +21,40 @@ output:
   #     smooth_scroll: true
   #   fig_caption: true
 ---
+
+
+```{r index_file, eval=FALSE, echo=FALSE}
+#========================================================================================
+# Create index.html file by duplicating the preface.html file
+#========================================================================================
+# Set working directory to current file location
+file_directory_name <- rstudioapi::getActiveDocumentContext()$path
+file_directory <- dirname(file_directory_name)
+file_name <- basename(file_directory_name)
+setwd(file_directory) 
+# Render R Markdown file
+rmarkdown::render(file_name)
+# Create index.html file as a copy of preface.html
+dir.create("tmp")
+file.copy("preface.html", "tmp")
+file.rename(from = "tmp/preface.html", to = "tmp/index.html")
+file.copy("tmp/index.html", "index.html", overwrite = TRUE)
+unlink("tmp", recursive = TRUE)
+```
+
+
+```{r save_in_memory,eval=FALSE,echo=FALSE}
+#========================================================================================
+# Run and save variables in memory
+#========================================================================================
+# Get info
+file_directory_name <- rstudioapi::getActiveDocumentContext()$path
+file_directory <- dirname(file_directory_name)
+file_name <- basename(file_directory_name)
+# Run file
+setwd(file_directory) # set working directory to current file location
+rmarkdown::render(file_name)
+```
 
 
 ```{css, echo = FALSE}
@@ -198,7 +232,17 @@ ui$link$datacamp <- "https://www.datacamp.com/"
 
 
 
-# Introduction {-}
+
+
+# Preface {-}
+
+
+```{r bookcover, echo = FALSE}
+knitr::include_graphics("files/dreamstudio/1714417634_Economic Research Data Analysis_esrgan-v1-x2plus.png")
+```
+
+
+## Introduction {-}
 
 This book is your guide to preparing for a career in Economics and Finance. In these fields, you need to be good at interpreting data and presenting it effectively. This book will help you build your data science and analytics skills and apply those to answer questions in the fields of Economics and Finance.
 
@@ -213,6 +257,72 @@ The book is divided into three modules:
 - [*Module III: Survey- and Text-Based Economic Indicators*]
 
 Each module builds on the previous one, providing you with a coherent learning journey.
+
+
+
+
+
+## Author {-}
+
+:::: {style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-column-gap: 10px;"}
+
+::: {}
+
+
+
+```{r photo, echo = FALSE, out.width = '70%'}
+knitr::include_graphics("files/jfl.png")
+```
+
+:::
+
+::: {}
+
+Julian F. Ludwig \
+Assistant Professor \
+Department of Economics \
+Texas Tech University \
+[253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall) \
+Lubbock, TX 79409
+
+
+Website: [www.julianfludwig.com](https://www.julianfludwig.com/) \
+Email: [julian.ludwig@ttu.edu](mailto:julian.ludwig@ttu.edu) \
+
+
+:::
+
+::: {}
+
+::: 
+
+::::
+
+
+
+#### Education {-}
+
+Ph.D., Economics, University of Texas at Austin, 2019 \
+M.S., Economics, University of Texas at Austin, 2016 \
+M.S., International and Monetary Economics, University of Bern in Switzerland, 2014 \
+B.S., Economics, University of Bern in Switzerland, 2012 \
+
+
+#### Research Interests {-}
+
+Macroeconomics \
+Time Series Econometrics \
+
+#### Courses Offered {-}
+
+ECO 5316: Time Series Econometrics \
+ECO 5311: Macroeconomic Theory and Policy \
+ECO 4306: Economic and Business Forecasting \
+ECO 4300-D03: Data Analysis for Economic Research \
+ECO 3323: Principles of Money, Banking and Credit
+
+
+
 
 
 

@@ -137,10 +137,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="introduction.html">Data Analysis for Economic Research</a></li>
+<li><a href="index.html">Data Analysis for Economic Research</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#author"><i class="fa fa-check"></i>Author</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="module-i-introduction-to-r-for-economic-research.html"><a href="module-i-introduction-to-r-for-economic-research.html"><i class="fa fa-check"></i><em>Module I: Introduction to R for Economic Research</em></a></li>
 <li class="chapter" data-level="1" data-path="software-overview.html"><a href="software-overview.html"><i class="fa fa-check"></i><b>1</b> Software Overview</a></li>
 <li class="chapter" data-level="2" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i><b>2</b> Software Installation</a>
@@ -292,13 +296,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb193-10"><a href="downloading-data-in-r.html#cb193-10" tabindex="-1"></a></span>
 <span id="cb193-11"><a href="downloading-data-in-r.html#cb193-11" tabindex="-1"></a><span class="co"># Display the most recent downloaded stock prices</span></span>
 <span id="cb193-12"><a href="downloading-data-in-r.html#cb193-12" tabindex="-1"></a><span class="fu">tail</span>(AAPL_stock_price)</span></code></pre></div>
-<pre><code>##            AAPL.Open AAPL.High AAPL.Low AAPL.Close AAPL.Volume AAPL.Adjusted
-## 2023-06-26    186.83    188.05   185.23     185.27    48088700        185.27
-## 2023-06-27    185.89    188.39   185.67     188.06    50730800        188.06
-## 2023-06-28    187.93    189.90   187.60     189.25    51216800        189.25
-## 2023-06-29    189.08    190.07   188.94     189.59    46347300        189.59
-## 2023-06-30    191.63    194.48   191.26     193.97    85069600        193.97
-## 2023-07-03    193.78    193.88   191.76     192.46    31458200        192.46</code></pre>
+<pre><code>##            AAPL.Open AAPL.High AAPL.Low
+## 2023-06-26    186.83    188.05   185.23
+## 2023-06-27    185.89    188.39   185.67
+## 2023-06-28    187.93    189.90   187.60
+## 2023-06-29    189.08    190.07   188.94
+## 2023-06-30    191.63    194.48   191.26
+## 2023-07-03    193.78    193.88   191.76
+##            AAPL.Close AAPL.Volume
+## 2023-06-26     185.27    48088700
+## 2023-06-27     188.06    50730800
+## 2023-06-28     189.25    51216800
+## 2023-06-29     189.59    46347300
+## 2023-06-30     193.97    85069600
+## 2023-07-03     192.46    31458200
+##            AAPL.Adjusted
+## 2023-06-26        185.27
+## 2023-06-27        188.06
+## 2023-06-28        189.25
+## 2023-06-29        189.59
+## 2023-06-30        193.97
+## 2023-07-03        192.46</code></pre>
 <p>The arguments in this context are:</p>
 <ul>
 <li><code>Symbols</code>: Specifies the instrument to import. This could be a stock ticker symbol, exchange rate, economic data series, or any other identifier.</li>
