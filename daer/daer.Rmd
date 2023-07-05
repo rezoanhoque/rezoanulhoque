@@ -234,8 +234,9 @@ ui$link$datacamp <- "https://www.datacamp.com/"
 
 
 
-# Preface {-}
+# *Preface* {-}
 
+---  
 
 ```{r bookcover, echo = FALSE}
 knitr::include_graphics("files/dreamstudio/1714417634_Economic Research Data Analysis_esrgan-v1-x2plus.png")
