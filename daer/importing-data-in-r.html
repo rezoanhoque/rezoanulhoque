@@ -332,20 +332,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="importing-data-in-r.html#cb143-1" tabindex="-1"></a><span class="co"># Display the data</span></span>
 <span id="cb143-2"><a href="importing-data-in-r.html#cb143-2" tabindex="-1"></a>yc</span></code></pre></div>
 <pre><code>## # A tibble: 8,382 × 14
-##    Date    `1 Mo` `2 Mo` `3 Mo` `4 Mo` `6 Mo` `1 Yr` `2 Yr` `3 Yr` `5 Yr` `7 Yr`
-##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1 01/02/… N/A    N/A      7.83 N/A      7.89   7.81   7.87   7.9    7.87   7.98
-##  2 01/03/… N/A    N/A      7.89 N/A      7.94   7.85   7.94   7.96   7.92   8.04
-##  3 01/04/… N/A    N/A      7.84 N/A      7.9    7.82   7.92   7.93   7.91   8.02
-##  4 01/05/… N/A    N/A      7.79 N/A      7.85   7.79   7.9    7.94   7.92   8.03
-##  5 01/08/… N/A    N/A      7.79 N/A      7.88   7.81   7.9    7.95   7.92   8.05
-##  6 01/09/… N/A    N/A      7.8  N/A      7.82   7.78   7.91   7.94   7.92   8.05
-##  7 01/10/… N/A    N/A      7.75 N/A      7.78   7.77   7.91   7.95   7.92   8   
-##  8 01/11/… N/A    N/A      7.8  N/A      7.8    7.77   7.91   7.95   7.94   8.01
-##  9 01/12/… N/A    N/A      7.74 N/A      7.81   7.76   7.93   7.98   7.99   8.07
-## 10 01/16/… N/A    N/A      7.89 N/A      7.99   7.92   8.1    8.13   8.11   8.18
+##    Date    `1 Mo` `2 Mo` `3 Mo` `4 Mo` `6 Mo` `1 Yr` `2 Yr` `3 Yr`
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 01/02/… N/A    N/A      7.83 N/A      7.89   7.81   7.87   7.9 
+##  2 01/03/… N/A    N/A      7.89 N/A      7.94   7.85   7.94   7.96
+##  3 01/04/… N/A    N/A      7.84 N/A      7.9    7.82   7.92   7.93
+##  4 01/05/… N/A    N/A      7.79 N/A      7.85   7.79   7.9    7.94
+##  5 01/08/… N/A    N/A      7.79 N/A      7.88   7.81   7.9    7.95
+##  6 01/09/… N/A    N/A      7.8  N/A      7.82   7.78   7.91   7.94
+##  7 01/10/… N/A    N/A      7.75 N/A      7.78   7.77   7.91   7.95
+##  8 01/11/… N/A    N/A      7.8  N/A      7.8    7.77   7.91   7.95
+##  9 01/12/… N/A    N/A      7.74 N/A      7.81   7.76   7.93   7.98
+## 10 01/16/… N/A    N/A      7.89 N/A      7.99   7.92   8.1    8.13
 ## # ℹ 8,372 more rows
-## # ℹ 3 more variables: `10 Yr` &lt;dbl&gt;, `20 Yr` &lt;chr&gt;, `30 Yr` &lt;chr&gt;</code></pre>
+## # ℹ 5 more variables: `5 Yr` &lt;dbl&gt;, `7 Yr` &lt;dbl&gt;, `10 Yr` &lt;dbl&gt;,
+## #   `20 Yr` &lt;chr&gt;, `30 Yr` &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="importing-data-in-r.html#cb145-1" tabindex="-1"></a><span class="co"># Display the data in a spreadsheet-like format</span></span>
 <span id="cb145-2"><a href="importing-data-in-r.html#cb145-2" tabindex="-1"></a><span class="fu">View</span>(yc)</span></code></pre></div>
 <p>Both the <code>read_csv()</code> and <code>read_delim()</code> functions convert the CSV file into a tibble (<code>tbl_df</code>), a modern version of the R data frame discussed in Chapter <a href="r-data-types-and-structures.html#tibble">4.6</a>. Remember, a data frame stores data in separate columns, each of which must be of the same data type. Use the <code>class(yc)</code> function to check the data type of the entire dataset, and <code>sapply(yc, class)</code> to check the data type of each column:</p>
@@ -354,12 +355,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;</code></pre>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="importing-data-in-r.html#cb148-1" tabindex="-1"></a><span class="co"># Check the data type of each column</span></span>
 <span id="cb148-2"><a href="importing-data-in-r.html#cb148-2" tabindex="-1"></a><span class="fu">sapply</span>(yc, class)</span></code></pre></div>
-<pre><code>##        Date        1 Mo        2 Mo        3 Mo        4 Mo        6 Mo 
-## &quot;character&quot; &quot;character&quot; &quot;character&quot;   &quot;numeric&quot; &quot;character&quot;   &quot;numeric&quot; 
-##        1 Yr        2 Yr        3 Yr        5 Yr        7 Yr       10 Yr 
-##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
-##       20 Yr       30 Yr 
-## &quot;character&quot; &quot;character&quot;</code></pre>
+<pre><code>##        Date        1 Mo        2 Mo        3 Mo        4 Mo 
+## &quot;character&quot; &quot;character&quot; &quot;character&quot;   &quot;numeric&quot; &quot;character&quot; 
+##        6 Mo        1 Yr        2 Yr        3 Yr        5 Yr 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+##        7 Yr       10 Yr       20 Yr       30 Yr 
+##   &quot;numeric&quot;   &quot;numeric&quot; &quot;character&quot; &quot;character&quot;</code></pre>
 <p>When importing data in R, it’s possible that R assigns incorrect data types to some columns. For example, the <code>Date</code> column is treated as a character column even though it contains dates, and the <code>30 Yr</code> column is treated as a character column even though it contains interest rates. To address this issue, you can convert the first column to a date type and the remaining columns to numeric data types using the following three steps:</p>
 <ol style="list-style-type: decimal">
 <li>Replace “N/A” with <code>NA</code>, which represents missing values in R. This step is necessary because R doesn’t recognize “N/A”, and if a column includes “N/A”, R will consider it as a character vector instead of a numeric vector.</li>
@@ -375,30 +376,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="importing-data-in-r.html#cb152-1" tabindex="-1"></a><span class="co"># Check the date format</span></span>
 <span id="cb152-2"><a href="importing-data-in-r.html#cb152-2" tabindex="-1"></a><span class="fu">head</span>(yc<span class="sc">$</span>Date)</span></code></pre></div>
-<pre><code>## [1] &quot;01/02/1990&quot; &quot;01/03/1990&quot; &quot;01/04/1990&quot; &quot;01/05/1990&quot; &quot;01/08/1990&quot;
-## [6] &quot;01/09/1990&quot;</code></pre>
+<pre><code>## [1] &quot;01/02/1990&quot; &quot;01/03/1990&quot; &quot;01/04/1990&quot; &quot;01/05/1990&quot;
+## [5] &quot;01/08/1990&quot; &quot;01/09/1990&quot;</code></pre>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="importing-data-in-r.html#cb154-1" tabindex="-1"></a><span class="co"># Convert to date format</span></span>
 <span id="cb154-2"><a href="importing-data-in-r.html#cb154-2" tabindex="-1"></a>yc<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(yc<span class="sc">$</span>Date, <span class="at">format =</span> <span class="st">&quot;%m/%d/%Y&quot;</span>)</span>
 <span id="cb154-3"><a href="importing-data-in-r.html#cb154-3" tabindex="-1"></a><span class="fu">head</span>(yc<span class="sc">$</span>Date)</span></code></pre></div>
-<pre><code>## [1] &quot;1990-01-02&quot; &quot;1990-01-03&quot; &quot;1990-01-04&quot; &quot;1990-01-05&quot; &quot;1990-01-08&quot;
-## [6] &quot;1990-01-09&quot;</code></pre>
+<pre><code>## [1] &quot;1990-01-02&quot; &quot;1990-01-03&quot; &quot;1990-01-04&quot; &quot;1990-01-05&quot;
+## [5] &quot;1990-01-08&quot; &quot;1990-01-09&quot;</code></pre>
 <p>Hence, we have successfully imported the yield curve data and performed the necessary conversions to ensure that all columns are in their correct formats:</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="importing-data-in-r.html#cb156-1" tabindex="-1"></a>yc</span></code></pre></div>
 <pre><code>## # A tibble: 8,382 × 14
-##    Date       `1 Mo` `2 Mo` `3 Mo` `4 Mo` `6 Mo` `1 Yr` `2 Yr` `3 Yr` `5 Yr`
-##    &lt;date&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1 1990-01-02     NA     NA   7.83     NA   7.89   7.81   7.87   7.9    7.87
-##  2 1990-01-03     NA     NA   7.89     NA   7.94   7.85   7.94   7.96   7.92
-##  3 1990-01-04     NA     NA   7.84     NA   7.9    7.82   7.92   7.93   7.91
-##  4 1990-01-05     NA     NA   7.79     NA   7.85   7.79   7.9    7.94   7.92
-##  5 1990-01-08     NA     NA   7.79     NA   7.88   7.81   7.9    7.95   7.92
-##  6 1990-01-09     NA     NA   7.8      NA   7.82   7.78   7.91   7.94   7.92
-##  7 1990-01-10     NA     NA   7.75     NA   7.78   7.77   7.91   7.95   7.92
-##  8 1990-01-11     NA     NA   7.8      NA   7.8    7.77   7.91   7.95   7.94
-##  9 1990-01-12     NA     NA   7.74     NA   7.81   7.76   7.93   7.98   7.99
-## 10 1990-01-16     NA     NA   7.89     NA   7.99   7.92   8.1    8.13   8.11
+##    Date       `1 Mo` `2 Mo` `3 Mo` `4 Mo` `6 Mo` `1 Yr` `2 Yr`
+##    &lt;date&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 1990-01-02     NA     NA   7.83     NA   7.89   7.81   7.87
+##  2 1990-01-03     NA     NA   7.89     NA   7.94   7.85   7.94
+##  3 1990-01-04     NA     NA   7.84     NA   7.9    7.82   7.92
+##  4 1990-01-05     NA     NA   7.79     NA   7.85   7.79   7.9 
+##  5 1990-01-08     NA     NA   7.79     NA   7.88   7.81   7.9 
+##  6 1990-01-09     NA     NA   7.8      NA   7.82   7.78   7.91
+##  7 1990-01-10     NA     NA   7.75     NA   7.78   7.77   7.91
+##  8 1990-01-11     NA     NA   7.8      NA   7.8    7.77   7.91
+##  9 1990-01-12     NA     NA   7.74     NA   7.81   7.76   7.93
+## 10 1990-01-16     NA     NA   7.89     NA   7.99   7.92   8.1 
 ## # ℹ 8,372 more rows
-## # ℹ 4 more variables: `7 Yr` &lt;dbl&gt;, `10 Yr` &lt;dbl&gt;, `20 Yr` &lt;dbl&gt;, `30 Yr` &lt;dbl&gt;</code></pre>
+## # ℹ 6 more variables: `3 Yr` &lt;dbl&gt;, `5 Yr` &lt;dbl&gt;, `7 Yr` &lt;dbl&gt;,
+## #   `10 Yr` &lt;dbl&gt;, `20 Yr` &lt;dbl&gt;, `30 Yr` &lt;dbl&gt;</code></pre>
 <p>Here, <code>&lt;dbl&gt;</code> stands for double, which is the R data type for decimal numbers, also known as numeric type. Converting the yield columns to <code>dbl</code> ensures that the values are treated as numeric and can be used for calculations, analysis, and visualization.</p>
 </div>
 <div id="plotting-historical-yields" class="section level3 hasAnchor" number="5.2.2">
@@ -417,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>main = "3-Month Treasury Rate"</code> sets the title of the plot to “3-Month Treasury Rate”.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:yield-historical-plot"></span>
-<img src="daer_files/figure-html/yield-historical-plot-1.png" alt="3-Month Treasury Rate" width="80%" />
+<img src="_main_files/figure-html/yield-historical-plot-1.png" alt="3-Month Treasury Rate" width="80%" />
 <p class="caption">
 Figure 5.1: 3-Month Treasury Rate
 </p>
@@ -432,12 +434,13 @@ Figure 5.1: 3-Month Treasury Rate
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="importing-data-in-r.html#cb159-1" tabindex="-1"></a><span class="co"># Extract the interest rates of the last row</span></span>
 <span id="cb159-2"><a href="importing-data-in-r.html#cb159-2" tabindex="-1"></a>yc_most_recent_data <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">last</span>(yc[, <span class="sc">-</span><span class="dv">1</span>]))</span>
 <span id="cb159-3"><a href="importing-data-in-r.html#cb159-3" tabindex="-1"></a>yc_most_recent_data</span></code></pre></div>
-<pre><code>##  [1] 5.24 5.39 5.43 5.50 5.47 5.40 4.87 4.49 4.13 3.97 3.81 4.06 3.85</code></pre>
+<pre><code>##  [1] 5.24 5.39 5.43 5.50 5.47 5.40 4.87 4.49 4.13 3.97 3.81 4.06
+## [13] 3.85</code></pre>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="importing-data-in-r.html#cb161-1" tabindex="-1"></a><span class="co"># Extract the column names of the last row</span></span>
 <span id="cb161-2"><a href="importing-data-in-r.html#cb161-2" tabindex="-1"></a>yc_most_recent_labels <span class="ot">&lt;-</span> <span class="fu">colnames</span>(<span class="fu">last</span>(yc[, <span class="sc">-</span><span class="dv">1</span>]))</span>
 <span id="cb161-3"><a href="importing-data-in-r.html#cb161-3" tabindex="-1"></a>yc_most_recent_labels</span></code></pre></div>
-<pre><code>##  [1] &quot;1 Mo&quot;  &quot;2 Mo&quot;  &quot;3 Mo&quot;  &quot;4 Mo&quot;  &quot;6 Mo&quot;  &quot;1 Yr&quot;  &quot;2 Yr&quot;  &quot;3 Yr&quot;  &quot;5 Yr&quot; 
-## [10] &quot;7 Yr&quot;  &quot;10 Yr&quot; &quot;20 Yr&quot; &quot;30 Yr&quot;</code></pre>
+<pre><code>##  [1] &quot;1 Mo&quot;  &quot;2 Mo&quot;  &quot;3 Mo&quot;  &quot;4 Mo&quot;  &quot;6 Mo&quot;  &quot;1 Yr&quot;  &quot;2 Yr&quot; 
+##  [8] &quot;3 Yr&quot;  &quot;5 Yr&quot;  &quot;7 Yr&quot;  &quot;10 Yr&quot; &quot;20 Yr&quot; &quot;30 Yr&quot;</code></pre>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="importing-data-in-r.html#cb163-1" tabindex="-1"></a><span class="co"># Plot the yield curve</span></span>
 <span id="cb163-2"><a href="importing-data-in-r.html#cb163-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> yc_most_recent_data, <span class="at">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>,</span>
 <span id="cb163-3"><a href="importing-data-in-r.html#cb163-3" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time to Maturity&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Treasury Rate in %&quot;</span>,</span>
@@ -456,7 +459,7 @@ Figure 5.1: 3-Month Treasury Rate
 </ul>
 <p>Additionally, the <code>axis()</code> function is used to customize the x-axis tick labels. It sets the tick locations using <code>at = seq(1, length(yc_most_recent_labels), 1)</code> to evenly space the ticks along the x-axis. The <code>labels = yc_most_recent_labels</code> argument assigns the column names of the last row (representing maturities) as the tick labels on the x-axis.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:yield-curve-plot"></span>
-<img src="daer_files/figure-html/yield-curve-plot-1.png" alt="Yield Curve on June 30, 2023" width="80%" />
+<img src="_main_files/figure-html/yield-curve-plot-1.png" alt="Yield Curve on June 30, 2023" width="80%" />
 <p class="caption">
 Figure 5.2: Yield Curve on June 30, 2023
 </p>
@@ -496,32 +499,33 @@ Figure 5.2: Yield Curve on June 30, 2023
 <span id="cb164-5"><a href="importing-data-in-r.html#cb164-5" tabindex="-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="at">file =</span> <span class="st">&quot;files/sca-tableall-on-2023-Jul-01.tsv&quot;</span>, <span class="at">skip =</span> <span class="dv">1</span>)</span>
 <span id="cb164-6"><a href="importing-data-in-r.html#cb164-6" tabindex="-1"></a></span>
 <span id="cb164-7"><a href="importing-data-in-r.html#cb164-7" tabindex="-1"></a><span class="co"># Import TSV file using the read_delim() function</span></span>
-<span id="cb164-8"><a href="importing-data-in-r.html#cb164-8" tabindex="-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="at">file =</span> <span class="st">&quot;files/sca-tableall-on-2023-Jul-01.tsv&quot;</span>, <span class="at">skip =</span> <span class="dv">1</span>, <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<span id="cb164-8"><a href="importing-data-in-r.html#cb164-8" tabindex="-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="at">file =</span> <span class="st">&quot;files/sca-tableall-on-2023-Jul-01.tsv&quot;</span>, <span class="at">skip =</span> <span class="dv">1</span>, </span>
+<span id="cb164-9"><a href="importing-data-in-r.html#cb164-9" tabindex="-1"></a>                 <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
 <p>In the provided code snippets, the <code>file</code> input specifies the file path or URL of the TSV file to be imported. The <code>skip</code> input is used to specify the number of rows to skip at the beginning of the file. In this case, <code>skip = 1</code> indicates that the first line of the TSV file, which contains the title “All Tables”, should be skipped. The <code>col_names</code> input is set to <code>TRUE</code> to indicate that the second line of the TSV file (after skipping 1 row) contains the column names. Lastly, the <code>delim</code> input is set to <code>"\t"</code> to specify that the columns in the TSV file are separated by tabs, which is the standard delimiter for TSV (<em>Tab</em> Separated Values) files.</p>
 <p>Note that if the file is neither CSV nor TSV, but rather has an exotic format where columns are separated by a different character that is neither a comma nor a tab, such as “/”, you can use the <code>read_delim()</code> function with the <code>delim = "/"</code> argument to specify the custom delimiter.</p>
 <p>To inspect the first few rows of the data, print the <code>cs</code> object in the console. For an overview of the entire dataset, execute <code>View(cs)</code>.</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="importing-data-in-r.html#cb165-1" tabindex="-1"></a><span class="co"># Display the data</span></span>
 <span id="cb165-2"><a href="importing-data-in-r.html#cb165-2" tabindex="-1"></a>cs</span></code></pre></div>
 <pre><code>## # A tibble: 545 × 360
-##    Month  yyyy ics_all ics_inc31 ics_inc32 ics_inc33 ics_a1834 ics_a3554
-##    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-##  1     1  1978    83.7        NA        NA        NA      93.7      86.7
-##  2     2  1978    84.3        NA        NA        NA      99.7      82.3
-##  3     3  1978    78.8        NA        NA        NA      91.7      76.8
-##  4     4  1978    81.6        NA        NA        NA      91.8      79.7
-##  5     5  1978    82.9        NA        NA        NA      95.1      78.9
-##  6     6  1978    80          NA        NA        NA      91.7      75.7
-##  7     7  1978    82.4        NA        NA        NA      92.2      78.4
-##  8     8  1978    78.4        NA        NA        NA      87.8      77.2
-##  9     9  1978    80.4        NA        NA        NA      86.6      83.9
-## 10    10  1978    79.3        NA        NA        NA      90.6      76.7
+##    Month  yyyy ics_all ics_inc31 ics_inc32 ics_inc33 ics_a1834
+##    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1     1  1978    83.7        NA        NA        NA      93.7
+##  2     2  1978    84.3        NA        NA        NA      99.7
+##  3     3  1978    78.8        NA        NA        NA      91.7
+##  4     4  1978    81.6        NA        NA        NA      91.8
+##  5     5  1978    82.9        NA        NA        NA      95.1
+##  6     6  1978    80          NA        NA        NA      91.7
+##  7     7  1978    82.4        NA        NA        NA      92.2
+##  8     8  1978    78.4        NA        NA        NA      87.8
+##  9     9  1978    80.4        NA        NA        NA      86.6
+## 10    10  1978    79.3        NA        NA        NA      90.6
 ## # ℹ 535 more rows
-## # ℹ 352 more variables: ics_a5597 &lt;dbl&gt;, ics_ne &lt;dbl&gt;, ics_nc &lt;dbl&gt;,
-## #   ics_s &lt;dbl&gt;, ics_w &lt;dbl&gt;, icc_all &lt;dbl&gt;, ice_all &lt;dbl&gt;, pago_f_all &lt;dbl&gt;,
-## #   pago_s_all &lt;dbl&gt;, pago_u_all &lt;dbl&gt;, pago_dk_all &lt;dbl&gt;, pago_r_all &lt;dbl&gt;,
-## #   pagorn_hy_all &lt;dbl&gt;, pagorn_ha_all &lt;dbl&gt;, pagorn_ld_all &lt;dbl&gt;,
-## #   pagorn_ly_all &lt;dbl&gt;, pagorn_hp_all &lt;dbl&gt;, pagorn_la_all &lt;dbl&gt;,
-## #   pagorn_hd_all &lt;dbl&gt;, pagorn_ny_all &lt;dbl&gt;, pagorn_nad_all &lt;dbl&gt;, …</code></pre>
+## # ℹ 353 more variables: ics_a3554 &lt;dbl&gt;, ics_a5597 &lt;dbl&gt;,
+## #   ics_ne &lt;dbl&gt;, ics_nc &lt;dbl&gt;, ics_s &lt;dbl&gt;, ics_w &lt;dbl&gt;,
+## #   icc_all &lt;dbl&gt;, ice_all &lt;dbl&gt;, pago_f_all &lt;dbl&gt;,
+## #   pago_s_all &lt;dbl&gt;, pago_u_all &lt;dbl&gt;, pago_dk_all &lt;dbl&gt;,
+## #   pago_r_all &lt;dbl&gt;, pagorn_hy_all &lt;dbl&gt;, pagorn_ha_all &lt;dbl&gt;,
+## #   pagorn_ld_all &lt;dbl&gt;, pagorn_ly_all &lt;dbl&gt;, …</code></pre>
 <p>Use <code>sapply(cs, class)</code> to check the data type of each column, to make sure all columns are indeed numeric:</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="importing-data-in-r.html#cb167-1" tabindex="-1"></a><span class="co"># Check the data type of each column</span></span>
 <span id="cb167-2"><a href="importing-data-in-r.html#cb167-2" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sapply</span>(cs, class))</span></code></pre></div>
@@ -533,8 +537,8 @@ Figure 5.2: Yield Curve on June 30, 2023
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="importing-data-in-r.html#cb169-1" tabindex="-1"></a><span class="co"># Create date column</span></span>
 <span id="cb169-2"><a href="importing-data-in-r.html#cb169-2" tabindex="-1"></a>cs<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">paste</span>(cs<span class="sc">$</span>yyyy, cs<span class="sc">$</span>Month, <span class="st">&quot;01&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>))</span>
 <span id="cb169-3"><a href="importing-data-in-r.html#cb169-3" tabindex="-1"></a><span class="fu">head</span>(cs<span class="sc">$</span>Date)</span></code></pre></div>
-<pre><code>## [1] &quot;1978-01-01&quot; &quot;1978-02-01&quot; &quot;1978-03-01&quot; &quot;1978-04-01&quot; &quot;1978-05-01&quot;
-## [6] &quot;1978-06-01&quot;</code></pre>
+<pre><code>## [1] &quot;1978-01-01&quot; &quot;1978-02-01&quot; &quot;1978-03-01&quot; &quot;1978-04-01&quot;
+## [5] &quot;1978-05-01&quot; &quot;1978-06-01&quot;</code></pre>
 </div>
 <div id="plotting-consumer-indices" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> Plotting Consumer Indices<a href="importing-data-in-r.html#plotting-consumer-indices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -548,11 +552,12 @@ Figure 5.2: Yield Curve on June 30, 2023
 <p>Let’s use the <code>plot()</code> function to visualize the imported Michigan consumer survey data. In this case, we will plot the three key indices: ICC, ICE, and ICS over time, using the Date column as the x-axis and the three indices as the y-axis:</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="importing-data-in-r.html#cb171-1" tabindex="-1"></a><span class="co"># Plot ICC, ICE, and ICS over time</span></span>
 <span id="cb171-2"><a href="importing-data-in-r.html#cb171-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> cs<span class="sc">$</span>Date, <span class="at">y =</span> cs<span class="sc">$</span>icc_all, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="dv">5</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">140</span>),</span>
-<span id="cb171-3"><a href="importing-data-in-r.html#cb171-3" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Index&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Key Indices of the Michigan Consumer Survey&quot;</span>)</span>
-<span id="cb171-4"><a href="importing-data-in-r.html#cb171-4" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> cs<span class="sc">$</span>Date, <span class="at">y =</span> cs<span class="sc">$</span>ice_all, <span class="at">col =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb171-5"><a href="importing-data-in-r.html#cb171-5" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> cs<span class="sc">$</span>Date, <span class="at">y =</span> cs<span class="sc">$</span>ics_all, <span class="at">col =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
-<span id="cb171-6"><a href="importing-data-in-r.html#cb171-6" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;ICC&quot;</span>, <span class="st">&quot;ICE&quot;</span>, <span class="st">&quot;ICS&quot;</span>), </span>
-<span id="cb171-7"><a href="importing-data-in-r.html#cb171-7" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="fl">1.5</span>), <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb171-3"><a href="importing-data-in-r.html#cb171-3" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Index&quot;</span>, </span>
+<span id="cb171-4"><a href="importing-data-in-r.html#cb171-4" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Key Indices of the Michigan Consumer Survey&quot;</span>)</span>
+<span id="cb171-5"><a href="importing-data-in-r.html#cb171-5" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> cs<span class="sc">$</span>Date, <span class="at">y =</span> cs<span class="sc">$</span>ice_all, <span class="at">col =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb171-6"><a href="importing-data-in-r.html#cb171-6" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> cs<span class="sc">$</span>Date, <span class="at">y =</span> cs<span class="sc">$</span>ics_all, <span class="at">col =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb171-7"><a href="importing-data-in-r.html#cb171-7" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;ICC&quot;</span>, <span class="st">&quot;ICE&quot;</span>, <span class="st">&quot;ICS&quot;</span>), </span>
+<span id="cb171-8"><a href="importing-data-in-r.html#cb171-8" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="fl">1.5</span>), <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>In the code snippet provided, the appearance and behavior of the plot are customized using several functions and arguments:</p>
 <ul>
 <li><code>x</code>: This argument specifies the data to be used for the x-axis of the plot. In this case, it is <code>cs$Date</code>, indicating the “Date” column of the Michigan consumer survey data.</li>
@@ -568,7 +573,7 @@ Figure 5.2: Yield Curve on June 30, 2023
 <li><code>legend</code>: This function adds a legend to the plot. It is used to create a legend in the top-left corner (<code>x = "topleft"</code>) with labels corresponding to each index (<code>"ICC"</code>, <code>"ICE"</code>, <code>"ICS"</code>) and their respective line colors and widths.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:icc-ice-ics-plot"></span>
-<img src="daer_files/figure-html/icc-ice-ics-plot-1.png" alt="Key Indices of the Michigan Consumer Survey" width="80%" />
+<img src="_main_files/figure-html/icc-ice-ics-plot-1.png" alt="Key Indices of the Michigan Consumer Survey" width="80%" />
 <p class="caption">
 Figure 5.3: Key Indices of the Michigan Consumer Survey
 </p>
@@ -600,36 +605,40 @@ Figure 5.3: Key Indices of the Michigan Consumer Survey
 <span id="cb172-4"><a href="importing-data-in-r.html#cb172-4" tabindex="-1"></a><span class="co"># Get names of all Excel worksheets</span></span>
 <span id="cb172-5"><a href="importing-data-in-r.html#cb172-5" tabindex="-1"></a>sheet_names <span class="ot">&lt;-</span> <span class="fu">excel_sheets</span>(<span class="at">path =</span> <span class="st">&quot;files/GBweb_Row_Format.xlsx&quot;</span>)</span>
 <span id="cb172-6"><a href="importing-data-in-r.html#cb172-6" tabindex="-1"></a>sheet_names</span></code></pre></div>
-<pre><code>##  [1] &quot;Documentation&quot; &quot;gRGDP&quot;         &quot;gPGDP&quot;         &quot;UNEMP&quot;        
-##  [5] &quot;gPCPI&quot;         &quot;gPCPIX&quot;        &quot;gPPCE&quot;         &quot;gPPCEX&quot;       
-##  [9] &quot;gRPCE&quot;         &quot;gRBF&quot;          &quot;gRRES&quot;         &quot;gRGOVF&quot;       
-## [13] &quot;gRGOVSL&quot;       &quot;gNGDP&quot;         &quot;HSTART&quot;        &quot;gIP&quot;</code></pre>
+<pre><code>##  [1] &quot;Documentation&quot; &quot;gRGDP&quot;         &quot;gPGDP&quot;        
+##  [4] &quot;UNEMP&quot;         &quot;gPCPI&quot;         &quot;gPCPIX&quot;       
+##  [7] &quot;gPPCE&quot;         &quot;gPPCEX&quot;        &quot;gRPCE&quot;        
+## [10] &quot;gRBF&quot;          &quot;gRRES&quot;         &quot;gRGOVF&quot;       
+## [13] &quot;gRGOVSL&quot;       &quot;gNGDP&quot;         &quot;HSTART&quot;       
+## [16] &quot;gIP&quot;</code></pre>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="importing-data-in-r.html#cb174-1" tabindex="-1"></a><span class="co"># Import one of the Excel worksheets: &quot;gRGDP&quot;</span></span>
 <span id="cb174-2"><a href="importing-data-in-r.html#cb174-2" tabindex="-1"></a>gRGDP <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;files/GBweb_Row_Format.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;gRGDP&quot;</span>)</span>
 <span id="cb174-3"><a href="importing-data-in-r.html#cb174-3" tabindex="-1"></a>gRGDP</span></code></pre></div>
 <pre><code>## # A tibble: 466 × 16
-##     DATE gRGDPB4 gRGDPB3 gRGDPB2 gRGDPB1 gRGDPF0 gRGDPF1 gRGDPF2 gRGDPF3 gRGDPF4
-##    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 1967.     5.9     1.9     4       4.5     0.5     1        NA      NA      NA
-##  2 1967.     1.9     4       4.5     0       1.6     4.1      NA      NA      NA
-##  3 1967.     1.9     4       4.5    -0.3     1.4     4.7      NA      NA      NA
-##  4 1967.     1.9     4       4.5    -0.3     2.3     4.5      NA      NA      NA
-##  5 1967.     3.4     3.8    -0.2     2.4     4.3    NA        NA      NA      NA
-##  6 1967.     3.4     3.8    -0.2     2.4     4.2     4.5      NA      NA      NA
-##  7 1967.     3.4     3.8    -0.2     2.4     4.8     6.4      NA      NA      NA
-##  8 1967.     3.4     3.8    -0.2     2.4     4.9     6.4      NA      NA      NA
-##  9 1967.     3.8    -0.2     2.4     4.2     6.1    NA        NA      NA      NA
-## 10 1967.     3.8    -0.2     2.4     4.2     5.1    NA        NA      NA      NA
+##     DATE gRGDPB4 gRGDPB3 gRGDPB2 gRGDPB1 gRGDPF0 gRGDPF1 gRGDPF2
+##    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 1967.     5.9     1.9     4       4.5     0.5     1        NA
+##  2 1967.     1.9     4       4.5     0       1.6     4.1      NA
+##  3 1967.     1.9     4       4.5    -0.3     1.4     4.7      NA
+##  4 1967.     1.9     4       4.5    -0.3     2.3     4.5      NA
+##  5 1967.     3.4     3.8    -0.2     2.4     4.3    NA        NA
+##  6 1967.     3.4     3.8    -0.2     2.4     4.2     4.5      NA
+##  7 1967.     3.4     3.8    -0.2     2.4     4.8     6.4      NA
+##  8 1967.     3.4     3.8    -0.2     2.4     4.9     6.4      NA
+##  9 1967.     3.8    -0.2     2.4     4.2     6.1    NA        NA
+## 10 1967.     3.8    -0.2     2.4     4.2     5.1    NA        NA
 ## # ℹ 456 more rows
-## # ℹ 6 more variables: gRGDPF5 &lt;dbl&gt;, gRGDPF6 &lt;dbl&gt;, gRGDPF7 &lt;dbl&gt;,
-## #   gRGDPF8 &lt;dbl&gt;, gRGDPF9 &lt;dbl&gt;, GBdate &lt;dbl&gt;</code></pre>
+## # ℹ 8 more variables: gRGDPF3 &lt;dbl&gt;, gRGDPF4 &lt;dbl&gt;,
+## #   gRGDPF5 &lt;dbl&gt;, gRGDPF6 &lt;dbl&gt;, gRGDPF7 &lt;dbl&gt;, gRGDPF8 &lt;dbl&gt;,
+## #   gRGDPF9 &lt;dbl&gt;, GBdate &lt;dbl&gt;</code></pre>
 <p>To import all sheets, use the following code:</p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="importing-data-in-r.html#cb176-1" tabindex="-1"></a><span class="co"># Import all worksheets of Excel workbook</span></span>
-<span id="cb176-2"><a href="importing-data-in-r.html#cb176-2" tabindex="-1"></a>TB <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sheet_names, <span class="cf">function</span>(x) <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;files/GBweb_Row_Format.xlsx&quot;</span>, <span class="at">sheet =</span> x))</span>
-<span id="cb176-3"><a href="importing-data-in-r.html#cb176-3" tabindex="-1"></a><span class="fu">names</span>(TB) <span class="ot">&lt;-</span> sheet_names</span>
-<span id="cb176-4"><a href="importing-data-in-r.html#cb176-4" tabindex="-1"></a></span>
-<span id="cb176-5"><a href="importing-data-in-r.html#cb176-5" tabindex="-1"></a><span class="co"># Summarize the list containing all Excel worksheets</span></span>
-<span id="cb176-6"><a href="importing-data-in-r.html#cb176-6" tabindex="-1"></a><span class="fu">summary</span>(TB)</span></code></pre></div>
+<span id="cb176-2"><a href="importing-data-in-r.html#cb176-2" tabindex="-1"></a>TB <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sheet_names, <span class="cf">function</span>(x) </span>
+<span id="cb176-3"><a href="importing-data-in-r.html#cb176-3" tabindex="-1"></a>    <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;files/GBweb_Row_Format.xlsx&quot;</span>, <span class="at">sheet =</span> x))</span>
+<span id="cb176-4"><a href="importing-data-in-r.html#cb176-4" tabindex="-1"></a><span class="fu">names</span>(TB) <span class="ot">&lt;-</span> sheet_names</span>
+<span id="cb176-5"><a href="importing-data-in-r.html#cb176-5" tabindex="-1"></a></span>
+<span id="cb176-6"><a href="importing-data-in-r.html#cb176-6" tabindex="-1"></a><span class="co"># Summarize the list containing all Excel worksheets</span></span>
+<span id="cb176-7"><a href="importing-data-in-r.html#cb176-7" tabindex="-1"></a><span class="fu">summary</span>(TB)</span></code></pre></div>
 <pre><code>##               Length Class  Mode
 ## Documentation  2     tbl_df list
 ## gRGDP         16     tbl_df list
@@ -651,21 +660,22 @@ Figure 5.3: Key Indices of the Michigan Consumer Survey
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="importing-data-in-r.html#cb178-1" tabindex="-1"></a><span class="co"># Print one of the worksheets (unemployment forecasts):</span></span>
 <span id="cb178-2"><a href="importing-data-in-r.html#cb178-2" tabindex="-1"></a>TB[[<span class="st">&quot;UNEMP&quot;</span>]]</span></code></pre></div>
 <pre><code>## # A tibble: 466 × 16
-##     DATE UNEMPB4 UNEMPB3 UNEMPB2 UNEMPB1 UNEMPF0 UNEMPF1 UNEMPF2 UNEMPF3 UNEMPF4
-##    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 1967.     3.8     3.8     3.8     3.7     3.8     4.1      NA      NA      NA
-##  2 1967.     3.8     3.8     3.7     3.7     4       4.1      NA      NA      NA
-##  3 1967.     3.8     3.8     3.7     3.7     3.9     4        NA      NA      NA
-##  4 1967.     3.8     3.8     3.7     3.7     3.9     3.9      NA      NA      NA
-##  5 1967.     3.8     3.7     3.7     3.8     3.9    NA        NA      NA      NA
-##  6 1967.     3.8     3.7     3.7     3.8     3.9     3.8      NA      NA      NA
-##  7 1967.     3.8     3.7     3.7     3.8     3.8     3.6      NA      NA      NA
-##  8 1967.     3.8     3.7     3.7     3.8     3.8     3.6      NA      NA      NA
-##  9 1967.     3.7     3.7     3.8     3.9     3.8    NA        NA      NA      NA
-## 10 1967.     3.7     3.7     3.8     3.9     4      NA        NA      NA      NA
+##     DATE UNEMPB4 UNEMPB3 UNEMPB2 UNEMPB1 UNEMPF0 UNEMPF1 UNEMPF2
+##    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 1967.     3.8     3.8     3.8     3.7     3.8     4.1      NA
+##  2 1967.     3.8     3.8     3.7     3.7     4       4.1      NA
+##  3 1967.     3.8     3.8     3.7     3.7     3.9     4        NA
+##  4 1967.     3.8     3.8     3.7     3.7     3.9     3.9      NA
+##  5 1967.     3.8     3.7     3.7     3.8     3.9    NA        NA
+##  6 1967.     3.8     3.7     3.7     3.8     3.9     3.8      NA
+##  7 1967.     3.8     3.7     3.7     3.8     3.8     3.6      NA
+##  8 1967.     3.8     3.7     3.7     3.8     3.8     3.6      NA
+##  9 1967.     3.7     3.7     3.8     3.9     3.8    NA        NA
+## 10 1967.     3.7     3.7     3.8     3.9     4      NA        NA
 ## # ℹ 456 more rows
-## # ℹ 6 more variables: UNEMPF5 &lt;dbl&gt;, UNEMPF6 &lt;dbl&gt;, UNEMPF7 &lt;dbl&gt;,
-## #   UNEMPF8 &lt;dbl&gt;, UNEMPF9 &lt;dbl&gt;, GBdate &lt;chr&gt;</code></pre>
+## # ℹ 8 more variables: UNEMPF3 &lt;dbl&gt;, UNEMPF4 &lt;dbl&gt;,
+## #   UNEMPF5 &lt;dbl&gt;, UNEMPF6 &lt;dbl&gt;, UNEMPF7 &lt;dbl&gt;, UNEMPF8 &lt;dbl&gt;,
+## #   UNEMPF9 &lt;dbl&gt;, GBdate &lt;chr&gt;</code></pre>
 </div>
 <div id="nowcast-and-backcast" class="section level3 hasAnchor" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> Nowcast and Backcast<a href="importing-data-in-r.html#nowcast-and-backcast" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -673,9 +683,9 @@ Figure 5.3: Key Indices of the Michigan Consumer Survey
 <p>The imported Excel workbook <code>GBweb_Row_Format.xlsx</code> includes multiple sheets, each one representing distinct variables. Take, for instance, the sheet <code>gPGDP</code>, which contains forecasts for inflation (GDP deflator). Columns <code>gPGDPF1</code> through <code>gPGDPF9</code> represent forecasts for one to nine quarters ahead respectively, while <code>gPGDPF0</code> denotes the nowcast. The columns <code>gPGDPB1</code> to <code>gPGDPB4</code>, on the other hand, symbolize backcasts for one to four quarters in the past.</p>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="importing-data-in-r.html#cb180-1" tabindex="-1"></a><span class="co"># Print column names of inflation back-, now-, and forecasts</span></span>
 <span id="cb180-2"><a href="importing-data-in-r.html#cb180-2" tabindex="-1"></a><span class="fu">colnames</span>(TB[[<span class="st">&quot;gPGDP&quot;</span>]])</span></code></pre></div>
-<pre><code>##  [1] &quot;DATE&quot;    &quot;gPGDPB4&quot; &quot;gPGDPB3&quot; &quot;gPGDPB2&quot; &quot;gPGDPB1&quot; &quot;gPGDPF0&quot; &quot;gPGDPF1&quot;
-##  [8] &quot;gPGDPF2&quot; &quot;gPGDPF3&quot; &quot;gPGDPF4&quot; &quot;gPGDPF5&quot; &quot;gPGDPF6&quot; &quot;gPGDPF7&quot; &quot;gPGDPF8&quot;
-## [15] &quot;gPGDPF9&quot; &quot;GBdate&quot;</code></pre>
+<pre><code>##  [1] &quot;DATE&quot;    &quot;gPGDPB4&quot; &quot;gPGDPB3&quot; &quot;gPGDPB2&quot; &quot;gPGDPB1&quot; &quot;gPGDPF0&quot;
+##  [7] &quot;gPGDPF1&quot; &quot;gPGDPF2&quot; &quot;gPGDPF3&quot; &quot;gPGDPF4&quot; &quot;gPGDPF5&quot; &quot;gPGDPF6&quot;
+## [13] &quot;gPGDPF7&quot; &quot;gPGDPF8&quot; &quot;gPGDPF9&quot; &quot;GBdate&quot;</code></pre>
 <p>A <strong>nowcast</strong> (<code>gPGDPF0</code>) effectively serves as a present-time prediction. Given the delay in the release of economic data, nowcasting equips economists with the tools to make informed estimates about what current data will ultimately reveal once it is officially published.</p>
 <p>Conversely, a <strong>backcast</strong> (<code>gPGDPB1</code> through <code>gPGDPB4</code>) is a forecast formulated for a time period that has already transpired. This might seem counterintuitive, but it’s necessary because the initial estimates of economic data are often revised significantly as more information becomes available.</p>
 <p>It is noteworthy that financial data typically doesn’t experience such revisions, since interest rates or asset prices are directly observed on exchanges, eliminating the need for revisions. In contrast, inflation is not directly observable and requires deduction from a wide array of information sources. These sources can encompass export data, industrial production statistics, retail sales data, employment figures, consumer spending metrics, and capital investment data, among others.</p>
@@ -741,7 +751,7 @@ Figure 5.3: Key Indices of the Michigan Consumer Survey
 <li><code>legend</code>: This function adds a legend to the plot. The <code>x</code> argument specifies the position of the legend, the <code>legend</code> argument specifies the labels, and the <code>title</code> argument specifies the title of the legend. The color, line type, and line width of each label are specified by the <code>col</code>, <code>lty</code>, and <code>lwd</code> arguments, respectively.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:forecast-plot"></span>
-<img src="daer_files/figure-html/forecast-plot-1.png" alt="Back-, Now-, and Forecasts of Real GDP Growth" width="80%" />
+<img src="_main_files/figure-html/forecast-plot-1.png" alt="Back-, Now-, and Forecasts of Real GDP Growth" width="80%" />
 <p class="caption">
 Figure 5.4: Back-, Now-, and Forecasts of Real GDP Growth
 </p>
@@ -819,7 +829,7 @@ e_{t,h} = y_t - f_{t,h}
 <span id="cb184-23"><a href="importing-data-in-r.html#cb184-23" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="fl">1.5</span>))</span></code></pre></div>
 <p>The customization of the plot is achieved using a variety of parameters, as discussed earlier.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:forecast-error-plot"></span>
-<img src="daer_files/figure-html/forecast-error-plot-1.png" alt="Forecast Error of Inflation" width="80%" />
+<img src="_main_files/figure-html/forecast-error-plot-1.png" alt="Forecast Error of Inflation" width="80%" />
 <p class="caption">
 Figure 5.5: Forecast Error of Inflation
 </p>
@@ -895,7 +905,10 @@ gitbook.start({
 "text": null
 },
 "download": [["daer.pdf", "PDF"]],
-"search": false,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

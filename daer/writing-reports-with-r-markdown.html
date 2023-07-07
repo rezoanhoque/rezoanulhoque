@@ -295,20 +295,20 @@ Figure 7.1: New R Markdown
 <li>Examples of <strong>R code chunks</strong>, showing how to write and utilize them in your document.</li>
 </ul>
 <p>The R code chunks are enclosed by <code>```{r}</code> at the beginning and <code>```</code> at the end, such as:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb206-1"><a href="writing-reports-with-r-markdown.html#cb206-1" tabindex="-1"></a><span class="in">```{r cars}</span></span>
-<span id="cb206-2"><a href="writing-reports-with-r-markdown.html#cb206-2" tabindex="-1"></a><span class="in">summary(cars)</span></span>
-<span id="cb206-3"><a href="writing-reports-with-r-markdown.html#cb206-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb207-1"><a href="writing-reports-with-r-markdown.html#cb207-1" tabindex="-1"></a><span class="in">```{r cars}</span></span>
+<span id="cb207-2"><a href="writing-reports-with-r-markdown.html#cb207-2" tabindex="-1"></a><span class="in">summary(cars)</span></span>
+<span id="cb207-3"><a href="writing-reports-with-r-markdown.html#cb207-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>Anything written within these markers is evaluated as R code. On the other hand, anything outside these markers is considered text, formatted using Markdown syntax, and, for mathematical expressions, LaTeX syntax.</p>
 </div>
 <div id="yaml-header" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> YAML Header<a href="writing-reports-with-r-markdown.html#yaml-header" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The YAML header at the top of the R Markdown document, enclosed in <code>---</code>, specifies high-level metadata and options that influence the whole document. It might look like this:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb207-1"><a href="writing-reports-with-r-markdown.html#cb207-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb207-2"><a href="writing-reports-with-r-markdown.html#cb207-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My Document&quot;</span></span>
-<span id="cb207-3"><a href="writing-reports-with-r-markdown.html#cb207-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Your Name&quot;</span></span>
-<span id="cb207-4"><a href="writing-reports-with-r-markdown.html#cb207-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;1/1/2023&quot;</span></span>
-<span id="cb207-5"><a href="writing-reports-with-r-markdown.html#cb207-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
-<span id="cb207-6"><a href="writing-reports-with-r-markdown.html#cb207-6" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb208-1"><a href="writing-reports-with-r-markdown.html#cb208-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb208-2"><a href="writing-reports-with-r-markdown.html#cb208-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My Document&quot;</span></span>
+<span id="cb208-3"><a href="writing-reports-with-r-markdown.html#cb208-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Your Name&quot;</span></span>
+<span id="cb208-4"><a href="writing-reports-with-r-markdown.html#cb208-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;1/1/2023&quot;</span></span>
+<span id="cb208-5"><a href="writing-reports-with-r-markdown.html#cb208-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb208-6"><a href="writing-reports-with-r-markdown.html#cb208-6" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>In this YAML header, the <code>title</code>, <code>author</code>, and <code>date</code> fields define the title, author, and date of the document. The <code>output</code> field specifies the output format of the document (which can be <code>html_document</code>, <code>pdf_document</code>, or <code>word_document</code>, among others).</p>
 </div>
 <div id="markdown-syntax" class="section level2 hasAnchor" number="7.3">
@@ -345,14 +345,14 @@ Figure 7.1: New R Markdown
 <li><code>error</code>: If <code>TRUE</code>, any error that occurs in the chunk will stop the knitting process. If <code>FALSE</code>, errors will be displayed in the output but will not stop the knitting process.</li>
 </ul>
 <p>Here’s an example:</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb208-1"><a href="writing-reports-with-r-markdown.html#cb208-1" tabindex="-1"></a><span class="in">```{r, echo=FALSE, fig.cap=&quot;My Plot Caption&quot;, out.width = &quot;50%&quot;, fig.align=&#39;center&#39;, dpi = 300}</span></span>
-<span id="cb208-2"><a href="writing-reports-with-r-markdown.html#cb208-2" tabindex="-1"></a><span class="in">plot(cars)</span></span>
-<span id="cb208-3"><a href="writing-reports-with-r-markdown.html#cb208-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb209-1"><a href="writing-reports-with-r-markdown.html#cb209-1" tabindex="-1"></a><span class="in">```{r, echo=FALSE, fig.cap=&quot;My Plot Caption&quot;, out.width = &quot;50%&quot;, fig.align=&#39;center&#39;, dpi = 300}</span></span>
+<span id="cb209-2"><a href="writing-reports-with-r-markdown.html#cb209-2" tabindex="-1"></a><span class="in">plot(cars)</span></span>
+<span id="cb209-3"><a href="writing-reports-with-r-markdown.html#cb209-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>This chunk will create a plot, add a caption to it, set the width of the plot to 50% of the text width, align the plot to the center of the document, and output the plot with a resolution of 300 DPI. The actual R code will not be displayed in the final document.</p>
 <p>Instead of specifying options for each code chunk, you can modify the default settings for all code chunks in your document using the <code>knitr::opts_chunk$set()</code> function. For instance, I often include the following code at the start of an R Markdown document, right after the YAML header:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb209-1"><a href="writing-reports-with-r-markdown.html#cb209-1" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb209-2"><a href="writing-reports-with-r-markdown.html#cb209-2" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.align = &quot;center&quot;, out.width = &quot;60%&quot;)</span></span>
-<span id="cb209-3"><a href="writing-reports-with-r-markdown.html#cb209-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb210-1"><a href="writing-reports-with-r-markdown.html#cb210-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb210-2"><a href="writing-reports-with-r-markdown.html#cb210-2" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.align = &quot;center&quot;, out.width = &quot;60%&quot;)</span></span>
+<span id="cb210-3"><a href="writing-reports-with-r-markdown.html#cb210-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>The aforementioned code modifies the default settings for all chunks in the document, as described below:</p>
 <ul>
 <li><code>echo = FALSE</code>: Each chunk’s code will be omitted from the final document, a sensible practice for official documents, as recipients don’t require visibility of code used for graph creation.</li>
@@ -366,15 +366,15 @@ Figure 7.1: New R Markdown
 <h2><span class="header-section-number">7.5</span> Embedding R Variables into Text<a href="writing-reports-with-r-markdown.html#embedding-r-variables-into-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A key strength of R Markdown is the ability to incorporate R variables directly within the Markdown text. This enables a dynamic text where the values are updated as the variables change. You can accomplish this by using the <code>`r variable`</code> syntax. Furthermore, you can format these numbers for enhanced readability.</p>
 <p>To insert the value of an R variable into your text, you encase the variable name in backticks and prepend it with <code>r</code>. Here’s an illustration:</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="writing-reports-with-r-markdown.html#cb210-1" tabindex="-1"></a><span class="co"># R variable defined inside R chunk</span></span>
-<span id="cb210-2"><a href="writing-reports-with-r-markdown.html#cb210-2" tabindex="-1"></a>my_var <span class="ot">&lt;-</span> <span class="fl">123234.53983</span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="writing-reports-with-r-markdown.html#cb211-1" tabindex="-1"></a><span class="co"># R variable defined inside R chunk</span></span>
+<span id="cb211-2"><a href="writing-reports-with-r-markdown.html#cb211-2" tabindex="-1"></a>my_var <span class="ot">&lt;-</span> <span class="fl">123234.53983</span></span></code></pre></div>
 <p>To refer to this variable in your Markdown text, you can write the following text (outside of an R chunk):</p>
 <pre class="rmarkdown"><code>The total amount is `r my_var` USD.</code></pre>
 <p>The output will be: “The total amount is 1.2323454^{5} USD.”</p>
 <p>That’s because when the R Markdown document is knitted, <code>`r my_var`</code> will be replaced by the current value of <code>my_var</code> in your R environment, dynamically embedding the value of <code>my_var</code> into your text.</p>
 <p>Additionally, you can format numbers for better readability by avoiding scientific notation, rounding, and adding a comma as a thousands separator. To do this, you can use the <code>formatC()</code> function in R as follows:</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="writing-reports-with-r-markdown.html#cb212-1" tabindex="-1"></a><span class="co"># R variable with formatting, defined inside R chunk</span></span>
-<span id="cb212-2"><a href="writing-reports-with-r-markdown.html#cb212-2" tabindex="-1"></a>my_var_formatted <span class="ot">&lt;-</span> <span class="fu">formatC</span>(my_var, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="writing-reports-with-r-markdown.html#cb213-1" tabindex="-1"></a><span class="co"># R variable with formatting, defined inside R chunk</span></span>
+<span id="cb213-2"><a href="writing-reports-with-r-markdown.html#cb213-2" tabindex="-1"></a>my_var_formatted <span class="ot">&lt;-</span> <span class="fu">formatC</span>(my_var, <span class="at">format =</span> <span class="st">&quot;f&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 <p>Then, in your text:</p>
 <pre class="rmarkdown"><code>The total amount is `r my_var_formatted` USD.</code></pre>
 <p>The output will be: “The total amount is 123,234.54 USD.”</p>
@@ -410,21 +410,21 @@ $$</code></pre>
 <h2><span class="header-section-number">7.7</span> Printing Tables<a href="writing-reports-with-r-markdown.html#printing-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The R packages <code>kable</code> and <code>kableExtra</code> are great tools for creating professionally formatted tables in your R Markdown documents. Directly printing data without any formatting is not usually advisable as it lacks professionalism and can often be challenging to read and interpret. By contrast, these packages allow you to control the appearance of your tables, leading to better readability and aesthetics.</p>
 <p>You’ll first need to install and load the necessary packages. You can do so by executing <code>install.packages(c("knitr", "kableExtra"))</code> in your console and then load the two packages in the beginning of your code:</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="writing-reports-with-r-markdown.html#cb215-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;knitr&quot;</span>)</span>
-<span id="cb215-2"><a href="writing-reports-with-r-markdown.html#cb215-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;kableExtra&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="writing-reports-with-r-markdown.html#cb216-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;knitr&quot;</span>)</span>
+<span id="cb216-2"><a href="writing-reports-with-r-markdown.html#cb216-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;kableExtra&quot;</span>)</span></code></pre></div>
 <p>Let’s assume we have a simple dataframe <code>df</code> that we want to print:</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="writing-reports-with-r-markdown.html#cb216-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb216-2"><a href="writing-reports-with-r-markdown.html#cb216-2" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Charlie&quot;</span>),</span>
-<span id="cb216-3"><a href="writing-reports-with-r-markdown.html#cb216-3" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">24</span>, <span class="dv">30</span>, <span class="dv">18</span>),</span>
-<span id="cb216-4"><a href="writing-reports-with-r-markdown.html#cb216-4" tabindex="-1"></a>  <span class="at">Gender =</span> <span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Male&quot;</span>)</span>
-<span id="cb216-5"><a href="writing-reports-with-r-markdown.html#cb216-5" tabindex="-1"></a>)</span>
-<span id="cb216-6"><a href="writing-reports-with-r-markdown.html#cb216-6" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="writing-reports-with-r-markdown.html#cb217-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb217-2"><a href="writing-reports-with-r-markdown.html#cb217-2" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Charlie&quot;</span>),</span>
+<span id="cb217-3"><a href="writing-reports-with-r-markdown.html#cb217-3" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">24</span>, <span class="dv">30</span>, <span class="dv">18</span>),</span>
+<span id="cb217-4"><a href="writing-reports-with-r-markdown.html#cb217-4" tabindex="-1"></a>  <span class="at">Gender =</span> <span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Male&quot;</span>)</span>
+<span id="cb217-5"><a href="writing-reports-with-r-markdown.html#cb217-5" tabindex="-1"></a>)</span>
+<span id="cb217-6"><a href="writing-reports-with-r-markdown.html#cb217-6" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##      Name Age Gender
 ## 1   Alice  24 Female
 ## 2     Bob  30   Male
 ## 3 Charlie  18   Male</code></pre>
 <p>You can create a basic table using the <code>kable</code> function from the <code>knitr</code> package:</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="writing-reports-with-r-markdown.html#cb218-1" tabindex="-1"></a><span class="fu">kable</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="writing-reports-with-r-markdown.html#cb219-1" tabindex="-1"></a><span class="fu">kable</span>(df)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -476,9 +476,9 @@ Male
 </tbody>
 </table>
 <p>This will generate a simple, well-formatted table. However, you can further customize the table’s appearance using functions from the <code>kableExtra</code> package:</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="writing-reports-with-r-markdown.html#cb219-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb219-2"><a href="writing-reports-with-r-markdown.html#cb219-2" tabindex="-1"></a>  <span class="fu">kable</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb219-3"><a href="writing-reports-with-r-markdown.html#cb219-3" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="st">&quot;striped&quot;</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="writing-reports-with-r-markdown.html#cb220-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb220-2"><a href="writing-reports-with-r-markdown.html#cb220-2" tabindex="-1"></a>  <span class="fu">kable</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb220-3"><a href="writing-reports-with-r-markdown.html#cb220-3" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="st">&quot;striped&quot;</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -531,12 +531,12 @@ Male
 </table>
 <p>This code generates a striped table, which alternates row colors for easier reading. The <code>full_width = FALSE</code> argument ensures the table only takes up as much width as necessary.</p>
 <p>Adding a caption to your table is straightforward. Simply provide the <code>caption</code> argument to the <code>kable</code> function:</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="writing-reports-with-r-markdown.html#cb220-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb220-2"><a href="writing-reports-with-r-markdown.html#cb220-2" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;A table of sample data.&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb220-3"><a href="writing-reports-with-r-markdown.html#cb220-3" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="st">&quot;striped&quot;</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="writing-reports-with-r-markdown.html#cb221-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb221-2"><a href="writing-reports-with-r-markdown.html#cb221-2" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;A table of sample data.&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb221-3"><a href="writing-reports-with-r-markdown.html#cb221-3" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="st">&quot;striped&quot;</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-77">Table 7.1: </span>A table of sample data.
+<span id="tab:unnamed-chunk-79">Table 7.1: </span>A table of sample data.
 </caption>
 <thead>
 <tr>
@@ -645,7 +645,10 @@ gitbook.start({
 "text": null
 },
 "download": [["daer.pdf", "PDF"]],
-"search": false,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

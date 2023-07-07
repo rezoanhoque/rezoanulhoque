@@ -343,13 +343,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="software-installation.html#cb1-2" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="at">Symbols=</span><span class="st">&quot;^GSPC&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;GSPC&quot;</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="software-installation.html#cb3-1" tabindex="-1"></a><span class="fu">head</span>(GSPC)</span></code></pre></div>
-<pre><code>##            GSPC.Open GSPC.High GSPC.Low GSPC.Close GSPC.Volume GSPC.Adjusted
-## 2007-01-03   1418.03   1429.42  1407.86    1416.60  3429160000       1416.60
-## 2007-01-04   1416.60   1421.84  1408.43    1418.34  3004460000       1418.34
-## 2007-01-05   1418.34   1418.34  1405.75    1409.71  2919400000       1409.71
-## 2007-01-08   1409.26   1414.98  1403.97    1412.84  2763340000       1412.84
-## 2007-01-09   1412.84   1415.61  1405.42    1412.11  3038380000       1412.11
-## 2007-01-10   1408.70   1415.99  1405.32    1414.85  2764660000       1414.85</code></pre>
+<pre><code>##            GSPC.Open GSPC.High GSPC.Low GSPC.Close GSPC.Volume
+## 2007-01-03   1418.03   1429.42  1407.86    1416.60  3429160000
+## 2007-01-04   1416.60   1421.84  1408.43    1418.34  3004460000
+## 2007-01-05   1418.34   1418.34  1405.75    1409.71  2919400000
+## 2007-01-08   1409.26   1414.98  1403.97    1412.84  2763340000
+## 2007-01-09   1412.84   1415.61  1405.42    1412.11  3038380000
+## 2007-01-10   1408.70   1415.99  1405.32    1414.85  2764660000
+##            GSPC.Adjusted
+## 2007-01-03       1416.60
+## 2007-01-04       1418.34
+## 2007-01-05       1409.71
+## 2007-01-08       1412.84
+## 2007-01-09       1412.11
+## 2007-01-10       1414.85</code></pre>
 <p>Here, the <code>getSymbols</code> function retrieves the historical data for the S&amp;P 500 index from Yahoo Finance, and stores it in the <code>GSPC</code> object. The <code>head</code> function then displays the first few rows of the downloaded data.</p>
 <p>R packages provide a wealth of specialized functions for specific tasks. To use a function from a particular package, you can indicate the package by preceding the function with the package name followed by a double colon <code>::</code>. For example, <code>quantmod::getSymbols()</code> specifies the <code>getSymbols()</code> function from the <code>quantmod</code> package. This practice helps to avoid conflicts when multiple packages provide functions with the same name. It also allows users to easily identify the package associated with the function, promoting clarity and reproducibility in code.</p>
 </div>
@@ -377,7 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-2"><a href="software-installation.html#cb5-2" tabindex="-1"></a>treasury10y <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="at">Symbols =</span> <span class="st">&quot;GS10&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>, <span class="at">auto.assign =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb5-3"><a href="software-installation.html#cb5-3" tabindex="-1"></a><span class="fu">plot</span>(treasury10y, <span class="at">main =</span> <span class="st">&quot;10-Year Treasury Rate&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:r-plot"></span>
-<img src="daer_files/figure-html/r-plot-1.png" alt="R Plot" width="80%" />
+<img src="_main_files/figure-html/r-plot-1.png" alt="R Plot" width="80%" />
 <p class="caption">
 Figure 2.1: R Plot
 </p>
@@ -518,7 +525,10 @@ gitbook.start({
 "text": null
 },
 "download": [["daer.pdf", "PDF"]],
-"search": false,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
