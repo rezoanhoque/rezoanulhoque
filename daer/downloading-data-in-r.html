@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-07-04" />
+<meta name="date" content="2023-07-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -272,12 +272,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If your computer is connected to the internet, you can directly download data within R, bypassing the need to download data files and import the data in R as described in Chapter <a href="importing-data-in-r.html#importing-data-in-r">5</a>. This chapter focuses on how to download (and save) financial and economic data in R using an Application Programming Interface (API). Primarily, we’ll be using two web APIs: <code>getSymbols()</code> from the <code>quantmod</code> package and <code>Quandl()</code> from the <code>Quandl</code> package.</p>
 <div id="web-api" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Web API<a href="downloading-data-in-r.html#web-api" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A <a href="https://en.wikipedia.org/wiki/Web_API">Web API</a> or Application Programming Interface is a tool that allows software applications to communicate with each other. It enables users to download or upload data from or to a server.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Web_API" target="_blank">Web API</a> or Application Programming Interface is a tool that allows software applications to communicate with each other. It enables users to download or upload data from or to a server.</p>
 <p>There are several economic databases that provide web APIs:</p>
 <ul>
-<li>International Monetary Fund (IMF) data can be downloaded in R directly through the <a href="https://cran.r-project.org/web/packages/imfr/imfr.pdf"><code>imfr</code></a> package</li>
-<li>Bank for International Settlements (BIS) data can be accessed using the <a href="https://cran.r-project.org/web/packages/BIS/vignettes/BIS.html"><code>BIS</code></a> package</li>
-<li>Organization for Economic Co-operation and Development (OECD) data is available through the <a href="https://cran.r-project.org/web/packages/OECD/OECD.pdf"><code>OECD</code></a> package</li>
+<li>International Monetary Fund (IMF) data can be downloaded in R directly through the <a href="https://cran.r-project.org/web/packages/imfr/imfr.pdf" target="_blank"><code>imfr</code></a> package</li>
+<li>Bank for International Settlements (BIS) data can be accessed using the <a href="https://cran.r-project.org/web/packages/BIS/vignettes/BIS.html" target="_blank"><code>BIS</code></a> package</li>
+<li>Organization for Economic Co-operation and Development (OECD) data is available through the <a href="https://cran.r-project.org/web/packages/OECD/OECD.pdf" target="_blank"><code>OECD</code></a> package</li>
 </ul>
 <p>You can find more APIs for specific databases by searching “<em>r web api name_of_database</em>” in Google.</p>
 </div>
@@ -296,27 +296,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb193-10"><a href="downloading-data-in-r.html#cb193-10" tabindex="-1"></a></span>
 <span id="cb193-11"><a href="downloading-data-in-r.html#cb193-11" tabindex="-1"></a><span class="co"># Display the most recent downloaded stock prices</span></span>
 <span id="cb193-12"><a href="downloading-data-in-r.html#cb193-12" tabindex="-1"></a><span class="fu">tail</span>(AAPL_stock_price)</span></code></pre></div>
-<pre><code>##            AAPL.Open AAPL.High AAPL.Low
-## 2023-06-26    186.83    188.05   185.23
-## 2023-06-27    185.89    188.39   185.67
-## 2023-06-28    187.93    189.90   187.60
-## 2023-06-29    189.08    190.07   188.94
-## 2023-06-30    191.63    194.48   191.26
-## 2023-07-03    193.78    193.88   191.76
-##            AAPL.Close AAPL.Volume
-## 2023-06-26     185.27    48088700
-## 2023-06-27     188.06    50730800
-## 2023-06-28     189.25    51216800
-## 2023-06-29     189.59    46347300
-## 2023-06-30     193.97    85069600
-## 2023-07-03     192.46    31458200
-##            AAPL.Adjusted
-## 2023-06-26        185.27
-## 2023-06-27        188.06
-## 2023-06-28        189.25
-## 2023-06-29        189.59
-## 2023-06-30        193.97
-## 2023-07-03        192.46</code></pre>
+<pre><code>##            AAPL.Open AAPL.High AAPL.Low AAPL.Close AAPL.Volume AAPL.Adjusted
+## 2023-06-28    187.93    189.90   187.60     189.25    51216800        189.25
+## 2023-06-29    189.08    190.07   188.94     189.59    46347300        189.59
+## 2023-06-30    191.63    194.48   191.26     193.97    85069600        193.97
+## 2023-07-03    193.78    193.88   191.76     192.46    31458200        192.46
+## 2023-07-05    191.57    192.98   190.62     191.33    46920300        191.33
+## 2023-07-06    189.84    192.02   189.20     191.81    45094300        191.81</code></pre>
 <p>The arguments in this context are:</p>
 <ul>
 <li><code>Symbols</code>: Specifies the instrument to import. This could be a stock ticker symbol, exchange rate, economic data series, or any other identifier.</li>
@@ -324,8 +310,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>return.class</code>: Determines the type of data object returned, e.g., <code>ts</code>, <code>zoo</code>, <code>xts</code>, or <code>timeSeries</code>.</li>
 <li><code>src</code>: Denotes the data source from which the symbol originates. Some examples include “yahoo” for Yahoo! Finance, “google” for Google Finance, “FRED” for Federal Reserve Economic Data, and “oanda” for Oanda foreign exchange rates.</li>
 </ul>
-<p>To find the correct symbol for financial data from <strong>Yahoo! Finance</strong>, visit <a href="https://finance.yahoo.com">finance.yahoo.com</a> and search for the company of interest, e.g., Apple. The symbol is the series of letters inside parentheses. For example, for <code>Apple Inc. (AAPL)</code>, use <code>Symbols = "AAPL"</code> (and <code>src = "yahoo"</code>). Yahoo! Finance provides stock price data in various columns, such as <code>AAPL.Open</code>, <code>AAPL.High</code>, <code>AAPL.Low</code>, <code>AAPL.Close</code>, <code>AAPL.Volume</code>, and <code>AAPL.Adjusted</code>. These values represent the opening, highest, lowest, and closing prices for a given market day, the trade volume for that day, and the adjusted value, which accounts for stock splits. Typically, the <code>AAPL.Adjusted</code> column is of most interest.</p>
-<p>For economic data from <strong>FRED</strong>, visit <a href="https://fred.stlouisfed.org">fred.stlouisfed.org</a>, and search for the data series of interest, e.g., unemployment rate. Click on one of the suggested data series. The symbol is the series of letters inside parentheses. For example, for <code>Unemployment Rate (UNRATE)</code>, use <code>Symbols = "UNRATE"</code> (and <code>src = "FRED"</code>).</p>
+<p>To find the correct symbol for financial data from <strong>Yahoo! Finance</strong>, visit <a href="https://finance.yahoo.com" target="_blank">finance.yahoo.com</a> and search for the company of interest, e.g., Apple. The symbol is the series of letters inside parentheses. For example, for <code>Apple Inc. (AAPL)</code>, use <code>Symbols = "AAPL"</code> (and <code>src = "yahoo"</code>). Yahoo! Finance provides stock price data in various columns, such as <code>AAPL.Open</code>, <code>AAPL.High</code>, <code>AAPL.Low</code>, <code>AAPL.Close</code>, <code>AAPL.Volume</code>, and <code>AAPL.Adjusted</code>. These values represent the opening, highest, lowest, and closing prices for a given market day, the trade volume for that day, and the adjusted value, which accounts for stock splits. Typically, the <code>AAPL.Adjusted</code> column is of most interest.</p>
+<p>For economic data from <strong>FRED</strong>, visit <a href="https://fred.stlouisfed.org" target="_blank">fred.stlouisfed.org</a>, and search for the data series of interest, e.g., unemployment rate. Click on one of the suggested data series. The symbol is the series of letters inside parentheses. For example, for <code>Unemployment Rate (UNRATE)</code>, use <code>Symbols = "UNRATE"</code> (and <code>src = "FRED"</code>).</p>
 <p>The downloaded data is returned as an <code>xts</code> object, a format we discuss in Chapter <a href="r-data-types-and-structures.html#xts">4.8</a>. Let’s visualize the Apple stock prices using the <code>plot()</code> function:</p>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="downloading-data-in-r.html#cb195-1" tabindex="-1"></a><span class="co"># Extract adjusted Apple share price</span></span>
 <span id="cb195-2"><a href="downloading-data-in-r.html#cb195-2" tabindex="-1"></a>AAPL_stock_price_adj <span class="ot">&lt;-</span> <span class="fu">Ad</span>(AAPL_stock_price)</span>
@@ -375,8 +361,8 @@ Figure 6.3: Logarithm of Apple Share Price
 </div>
 <div id="using-quandl" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Using <code>Quandl()</code><a href="downloading-data-in-r.html#using-quandl" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://data.nasdaq.com">Quandl</a> is a data service that provides access to many financial and economic data sets from various providers. It has been acquired by <a href="https://data.nasdaq.com">Nasdaq Data Link</a> and is now operating through the Nasdaq data website: <a href="https://data.nasdaq.com">data.nasdaq.com</a>. Some data sets require a paid subscription, while others can be accessed for free. Quandl provides an API that allows you to import data from a wide variety of languages, including Excel, Python, and R.</p>
-<p>To use Quandl, first get a free Nasdaq Data Link API key at <a href="https://data.nasdaq.com/sign-up">data.nasdaq.com/sign-up</a>. After that, install and load the Quandl package, and provide the API key with the function <code>Quandl.api_key()</code>:</p>
+<p><a href="https://data.nasdaq.com" target="_blank">Quandl</a> is a data service that provides access to many financial and economic data sets from various providers. It has been acquired by <a href="https://data.nasdaq.com" target="_blank">Nasdaq Data Link</a> and is now operating through the Nasdaq data website: <a href="https://data.nasdaq.com" target="_blank">data.nasdaq.com</a>. Some data sets require a paid subscription, while others can be accessed for free. Quandl provides an API that allows you to import data from a wide variety of languages, including Excel, Python, and R.</p>
+<p>To use Quandl, first get a free Nasdaq Data Link API key at <a href="https://data.nasdaq.com/sign-up" target="_blank">data.nasdaq.com/sign-up</a>. After that, install and load the Quandl package, and provide the API key with the function <code>Quandl.api_key()</code>:</p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="downloading-data-in-r.html#cb198-1" tabindex="-1"></a><span class="co"># Load Quandl package</span></span>
 <span id="cb198-2"><a href="downloading-data-in-r.html#cb198-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;Quandl&quot;</span>)</span>
 <span id="cb198-3"><a href="downloading-data-in-r.html#cb198-3" tabindex="-1"></a></span>
@@ -390,14 +376,14 @@ Figure 6.3: Logarithm of Apple Share Price
 <span id="cb199-4"><a href="downloading-data-in-r.html#cb199-4" tabindex="-1"></a><span class="co"># Display the downloaded crude oil prices</span></span>
 <span id="cb199-5"><a href="downloading-data-in-r.html#cb199-5" tabindex="-1"></a><span class="fu">tail</span>(OPEC_oil_price)</span></code></pre></div>
 <pre><code>##             [,1]
-## 2023-06-26 74.65
-## 2023-06-27 75.15
-## 2023-06-28 74.38
 ## 2023-06-29 74.34
 ## 2023-06-30 76.14
-## 2023-07-03 76.12</code></pre>
+## 2023-07-03 76.12
+## 2023-07-04 76.18
+## 2023-07-05 76.60
+## 2023-07-06 77.56</code></pre>
 <p>Here, the <code>code</code> argument refers to both the data source and the symbol in the format “<code>source/symbol</code>”. The <code>type</code> argument specifies the type of data object: <code>data.frame</code>, <code>xts</code>, <code>zoo</code>, <code>ts</code>, or <code>timeSeries</code>.</p>
-<p>To find the correct code for the Quandl function, visit <a href="https://data.nasdaq.com">data.nasdaq.com</a>, and search for the data series of interest (e.g., oil price). The code is the series of letters listed in the left column, structured like this: <code>.../...</code>, where <code>...</code> are letters. For example, for the OPEC crude oil price, use <code>code = "OPEC/ORB"</code>.</p>
+<p>To find the correct code for the Quandl function, visit <a href="https://data.nasdaq.com" target="_blank">data.nasdaq.com</a>, and search for the data series of interest (e.g., oil price). The code is the series of letters listed in the left column, structured like this: <code>.../...</code>, where <code>...</code> are letters. For example, for the OPEC crude oil price, use <code>code = "OPEC/ORB"</code>.</p>
 <p>Now, we’ll use the <code>plot.zoo()</code> function to graph the crude oil price:</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="downloading-data-in-r.html#cb201-1" tabindex="-1"></a><span class="co"># Plot crude oil prices</span></span>
 <span id="cb201-2"><a href="downloading-data-in-r.html#cb201-2" tabindex="-1"></a><span class="fu">plot.zoo</span>(OPEC_oil_price,</span>
@@ -464,16 +450,16 @@ Figure 6.5: Logarithm of OPEC Crude Oil Price
 </ol>
 <p>To save the file in a directory other than your current working directory (which can be determined using <code>getwd()</code>), replace <code>"AAPL.csv"</code> with the full path. For instance, you might use <code>file = "/Users/yourname/folder/AAPL.csv"</code>.</p>
 <p>Refer to Chapter <a href="importing-data-in-r.html#importing-data-in-r">5</a> for guidance on importing these CSV, TSV, and Excel data files into R.</p>
-<p>For more in-depth understanding and examples, consider taking DataCamp’s <a href="https://learn.datacamp.com/courses/introduction-to-importing-data-in-r">Introduction to Importing Data in R</a> course.</p>
+<p>For more in-depth understanding and examples, consider taking DataCamp’s <a href="https://learn.datacamp.com/courses/introduction-to-importing-data-in-r" target="_blank">Introduction to Importing Data in R</a> course.</p>
 </div>
 <div id="summary-and-resources" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> Summary and Resources<a href="downloading-data-in-r.html#summary-and-resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This chapter has provided insights into multiple ways of downloading and saving data using various APIs. We specifically focused on the use of <code>getSymbols()</code> and <code>Quandl()</code> for downloading financial and economic data directly within R, then saving the data in different formats for future use.</p>
-<p>To further enhance your knowledge and skills in working with data in R, consider the following <a href="https://learn.datacamp.com/">DataCamp</a> courses:</p>
+<p>To further enhance your knowledge and skills in working with data in R, consider the following <a href="https://learn.datacamp.com/" target="_blank">DataCamp</a> courses:</p>
 <ul>
-<li><a href="https://learn.datacamp.com/courses/importing-and-managing-financial-data-in-r">Importing and Managing Financial Data in R</a>: Gain a solid understanding of how to import and manage financial data in R.</li>
-<li><a href="https://learn.datacamp.com/courses/intermediate-importing-data-in-r">Intermediate Importing Data in R</a>: Build upon your data importing skills and learn how to handle larger and more complex datasets.</li>
-<li><a href="https://learn.datacamp.com/courses/working-with-web-data-in-r">Working with Web Data in R</a>: Learn to process and analyze data from the web using R.</li>
+<li><a href="https://learn.datacamp.com/courses/importing-and-managing-financial-data-in-r" target="_blank">Importing and Managing Financial Data in R</a>: Gain a solid understanding of how to import and manage financial data in R.</li>
+<li><a href="https://learn.datacamp.com/courses/intermediate-importing-data-in-r" target="_blank">Intermediate Importing Data in R</a>: Build upon your data importing skills and learn how to handle larger and more complex datasets.</li>
+<li><a href="https://learn.datacamp.com/courses/working-with-web-data-in-r" target="_blank">Working with Web Data in R</a>: Learn to process and analyze data from the web using R.</li>
 </ul>
 </div>
 </div>
@@ -525,7 +511,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": [["daer.pdf", "PDF"]],
 "search": false,
 "toc": {
 "collapse": "subsection"

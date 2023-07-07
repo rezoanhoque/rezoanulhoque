@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-07-04" />
+<meta name="date" content="2023-07-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -343,27 +343,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="software-installation.html#cb1-2" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="at">Symbols=</span><span class="st">&quot;^GSPC&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;GSPC&quot;</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="software-installation.html#cb3-1" tabindex="-1"></a><span class="fu">head</span>(GSPC)</span></code></pre></div>
-<pre><code>##            GSPC.Open GSPC.High GSPC.Low
-## 2007-01-03   1418.03   1429.42  1407.86
-## 2007-01-04   1416.60   1421.84  1408.43
-## 2007-01-05   1418.34   1418.34  1405.75
-## 2007-01-08   1409.26   1414.98  1403.97
-## 2007-01-09   1412.84   1415.61  1405.42
-## 2007-01-10   1408.70   1415.99  1405.32
-##            GSPC.Close GSPC.Volume
-## 2007-01-03    1416.60  3429160000
-## 2007-01-04    1418.34  3004460000
-## 2007-01-05    1409.71  2919400000
-## 2007-01-08    1412.84  2763340000
-## 2007-01-09    1412.11  3038380000
-## 2007-01-10    1414.85  2764660000
-##            GSPC.Adjusted
-## 2007-01-03       1416.60
-## 2007-01-04       1418.34
-## 2007-01-05       1409.71
-## 2007-01-08       1412.84
-## 2007-01-09       1412.11
-## 2007-01-10       1414.85</code></pre>
+<pre><code>##            GSPC.Open GSPC.High GSPC.Low GSPC.Close GSPC.Volume GSPC.Adjusted
+## 2007-01-03   1418.03   1429.42  1407.86    1416.60  3429160000       1416.60
+## 2007-01-04   1416.60   1421.84  1408.43    1418.34  3004460000       1418.34
+## 2007-01-05   1418.34   1418.34  1405.75    1409.71  2919400000       1409.71
+## 2007-01-08   1409.26   1414.98  1403.97    1412.84  2763340000       1412.84
+## 2007-01-09   1412.84   1415.61  1405.42    1412.11  3038380000       1412.11
+## 2007-01-10   1408.70   1415.99  1405.32    1414.85  2764660000       1414.85</code></pre>
 <p>Here, the <code>getSymbols</code> function retrieves the historical data for the S&amp;P 500 index from Yahoo Finance, and stores it in the <code>GSPC</code> object. The <code>head</code> function then displays the first few rows of the downloaded data.</p>
 <p>R packages provide a wealth of specialized functions for specific tasks. To use a function from a particular package, you can indicate the package by preceding the function with the package name followed by a double colon <code>::</code>. For example, <code>quantmod::getSymbols()</code> specifies the <code>getSymbols()</code> function from the <code>quantmod</code> package. This practice helps to avoid conflicts when multiple packages provide functions with the same name. It also allows users to easily identify the package associated with the function, promoting clarity and reproducibility in code.</p>
 </div>
@@ -372,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To ensure that <a href="https://www.r-project.org/" target="_blank"><code>R</code></a>, <a href="https://rstudio.com/" target="_blank"><code>RStudio</code></a>, <a href="https://rmarkdown.rstudio.com/" target="_blank"><code>R Markdown</code></a>, and <a href="https://www.latex-project.org/" target="_blank"><code>LaTeX</code></a> are installed properly, you can follow the 18-step test provided below. This test will help verify the functionality of the installed programs and identify any potential issues or errors.</p>
 <p>During this process, you may encounter the following issues:</p>
 <ul>
-<li><p><strong>Issue with Generating PDF</strong>: If you are unable to generate a PDF file in step 15, it is likely due to an issue with the installation of <a href="https://www.latex-project.org/">LaTeX</a>. In such cases, please revisit the instructions for installing LaTeX in Chapter <a href="software-installation.html#install-latex">2.4</a> and ensure you have followed them correctly. Alternatively, you can consider installing <a href="https://www.tug.org/mactex/">MacTeX</a> or <a href="https://miktex.org/">MiKTeX</a> instead of <a href="https://yihui.org/tinytex/">TinyTeX</a>.</p></li>
+<li><p><strong>Issue with Generating PDF</strong>: If you are unable to generate a PDF file in step 15, it is likely due to an issue with the installation of <a href="https://www.latex-project.org/">LaTeX</a>. In such cases, please revisit the instructions for installing LaTeX in Chapter <a href="software-installation.html#install-latex">2.4</a> and ensure you have followed them correctly. Alternatively, you can consider installing <a href="https://www.tug.org/mactex/" target="_blank">MacTeX</a> or <a href="https://miktex.org/" target="_blank">MiKTeX</a> instead of <a href="https://yihui.org/tinytex/">TinyTeX</a>.</p></li>
 <li><p><strong>Non-Latin Alphabet Language</strong>: If your computer language is not based on the Latin alphabet (e.g., Chinese, Arabic, Farsi, Russian, etc.), additional instructions may be required. You can refer to this video for specific guidance: <a href="https://youtu.be/pX_fy2fyM30">youtu.be/pX_fy2fyM30</a>.</p></li>
 </ul>
 <p>I encourage you to persist and do your best to install all the required software, even if it takes some time. Downloading and installing programs is a critical skill that is essential in almost every profession today. This is an excellent opportunity to acquire this skill.</p>
@@ -531,7 +517,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": [["daer.pdf", "PDF"]],
 "search": false,
 "toc": {
 "collapse": "subsection"

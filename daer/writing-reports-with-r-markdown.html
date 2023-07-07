@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-07-04" />
+<meta name="date" content="2023-07-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -396,7 +396,9 @@ Figure 7.1: New R Markdown
 </ul>
 <p>If you want to display an equation on its own line, you can use double dollar signs (<code>$$</code>). For example:</p>
 <pre><code>$$
-\% \Delta Y_t \equiv \frac{Y_t - Y_{t-1}}{Y_{t-1}} \approx 100 \left( \ln (Y_t) - \ln (Y_{t-1}) \right)
+\% \Delta Y_t 
+\equiv \frac{Y_t - Y_{t-1}}{Y_{t-1}} 
+\approx 100 \left( \ln (Y_t) - \ln (Y_{t-1}) \right)
 $$</code></pre>
 <p>This will be rendered as:
 <span class="math display" id="eq:growth">\[
@@ -475,7 +477,7 @@ Male
 </table>
 <p>This will generate a simple, well-formatted table. However, you can further customize the table’s appearance using functions from the <code>kableExtra</code> package:</p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="writing-reports-with-r-markdown.html#cb219-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb219-2"><a href="writing-reports-with-r-markdown.html#cb219-2" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="st">&quot;html&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb219-2"><a href="writing-reports-with-r-markdown.html#cb219-2" tabindex="-1"></a>  <span class="fu">kable</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb219-3"><a href="writing-reports-with-r-markdown.html#cb219-3" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="st">&quot;striped&quot;</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -527,14 +529,14 @@ Male
 </tr>
 </tbody>
 </table>
-<p>This code generates a striped HTML table, which alternates row colors for easier reading. The <code>full_width = FALSE</code> argument ensures the table only takes up as much width as necessary.</p>
+<p>This code generates a striped table, which alternates row colors for easier reading. The <code>full_width = FALSE</code> argument ensures the table only takes up as much width as necessary.</p>
 <p>Adding a caption to your table is straightforward. Simply provide the <code>caption</code> argument to the <code>kable</code> function:</p>
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="writing-reports-with-r-markdown.html#cb220-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb220-2"><a href="writing-reports-with-r-markdown.html#cb220-2" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="st">&quot;html&quot;</span>, <span class="at">caption =</span> <span class="st">&quot;A table of sample data.&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb220-2"><a href="writing-reports-with-r-markdown.html#cb220-2" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;A table of sample data.&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb220-3"><a href="writing-reports-with-r-markdown.html#cb220-3" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="st">&quot;striped&quot;</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-78">Table 7.1: </span>A table of sample data.
+<span id="tab:unnamed-chunk-77">Table 7.1: </span>A table of sample data.
 </caption>
 <thead>
 <tr>
@@ -585,13 +587,13 @@ Male
 </tr>
 </tbody>
 </table>
-<p>This code generates the same striped HTML table, but now with a caption: “A table of sample data.”</p>
+<p>This code generates the same striped table, but now with a caption: “A table of sample data.”</p>
 <p>These are just the basics. Both <code>kable</code> and <code>kableExtra</code> provide numerous options for customizing your tables. I encourage you to explore their documentation and experiment with different settings.</p>
 </div>
 <div id="summary-and-resources-1" class="section level2 hasAnchor" number="7.8">
 <h2><span class="header-section-number">7.8</span> Summary and Resources<a href="writing-reports-with-r-markdown.html#summary-and-resources-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R Markdown provides a powerful framework for dynamically generating reports in R. The “dynamic” part of “dynamically generating reports” means that the document is able to update automatically when your data changes. By understanding and effectively using Markdown syntax, R code chunks, chunk options, and YAML headers, you can create sophisticated, reproducible documents with ease like the document you are currently reading.</p>
-<p>For an in-depth understanding of R Markdown, you may want to delve into <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>, an extensive resource on the topic. Additionally, DataCamp’s course <a href="https://learn.datacamp.com/courses/reporting-with-rmarkdown">Reporting with R Markdown</a> provides practical lessons on how to create compelling reports using this tool.</p>
+<p>For an in-depth understanding of R Markdown, you may want to delve into <a href="https://bookdown.org/yihui/rmarkdown/" target="_blank">R Markdown: The Definitive Guide</a>, an extensive resource on the topic. Additionally, DataCamp’s course <a href="https://learn.datacamp.com/courses/reporting-with-rmarkdown" target="_blank">Reporting with R Markdown</a> provides practical lessons on how to create compelling reports using this tool.</p>
 </div>
 </div>
             </section>
@@ -642,7 +644,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": [["daer.pdf", "PDF"]],
 "search": false,
 "toc": {
 "collapse": "subsection"

@@ -11,8 +11,17 @@ output:
           <li><a href="index.html">Data Analysis for Economic Research</a></li>
         after: |
           <li><a href="https://www.julianfludwig.com/" target="blank">Julian F. Ludwig</a></li>
+      download:
+      - ["daer.pdf", "PDF"]
+      search:
+        engine: fuse
+        options: 
+          isCaseSensitive: false
+          findAllMatches: true
+          includeScore: false
+          ignoreLocation: true
+          ignoreFieldNorm: true
       # edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
-      download: ["pdf", "epub"]
   # bookdown::html_document2:
   #   toc: true
   #   number_sections: true
@@ -20,6 +29,9 @@ output:
   #     collapsed: true
   #     smooth_scroll: true
   #   fig_caption: true
+params:
+  pdf_output: FALSE
+colorlinks: true
 ---
 
 
@@ -40,6 +52,23 @@ file.copy("preface.html", "tmp")
 file.rename(from = "tmp/preface.html", to = "tmp/index.html")
 file.copy("tmp/index.html", "index.html", overwrite = TRUE)
 unlink("tmp", recursive = TRUE)
+```
+
+
+```{r save_as_pdf, eval=FALSE, echo=FALSE}
+#========================================================================================
+# Create PDF file
+#========================================================================================
+# Set working directory to current file location
+file_directory_name <- rstudioapi::getActiveDocumentContext()$path
+file_directory <- dirname(file_directory_name)
+file_name <- basename(file_directory_name)
+setwd(file_directory) 
+# Render R Markdown file to PDF output
+rmarkdown::render(file_name,  
+                  encoding = 'UTF-8',
+                  output_format = bookdown::pdf_book(),
+                  params = list(pdf_output = TRUE))
 ```
 
 
@@ -213,26 +242,8 @@ Quandl.api_key("CxtuMe8zyR_4qJgekZw5")
 ```
 
 
-```{r, include=FALSE}
-#========================================================================================
-# Course Options
-#========================================================================================
-# User interface (ui):
-ui <- list()
-# Server
-se <- list()
 
-#++++++++++++++++++++++++++++++++
-# General
-#++++++++++++++++++++++++++++++++
-ui$link$datacamp <- "https://www.datacamp.com/"
-
-
-```
-
-
-
-
+\newpage
 
 # *Preface* {-}
 
@@ -245,11 +256,11 @@ knitr::include_graphics("files/dreamstudio/1714417634_Economic Research Data Ana
 
 ## Introduction {-}
 
-This book is your guide to preparing for a career in Economics and Finance. In these fields, you need to be good at interpreting data and presenting it effectively. This book will help you build your data science and analytics skills and apply those to answer questions in the fields of Economics and Finance.
+This book is your guide to preparing for a career in Economics and Finance. These fields need you to be great at understanding and explaining data. This book will help you improve your data science and analytics skills, and use them to answer questions about business cycles, economic growth, and financial markets.
 
-But it's not all about programming skills. We also delve into the world of economic indicators, offering insights into business cycles and regional differences in economic performance. You'll learn about traditional measures like GDP growth, inflation, money supply, and interest rates. But we also cover survey- and text-based indicators that have recently gained popularity. These include consumer confidence indices, forecaster data, real-time data, and text-based indicators of economic uncertainty. The latter is derived from language analysis of newspapers, social media posts, or Google searches.
+A significant part of this book is about teaching you how to program in R, a popular language used for data analysis and graphics. You'll also learn how to use complementary software like RStudio, R Markdown, and LaTeX to craft professional reports that showcase your data analyses.
 
-If you work your way through this book, you'll be ready to analyze data on a wide range of economic and financial topics. Your learning progress will be assessed based on the completion of [DataCamp](https://www.datacamp.com){target="_blank"} courses and the production of three data reports.
+But it's not all about coding. We'll also explore economic indicators to help you understand business cycles and regional differences in economic performance. You'll learn about traditional measures like GDP growth, inflation, money supply, and interest rates. We also touch on newer, survey- and text-based indicators, such as consumer confidence indices and news-based indicators of economic uncertainty, which come from language analysis of newspapers, social media, or Google searches.
 
 The book is divided into three modules:
 
@@ -258,6 +269,8 @@ The book is divided into three modules:
 - [*Module III: Survey- and Text-Based Economic Indicators*]
 
 Each module builds on the previous one, providing you with a coherent learning journey.
+
+By the time you finish this book, you'll be ready to analyze a wide range of economic and financial data. Your learning progress will be assessed based on the completion of [DataCamp](https://www.datacamp.com){target="_blank"} courses and the production of three data reports, one for each module.
 
 
 
@@ -271,9 +284,15 @@ Each module builds on the previous one, providing you with a coherent learning j
 
 
 
-```{r photo, echo = FALSE, out.width = '70%'}
+```{r photo_html_output, echo = FALSE, out.width = '70%', eval = !params$pdf_output}
 knitr::include_graphics("files/jfl.png")
 ```
+
+
+```{r photo_pdf_output, echo = FALSE, out.width = '20%', eval = params$pdf_output}
+knitr::include_graphics("files/jfl.png")
+```
+
 
 :::
 
@@ -283,12 +302,12 @@ Julian F. Ludwig \
 Assistant Professor \
 Department of Economics \
 Texas Tech University \
-[253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall) \
+[253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall){target="_blank"} \
 Lubbock, TX 79409
 
 
-Website: [www.julianfludwig.com](https://www.julianfludwig.com/) \
-Email: [julian.ludwig@ttu.edu](mailto:julian.ludwig@ttu.edu) \
+Website: [www.julianfludwig.com](https://www.julianfludwig.com/){target="_blank"} \
+Email: [julian.ludwig@ttu.edu](mailto:julian.ludwig@ttu.edu){target="_blank"} \
 
 
 :::
@@ -527,7 +546,7 @@ To ensure that [`R`](https://www.r-project.org/){target="_blank"}, [`RStudio`](h
 
 During this process, you may encounter the following issues:
 
-- **Issue with Generating PDF**: If you are unable to generate a PDF file in step 15, it is likely due to an issue with the installation of [LaTeX](https://www.latex-project.org/). In such cases, please revisit the instructions for installing LaTeX in Chapter \@ref(install-latex) and ensure you have followed them correctly. Alternatively, you can consider installing [MacTeX](https://www.tug.org/mactex/) or [MiKTeX](https://miktex.org/) instead of [TinyTeX](https://yihui.org/tinytex/).
+- **Issue with Generating PDF**: If you are unable to generate a PDF file in step 15, it is likely due to an issue with the installation of [LaTeX](https://www.latex-project.org/). In such cases, please revisit the instructions for installing LaTeX in Chapter \@ref(install-latex) and ensure you have followed them correctly. Alternatively, you can consider installing [MacTeX](https://www.tug.org/mactex/){target="_blank"} or [MiKTeX](https://miktex.org/){target="_blank"} instead of [TinyTeX](https://yihui.org/tinytex/).
 
 - **Non-Latin Alphabet Language**: If your computer language is not based on the Latin alphabet (e.g., Chinese, Arabic, Farsi, Russian, etc.), additional instructions may be required. You can refer to this video for specific guidance: [youtu.be/pX_fy2fyM30](https://youtu.be/pX_fy2fyM30).
 
@@ -833,7 +852,7 @@ kable(date_table, booktabs = TRUE,
       caption = "Syntax for Date Format") %>% 
     kable_styling("striped", 
                   position = "center", full_width = FALSE) %>% 
-    row_spec(1:nrow(date_table), font_size = 11)
+    row_spec(1:nrow(date_table), font_size = 9)
 ```
 
 
@@ -1113,7 +1132,7 @@ For additional functions and a helpful cheat sheet on `tibble` and `dplyr`, you 
 
 #### Tidyverse {-}
 
-The `tibble` package is part of the `tidyverse` environment, which is a collection of R packages with a shared design philosophy, grammar, and data structures. To install `tidyverse`, execute `install.packages("tidyverse")`, which includes `tibble`, `readr`, `dplyr`, `tidyr`, `ggplot2`, and more. Key functions in the `tidyverse` include `select()`, `filter()`, `mutate()`, `arrange()`, `count()`, `group_by()`, and `summarize()`. An interesting operator in the `tidyverse` is the [pipe operator](https://www.datacamp.com/community/tutorials/pipe-r-tutorial) `%>%`,  which allows you to chain functions together in a readable and sequential manner. With the pipe operator, you can order the functions as they are applied, making your code more expressive and easier to understand. Here's an example:
+The `tibble` package is part of the `tidyverse` environment, which is a collection of R packages with a shared design philosophy, grammar, and data structures. To install `tidyverse`, execute `install.packages("tidyverse")`, which includes `tibble`, `readr`, `dplyr`, `tidyr`, `ggplot2`, and more. Key functions in the `tidyverse` include `select()`, `filter()`, `mutate()`, `arrange()`, `count()`, `group_by()`, and `summarize()`. An interesting operator in the `tidyverse` is the [pipe operator](https://www.datacamp.com/community/tutorials/pipe-r-tutorial){target="_blank"} `%>%`,  which allows you to chain functions together in a readable and sequential manner. With the pipe operator, you can order the functions as they are applied, making your code more expressive and easier to understand. Here's an example:
 
 ```{r}
 library("tidyverse")
@@ -1130,7 +1149,7 @@ y
 
 By using the `%>%` operator, each function is applied to the previous result, simplifying the code and improving its readability.
 
-To delve deeper into the tidyverse, explore their official website: [www.tidyverse.org](https://www.tidyverse.org). Another resource is the R-Bootcamp, available at [r-bootcamp.netlify.app](https://r-bootcamp.netlify.app/). Additionally, [DataCamp](https://learn.datacamp.com/) provides a comprehensive skill track devoted to the tidyverse, named [Tidyverse Fundamentals with R](https://learn.datacamp.com/skill-tracks/tidyverse-fundamentals).
+To delve deeper into the tidyverse, explore their official website: [www.tidyverse.org](https://www.tidyverse.org). Another resource is the R-Bootcamp, available at [r-bootcamp.netlify.app](https://r-bootcamp.netlify.app/). Additionally, [DataCamp](https://learn.datacamp.com/){target="_blank"} provides a comprehensive skill track devoted to the tidyverse, named [Tidyverse Fundamentals with R](https://learn.datacamp.com/skill-tracks/tidyverse-fundamentals).
 
 
 
@@ -1199,7 +1218,7 @@ dt[, age_by_sex := mean(age), by = sex]
 dt
 ```
 
-For additional information about data tables and their powerful features, check out the [Intro to Data Table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html) documentation and this [cheat sheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/datatable_Cheat_Sheet_R.pdf) for `data.table` functions. Furthermore, [DataCamp](https://learn.datacamp.com/) provides several courses on `data.table`, such as:
+For additional information about data tables and their powerful features, check out the [Intro to Data Table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html){target="_blank"} documentation and this [cheat sheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/datatable_Cheat_Sheet_R.pdf){target="_blank"} for `data.table` functions. Furthermore, [DataCamp](https://learn.datacamp.com/){target="_blank"} provides several courses on `data.table`, such as:
 
 * [Data Manipulation with data.table in R](https://learn.datacamp.com/courses/data-manipulation-with-datatable-in-r)
 * [Joining Data with data.table in R](https://learn.datacamp.com/courses/joining-data-with-datatable-in-r)
@@ -1244,12 +1263,12 @@ index(dxts)
 coredata(dxts)
 ```
 
-To delve deeper into `xts` and `zoo` objects, consider reading the guides [Manipulating Time Series Data in R with xts & zoo](https://rstudio-pubs-static.s3.amazonaws.com/288218_117e183e74964557a5da4fc5902fc671.html) and [Time Series in R: Quick Reference](https://rpubs.com/rmariscal/404513). Additionally, [DataCamp](https://learn.datacamp.com/) provides in-depth courses on these topics: 
+To delve deeper into `xts` and `zoo` objects, consider reading the guides [Manipulating Time Series Data in R with xts & zoo](https://rstudio-pubs-static.s3.amazonaws.com/288218_117e183e74964557a5da4fc5902fc671.html){target="_blank"} and [Time Series in R: Quick Reference](https://rpubs.com/rmariscal/404513). Additionally, [DataCamp](https://learn.datacamp.com/){target="_blank"} provides in-depth courses on these topics: 
 
 * [Manipulating Time Series Data with xts and zoo in R](https://learn.datacamp.com/courses/manipulating-time-series-data-with-xts-and-zoo-in-r)
 * [Importing and Managing Financial Data in R](https://learn.datacamp.com/courses/importing-and-managing-financial-data-in-r)
 
-If you're working within the `tidyverse` environment, the R package [`tidyquant`](http://www.stats.bris.ac.uk/R/web/packages/tidyquant/vignettes/TQ02-quant-integrations-in-tidyquant.html) offers seamless integration with `xts` and `zoo`. Lastly, this handy [cheat sheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/xts_Cheat_Sheet_R.pdf) provides a quick reference on `xts` and `zoo` functions.
+If you're working within the `tidyverse` environment, the R package [`tidyquant`](http://www.stats.bris.ac.uk/R/web/packages/tidyquant/vignettes/TQ02-quant-integrations-in-tidyquant.html){target="_blank"} offers seamless integration with `xts` and `zoo`. Lastly, this handy [cheat sheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/xts_Cheat_Sheet_R.pdf){target="_blank"} provides a quick reference on `xts` and `zoo` functions.
 
 
 
@@ -1502,7 +1521,7 @@ To obtain the Michigan consumer survey data, follow these steps:
 5. Click on "Tab-Deliminated (Excel)" under the "format" option.
 6. Save the TSV file in a location of your choice, ensuring that it is saved in a familiar folder for easy access.
 
-The dataset contains 360 variables with coded column names such as `ics_inc31` or `pago_dk_all`. To understand the meaning of these columns, you can visit the same website [here](https://data.sca.isr.umich.edu/) and click on [SURVEY INFORMATION](https://data.sca.isr.umich.edu/survey-info.php#). From there, select the [Time-Series Variable Codebook](https://data.sca.isr.umich.edu/fetchdoc.php?docid=45121) which is a PDF document that provides detailed explanations for all the column names. By referring to this codebook, you can gain a better understanding of the variables and their corresponding meanings in the dataset.
+The dataset contains 360 variables with coded column names such as `ics_inc31` or `pago_dk_all`. To understand the meaning of these columns, you can visit the same website [here](https://data.sca.isr.umich.edu/){target="_blank"} and click on [SURVEY INFORMATION](https://data.sca.isr.umich.edu/survey-info.php#){target="_blank"}. From there, select the [Time-Series Variable Codebook](https://data.sca.isr.umich.edu/fetchdoc.php?docid=45121){target="_blank"} which is a PDF document that provides detailed explanations for all the column names. By referring to this codebook, you can gain a better understanding of the variables and their corresponding meanings in the dataset.
 
 
 ### Import TSV File
@@ -1621,9 +1640,9 @@ In this chapter, we'll demonstrate how to import an Excel workbook (`xls` or `xl
 
 To obtain the Tealbook forecasts, perform the following steps:
 
-1. Visit the website of the Federal Reserve Bank of Philadelphia by clicking [here](https://www.philadelphiafed.org/).
-2. Navigate to [SURVEYS & DATA](https://www.philadelphiafed.org/surveys-and-data), select [Real-Time Data Research](https://www.philadelphiafed.org/surveys-and-data/real-time-data-research), choose [Tealbook (formerly Greenbook) Data Sets](https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/greenbook), and finally select [Philadelphia Fed's Tealbook (formerly Greenbook) Data Set](https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/philadelphia-data-set).
-3. On the data page, download [Philadelphia Fed's Tealbook/Greenbook Data Set: Row Format](https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/greenbook-data/documentation/gbweb_row_format.xlsx?la=en&hash=ADEEBF4E1E339624C8C55B9EAB26B23F).
+1. Visit the website of the Federal Reserve Bank of Philadelphia by clicking [here](https://www.philadelphiafed.org/){target="_blank"}.
+2. Navigate to [SURVEYS & DATA](https://www.philadelphiafed.org/surveys-and-data){target="_blank"}, select [Real-Time Data Research](https://www.philadelphiafed.org/surveys-and-data/real-time-data-research){target="_blank"}, choose [Tealbook (formerly Greenbook) Data Sets](https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/greenbook){target="_blank"}, and finally select [Philadelphia Fed's Tealbook (formerly Greenbook) Data Set](https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/philadelphia-data-set){target="_blank"}.
+3. On the data page, download [Philadelphia Fed's Tealbook/Greenbook Data Set: Row Format](https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/greenbook-data/documentation/gbweb_row_format.xlsx?la=en&hash=ADEEBF4E1E339624C8C55B9EAB26B23F){target="_blank"}.
 4. Save the Excel workbook as 'GBweb_Row_Format.xlsx' in a familiar location for easy retrieval.
 
 The Excel workbook contains multiple sheets, each representing different variables. The sheet `gRGDP`, for example, holds real GDP growth forecasts. Columns `gRGDPF1` to `gRGDPF9` represent one- to nine-quarter-ahead forecasts, `gRGDPF0` represents the nowcast, and `gRGDPB1` to `gRGDPB4` represent one- to four-quarter-behind backcasts.
@@ -1671,7 +1690,7 @@ TB[["UNEMP"]]
 
 ### Nowcast and Backcast
 
-Let's explore the forecaster data, interpreting the information provided in the [Tealbook Documentation file](https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/greenbook-data/documentation/documentation_phila_fed_greenbook_data_set.pdf?la=en&hash=8FBBCD1AADB723B207B25441D0AB66A3). This file is accessible on the same page as the data, albeit further down. The data set extends beyond simple forecasts, encompassing nowcasts and backcasts as well. 
+Let's explore the forecaster data, interpreting the information provided in the [Tealbook Documentation file](https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/greenbook-data/documentation/documentation_phila_fed_greenbook_data_set.pdf?la=en&hash=8FBBCD1AADB723B207B25441D0AB66A3){target="_blank"}. This file is accessible on the same page as the data, albeit further down. The data set extends beyond simple forecasts, encompassing nowcasts and backcasts as well. 
 
 The imported Excel workbook `GBweb_Row_Format.xlsx` includes multiple sheets, each one representing distinct variables. Take, for instance, the sheet `gPGDP`, which contains forecasts for inflation (GDP deflator). Columns `gPGDPF1` through `gPGDPF9` represent forecasts for one to nine quarters ahead respectively, while `gPGDPF0` denotes the nowcast. The columns `gPGDPB1` to `gPGDPB4`, on the other hand, symbolize backcasts for one to four quarters in the past. 
 
@@ -1692,7 +1711,7 @@ In summary, while forecasting seeks to predict future economic scenarios, nowcas
 
 ### Information Date and Realization Date
 
-The imported Excel workbook `GBweb_Row_Format.xlsx` is structured in a **row format** as opposed to a column format. As clarified in the [Tealbook Documentation file](https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/greenbook-data/documentation/documentation_phila_fed_greenbook_data_set.pdf?la=en&hash=8FBBCD1AADB723B207B25441D0AB66A3), this arrangement means that (1) each row corresponds to a specific Tealbook publication date, and (2) the columns represent the forecasts generated for that particular Tealbook. The forecast horizons include, at most, the four quarters preceding the nowcast quarter, the nowcast quarter itself, and up to nine quarters into the future. Thus, all the values in a single row refer to the same forecast date, yet different forecast horizons.
+The imported Excel workbook `GBweb_Row_Format.xlsx` is structured in a **row format** as opposed to a column format. As clarified in the [Tealbook Documentation file](https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/greenbook-data/documentation/documentation_phila_fed_greenbook_data_set.pdf?la=en&hash=8FBBCD1AADB723B207B25441D0AB66A3){target="_blank"}, this arrangement means that (1) each row corresponds to a specific Tealbook publication date, and (2) the columns represent the forecasts generated for that particular Tealbook. The forecast horizons include, at most, the four quarters preceding the nowcast quarter, the nowcast quarter itself, and up to nine quarters into the future. Thus, all the values in a single row refer to the same forecast date, yet different forecast horizons.
 
 Let's define **information date** as the specific date when a forecast is generated, and **realization date** as the exact time period the forecast is referring to. In the row format data structure, each row in the data set corresponds to a specific information date, with the columns indicating different forecast horizons, and hence, different realization dates. This allows a comparative view of how the forecast relates to both current and past data. For instance, if a GDP growth forecast exceeds the nowcast, it suggests an optimistic outlook on that particular information date.
 
@@ -1894,13 +1913,13 @@ If your computer is connected to the internet, you can directly download data wi
 
 ## Web API
 
-A [Web API](https://en.wikipedia.org/wiki/Web_API) or Application Programming Interface is a tool that allows software applications to communicate with each other. It enables users to download or upload data from or to a server.
+A [Web API](https://en.wikipedia.org/wiki/Web_API){target="_blank"} or Application Programming Interface is a tool that allows software applications to communicate with each other. It enables users to download or upload data from or to a server.
 
 There are several economic databases that provide web APIs:
 
-- International Monetary Fund (IMF) data can be downloaded in R directly through the [`imfr`](https://cran.r-project.org/web/packages/imfr/imfr.pdf) package
-- Bank for International Settlements (BIS) data can be accessed using the [`BIS`](https://cran.r-project.org/web/packages/BIS/vignettes/BIS.html) package
-- Organization for Economic Co-operation and Development (OECD) data is available through the [`OECD`](https://cran.r-project.org/web/packages/OECD/OECD.pdf) package
+- International Monetary Fund (IMF) data can be downloaded in R directly through the [`imfr`](https://cran.r-project.org/web/packages/imfr/imfr.pdf){target="_blank"} package
+- Bank for International Settlements (BIS) data can be accessed using the [`BIS`](https://cran.r-project.org/web/packages/BIS/vignettes/BIS.html){target="_blank"} package
+- Organization for Economic Co-operation and Development (OECD) data is available through the [`OECD`](https://cran.r-project.org/web/packages/OECD/OECD.pdf){target="_blank"} package
 
 You can find more APIs for specific databases by searching "*r web api name_of_database*" in Google.
 
@@ -1933,9 +1952,9 @@ The arguments in this context are:
 - `return.class`: Determines the type of data object returned, e.g., `ts`, `zoo`, `xts`, or `timeSeries`.
 - `src`: Denotes the data source from which the symbol originates. Some examples include "yahoo" for Yahoo! Finance, "google" for Google Finance, "FRED" for Federal Reserve Economic Data, and "oanda" for Oanda foreign exchange rates.
 
-To find the correct symbol for financial data from **Yahoo! Finance**, visit [finance.yahoo.com](https://finance.yahoo.com) and search for the company of interest, e.g., Apple. The symbol is the series of letters inside parentheses. For example, for `Apple Inc. (AAPL)`, use `Symbols = "AAPL"` (and `src = "yahoo"`). Yahoo! Finance provides stock price data in various columns, such as `AAPL.Open`, `AAPL.High`, `AAPL.Low`, `AAPL.Close`, `AAPL.Volume`, and `AAPL.Adjusted`. These values represent the opening, highest, lowest, and closing prices for a given market day, the trade volume for that day, and the adjusted value, which accounts for stock splits. Typically, the `AAPL.Adjusted` column is of most interest.
+To find the correct symbol for financial data from **Yahoo! Finance**, visit [finance.yahoo.com](https://finance.yahoo.com){target="_blank"} and search for the company of interest, e.g., Apple. The symbol is the series of letters inside parentheses. For example, for `Apple Inc. (AAPL)`, use `Symbols = "AAPL"` (and `src = "yahoo"`). Yahoo! Finance provides stock price data in various columns, such as `AAPL.Open`, `AAPL.High`, `AAPL.Low`, `AAPL.Close`, `AAPL.Volume`, and `AAPL.Adjusted`. These values represent the opening, highest, lowest, and closing prices for a given market day, the trade volume for that day, and the adjusted value, which accounts for stock splits. Typically, the `AAPL.Adjusted` column is of most interest.
 
-For economic data from **FRED**, visit [fred.stlouisfed.org](https://fred.stlouisfed.org), and search for the data series of interest, e.g., unemployment rate. Click on one of the suggested data series. The symbol is the series of letters inside parentheses. For example, for `Unemployment Rate (UNRATE)`, use `Symbols = "UNRATE"` (and `src = "FRED"`).
+For economic data from **FRED**, visit [fred.stlouisfed.org](https://fred.stlouisfed.org){target="_blank"}, and search for the data series of interest, e.g., unemployment rate. Click on one of the suggested data series. The symbol is the series of letters inside parentheses. For example, for `Unemployment Rate (UNRATE)`, use `Symbols = "UNRATE"` (and `src = "FRED"`).
 
 The downloaded data is returned as an `xts` object, a format we discuss in Chapter \@ref(xts). Let's visualize the Apple stock prices using the `plot()` function:
 
@@ -1989,9 +2008,9 @@ Figure \@ref(fig:log-apple-stock-price) displays the natural logarithm of the Ap
 
 ## Using `Quandl()`
 
-[Quandl](https://data.nasdaq.com) is a data service that provides access to many financial and economic data sets from various providers. It has been acquired by [Nasdaq Data Link](https://data.nasdaq.com) and is now operating through the Nasdaq data website: [data.nasdaq.com](https://data.nasdaq.com). Some data sets require a paid subscription, while others can be accessed for free. Quandl provides an API that allows you to import data from a wide variety of languages, including Excel, Python, and R.
+[Quandl](https://data.nasdaq.com){target="_blank"} is a data service that provides access to many financial and economic data sets from various providers. It has been acquired by [Nasdaq Data Link](https://data.nasdaq.com){target="_blank"} and is now operating through the Nasdaq data website: [data.nasdaq.com](https://data.nasdaq.com){target="_blank"}. Some data sets require a paid subscription, while others can be accessed for free. Quandl provides an API that allows you to import data from a wide variety of languages, including Excel, Python, and R.
 
-To use Quandl, first get a free Nasdaq Data Link API key at [data.nasdaq.com/sign-up](https://data.nasdaq.com/sign-up). After that, install and load the Quandl package, and provide the API key with the function `Quandl.api_key()`:
+To use Quandl, first get a free Nasdaq Data Link API key at [data.nasdaq.com/sign-up](https://data.nasdaq.com/sign-up){target="_blank"}. After that, install and load the Quandl package, and provide the API key with the function `Quandl.api_key()`:
 
 ```{r, eval=FALSE, echo=TRUE}
 # Load Quandl package
@@ -2014,7 +2033,7 @@ tail(OPEC_oil_price)
 
 Here, the `code` argument refers to both the data source and the symbol in the format "`source/symbol`". The `type` argument specifies the type of data object: `data.frame`, `xts`, `zoo`, `ts`, or `timeSeries`. 
 
-To find the correct code for the Quandl function, visit [data.nasdaq.com](https://data.nasdaq.com), and search for the data series of interest (e.g., oil price). The code is the series of letters listed in the left column, structured like this: `.../...`, where `...` are letters. For example, for the OPEC crude oil price, use `code = "OPEC/ORB"`.
+To find the correct code for the Quandl function, visit [data.nasdaq.com](https://data.nasdaq.com){target="_blank"}, and search for the data series of interest (e.g., oil price). The code is the series of letters listed in the left column, structured like this: `.../...`, where `...` are letters. For example, for the OPEC crude oil price, use `code = "OPEC/ORB"`.
 
 Now, we'll use the `plot.zoo()` function to graph the crude oil price:
 
@@ -2097,7 +2116,7 @@ To save the file in a directory other than your current working directory (which
 
 Refer to Chapter \@ref(importing-data-in-r) for guidance on importing these CSV, TSV, and Excel data files into R.
 
-For more in-depth understanding and examples, consider taking DataCamp's [Introduction to Importing Data in R](https://learn.datacamp.com/courses/introduction-to-importing-data-in-r) course.
+For more in-depth understanding and examples, consider taking DataCamp's [Introduction to Importing Data in R](https://learn.datacamp.com/courses/introduction-to-importing-data-in-r){target="_blank"} course.
 
 
 
@@ -2105,11 +2124,11 @@ For more in-depth understanding and examples, consider taking DataCamp's [Introd
 
 This chapter has provided insights into multiple ways of downloading and saving data using various APIs. We specifically focused on the use of `getSymbols()` and `Quandl()` for downloading financial and economic data directly within R, then saving the data in different formats for future use. 
 
-To further enhance your knowledge and skills in working with data in R, consider the following [DataCamp](https://learn.datacamp.com/) courses:
+To further enhance your knowledge and skills in working with data in R, consider the following [DataCamp](https://learn.datacamp.com/){target="_blank"} courses:
 
-- [Importing and Managing Financial Data in R](https://learn.datacamp.com/courses/importing-and-managing-financial-data-in-r): Gain a solid understanding of how to import and manage financial data in R.
-- [Intermediate Importing Data in R](https://learn.datacamp.com/courses/intermediate-importing-data-in-r): Build upon your data importing skills and learn how to handle larger and more complex datasets.
-- [Working with Web Data in R](https://learn.datacamp.com/courses/working-with-web-data-in-r): Learn to process and analyze data from the web using R.
+- [Importing and Managing Financial Data in R](https://learn.datacamp.com/courses/importing-and-managing-financial-data-in-r){target="_blank"}: Gain a solid understanding of how to import and manage financial data in R.
+- [Intermediate Importing Data in R](https://learn.datacamp.com/courses/intermediate-importing-data-in-r){target="_blank"}: Build upon your data importing skills and learn how to handle larger and more complex datasets.
+- [Working with Web Data in R](https://learn.datacamp.com/courses/working-with-web-data-in-r){target="_blank"}: Learn to process and analyze data from the web using R.
 
 
 
@@ -2308,7 +2327,9 @@ If you want to display an equation on its own line, you can use double dollar si
 
 ```
 $$
-\% \Delta Y_t \equiv \frac{Y_t - Y_{t-1}}{Y_{t-1}} \approx 100 \left( \ln (Y_t) - \ln (Y_{t-1}) \right)
+\% \Delta Y_t 
+\equiv \frac{Y_t - Y_{t-1}}{Y_{t-1}} 
+\approx 100 \left( \ln (Y_t) - \ln (Y_{t-1}) \right)
 $$
 ```
 
@@ -2356,21 +2377,21 @@ This will generate a simple, well-formatted table. However, you can further cust
 
 ```{r}
 df %>%
-  kable("html") %>%
+  kable() %>%
   kable_styling("striped", full_width = FALSE)
 ```
 
-This code generates a striped HTML table, which alternates row colors for easier reading. The `full_width = FALSE` argument ensures the table only takes up as much width as necessary.
+This code generates a striped table, which alternates row colors for easier reading. The `full_width = FALSE` argument ensures the table only takes up as much width as necessary.
 
 Adding a caption to your table is straightforward. Simply provide the `caption` argument to the `kable` function:
 
 ```{r}
 df %>%
-  kable("html", caption = "A table of sample data.") %>%
+  kable(caption = "A table of sample data.") %>%
   kable_styling("striped", full_width = FALSE)
 ```
 
-This code generates the same striped HTML table, but now with a caption: "A table of sample data."
+This code generates the same striped table, but now with a caption: "A table of sample data."
 
 These are just the basics. Both `kable` and `kableExtra` provide numerous options for customizing your tables. I encourage you to explore their documentation and experiment with different settings.
 
@@ -2387,7 +2408,7 @@ These are just the basics. Both `kable` and `kableExtra` provide numerous option
 
 R Markdown provides a powerful framework for dynamically generating reports in R. The "dynamic" part of "dynamically generating reports" means that the document is able to update automatically when your data changes. By understanding and effectively using Markdown syntax, R code chunks, chunk options, and YAML headers, you can create sophisticated, reproducible documents with ease like the document you are currently reading.
 
-For an in-depth understanding of R Markdown, you may want to delve into [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/), an extensive resource on the topic. Additionally, DataCamp's course [Reporting with R Markdown](https://learn.datacamp.com/courses/reporting-with-rmarkdown) provides practical lessons on how to create compelling reports using this tool.
+For an in-depth understanding of R Markdown, you may want to delve into [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/){target="_blank"}, an extensive resource on the topic. Additionally, DataCamp's course [Reporting with R Markdown](https://learn.datacamp.com/courses/reporting-with-rmarkdown){target="_blank"} provides practical lessons on how to create compelling reports using this tool.
 
 
 
@@ -2422,7 +2443,7 @@ Importantly, DataCamp allows unlimited course retakes. If you wish to reset a co
 
 ## Developing Your Skills
 
-After completing the initial courses, I encourage you to delve into more courses and skill tracks to uncover the wide array of possibilities that R (and Python) offer. One effective method of exploring new courses is by following career or skill tracks. These are curated collections of courses designed to provide comprehensive knowledge in a specific field. You can find these tracks by navigating to [app.datacamp.com/learn](https://app.datacamp.com/learn/), clicking on `Tracks` in the left navigation pane, and then selecting either [`Career Tracks`](https://app.datacamp.com/learn/career-tracks) or [`Skill Tracks`](https://app.datacamp.com/learn/skill-tracks). You can then choose `R` for courses based on the R software, or select other programs.
+After completing the initial courses, I encourage you to delve into more courses and skill tracks to uncover the wide array of possibilities that R (and Python) offer. One effective method of exploring new courses is by following career or skill tracks. These are curated collections of courses designed to provide comprehensive knowledge in a specific field. You can find these tracks by navigating to [app.datacamp.com/learn](https://app.datacamp.com/learn/){target="_blank"}, clicking on `Tracks` in the left navigation pane, and then selecting either [`Career Tracks`](https://app.datacamp.com/learn/career-tracks){target="_blank"} or [`Skill Tracks`](https://app.datacamp.com/learn/skill-tracks){target="_blank"}. You can then choose `R` for courses based on the R software, or select other programs.
 
 For those studying Economics and Business, the following tracks are particularly pertinent:
 
@@ -2471,7 +2492,7 @@ In addition, complete the following courses on [DataCamp](https://www.datacamp.c
 
 Chapter \@ref(yield-curve) provides instruction on how to import yield curve data, as well as methods for visualizing and interpreting the data. For your report, plot both the most recent yield curve and the yield curve from your date of birth. If yield curve data is unavailable for your birth date (either due to being born prior to 1990 or on a non-trading day), use the data from the next available trading day.
 
-Perform a comparative analysis of the yield curves from your birth date and the most recent one available. Leverage the insights provided in Chapter \@ref(yield-curve) to interpret the shapes of these yield curves. If the concept of yields and yield curves is new to you, consider conducting further online research. A good starting point for your research would be the [U.S. Treasury website](https://home.treasury.gov), from where you sourced your data.
+Perform a comparative analysis of the yield curves from your birth date and the most recent one available. Leverage the insights provided in Chapter \@ref(yield-curve) to interpret the shapes of these yield curves. If the concept of yields and yield curves is new to you, consider conducting further online research. A good starting point for your research would be the [U.S. Treasury website](https://home.treasury.gov){target="_blank"}, from where you sourced your data.
 
 
 
@@ -2692,8 +2713,8 @@ In addition to the chapters, the following [DataCamp](https://www.datacamp.com){
 
 - [Introduction to Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2){target="_blank"}
 - [Joining Data with dplyr](https://app.datacamp.com/learn/courses/joining-data-with-dplyr){target="_blank"}
-- (Optional: [Intermediate Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/intermediate-data-visualization-with-ggplot2))
-- (Optional: [Skill Track: Text Mining with R](https://app.datacamp.com/learn/skill-tracks/text-mining-with-r))
+- (Optional: [Intermediate Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/intermediate-data-visualization-with-ggplot2){target="_blank"})
+- (Optional: [Skill Track: Text Mining with R](https://app.datacamp.com/learn/skill-tracks/text-mining-with-r){target="_blank"})
 
 Refer to Chapter \@ref(learning-r-with-datacamp) for tips on how to optimize your learning experience from these DataCamp courses.
 
@@ -2705,7 +2726,7 @@ Upon completing Module III, you should be able to:
 2. Recognize the purpose and utility of survey-based economic indicators, specifically using the example of the Michigan Consumer Survey.
 3. Analyze real-time and forecaster data to construct meaningful economic indicators and to understand economic decision-making processes.
 4. Identify and utilize text-based economic indicators, derived from word count analyses of newspapers, social media sites, and Google searches.
-5. Navigate and utilize the `ggplot2` and `dplyr` libraries in R to manipulate and visualize data effectively, with additional skills in text mining if the optional [DataCamp](https://www.datacamp.com){target="_blank"} skill track on [Text Mining with R](https://app.datacamp.com/learn/skill-tracks/text-mining-with-r) is taken.
+5. Navigate and utilize the `ggplot2` and `dplyr` libraries in R to manipulate and visualize data effectively, with additional skills in text mining if the optional [DataCamp](https://www.datacamp.com){target="_blank"} skill track on [Text Mining with R](https://app.datacamp.com/learn/skill-tracks/text-mining-with-r){target="_blank"} is taken.
 6. Apply the skills learned in this module to create a comprehensive data report on survey- and text-based economic indicators.
 
 
@@ -2715,7 +2736,7 @@ Upon completing Module III, you should be able to:
 Throughout this module, you will engage in the following activities:
 
 1. **Reading Material**: Absorb and comprehend the content of the five chapters in Module III, providing you with a firm grasp of the importance of subjective information in economics, and how survey- and text-based indicators can provide meaningful insights.
-2. **DataCamp Courses**: Complete the DataCamp courses [Introduction to Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2){target="_blank"} and [Joining Data with dplyr](https://app.datacamp.com/learn/courses/joining-data-with-dplyr){target="_blank"} to learn how to visualize and merge data effectively. The optional courses, [Intermediate Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/intermediate-data-visualization-with-ggplot2) and [Skill Track: Text Mining with R](https://app.datacamp.com/learn/skill-tracks/text-mining-with-r), can further enhance your skills in data visualization and text mining.
+2. **DataCamp Courses**: Complete the DataCamp courses [Introduction to Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2){target="_blank"} and [Joining Data with dplyr](https://app.datacamp.com/learn/courses/joining-data-with-dplyr){target="_blank"} to learn how to visualize and merge data effectively. The optional courses, [Intermediate Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/intermediate-data-visualization-with-ggplot2){target="_blank"} and [Skill Track: Text Mining with R](https://app.datacamp.com/learn/skill-tracks/text-mining-with-r){target="_blank"}, can further enhance your skills in data visualization and text mining.
 3. **Data Report**: Create a data report on survey- and text-based economic indicators of your choice using R and R Markdown. 
 
 Your progress will be evaluated based on:
@@ -2780,8 +2801,8 @@ In addition, complete the following [DataCamp](https://www.datacamp.com){target=
 
 - [Introduction to Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2){target="_blank"}
 - [Joining Data with dplyr](https://app.datacamp.com/learn/courses/joining-data-with-dplyr){target="_blank"}
-- (Optional: [Intermediate Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/intermediate-data-visualization-with-ggplot2))
-- (Optional: [Skill Track: Text Mining with R](https://app.datacamp.com/learn/skill-tracks/text-mining-with-r))
+- (Optional: [Intermediate Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/intermediate-data-visualization-with-ggplot2){target="_blank"})
+- (Optional: [Skill Track: Text Mining with R](https://app.datacamp.com/learn/skill-tracks/text-mining-with-r){target="_blank"})
 
 
 ## Data Guidelines {#data-guidelines-3}
