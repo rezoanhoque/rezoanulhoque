@@ -53,6 +53,9 @@ Identification of full information rational expectations (FIRE) models suffers f
 $~$
 
 # Teaching
+
+#### Courses Offered
+
 ECO 5316 Time Series Econometrics \
 ECO 5311 Macroeconomic Theory and Policy \
 ECO 4306 Economic and Business Forecasting \
@@ -62,13 +65,15 @@ ECO 3323 Principles of Money, Banking and Credit
 
 #### Course Software
 
+[![asdf](icons/blackboard.png){width=8%}](https://ttu.blackboard.com/){target="_blank"}
+&nbsp; &nbsp;&nbsp;&nbsp;
 [![asdf](icons/datacamp.png){width=20%}](https://app.datacamp.com/learn/){target="_blank"}
 &nbsp; &nbsp;&nbsp;&nbsp;
-[![asdf](icons/rstudio.png){width=20%}](https://posit.co/products/open-source/rstudio/){target="_blank"}
+[![asdf](icons/r.png){width=7%}](https://www.r-project.org/){target="_blank"}
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+[![asdf](icons/rstudio.png){width=15%}](https://posit.co/products/open-source/rstudio/){target="_blank"}
 &nbsp; &nbsp;&nbsp;&nbsp;
-[![asdf](icons/pearsonmylab.png){width=25%}](https://mlm.pearson.com/northamerica/myeconlab/){target="_blank"}
-&nbsp; &nbsp;&nbsp;&nbsp;
-[![asdf](icons/blackboard.png){width=10%}](https://ttu.blackboard.com/){target="_blank"}
+[![asdf](icons/pearsonmylab.png){width=28%}](https://mlm.pearson.com/northamerica/myeconlab/){target="_blank"}
 
 
 
@@ -76,7 +81,7 @@ ECO 3323 Principles of Money, Banking and Credit
 
 DataCamp provides free licenses for educators and their students via this initiative: [www.datacamp.com/universities](https://www.datacamp.com/universities){target="_blank"}.
 
-[![asdf](icons/datacampclassroom.png){width=40%}](https://www.datacamp.com/universities){target="_blank"}
+[![asdf](icons/datacampclassroom.png){width=30%}](https://www.datacamp.com/universities){target="_blank"}
 
 
 
