@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-07-11" />
+<meta name="date" content="2023-07-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -371,14 +371,15 @@ Figure 7.1: New R Markdown
 <li><code>error</code>: If <code>TRUE</code>, any error that occurs in the chunk will stop the knitting process. If <code>FALSE</code>, errors will be displayed in the output but will not stop the knitting process.</li>
 </ul>
 <p>Here’s an example:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb211-1"><a href="writing-reports-with-r-markdown.html#cb211-1" tabindex="-1"></a><span class="in">```{r, echo=FALSE, fig.cap=&quot;My Plot Caption&quot;, out.width = &quot;50%&quot;, fig.align=&#39;center&#39;, dpi = 300}</span></span>
+<div class="sourceCode" id="cb211"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb211-1"><a href="writing-reports-with-r-markdown.html#cb211-1" tabindex="-1"></a><span class="in">```{r, echo=FALSE, fig.cap=&quot;Title&quot;, out.width = &quot;50%&quot;, fig.align=&#39;center&#39;, dpi = 300}</span></span>
 <span id="cb211-2"><a href="writing-reports-with-r-markdown.html#cb211-2" tabindex="-1"></a><span class="in">plot(cars)</span></span>
 <span id="cb211-3"><a href="writing-reports-with-r-markdown.html#cb211-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>This chunk will create a plot, add a caption to it, set the width of the plot to 50% of the text width, align the plot to the center of the document, and output the plot with a resolution of 300 DPI. The actual R code will not be displayed in the final document.</p>
 <p>Instead of specifying options for each code chunk, you can modify the default settings for all code chunks in your document using the <code>knitr::opts_chunk$set()</code> function. For instance, I often include the following code at the start of an R Markdown document, right after the YAML header:</p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb212-1"><a href="writing-reports-with-r-markdown.html#cb212-1" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb212-2"><a href="writing-reports-with-r-markdown.html#cb212-2" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.align = &quot;center&quot;, out.width = &quot;60%&quot;)</span></span>
-<span id="cb212-3"><a href="writing-reports-with-r-markdown.html#cb212-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<span id="cb212-2"><a href="writing-reports-with-r-markdown.html#cb212-2" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, </span></span>
+<span id="cb212-3"><a href="writing-reports-with-r-markdown.html#cb212-3" tabindex="-1"></a><span class="in">                      fig.align = &quot;center&quot;, out.width = &quot;60%&quot;)</span></span>
+<span id="cb212-4"><a href="writing-reports-with-r-markdown.html#cb212-4" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>The aforementioned code modifies the default settings for all chunks in the document, as described below:</p>
 <ul>
 <li><code>echo = FALSE</code>: Each chunk’s code will be omitted from the final document, a sensible practice for official documents, as recipients don’t require visibility of code used for graph creation.</li>

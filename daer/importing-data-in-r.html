@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-07-11" />
+<meta name="date" content="2023-07-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -327,7 +327,7 @@ div.csl-indent {
 </div>
 <div id="yield-curve" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Yield Curve<a href="importing-data-in-r.html#yield-curve" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this chapter, we’ll demonstrate how to import a CSV file using real-world Treasury yield curve rates data.</p>
+<p>This chapter demonstrates how to import Treasury yield curve rates data from a CSV file. Treasury yield curve data represents interest rates on U.S. government loans for different maturities. By comparing rates at various maturities, such as 1-month, 1-year, 5-year, 10-year, and 30-year, we gain insights into market expectations. An upward sloping yield curve, where interest rates for longer-term loans (30-year) are significantly higher than those for short-term loans (1-month), often indicates economic growth. Conversely, a downward sloping or flat curve may suggest the possibility of a recession. This data is crucial in making informed decisions regarding borrowing, lending, and understanding the broader economic landscape.</p>
 <p>To obtain the yield curve data, follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li>Visit the U.S. Treasury’s data center by clicking <a href="https://www.treasury.gov/resource-center/data-chart-center" target="_blank">here</a>.</li>
@@ -470,19 +470,19 @@ Figure 5.1: 3-Month Treasury Rate
 <p>Next, let’s plot the yield curve. The yield curve is a graphical representation of the relationship between the interest rates (yields) and the time to maturity of a bond. It provides insights into market expectations regarding future interest rates and economic conditions.</p>
 <p>To plot the yield curve, we will select the most recently available data from the dataset, which corresponds to the last row. We will extract the interest rates as a numeric vector and the column names (representing the time to maturity) as labels for the x-axis:</p>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="importing-data-in-r.html#cb161-1" tabindex="-1"></a><span class="co"># Extract the interest rates of the last row</span></span>
-<span id="cb161-2"><a href="importing-data-in-r.html#cb161-2" tabindex="-1"></a>yc_most_recent_data <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">last</span>(yc[, <span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb161-2"><a href="importing-data-in-r.html#cb161-2" tabindex="-1"></a>yc_most_recent_data <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">tail</span>(yc[, <span class="sc">-</span><span class="dv">1</span>], <span class="dv">1</span>))</span>
 <span id="cb161-3"><a href="importing-data-in-r.html#cb161-3" tabindex="-1"></a>yc_most_recent_data</span></code></pre></div>
 <pre><code>##  [1] 5.24 5.39 5.43 5.50 5.47 5.40 4.87 4.49 4.13 3.97 3.81 4.06
 ## [13] 3.85</code></pre>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="importing-data-in-r.html#cb163-1" tabindex="-1"></a><span class="co"># Extract the column names of the last row</span></span>
-<span id="cb163-2"><a href="importing-data-in-r.html#cb163-2" tabindex="-1"></a>yc_most_recent_labels <span class="ot">&lt;-</span> <span class="fu">colnames</span>(<span class="fu">last</span>(yc[, <span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb163-2"><a href="importing-data-in-r.html#cb163-2" tabindex="-1"></a>yc_most_recent_labels <span class="ot">&lt;-</span> <span class="fu">colnames</span>(<span class="fu">tail</span>(yc[, <span class="sc">-</span><span class="dv">1</span>], <span class="dv">1</span>))</span>
 <span id="cb163-3"><a href="importing-data-in-r.html#cb163-3" tabindex="-1"></a>yc_most_recent_labels</span></code></pre></div>
 <pre><code>##  [1] &quot;1 Mo&quot;  &quot;2 Mo&quot;  &quot;3 Mo&quot;  &quot;4 Mo&quot;  &quot;6 Mo&quot;  &quot;1 Yr&quot;  &quot;2 Yr&quot; 
 ##  [8] &quot;3 Yr&quot;  &quot;5 Yr&quot;  &quot;7 Yr&quot;  &quot;10 Yr&quot; &quot;20 Yr&quot; &quot;30 Yr&quot;</code></pre>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="importing-data-in-r.html#cb165-1" tabindex="-1"></a><span class="co"># Plot the yield curve</span></span>
 <span id="cb165-2"><a href="importing-data-in-r.html#cb165-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> yc_most_recent_data, <span class="at">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>,</span>
 <span id="cb165-3"><a href="importing-data-in-r.html#cb165-3" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time to Maturity&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Treasury Rate in %&quot;</span>,</span>
-<span id="cb165-4"><a href="importing-data-in-r.html#cb165-4" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Yield Curve on&quot;</span>, <span class="fu">format</span>(<span class="fu">last</span>(yc<span class="sc">$</span>Date), <span class="at">format =</span> <span class="st">&#39;%B %d, %Y&#39;</span>)))</span>
+<span id="cb165-4"><a href="importing-data-in-r.html#cb165-4" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Yield Curve on&quot;</span>, <span class="fu">format</span>(<span class="fu">tail</span>(yc<span class="sc">$</span>Date, <span class="dv">1</span>), <span class="at">format =</span> <span class="st">&#39;%B %d, %Y&#39;</span>)))</span>
 <span id="cb165-5"><a href="importing-data-in-r.html#cb165-5" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">length</span>(yc_most_recent_labels), <span class="dv">1</span>), </span>
 <span id="cb165-6"><a href="importing-data-in-r.html#cb165-6" tabindex="-1"></a>     <span class="at">labels =</span> yc_most_recent_labels)</span></code></pre></div>
 <p>In the code snippet above, <code>plot()</code> is the R function used to create the yield curve plot. Here are the key inputs and arguments used in the function:</p>
@@ -493,7 +493,7 @@ Figure 5.1: 3-Month Treasury Rate
 <li><code>pch = 19</code> sets the plot symbol to a solid circle, which will be used as markers for the data points on the yield curve.</li>
 <li><code>xlab = "Time to Maturity"</code> sets the label for the x-axis to “Time to Maturity”, indicating the variable represented on the x-axis.</li>
 <li><code>ylab = "Treasury Rate in %"</code> sets the label for the y-axis to “Treasury Rate in %”, indicating the variable represented on the y-axis.</li>
-<li><code>main = paste("Yield Curve on", format(last(yc$Date), format = '%B %d, %Y'))</code> sets the title of the plot to “Yield Curve on” followed by the date of the most recent yield curve data.</li>
+<li><code>main = paste("Yield Curve on", format(tail(yc$Date, 1), format = '%B %d, %Y'))</code> sets the title of the plot to “Yield Curve on” followed by the date of the most recent yield curve data.</li>
 </ul>
 <p>Additionally, the <code>axis()</code> function is used to customize the x-axis tick labels. It sets the tick locations using <code>at = seq(1, length(yc_most_recent_labels), 1)</code> to evenly space the ticks along the x-axis. The <code>labels = yc_most_recent_labels</code> argument assigns the column names of the last row (representing maturities) as the tick labels on the x-axis.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:yield-curve-plot"></span>
@@ -511,7 +511,7 @@ Figure 5.2: Yield Curve on June 30, 2023
 </div>
 <div id="michigan-survey" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Michigan Survey<a href="importing-data-in-r.html#michigan-survey" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this chapter, we’ll demonstrate how to import a TSV file using real-world consumer survey data collected by the University of Michigan.</p>
+<p>In this chapter, we’ll demonstrate how to import a TSV file using real-world consumer survey data collected by the University of Michigan. This data is gathered through surveys that ask people about their opinions and feelings regarding the economy. It helps to understand how consumers perceive the current economic conditions and their expectations for the future. The data provides valuable insights into consumer behavior and helps economists, policymakers, and businesses make informed decisions.</p>
 <p>To obtain the Michigan consumer survey data, follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li>Visit the website of University of Michigan’s surveys of consumers by clicking <a href="https://data.sca.isr.umich.edu/" target="_blank">here</a>.</li>
@@ -624,7 +624,7 @@ Figure 5.3: Key Indices of the Michigan Consumer Survey
 </div>
 <div id="tealbook" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Tealbook<a href="importing-data-in-r.html#tealbook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this chapter, we’ll demonstrate how to import an Excel workbook (<code>xls</code> or <code>xlsx</code>) by importing projections data from Tealbooks (formerly known as Greenbooks). The Tealbook contains economic forecasts prepared by the Research staff at the Federal Reserve Board of Governors. These forecasts are produced before each meeting of the Federal Open Market Committee and provide insights into the future performance of the economy. The data from Tealbooks are made available to the public with a five-year lag.</p>
+<p>In this chapter, we’ll demonstrate how to import an Excel workbook (<code>xls</code> or <code>xlsx</code>) by importing projections data from Tealbooks (formerly known as Greenbooks). Tealbooks are an important resource as they consist of economic forecasts created by the research staff at the Federal Reserve Board of Governors. These forecasts are prepared before each meeting of the Federal Open Market Committee (FOMC), which is a key decision-making body responsible for determining U.S. monetary policy. The Tealbooks’ projections provide valuable insights into the expected performance of the economy, including indicators such as inflation, GDP growth, unemployment rates, and interest rates. The data from Tealbooks are made available to the public with a five-year lag, allowing researchers and analysts to examine past economic forecasts and compare them to actual outcomes. By importing and analyzing this data, we can gain a deeper understanding of the economic outlook as perceived by the Federal Reserve’s research staff and the FOMC prior to their policy meetings.</p>
 <p>To obtain the Tealbook forecasts, perform the following steps:</p>
 <ol style="list-style-type: decimal">
 <li>Visit the website of the Federal Reserve Bank of Philadelphia by clicking <a href="https://www.philadelphiafed.org/" target="_blank">here</a>.</li>
