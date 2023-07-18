@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Data Categorization | Data Analysis for Economic Research</title>
+  <meta name="description" content="11 Data Categorization | Data Analysis for Economic Research" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Data Categorization | Data Analysis for Economic Research" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Data Categorization | Data Analysis for Economic Research" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-07-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="economic-indicators.html"/>
+<link rel="next" href="data-transformation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">Data Analysis for Economic Research</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><em>Preface</em></a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#author"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#book-navigation"><i class="fa fa-check"></i>Book Navigation</a></li>
+</ul></li>
+<li class="part"><span><b>Module I</b></span></li>
+<li class="chapter" data-level="" data-path="module-i.html"><a href="module-i.html"><i class="fa fa-check"></i><em>Introduction to R for Economic Research</em></a></li>
+<li class="chapter" data-level="1" data-path="software-overview.html"><a href="software-overview.html"><i class="fa fa-check"></i><b>1</b> Software Overview</a></li>
+<li class="chapter" data-level="2" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i><b>2</b> Software Installation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="software-installation.html"><a href="software-installation.html#install-r"><i class="fa fa-check"></i><b>2.1</b> Install R</a></li>
+<li class="chapter" data-level="2.2" data-path="software-installation.html"><a href="software-installation.html#install-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="software-installation.html"><a href="software-installation.html#install-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Install R Markdown</a></li>
+<li class="chapter" data-level="2.4" data-path="software-installation.html"><a href="software-installation.html#install-latex"><i class="fa fa-check"></i><b>2.4</b> Install LaTeX</a></li>
+<li class="chapter" data-level="2.5" data-path="software-installation.html"><a href="software-installation.html#install-r-packages"><i class="fa fa-check"></i><b>2.5</b> Install R Packages</a></li>
+<li class="chapter" data-level="2.6" data-path="software-installation.html"><a href="software-installation.html#step-test"><i class="fa fa-check"></i><b>2.6</b> 18-Step Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rstudio-interface.html"><a href="rstudio-interface.html"><i class="fa fa-check"></i><b>3</b> RStudio Interface</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="rstudio-interface.html"><a href="rstudio-interface.html#rstudio-sections"><i class="fa fa-check"></i><b>3.1</b> RStudio Sections</a></li>
+<li class="chapter" data-level="3.2" data-path="rstudio-interface.html"><a href="rstudio-interface.html#r-scripts"><i class="fa fa-check"></i><b>3.2</b> R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html"><i class="fa fa-check"></i><b>4</b> R Data Types and Structures</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#scalar"><i class="fa fa-check"></i><b>4.1</b> Scalar</a></li>
+<li class="chapter" data-level="4.2" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#vector"><i class="fa fa-check"></i><b>4.2</b> Vector</a></li>
+<li class="chapter" data-level="4.3" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#matrix-matrix"><i class="fa fa-check"></i><b>4.3</b> Matrix (<code>matrix</code>)</a></li>
+<li class="chapter" data-level="4.4" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#list-list"><i class="fa fa-check"></i><b>4.4</b> List (<code>list</code>)</a></li>
+<li class="chapter" data-level="4.5" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#data-frame-data.frame"><i class="fa fa-check"></i><b>4.5</b> Data Frame (<code>data.frame</code>)</a></li>
+<li class="chapter" data-level="4.6" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#tibble"><i class="fa fa-check"></i><b>4.6</b> Tibble (<code>tbl_df</code>)</a></li>
+<li class="chapter" data-level="4.7" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#data-table-data.table"><i class="fa fa-check"></i><b>4.7</b> Data Table (<code>data.table</code>)</a></li>
+<li class="chapter" data-level="4.8" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#xts"><i class="fa fa-check"></i><b>4.8</b> Extensible Time Series (<code>xts</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html"><i class="fa fa-check"></i><b>5</b> Importing Data in R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#working-directory"><i class="fa fa-check"></i><b>5.1</b> Working Directory</a></li>
+<li class="chapter" data-level="5.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#yield-curve"><i class="fa fa-check"></i><b>5.2</b> Yield Curve</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-csv-file"><i class="fa fa-check"></i><b>5.2.1</b> Import CSV File</a></li>
+<li class="chapter" data-level="5.2.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-historical-yields"><i class="fa fa-check"></i><b>5.2.2</b> Plotting Historical Yields</a></li>
+<li class="chapter" data-level="5.2.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-yield-curve"><i class="fa fa-check"></i><b>5.2.3</b> Plotting Yield Curve</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#michigan-survey"><i class="fa fa-check"></i><b>5.3</b> Michigan Survey</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-tsv-file"><i class="fa fa-check"></i><b>5.3.1</b> Import TSV File</a></li>
+<li class="chapter" data-level="5.3.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-consumer-indices"><i class="fa fa-check"></i><b>5.3.2</b> Plotting Consumer Indices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#tealbook"><i class="fa fa-check"></i><b>5.4</b> Tealbook</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-excel-workbook"><i class="fa fa-check"></i><b>5.4.1</b> Import Excel Workbook</a></li>
+<li class="chapter" data-level="5.4.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#nowcast-and-backcast"><i class="fa fa-check"></i><b>5.4.2</b> Nowcast and Backcast</a></li>
+<li class="chapter" data-level="5.4.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#information-date-and-realization-date"><i class="fa fa-check"></i><b>5.4.3</b> Information Date and Realization Date</a></li>
+<li class="chapter" data-level="5.4.4" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-forecasts"><i class="fa fa-check"></i><b>5.4.4</b> Plotting Forecasts</a></li>
+<li class="chapter" data-level="5.4.5" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-forecast-errors"><i class="fa fa-check"></i><b>5.4.5</b> Plotting Forecast Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html"><i class="fa fa-check"></i><b>6</b> Downloading Data in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#web-api"><i class="fa fa-check"></i><b>6.1</b> Web API</a></li>
+<li class="chapter" data-level="6.2" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#using-getsymbols"><i class="fa fa-check"></i><b>6.2</b> Using <code>getSymbols()</code></a></li>
+<li class="chapter" data-level="6.3" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#using-quandl"><i class="fa fa-check"></i><b>6.3</b> Using <code>Quandl()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#saving-data"><i class="fa fa-check"></i><b>6.4</b> Saving Data</a></li>
+<li class="chapter" data-level="6.5" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#summary-and-resources"><i class="fa fa-check"></i><b>6.5</b> Summary and Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Writing Reports with R Markdown</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#creating-an-r-markdown-document"><i class="fa fa-check"></i><b>7.1</b> Creating an R Markdown Document</a></li>
+<li class="chapter" data-level="7.2" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#yaml-header"><i class="fa fa-check"></i><b>7.2</b> YAML Header</a></li>
+<li class="chapter" data-level="7.3" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#markdown-syntax"><i class="fa fa-check"></i><b>7.3</b> Markdown Syntax</a></li>
+<li class="chapter" data-level="7.4" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#r-chunks"><i class="fa fa-check"></i><b>7.4</b> R Chunks</a></li>
+<li class="chapter" data-level="7.5" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#embedding-r-variables-into-text"><i class="fa fa-check"></i><b>7.5</b> Embedding R Variables into Text</a></li>
+<li class="chapter" data-level="7.6" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#latex-syntax-for-math"><i class="fa fa-check"></i><b>7.6</b> LaTeX Syntax for Math</a></li>
+<li class="chapter" data-level="7.7" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#printing-tables"><i class="fa fa-check"></i><b>7.7</b> Printing Tables</a></li>
+<li class="chapter" data-level="7.8" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#summary-and-resources-1"><i class="fa fa-check"></i><b>7.8</b> Summary and Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html"><i class="fa fa-check"></i><b>8</b> Learning R with DataCamp</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#preparing-for-the-course"><i class="fa fa-check"></i><b>8.1</b> Preparing for the Course</a></li>
+<li class="chapter" data-level="8.2" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#xp-system-and-course-completion"><i class="fa fa-check"></i><b>8.2</b> XP System and Course Completion</a></li>
+<li class="chapter" data-level="8.3" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#developing-your-skills"><i class="fa fa-check"></i><b>8.3</b> Developing Your Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html"><i class="fa fa-check"></i><b>9</b> Data Report on Yield Curve</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#preparations"><i class="fa fa-check"></i><b>9.1</b> Preparations</a></li>
+<li class="chapter" data-level="9.2" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#data-guidelines"><i class="fa fa-check"></i><b>9.2</b> Data Guidelines</a></li>
+<li class="chapter" data-level="9.3" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#r-markdown-guidelines"><i class="fa fa-check"></i><b>9.3</b> R Markdown Guidelines</a></li>
+</ul></li>
+<li class="part"><span><b>Module II</b></span></li>
+<li class="chapter" data-level="" data-path="module-ii.html"><a href="module-ii.html"><i class="fa fa-check"></i><em>Traditional Economic Indicators</em></a></li>
+<li class="chapter" data-level="10" data-path="economic-indicators.html"><a href="economic-indicators.html"><i class="fa fa-check"></i><b>10</b> Economic Indicators</a></li>
+<li class="chapter" data-level="11" data-path="data-categorization.html"><a href="data-categorization.html"><i class="fa fa-check"></i><b>11</b> Data Categorization</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="data-categorization.html"><a href="data-categorization.html#qualitative-vs.-quantitative"><i class="fa fa-check"></i><b>11.1</b> Qualitative vs. Quantitative</a></li>
+<li class="chapter" data-level="11.2" data-path="data-categorization.html"><a href="data-categorization.html#discrete-vs.-continuous"><i class="fa fa-check"></i><b>11.2</b> Discrete vs. Continuous</a></li>
+<li class="chapter" data-level="11.3" data-path="data-categorization.html"><a href="data-categorization.html#levels-of-measurement"><i class="fa fa-check"></i><b>11.3</b> Levels of Measurement</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="data-categorization.html"><a href="data-categorization.html#nominal-scale-variables"><i class="fa fa-check"></i><b>11.3.1</b> Nominal Scale Variables</a></li>
+<li class="chapter" data-level="11.3.2" data-path="data-categorization.html"><a href="data-categorization.html#ordinal-scale-variables"><i class="fa fa-check"></i><b>11.3.2</b> Ordinal Scale Variables</a></li>
+<li class="chapter" data-level="11.3.3" data-path="data-categorization.html"><a href="data-categorization.html#interval-scale-variables"><i class="fa fa-check"></i><b>11.3.3</b> Interval Scale Variables</a></li>
+<li class="chapter" data-level="11.3.4" data-path="data-categorization.html"><a href="data-categorization.html#ratio-scale-variables"><i class="fa fa-check"></i><b>11.3.4</b> Ratio Scale Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="data-categorization.html"><a href="data-categorization.html#index-vs.-absolute-data"><i class="fa fa-check"></i><b>11.4</b> Index vs. Absolute Data</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="data-categorization.html"><a href="data-categorization.html#index-data"><i class="fa fa-check"></i><b>11.4.1</b> Index Data</a></li>
+<li class="chapter" data-level="11.4.2" data-path="data-categorization.html"><a href="data-categorization.html#absolute-data"><i class="fa fa-check"></i><b>11.4.2</b> Absolute Data</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="data-categorization.html"><a href="data-categorization.html#stock-vs.-flow"><i class="fa fa-check"></i><b>11.5</b> Stock vs. Flow</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="data-categorization.html"><a href="data-categorization.html#stock-variables"><i class="fa fa-check"></i><b>11.5.1</b> Stock Variables</a></li>
+<li class="chapter" data-level="11.5.2" data-path="data-categorization.html"><a href="data-categorization.html#flow-variables"><i class="fa fa-check"></i><b>11.5.2</b> Flow Variables</a></li>
+<li class="chapter" data-level="11.5.3" data-path="data-categorization.html"><a href="data-categorization.html#accounting"><i class="fa fa-check"></i><b>11.5.3</b> Accounting</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="data-categorization.html"><a href="data-categorization.html#data-dimensions"><i class="fa fa-check"></i><b>11.6</b> Data Dimensions</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="data-categorization.html"><a href="data-categorization.html#cross-sectional-data"><i class="fa fa-check"></i><b>11.6.1</b> Cross-Sectional Data</a></li>
+<li class="chapter" data-level="11.6.2" data-path="data-categorization.html"><a href="data-categorization.html#time-series-data"><i class="fa fa-check"></i><b>11.6.2</b> Time Series Data</a></li>
+<li class="chapter" data-level="11.6.3" data-path="data-categorization.html"><a href="data-categorization.html#panel-data"><i class="fa fa-check"></i><b>11.6.3</b> Panel Data</a></li>
+<li class="chapter" data-level="11.6.4" data-path="data-categorization.html"><a href="data-categorization.html#spatial-data"><i class="fa fa-check"></i><b>11.6.4</b> Spatial Data</a></li>
+<li class="chapter" data-level="11.6.5" data-path="data-categorization.html"><a href="data-categorization.html#clustered-data"><i class="fa fa-check"></i><b>11.6.5</b> Clustered Data</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="data-categorization.html"><a href="data-categorization.html#conclusion-data-categorization"><i class="fa fa-check"></i><b>11.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>12</b> Data Transformation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-transformation.html"><a href="data-transformation.html#example-data"><i class="fa fa-check"></i><b>12.1</b> Example Data</a></li>
+<li class="chapter" data-level="12.2" data-path="data-transformation.html"><a href="data-transformation.html#growth"><i class="fa fa-check"></i><b>12.2</b> Growth</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-growth-rates"><i class="fa fa-check"></i><b>12.2.1</b> Definition</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-transformation.html"><a href="data-transformation.html#log-approximation"><i class="fa fa-check"></i><b>12.2.2</b> Log Approximation</a></li>
+<li class="chapter" data-level="12.2.3" data-path="data-transformation.html"><a href="data-transformation.html#relativity"><i class="fa fa-check"></i><b>12.2.3</b> Relativity</a></li>
+<li class="chapter" data-level="12.2.4" data-path="data-transformation.html"><a href="data-transformation.html#return-and-inflation"><i class="fa fa-check"></i><b>12.2.4</b> Return and Inflation</a></li>
+<li class="chapter" data-level="12.2.5" data-path="data-transformation.html"><a href="data-transformation.html#applicability-growth"><i class="fa fa-check"></i><b>12.2.5</b> Applicability</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-transformation.html"><a href="data-transformation.html#differentiation"><i class="fa fa-check"></i><b>12.3</b> Differentiation</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-differentiation"><i class="fa fa-check"></i><b>12.3.1</b> Definition</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-transformation.html"><a href="data-transformation.html#pp"><i class="fa fa-check"></i><b>12.3.2</b> Percentage Points (pp)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-transformation.html"><a href="data-transformation.html#bp"><i class="fa fa-check"></i><b>12.3.3</b> Basis Points (bp)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-transformation.html"><a href="data-transformation.html#log"><i class="fa fa-check"></i><b>12.4</b> Natural Logarithm</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-natural-logarithm"><i class="fa fa-check"></i><b>12.4.1</b> Definition</a></li>
+<li class="chapter" data-level="12.4.2" data-path="data-transformation.html"><a href="data-transformation.html#motivation-natural-logarithm"><i class="fa fa-check"></i><b>12.4.2</b> Motivation</a></li>
+<li class="chapter" data-level="12.4.3" data-path="data-transformation.html"><a href="data-transformation.html#applicability-natural-logarithm"><i class="fa fa-check"></i><b>12.4.3</b> Applicability</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="data-transformation.html"><a href="data-transformation.html#ratio"><i class="fa fa-check"></i><b>12.5</b> Ratio</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-ratio"><i class="fa fa-check"></i><b>12.5.1</b> Definition</a></li>
+<li class="chapter" data-level="12.5.2" data-path="data-transformation.html"><a href="data-transformation.html#per-capita"><i class="fa fa-check"></i><b>12.5.2</b> Per Capita</a></li>
+<li class="chapter" data-level="12.5.3" data-path="data-transformation.html"><a href="data-transformation.html#real-vs.-nominal"><i class="fa fa-check"></i><b>12.5.3</b> Real vs. Nominal</a></li>
+<li class="chapter" data-level="12.5.4" data-path="data-transformation.html"><a href="data-transformation.html#growth-of-ratios"><i class="fa fa-check"></i><b>12.5.4</b> Growth of Ratios</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="data-transformation.html"><a href="data-transformation.html#gap"><i class="fa fa-check"></i><b>12.6</b> Gap</a></li>
+<li class="chapter" data-level="12.7" data-path="data-transformation.html"><a href="data-transformation.html#filtering"><i class="fa fa-check"></i><b>12.7</b> Filtering</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="data-transformation.html"><a href="data-transformation.html#frequency-filtering"><i class="fa fa-check"></i><b>12.7.1</b> Frequency Filtering</a></li>
+<li class="chapter" data-level="12.7.2" data-path="data-transformation.html"><a href="data-transformation.html#detrending"><i class="fa fa-check"></i><b>12.7.2</b> Detrending</a></li>
+<li class="chapter" data-level="12.7.3" data-path="data-transformation.html"><a href="data-transformation.html#seasonal-adjustment"><i class="fa fa-check"></i><b>12.7.3</b> Seasonal Adjustment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-aggregation.html"><a href="data-aggregation.html"><i class="fa fa-check"></i><b>13</b> Data Aggregation</a></li>
+<li class="chapter" data-level="14" data-path="data-source.html"><a href="data-source.html"><i class="fa fa-check"></i><b>14</b> Data Source</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="data-source.html"><a href="data-source.html#bureau-of-economic-analysis-bea"><i class="fa fa-check"></i><b>14.1</b> Bureau of Economic Analysis (BEA)</a></li>
+<li class="chapter" data-level="14.2" data-path="data-source.html"><a href="data-source.html#u.s.-census-bureau"><i class="fa fa-check"></i><b>14.2</b> U.S. Census Bureau</a></li>
+<li class="chapter" data-level="14.3" data-path="data-source.html"><a href="data-source.html#bureau-of-labor-statistics-bls"><i class="fa fa-check"></i><b>14.3</b> Bureau of Labor Statistics (BLS)</a></li>
+<li class="chapter" data-level="14.4" data-path="data-source.html"><a href="data-source.html#federal-reserve-board-of-governors"><i class="fa fa-check"></i><b>14.4</b> Federal Reserve Board of Governors</a></li>
+<li class="chapter" data-level="14.5" data-path="data-source.html"><a href="data-source.html#u.s.-department-of-the-treasury"><i class="fa fa-check"></i><b>14.5</b> U.S. Department of the Treasury</a></li>
+<li class="chapter" data-level="14.6" data-path="data-source.html"><a href="data-source.html#financial-market-exchanges"><i class="fa fa-check"></i><b>14.6</b> Financial Market Exchanges</a></li>
+<li class="chapter" data-level="14.7" data-path="data-source.html"><a href="data-source.html#federal-reserve-economic-data-fred"><i class="fa fa-check"></i><b>14.7</b> Federal Reserve Economic Data (FRED)</a></li>
+<li class="chapter" data-level="14.8" data-path="data-source.html"><a href="data-source.html#u.s.-department-of-agriculture-economic-research-service-ers"><i class="fa fa-check"></i><b>14.8</b> U.S. Department of Agriculture Economic Research Service (ERS)</a></li>
+<li class="chapter" data-level="14.9" data-path="data-source.html"><a href="data-source.html#bloomberg"><i class="fa fa-check"></i><b>14.9</b> Bloomberg</a></li>
+<li class="chapter" data-level="14.10" data-path="data-source.html"><a href="data-source.html#yahoo-finance"><i class="fa fa-check"></i><b>14.10</b> Yahoo Finance</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="temporal-patterns.html"><a href="temporal-patterns.html"><i class="fa fa-check"></i><b>15</b> Temporal Patterns</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#trends"><i class="fa fa-check"></i><b>15.1</b> Trends</a></li>
+<li class="chapter" data-level="15.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#business-cycles"><i class="fa fa-check"></i><b>15.2</b> Business Cycles</a></li>
+<li class="chapter" data-level="15.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonal-cycles"><i class="fa fa-check"></i><b>15.3</b> Seasonal Cycles</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="regional-patterns.html"><a href="regional-patterns.html"><i class="fa fa-check"></i><b>16</b> Regional Patterns</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="regional-patterns.html"><a href="regional-patterns.html#county-level-patterns"><i class="fa fa-check"></i><b>16.1</b> County-Level Patterns</a></li>
+<li class="chapter" data-level="16.2" data-path="regional-patterns.html"><a href="regional-patterns.html#state-level-economic-patterns"><i class="fa fa-check"></i><b>16.2</b> State-Level Economic Patterns</a></li>
+<li class="chapter" data-level="16.3" data-path="regional-patterns.html"><a href="regional-patterns.html#country-level-economic-patterns"><i class="fa fa-check"></i><b>16.3</b> Country-Level Economic Patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="causal-relationships.html"><a href="causal-relationships.html"><i class="fa fa-check"></i><b>17</b> Causal Relationships</a></li>
+<li class="chapter" data-level="18" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html"><i class="fa fa-check"></i><b>18</b> Data Report on Traditional Economic Indicators</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#preparations-2"><i class="fa fa-check"></i><b>18.1</b> Preparations</a></li>
+<li class="chapter" data-level="18.2" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#data-guidelines-2"><i class="fa fa-check"></i><b>18.2</b> Data Guidelines</a></li>
+<li class="chapter" data-level="18.3" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#r-markdown-guidelines-2"><i class="fa fa-check"></i><b>18.3</b> R Markdown Guidelines</a></li>
+</ul></li>
+<li class="part"><span><b>Module III</b></span></li>
+<li class="chapter" data-level="" data-path="module-iii.html"><a href="module-iii.html"><i class="fa fa-check"></i><em>Survey- and Text-Based Economic Indicators</em></a></li>
+<li class="chapter" data-level="19" data-path="why-subjective-information-matters.html"><a href="why-subjective-information-matters.html"><i class="fa fa-check"></i><b>19</b> Why Subjective Information Matters</a></li>
+<li class="chapter" data-level="20" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html"><i class="fa fa-check"></i><b>20</b> Michigan Consumer Survey</a></li>
+<li class="chapter" data-level="21" data-path="real-time-and-forecaster-data.html"><a href="real-time-and-forecaster-data.html"><i class="fa fa-check"></i><b>21</b> Real-Time and Forecaster Data</a></li>
+<li class="chapter" data-level="22" data-path="text-based-economic-indicators.html"><a href="text-based-economic-indicators.html"><i class="fa fa-check"></i><b>22</b> Text-Based Economic Indicators</a></li>
+<li class="chapter" data-level="23" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html"><i class="fa fa-check"></i><b>23</b> Data Report on Survey- and Text-Based Economic Indicators</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#preparations-3"><i class="fa fa-check"></i><b>23.1</b> Preparations</a></li>
+<li class="chapter" data-level="23.2" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#data-guidelines-3"><i class="fa fa-check"></i><b>23.2</b> Data Guidelines</a></li>
+<li class="chapter" data-level="23.3" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#r-markdown-guidelines-3"><i class="fa fa-check"></i><b>23.3</b> R Markdown Guidelines</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.julianfludwig.com/" target="blank">Julian F. Ludwig</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis for Economic Research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-categorization" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Data Categorization<a href="data-categorization.html#data-categorization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Before we delve into various economic indicators, it is essential to build a vocabulary of how data is categorized. This categorization is primarily based on the type of measurement and the dimensions of data:</p>
+<ul>
+<li><a href="data-categorization.html#qualitative-vs.-quantitative">Qualitative vs. Quantitative</a>: This refers to the nature of the data being collected, whether it’s descriptive (qualitative) or numerical (quantitative).</li>
+<li><a href="data-categorization.html#discrete-vs.-continuous">Discrete vs. Continuous</a>: This classification is based on the quantifiable values that the data can take on, either as distinct and countable (discrete) or as an infinite range of values within a certain scale (continuous).</li>
+<li><a href="data-categorization.html#levels-of-measurement">Levels of Measurement</a>: Data can also be classified based on the scale of measure it uses, such as nominal, ordinal, interval, or ratio.</li>
+<li><a href="data-categorization.html#index-vs.-absolute-data">Index vs. Absolute Data</a>: This categorization depends on whether the data values are meaningful in relative terms or absolute terms. Index data is meaningful in relation to other values of the same index, whereas absolute data values have meaning on their own, independently of other values.</li>
+<li><a href="data-categorization.html#stock-vs.-flow">Stock vs. Flow</a>: This dichotomy classifies data based on whether they represent a quantity at a specific point in time (stock) or a rate over a period (flow).</li>
+<li><a href="data-categorization.html#data-dimensions">Data Dimensions</a>: This categorization refers to the way data is organized across temporal and spatial dimensions, including cross-sectional, time-series, panel, spatial, and clustered types of data.</li>
+</ul>
+<p>Understanding these categories will allow us to more effectively interpret and analyze economic indicators.</p>
+<div id="qualitative-vs.-quantitative" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Qualitative vs. Quantitative<a href="data-categorization.html#qualitative-vs.-quantitative" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the world of data analysis and research, data is typically classified into two broad categories: Qualitative and Quantitative.</p>
+<p>Qualitative data, often called categorical data, refers to non-numerical information that expresses the descriptive, subjective, or explanatory attributes of the variables under study. This data type includes factors such as colors, gender, nationalities, opinions, or any other attribute that does not have a natural numerical representation. In other words, qualitative data deals with characteristics and descriptors that can’t be easily measured, but can be observed subjectively.</p>
+<p>On the other hand, quantitative data is numerical and lends itself to mathematical and statistical manipulation. This data type involves numbers and things measurable in a quantifiable way. Examples of quantitative data include height, weight, age, income, temperature, or any variable that can be measured or counted. Quantitative data forms the backbone of any statistical analysis and tends to be more structured than qualitative data.</p>
+<p>As an example, we can consider the <code>Affairs</code> dataset from the <code>AER</code> (Applied Econometrics with R) package, which is utilized for teaching and learning applied econometrics.</p>
+<p>The <code>Affairs</code> dataset comes from a study by Ray C. Fair in 1978, published in the Journal of Political Economy, titled “A Theory of Extramarital Affairs”. The study attempted to model the time spent in extramarital affairs as a function of certain background variables.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="data-categorization.html#cb224-1" tabindex="-1"></a><span class="co"># Load the AER package</span></span>
+<span id="cb224-2"><a href="data-categorization.html#cb224-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;AER&quot;</span>)</span>
+<span id="cb224-3"><a href="data-categorization.html#cb224-3" tabindex="-1"></a></span>
+<span id="cb224-4"><a href="data-categorization.html#cb224-4" tabindex="-1"></a><span class="co"># Load the Affairs dataset</span></span>
+<span id="cb224-5"><a href="data-categorization.html#cb224-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Affairs&quot;</span>, <span class="at">package =</span> <span class="st">&quot;AER&quot;</span>)</span>
+<span id="cb224-6"><a href="data-categorization.html#cb224-6" tabindex="-1"></a></span>
+<span id="cb224-7"><a href="data-categorization.html#cb224-7" tabindex="-1"></a><span class="co"># Display a few rows of the Affairs dataset</span></span>
+<span id="cb224-8"><a href="data-categorization.html#cb224-8" tabindex="-1"></a><span class="fu">tail</span>(Affairs)</span></code></pre></div>
+<pre><code>##      affairs gender age yearsmarried children religiousness
+## 1935       7   male  47         15.0      yes             3
+## 1938       1   male  22          1.5      yes             1
+## 1941       7 female  32         10.0      yes             2
+## 1954       2   male  32         10.0      yes             2
+## 1959       2   male  22          7.0      yes             3
+## 9010       1 female  32         15.0      yes             3
+##      education occupation rating
+## 1935        16          4      2
+## 1938        12          2      5
+## 1941        18          5      4
+## 1954        17          6      5
+## 1959        18          6      2
+## 9010        14          1      5</code></pre>
+<p>This dataset comprises 601 observations and nine variables, with a mixture of four qualitative and five quantitative variables:</p>
+<ol style="list-style-type: decimal">
+<li><code>affairs</code>: Quantitative - how much time is spent in extramarital affairs.</li>
+<li><code>gender</code>: Qualitative - gender of the respondents.</li>
+<li><code>age</code>: Quantitative - age of the respondents.</li>
+<li><code>yearsmarried</code>: Quantitative - number of years married.</li>
+<li><code>children</code>: Qualitative - whether the respondents have children or not.</li>
+<li><code>religiousness</code>: Qualitative - rating of religiousness, 1 being not religious at all, and 5 being very religious.</li>
+<li><code>education</code>: Quantitative - level of education in years of schooling.</li>
+<li><code>occupation</code>: Qualitative - category of the respondent’s occupation.</li>
+<li><code>rating</code>: Quantitative - a self-rating of the marriage, 1 indicates very unhappy, and 5 indicates very happy.</li>
+</ol>
+<p>Although certain qualitative variables are numerically coded, they remain qualitative in nature. They signify varying categories instead of directly measuring an attribute.</p>
+</div>
+<div id="discrete-vs.-continuous" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Discrete vs. Continuous<a href="data-categorization.html#discrete-vs.-continuous" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When dealing with quantitative data, it is further divided into two categories: Discrete and Continuous. The distinction between these two lies in the nature of the values or observations that the variables can assume.</p>
+<p>Discrete data, as the name suggests, can only take certain, separated values. These values are distinct and countable, and there are no intermediate values between any two given values. Examples of discrete data include the number of students in a class, the number of cars in a parking lot, or any other count that cannot be divided into smaller parts.</p>
+<p>Contrarily, continuous data can take any value within a given range or interval. Here, the data points are not countable as they may exist at any point along a continuum within a given range. This means that the variables have an infinite number of possibilities. Examples of continuous data include the height of a person, the weight of an animal, or the time it takes to run a race. In these examples, the measurements can be broken down into smaller units, and a great number of precise values are possible.</p>
+<p>For instance, let’s examine the <code>mtcars</code> dataset that comes with the R programming language. This dataset provides information on various attributes of 32 automobiles from the 1970s.</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="data-categorization.html#cb226-1" tabindex="-1"></a><span class="co"># View the first few rows of the mtcars dataset</span></span>
+<span id="cb226-2"><a href="data-categorization.html#cb226-2" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3
+##                   carb
+## Mazda RX4            4
+## Mazda RX4 Wag        4
+## Datsun 710           1
+## Hornet 4 Drive       1
+## Hornet Sportabout    2
+## Valiant              1</code></pre>
+<p>One of the variables in this dataset, <code>mpg</code> (miles per gallon), is an example of a continuous variable. Continuous variables, such as <code>mpg</code>, can take on any value within a range. In this context, a car’s fuel efficiency (measured in miles per gallon) can theoretically take any non-negative value. This makes <code>mpg</code> a continuous variable.</p>
+<p>On the other hand, the <code>cyl</code> variable, representing the number of cylinders in a car’s engine, is a discrete variable. Discrete variables can only take certain, distinct values. In the case of <code>cyl</code>, cars can have a whole number of cylinders—usually 4, 6, or 8. This characteristic makes <code>cyl</code> a discrete variable.</p>
+</div>
+<div id="levels-of-measurement" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Levels of Measurement<a href="data-categorization.html#levels-of-measurement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Qualitative and quantitative data can be classified into four levels of measurement: <a href="data-categorization.html#nominal-scale-variables">nominal</a>, <a href="data-categorization.html#ordinal-scale-variables">ordinal</a>, <a href="data-categorization.html#interval-scale-variables">interval</a>, and <a href="data-categorization.html#ratio-scale-variables">ratio</a> These levels represent an increasing degree of precision in measurement. The first two levels, nominal and ordinal, are applicable to qualitative data, while the last two levels, interval and ratio, are relevant to (discrete or continuous) quantitative data.</p>
+<div id="nominal-scale-variables" class="section level3 hasAnchor" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> Nominal Scale Variables<a href="data-categorization.html#nominal-scale-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Nominal scale variables</strong> are a type of <strong>categorical variable</strong> that represent distinct groups or categories without an inherent order or ranking. These variables essentially “name” the attribute and don’t possess any quantitative significance. In the field of economics, an example of a nominal variable could be the industry sector of a company, such as technology, healthcare, manufacturing, and so on. These are distinct categories with no implied order or priority.</p>
+<p>In R, nominal variables can be represented using the <code>factor()</code> function. Here’s an example of how this can be done:</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="data-categorization.html#cb228-1" tabindex="-1"></a><span class="co"># Create a factor vector to represent industry sectors</span></span>
+<span id="cb228-2"><a href="data-categorization.html#cb228-2" tabindex="-1"></a>sectors <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;technology&quot;</span>, <span class="st">&quot;healthcare&quot;</span>, <span class="st">&quot;manufacturing&quot;</span>, <span class="st">&quot;technology&quot;</span>, <span class="st">&quot;manufacturing&quot;</span>), </span>
+<span id="cb228-3"><a href="data-categorization.html#cb228-3" tabindex="-1"></a>                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;technology&quot;</span>, <span class="st">&quot;healthcare&quot;</span>, <span class="st">&quot;manufacturing&quot;</span>))</span>
+<span id="cb228-4"><a href="data-categorization.html#cb228-4" tabindex="-1"></a></span>
+<span id="cb228-5"><a href="data-categorization.html#cb228-5" tabindex="-1"></a><span class="co"># Display the created factor vector</span></span>
+<span id="cb228-6"><a href="data-categorization.html#cb228-6" tabindex="-1"></a><span class="fu">print</span>(sectors)</span></code></pre></div>
+<pre><code>## [1] technology    healthcare    manufacturing technology   
+## [5] manufacturing
+## Levels: technology healthcare manufacturing</code></pre>
+<p>In the above code snippet, the <code>factor()</code> function is used to convert a character vector into a factor vector, with the distinct industry sectors specified as the <code>levels</code>. This approach can enhance data analysis efficiency, as R internally assigns a distinct integer to each level. Hence, when dealing with large datasets, R can quickly refer to these numerical assignments instead of the corresponding character strings, improving processing speed.</p>
+<p>The <code>levels()</code> function can be used to extract the defined levels of a factor vector, while the <code>as.numeric()</code> function can convert the factor levels to their corresponding numeric codes, as shown below:</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="data-categorization.html#cb230-1" tabindex="-1"></a><span class="co"># Extract defined levels of the factor vector</span></span>
+<span id="cb230-2"><a href="data-categorization.html#cb230-2" tabindex="-1"></a><span class="fu">levels</span>(sectors)</span></code></pre></div>
+<pre><code>## [1] &quot;technology&quot;    &quot;healthcare&quot;    &quot;manufacturing&quot;</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="data-categorization.html#cb232-1" tabindex="-1"></a><span class="co"># Convert factor levels to their corresponding numeric codes</span></span>
+<span id="cb232-2"><a href="data-categorization.html#cb232-2" tabindex="-1"></a><span class="fu">as.numeric</span>(sectors)</span></code></pre></div>
+<pre><code>## [1] 1 2 3 1 3</code></pre>
+<p>In the output of this code, the <code>levels()</code> function will display the distinct industry sectors, while the <code>as.numeric()</code> function will present the numerical code assigned to each sector in the original vector.</p>
+</div>
+<div id="ordinal-scale-variables" class="section level3 hasAnchor" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> Ordinal Scale Variables<a href="data-categorization.html#ordinal-scale-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Ordinal scale variables</strong>, like nominal variables, are categorical. However, ordinal scale variables have a clear ordering of the variables. An example in economics might be a credit rating (e.g., AAA, AA, A, BBB, BB). Here’s an example:</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="data-categorization.html#cb234-1" tabindex="-1"></a><span class="co"># Creating a factor with ordered levels</span></span>
+<span id="cb234-2"><a href="data-categorization.html#cb234-2" tabindex="-1"></a>credit_rating <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;AAA&quot;</span>, <span class="st">&quot;AA&quot;</span>, <span class="st">&quot;AAA&quot;</span>, <span class="st">&quot;BBB&quot;</span>, <span class="st">&quot;BB&quot;</span>), </span>
+<span id="cb234-3"><a href="data-categorization.html#cb234-3" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;BB&quot;</span>, <span class="st">&quot;BBB&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;AA&quot;</span>, <span class="st">&quot;AAA&quot;</span>),</span>
+<span id="cb234-4"><a href="data-categorization.html#cb234-4" tabindex="-1"></a>                       <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb234-5"><a href="data-categorization.html#cb234-5" tabindex="-1"></a><span class="fu">print</span>(credit_rating)</span></code></pre></div>
+<pre><code>## [1] AAA AA  AAA BBB BB 
+## Levels: C &lt; B &lt; BB &lt; BBB &lt; A &lt; AA &lt; AAA</code></pre>
+<p>In this code, the <code>ordered = TRUE</code> argument tells R that the levels should be considered in a specific order.</p>
+</div>
+<div id="interval-scale-variables" class="section level3 hasAnchor" number="11.3.3">
+<h3><span class="header-section-number">11.3.3</span> Interval Scale Variables<a href="data-categorization.html#interval-scale-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Interval scale variables</strong> are a type of <strong>numerical variable</strong> where the distance between two values is meaningful. However, they lack a true zero point. An example in economics is the difference between two credit scores. The difference between a score of 800 and 700 is the same as the difference between 700 and 600, but a score of 0 does not imply the absence of creditworthiness, it’s just a lower bound.</p>
+<p>Interval data lacks the absolute zero point, which makes direct comparisons of magnitude impossible. A person with a credit score of 800 is not twice as creditworthy as someone with a score of 400.</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="data-categorization.html#cb236-1" tabindex="-1"></a><span class="co"># Creating a numeric vector of credit scores</span></span>
+<span id="cb236-2"><a href="data-categorization.html#cb236-2" tabindex="-1"></a>credit_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">800</span>, <span class="dv">750</span>, <span class="dv">700</span>, <span class="dv">650</span>, <span class="dv">600</span>)</span>
+<span id="cb236-3"><a href="data-categorization.html#cb236-3" tabindex="-1"></a><span class="fu">print</span>(credit_scores)</span></code></pre></div>
+<pre><code>## [1] 800 750 700 650 600</code></pre>
+<p>Another example of an interval scale variable is temperature when measured in Celsius or Fahrenheit. For instance, 20 degrees Celsius is not twice as hot as 10 degrees Celsius. Furthermore, 0 degrees Celsius doesn’t imply the absence of temperature. Thus, the Celsius scale is an interval scale where the differences between values are meaningful, but it doesn’t have a true zero point or a ratio relationship between different temperatures.</p>
+</div>
+<div id="ratio-scale-variables" class="section level3 hasAnchor" number="11.3.4">
+<h3><span class="header-section-number">11.3.4</span> Ratio Scale Variables<a href="data-categorization.html#ratio-scale-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Ratio scale variables</strong>, like interval scale variables, are numeric, but they have a clear definition of zero. When the value of a ratio scale variable is zero, it means the absence of the quantity. Examples in economics include income, annual sales, market share, unemployment rate, and GDP. When GDP is zero it means that no output is produced in that country during the year.</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="data-categorization.html#cb238-1" tabindex="-1"></a><span class="co"># Creating a numeric vector of GDP values in billions of dollars</span></span>
+<span id="cb238-2"><a href="data-categorization.html#cb238-2" tabindex="-1"></a>gdp_billions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19362</span>, <span class="dv">21195</span>, <span class="dv">22675</span>, <span class="dv">21433</span>, <span class="dv">22770</span>)</span>
+<span id="cb238-3"><a href="data-categorization.html#cb238-3" tabindex="-1"></a><span class="fu">print</span>(gdp_billions)</span></code></pre></div>
+<pre><code>## [1] 19362 21195 22675 21433 22770</code></pre>
+<p>The presence of a meaningful zero point allows us to make valid comparisons using ratios. For instance, one country’s GDP being twice as large as another’s is a meaningful statement.</p>
+<p>Under normal circumstances, ratio scale variables cannot assume negative values, as this would imply a quantity less than nothing, which is nonsensical. Variables such as age, height, weight, or income are all examples of ratio scale variables as they can be compared using ratios (someone can be twice as old or earn thrice as much income as someone else), and their zero points are meaningful (zero age means no time has passed since birth, zero height or weight means an absence of these attributes, and zero income means no money has been earned). Therefore, negative values for these variables would not make sense.</p>
+<p>However, there are certain exceptions where variables typically considered ratio scale variables can indeed be negative. These exceptions include instances such as net income, inflation, and interest rates. Here, a “negative” value does not imply less than nothing but rather denotes a particular condition or state. Negative net income reflects a state of indebtedness, negative inflation indicates a deflation, and negative interest rates imply a penalty for storing money at a bank. Despite being negative, these values can still be meaningfully compared to each other using ratios. For instance, 4% inflation is twice as high as 2% inflation, and deflation of 2% (equivalent to -2% inflation) is twice as high as deflation of 1% (or -1% inflation). However, one cannot meaningfully compare positive inflation to deflation using ratios. For example, 4% inflation cannot be compared using ratios to 2% deflation.</p>
+</div>
+</div>
+<div id="index-vs.-absolute-data" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Index vs. Absolute Data<a href="data-categorization.html#index-vs.-absolute-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The field of economics and finance often uses two types of data for analysis: index data and absolute data. Unlike <a href="data-categorization.html#absolute-data">absolute data</a>, which provides valuable insights on its own, <a href="data-categorization.html#index-data">index data</a> is only meaningful when considered in relative terms.</p>
+<div id="index-data" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> Index Data<a href="data-categorization.html#index-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Index data</strong>, often referred to as <strong>indices</strong> or <strong>indexes</strong>, and not to be confused with indicators, are measures which values have no meaning on their own. An index value only becomes meaningful as comparison to a value at a different time period.</p>
+<p>Stock market indices are prime examples of index data. These indices combine various stock prices into a normalized index. As part of this process, an arbitrary value, such as 100, is assigned to the index at a given point in time (e.g., 2010). If the index subsequently rises to 110, this indicates a 10% increase in the total price of the underlying stocks. However, without the context provided by the previous index value (100), the new value (110) lacks meaningful interpretation.</p>
+<p>The reason for creating an index lies in the complexity of making raw values meaningful on their own. Simply adding all share prices together wouldn’t provide valuable insights, as the share price of a particular company may be much higher than others due to arbitrary factors like the number of shares they’ve issued. Instead, stock market indices typically aggregate share prices by normalizing their contributions to the index based on factors such as the size of the company. During this aggregation process, the relative weights of the stocks carry importance, but the sum of these weights — whether it’s 1, 100, or 34 — is irrelevant. This results in an index that lacks inherent meaning on its own, and thus, it only carries significance in relative terms. After completing this aggregation process, the index is standardized to an arbitrary value, often set at 100 at a specific moment in time.</p>
+</div>
+<div id="absolute-data" class="section level3 hasAnchor" number="11.4.2">
+<h3><span class="header-section-number">11.4.2</span> Absolute Data<a href="data-categorization.html#absolute-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On the other hand, absolute data refers to data that has inherent meaning on its own, without needing comparison to other data.</p>
+<p>A fitting example of absolute data is the Gross Domestic Product (GDP), which measures the total market value of all finished goods and services produced within a country’s borders over a specific time period. A GDP value, for instance, $24,000 billion USD, provides a self-explanatory measurement. It indicates that, during that year, the country produced goods and services worth $24,000 billion USD, irrespective of previous values.</p>
+<p>In summary, while index data offers relative comparisons that highlight trends and changes over time, absolute data also provides measurements that are meaningful on their own.</p>
+</div>
+</div>
+<div id="stock-vs.-flow" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Stock vs. Flow<a href="data-categorization.html#stock-vs.-flow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Economic and financial data can be broadly categorized into two types of variables: <a href="data-categorization.html#stock-variables">stock</a> and <a href="data-categorization.html#flow-variables">flow</a>.</p>
+<div id="stock-variables" class="section level3 hasAnchor" number="11.5.1">
+<h3><span class="header-section-number">11.5.1</span> Stock Variables<a href="data-categorization.html#stock-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A <strong>stock variable</strong> represents a quantity measured at a single specific point in time. In a sense, they provide a snapshot of a specific moment. Here are examples of stock variables:</p>
+<ol style="list-style-type: decimal">
+<li>Wealth: The total accumulation of assets a person owns at a given point in time.</li>
+<li>Debt: The total amount owed by a person, business, or country at a certain moment.</li>
+<li>Population: The total number of people in a country or region at a given time.</li>
+<li>Capital Stock: The total value of assets held by a firm at a point in time.</li>
+<li>Unemployment Level: The total number of people unemployed at a specific point in time.</li>
+<li>Inventory: The total amount of goods a company has in stock at a given time.</li>
+<li>Reserves: The total amount of currency held by a central bank at a specific time.</li>
+<li>Households’ savings: The total amount of unconsumed income of a household at a point in time.</li>
+</ol>
+</div>
+<div id="flow-variables" class="section level3 hasAnchor" number="11.5.2">
+<h3><span class="header-section-number">11.5.2</span> Flow Variables<a href="data-categorization.html#flow-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A <strong>flow variable</strong>, on the other hand, is measured over an interval of time. Therefore, a flow would be measured per unit of time (say a year or a month). Here are examples of flow variables:</p>
+<ol style="list-style-type: decimal">
+<li>Income: Money that an individual or business receives over a period of time.</li>
+<li>Spending: Money spent by individuals or businesses over a certain period.</li>
+<li>Production: The total amount of goods and services produced over a time period.</li>
+<li>Consumption: The total goods and services consumed over a period of time.</li>
+<li>Investment: Money invested by a business over a time period.</li>
+<li>Imports and Exports: Goods and services brought into or sent out of a country over a time period.</li>
+<li>Government spending: Total expenditure by the government over a certain period.</li>
+<li>Changes in inventory: The difference in inventory levels between two points in time.</li>
+</ol>
+</div>
+<div id="accounting" class="section level3 hasAnchor" number="11.5.3">
+<h3><span class="header-section-number">11.5.3</span> Accounting<a href="data-categorization.html#accounting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The concepts of stock and flow are also evident in the financial statements of companies. The <strong>Balance Sheet</strong> presents the stock of what a company owns (assets) and owes (liabilities) at a specific point in time, while the <strong>Income Statement</strong> depicts the flow of revenues and expenses that result in net income or loss over a particular period. This clear separation aids in understanding a company’s financial position (stock) and performance (flow) separately, helping various stakeholders, including investors, creditors, and management, make informed decisions.</p>
+<p>In conclusion, understanding the difference between stock and flow variables is crucial in economics, finance, and accounting, as it provides insights into a wide range of issues, from personal financial planning to the evaluation of a country’s economic performance or a company’s financial health.</p>
+</div>
+</div>
+<div id="data-dimensions" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Data Dimensions<a href="data-categorization.html#data-dimensions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Understanding the dimensions of a dataset is crucial in data analysis and econometrics. The dimensions of a dataset refer to how the observations are organized across different dimensions such as time and space.</p>
+<p>There are five principal arrangements of data across dimensions in economic data:</p>
+<ol style="list-style-type: decimal">
+<li><a href="data-categorization.html#cross-sectional-data">Cross-Sectional</a></li>
+<li><a href="data-categorization.html#time-series-data">Time Series</a></li>
+<li><a href="data-categorization.html#panel-data">Panel</a></li>
+<li><a href="data-categorization.html#spatial-data">Spatial</a></li>
+<li><a href="data-categorization.html#clustered-data">Clustered</a></li>
+</ol>
+<p>Each type of data arrangement presents its own unique characteristics, challenges, and opportunities for data analysis.</p>
+<div id="cross-sectional-data" class="section level3 hasAnchor" number="11.6.1">
+<h3><span class="header-section-number">11.6.1</span> Cross-Sectional Data<a href="data-categorization.html#cross-sectional-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Cross-sectional data</strong> refer to information collected from multiple subjects at a specific point in time. In such data, each row represents a unique observation or individual. Examples of cross-sectional data are surveys and administrative records of persons, households, or firms. When analyzing this data, the standard assumption is that observations are independent, meaning that the ordering of observations does not matter.</p>
+<p>Consider the <code>Ecdat</code> package in R, which contains numerous datasets used in econometrics textbooks. A good example of cross-sectional data is the <code>Wages</code> dataset from the <code>Ecdat</code> package. The dataset provides information about workers’ wages and relevant characteristics.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="data-categorization.html#cb240-1" tabindex="-1"></a><span class="co"># Load the Ecdat package</span></span>
+<span id="cb240-2"><a href="data-categorization.html#cb240-2" tabindex="-1"></a><span class="fu">library</span>(Ecdat)</span>
+<span id="cb240-3"><a href="data-categorization.html#cb240-3" tabindex="-1"></a></span>
+<span id="cb240-4"><a href="data-categorization.html#cb240-4" tabindex="-1"></a><span class="co"># Load the Wages dataset</span></span>
+<span id="cb240-5"><a href="data-categorization.html#cb240-5" tabindex="-1"></a><span class="fu">data</span>(Wages)</span>
+<span id="cb240-6"><a href="data-categorization.html#cb240-6" tabindex="-1"></a></span>
+<span id="cb240-7"><a href="data-categorization.html#cb240-7" tabindex="-1"></a><span class="co"># Display the first few rows of the Wages dataset</span></span>
+<span id="cb240-8"><a href="data-categorization.html#cb240-8" tabindex="-1"></a><span class="fu">head</span>(Wages)</span></code></pre></div>
+<pre><code>##   exp wks bluecol ind south smsa married  sex union ed black
+## 1   3  32      no   0   yes   no     yes male    no  9    no
+## 2   4  43      no   0   yes   no     yes male    no  9    no
+## 3   5  40      no   0   yes   no     yes male    no  9    no
+## 4   6  39      no   0   yes   no     yes male    no  9    no
+## 5   7  42      no   1   yes   no     yes male    no  9    no
+## 6   8  35      no   1   yes   no     yes male    no  9    no
+##     lwage
+## 1 5.56068
+## 2 5.72031
+## 3 5.99645
+## 4 5.99645
+## 5 6.06146
+## 6 6.17379</code></pre>
+<p>In the <code>Wages</code> dataset, each row corresponds to a unique worker, providing details such as their education, work experience, region, gender, and union membership. The order of workers does not affect the interpretation of the data, thereby affirming the dataset’s cross-sectional nature.</p>
+<p>Another example of cross-sectional data is the <code>Hdma</code> dataset from the <code>Ecdat</code> package. The <code>Hdma</code> dataset comprises of information regarding home loans in Boston, as gathered by the Home Mortgage Disclosure Act (HMDA).</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="data-categorization.html#cb242-1" tabindex="-1"></a><span class="co"># Load the Hdma dataset</span></span>
+<span id="cb242-2"><a href="data-categorization.html#cb242-2" tabindex="-1"></a><span class="fu">data</span>(Hdma)</span>
+<span id="cb242-3"><a href="data-categorization.html#cb242-3" tabindex="-1"></a></span>
+<span id="cb242-4"><a href="data-categorization.html#cb242-4" tabindex="-1"></a><span class="co"># Display the first few rows of the Hdma dataset</span></span>
+<span id="cb242-5"><a href="data-categorization.html#cb242-5" tabindex="-1"></a><span class="fu">head</span>(Hdma)</span></code></pre></div>
+<pre><code>##     dir   hir       lvr ccs mcs pbcr dmi self single uria
+## 1 0.221 0.221 0.8000000   5   2   no  no   no     no  3.9
+## 2 0.265 0.265 0.9218750   2   2   no  no   no    yes  3.2
+## 3 0.372 0.248 0.9203980   1   2   no  no   no     no  3.2
+## 4 0.320 0.250 0.8604651   1   2   no  no   no     no  4.3
+## 5 0.360 0.350 0.6000000   1   1   no  no   no     no  3.2
+## 6 0.240 0.170 0.5105263   1   1   no  no   no     no  3.9
+##   comdominiom black deny
+## 1           0    no   no
+## 2           0    no   no
+## 3           0    no   no
+## 4           0    no   no
+## 5           0    no   no
+## 6           0    no   no</code></pre>
+<p>The <code>Hdma</code> dataset presents each row as a loan applicant, including details about the applicant’s income, gender, race, loan specifications, and the decision made by the bank. As the ordering of applicants does not affect data interpretation, this dataset also qualifies as cross-sectional data.</p>
+<p>Finally, consider the built-in <code>state.x77</code> dataset in R, sourced from the 1977 Statistical Abstract of the United States. The dataset consists of various economic and demographic measures of the U.S. states.</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="data-categorization.html#cb244-1" tabindex="-1"></a><span class="co"># Display the US State Facts</span></span>
+<span id="cb244-2"><a href="data-categorization.html#cb244-2" tabindex="-1"></a><span class="fu">head</span>(state.x77) </span></code></pre></div>
+<pre><code>##            Population Income Illiteracy Life Exp Murder HS Grad
+## Alabama          3615   3624        2.1    69.05   15.1    41.3
+## Alaska            365   6315        1.5    69.31   11.3    66.7
+## Arizona          2212   4530        1.8    70.55    7.8    58.1
+## Arkansas         2110   3378        1.9    70.66   10.1    39.9
+## California      21198   5114        1.1    71.71   10.3    62.6
+## Colorado         2541   4884        0.7    72.06    6.8    63.9
+##            Frost   Area
+## Alabama       20  50708
+## Alaska       152 566432
+## Arizona       15 113417
+## Arkansas      65  51945
+## California    20 156361
+## Colorado     166 103766</code></pre>
+<p>The <code>state.x77</code> dataset comprises 50 rows and 8 columns, each row corresponding to one of the 50 US states. The columns represent a variety of measurements including the population, income, illiteracy rates, life expectancy, murder rates, high school graduation rates, frost frequency, and land area. The data is ordered alphabetically according to the state’s name, but changing the order wouldn’t affect interpretation, making this a cross-sectional dataset. Despite the geographic attributes of each state, the absence of specific geographic information (such as latitude and longitude) qualifies this dataset as cross-sectional rather than <a href="spacial-data">spatial data</a>.</p>
+</div>
+<div id="time-series-data" class="section level3 hasAnchor" number="11.6.2">
+<h3><span class="header-section-number">11.6.2</span> Time Series Data<a href="data-categorization.html#time-series-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Time series data</strong> are observations that are indexed by time. Each row in a time series dataset typically represents an observation at a distinct time point. Examples of this type of data are annual GDP, daily interest rates, and the hourly share price of Tesla. The key characteristic of time series data is that the ordering of observations does matter, and observations are not assumed to be independent of one another.</p>
+<p>The <code>datasets</code> package in R, which is automatically installed and loaded with R, includes several built-in time series datasets that are commonly used for illustrative purposes. Consider the <code>AirPassengers</code> dataset as an example:</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="data-categorization.html#cb246-1" tabindex="-1"></a><span class="co"># Air Passenger Monthly Totals (in thousands) from 1949 to 1960</span></span>
+<span id="cb246-2"><a href="data-categorization.html#cb246-2" tabindex="-1"></a>AirPassengers</span></code></pre></div>
+<pre><code>##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+## 1949 112 118 132 129 121 135 148 148 136 119 104 118
+## 1950 115 126 141 135 125 149 170 170 158 133 114 140
+## 1951 145 150 178 163 172 178 199 199 184 162 146 166
+## 1952 171 180 193 181 183 218 230 242 209 191 172 194
+## 1953 196 196 236 235 229 243 264 272 237 211 180 201
+## 1954 204 188 235 227 234 264 302 293 259 229 203 229
+## 1955 242 233 267 269 270 315 364 347 312 274 237 278
+## 1956 284 277 317 313 318 374 413 405 355 306 271 306
+## 1957 315 301 356 348 355 422 465 467 404 347 305 336
+## 1958 340 318 362 348 363 435 491 505 404 359 310 337
+## 1959 360 342 406 396 420 472 548 559 463 407 362 405
+## 1960 417 391 419 461 472 535 622 606 508 461 390 432</code></pre>
+<p>The <code>AirPassengers</code> dataset includes monthly totals of international airline passengers from 1949 to 1960. Each row represents a particular month, and the order of the data matters due to potential temporal dependencies, such as seasonality or trends.</p>
+<p>Another example of a time series dataset is <code>EuStockMarkets</code> which includes daily closing prices of major European stock indices from 1991 to 1998:</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="data-categorization.html#cb248-1" tabindex="-1"></a><span class="co"># Load EuStockMarkets dataset</span></span>
+<span id="cb248-2"><a href="data-categorization.html#cb248-2" tabindex="-1"></a><span class="fu">data</span>(EuStockMarkets)</span>
+<span id="cb248-3"><a href="data-categorization.html#cb248-3" tabindex="-1"></a></span>
+<span id="cb248-4"><a href="data-categorization.html#cb248-4" tabindex="-1"></a><span class="co"># Display the first few rows, and include the Date variable</span></span>
+<span id="cb248-5"><a href="data-categorization.html#cb248-5" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">data.frame</span>(<span class="at">Date =</span> <span class="fu">time</span>(EuStockMarkets), EuStockMarkets))</span></code></pre></div>
+<pre><code>##       Date     DAX    SMI    CAC   FTSE
+## 1 1991.496 1628.75 1678.1 1772.8 2443.6
+## 2 1991.500 1613.63 1688.5 1750.5 2460.2
+## 3 1991.504 1606.51 1678.6 1718.0 2448.2
+## 4 1991.508 1621.04 1684.1 1708.1 2470.4
+## 5 1991.512 1618.16 1686.6 1723.1 2484.7
+## 6 1991.515 1610.61 1671.6 1714.3 2466.8</code></pre>
+<p>In this dataset, each row represents a trading day, and the order of the days is crucial to understanding trends and volatilities in the stock markets.</p>
+<p>Lastly, consider the <code>longley</code> dataset, available in R’s built-in datasets:</p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="data-categorization.html#cb250-1" tabindex="-1"></a><span class="co"># Longley&#39;s Economic Regression Data (built-in dataset)</span></span>
+<span id="cb250-2"><a href="data-categorization.html#cb250-2" tabindex="-1"></a><span class="fu">head</span>(longley) </span></code></pre></div>
+<pre><code>##      GNP.deflator     GNP Unemployed Armed.Forces Population Year
+## 1947         83.0 234.289      235.6        159.0    107.608 1947
+## 1948         88.5 259.426      232.5        145.6    108.632 1948
+## 1949         88.2 258.054      368.2        161.6    109.773 1949
+## 1950         89.5 284.599      335.1        165.0    110.929 1950
+## 1951         96.2 328.975      209.9        309.9    112.075 1951
+## 1952         98.1 346.999      193.2        359.4    113.270 1952
+##      Employed
+## 1947   60.323
+## 1948   61.122
+## 1949   60.171
+## 1950   61.187
+## 1951   63.221
+## 1952   63.639</code></pre>
+<p>The <code>longley</code> dataset includes annual observations on six macroeconomic variables for the United States, spanning from 1947 to 1962. Each row stands for a year, and the ordering of the years carries substantial information about the economic progression of the country.</p>
+<p>Aggregate economic data such as the <code>longley</code> dataset is typically available at low frequency (annual, quarterly, or perhaps monthly) so the sample size is quite small, while financial data such as the <code>EuStockMarkets</code> dataset is typically available at high frequency (weekly, daily, hourly, or per transaction).</p>
+<p>In all of these examples, the order of observations matters significantly because it allows for the analysis of trends, cycles, and other time-dependent structures within the data. Proper handling of these elements is crucial for effective time series analysis. This often involves the application of statistical methods designed specifically for time series data, such as autoregressive integrated moving average (ARIMA) models and vector autoregression (VAR) models. These models take into account the temporal dependencies and provide a more reliable analysis of the data.</p>
+</div>
+<div id="panel-data" class="section level3 hasAnchor" number="11.6.3">
+<h3><span class="header-section-number">11.6.3</span> Panel Data<a href="data-categorization.html#panel-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Panel data</strong>, also known as <strong>longitudinal data</strong> or <strong>cross-sectional time series data</strong>, combines elements of both cross-sectional and time series data. In panel data, observations are collected on multiple entities (such as individuals, households, firms, or countries) over multiple time periods. This data structure provides unique opportunities to analyze both individual and time effects, as well as their interaction.</p>
+<p>To illustrate panel data, we can explore some examples using R datasets.</p>
+<p>One example is the <code>Produc</code> dataset, which is available in the <code>plm</code> package:</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="data-categorization.html#cb252-1" tabindex="-1"></a><span class="co"># Load the plm package</span></span>
+<span id="cb252-2"><a href="data-categorization.html#cb252-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;plm&quot;</span>)</span>
+<span id="cb252-3"><a href="data-categorization.html#cb252-3" tabindex="-1"></a></span>
+<span id="cb252-4"><a href="data-categorization.html#cb252-4" tabindex="-1"></a><span class="co"># Load the Produc dataset</span></span>
+<span id="cb252-5"><a href="data-categorization.html#cb252-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Produc&quot;</span>, <span class="at">package =</span> <span class="st">&quot;plm&quot;</span>)</span>
+<span id="cb252-6"><a href="data-categorization.html#cb252-6" tabindex="-1"></a></span>
+<span id="cb252-7"><a href="data-categorization.html#cb252-7" tabindex="-1"></a><span class="co"># Display a few rows of the Produc dataset</span></span>
+<span id="cb252-8"><a href="data-categorization.html#cb252-8" tabindex="-1"></a>Produc[<span class="dv">15</span><span class="sc">:</span><span class="dv">20</span>, ]</span></code></pre></div>
+<pre><code>##      state year region     pcap     hwy   water    util       pc
+## 15 ALABAMA 1984      6 19257.47 8655.94 2235.16 8366.37 59446.86
+## 16 ALABAMA 1985      6 19433.36 8726.24 2253.03 8454.09 60688.04
+## 17 ALABAMA 1986      6 19723.37 8813.24 2308.99 8601.14 61628.88
+## 18 ARIZONA 1970      8 10148.42 4556.81 1627.87 3963.75 23585.99
+## 19 ARIZONA 1971      8 10560.54 4701.97 1627.34 4231.23 24924.82
+## 20 ARIZONA 1972      8 10977.53 4847.84 1614.58 4515.11 26058.65
+##      gsp    emp unemp
+## 15 45118 1387.7  11.0
+## 16 46849 1427.1   8.9
+## 17 48409 1463.3   9.8
+## 18 19288  547.4   4.4
+## 19 21040  581.4   4.7
+## 20 23289  646.3   4.2</code></pre>
+<p>The <code>Produc</code> dataset contains state-level data for the United States from 1970 to 1986. It includes variables such as state GDP, capital stock, employment, and wages. With data from 48 states, each state having 17 yearly observations, this dataset combines both cross-sectional and time-series components. This panel structure allows for analyzing the relationship between these variables over time, while also accounting for heterogeneity across states.</p>
+<p>Another example is the <code>EmplUK</code> dataset from the <code>plm</code> package:</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="data-categorization.html#cb254-1" tabindex="-1"></a><span class="co"># Load the EmplUK dataset</span></span>
+<span id="cb254-2"><a href="data-categorization.html#cb254-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;EmplUK&quot;</span>, <span class="at">package =</span> <span class="st">&quot;plm&quot;</span>)</span>
+<span id="cb254-3"><a href="data-categorization.html#cb254-3" tabindex="-1"></a></span>
+<span id="cb254-4"><a href="data-categorization.html#cb254-4" tabindex="-1"></a><span class="co"># Display a few rows of the EmplUK dataset</span></span>
+<span id="cb254-5"><a href="data-categorization.html#cb254-5" tabindex="-1"></a>EmplUK[<span class="dv">19</span><span class="sc">:</span><span class="dv">24</span>, ]</span></code></pre></div>
+<pre><code>##    firm year sector    emp    wage capital   output
+## 19    3 1981      7 19.570 24.8714  6.2136  99.5581
+## 20    3 1982      7 18.125 24.8447  5.7146  98.6151
+## 21    3 1983      7 16.850 28.9077  7.3431 100.0301
+## 22    4 1977      8 26.160 14.8283  8.4902 118.2223
+## 23    4 1978      8 26.740 14.8379  8.7420 120.1551
+## 24    4 1979      8 27.280 14.8756  9.1869 118.8319</code></pre>
+<p>The <code>EmplUK</code> dataset contains information on employment in different industries in the United Kingdom from 1977 to 1983. It includes variables such as employment, wages, and output. This dataset allows for analyzing how employment and wages vary across industries and over time.</p>
+<p>In panel data analysis, various econometric techniques can be applied to account for time-varying effects, individual-specific heterogeneity, and potential endogeneity. Common methods include fixed effects models, random effects models, and dynamic panel data models. These approaches help uncover relationships that may be obscured in cross-sectional or time series analysis alone.</p>
+</div>
+<div id="spatial-data" class="section level3 hasAnchor" number="11.6.4">
+<h3><span class="header-section-number">11.6.4</span> Spatial Data<a href="data-categorization.html#spatial-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Spatial data</strong> are observations that are indexed by geographical locations or coordinates. Each row in a spatial dataset typically represents an observation at a distinct spatial unit. Examples of this type of data are housing prices across different districts, climate data from different weather stations, and population densities across various regions. The key characteristic of spatial data is that the geographical arrangement of observations does matter, and observations are not assumed to be independent of one another, often exhibiting spatial autocorrelation where observations close in space tend to be more similar.</p>
+<p>The <code>house</code> dataset, available in the <code>spdep</code> package, serves as a fitting example for spatial data analysis:</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="data-categorization.html#cb256-1" tabindex="-1"></a><span class="co"># Load the spdep package</span></span>
+<span id="cb256-2"><a href="data-categorization.html#cb256-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;spdep&quot;</span>)</span>
+<span id="cb256-3"><a href="data-categorization.html#cb256-3" tabindex="-1"></a></span>
+<span id="cb256-4"><a href="data-categorization.html#cb256-4" tabindex="-1"></a><span class="co"># Load the house dataset</span></span>
+<span id="cb256-5"><a href="data-categorization.html#cb256-5" tabindex="-1"></a><span class="fu">data</span>(house)</span>
+<span id="cb256-6"><a href="data-categorization.html#cb256-6" tabindex="-1"></a></span>
+<span id="cb256-7"><a href="data-categorization.html#cb256-7" tabindex="-1"></a><span class="co"># Display a few rows and columns of the house dataset</span></span>
+<span id="cb256-8"><a href="data-categorization.html#cb256-8" tabindex="-1"></a><span class="fu">head</span>(house[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>])</span></code></pre></div>
+<pre><code>##            coordinates  price yrbuilt  stories  TLA     wall beds
+## 1 (484668.1, 195270.3) 303000    1978 one+half 3273  partbrk    4
+## 2 (484875.6, 195301.3)  92000    1957      one  920 metlvnyl    2
+## 3 (485248.4, 195353.8)  90000    1937      two 1956 stucdrvt    3
+## 4 (485764.2, 196177.5) 330000    1887 one+half 1430     wood    4
+## 5 (488149.8, 196591.4) 185000    1978      two 2208  partbrk    3
+## 6   (485525.7, 196660) 100000    1989      one 1232     wood    1</code></pre>
+<p>The <code>house</code> dataset consists of details pertaining to 25,357 single-family homes sold in Lucas County, Ohio, between 1993 and 1998. It includes particulars such as sale prices, locations, and other relevant features. Additionally, the dataset reveals the GPS coordinates of each house in the <code>coordinates</code> column. The first value in the <code>coordinates</code> column denotes the northern coordinate, while the second one refers to the western coordinate. Researchers can employ these GPS coordinates to conduct spatial analyses, examining housing market dynamics in Lucas County while taking into account spatial autocorrelation and spatial dependence.</p>
+<p>It’s important to note that the regional datasets previously discussed in the context of <a href="data-categorization.html#cross-sectional-data">cross-sectional</a> and <a href="data-categorization.html#panel-data">panel data</a> can also be classified as spatial data. To perform spatial data analysis on these regional datasets, one needs to merge them with another dataset that includes GPS or longitude and latitude data for each region. This geographical data is often available online; for instance, one can find the longitude and latitude for each U.S. state or county with relative ease.</p>
+<p>By integrating geographic information and taking into account spatial dependencies, economists can improve the accuracy of their empirical results, gaining deeper insights into the influence of geographical factors on economic outcomes. Common methods include spatial lag models, spatial error models, and spatial autoregressive models. These approaches help reveal relationships that may be hidden when using cross-sectional or time series analysis alone.</p>
+</div>
+<div id="clustered-data" class="section level3 hasAnchor" number="11.6.5">
+<h3><span class="header-section-number">11.6.5</span> Clustered Data<a href="data-categorization.html#clustered-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Clustered data</strong> is a form of data that may resemble <a href="data-categorization.html#panel-data">panel</a> or <a href="#spacial-data">spatial data</a>, as it groups observations based on criteria such as geographical location, time period, or subject. This clustering implies that observations within each group are likely to exhibit a degree of correlation, meaning they are more likely to resemble each other than observations in different clusters.</p>
+<p>However, the approach to clustered data contrasts with <a href="data-categorization.html#panel-data">panel</a> or <a href="#spacial-data">spatial data</a> in an important way: in clustered data, the specific nature of the correlation within each cluster is not typically explicitly modeled. For example, while we might expect houses sold within the same county (a cluster) to have more similar characteristics than houses sold across different counties, we don’t explicitly model the specific relationships among the houses within each county so that the order of observations within clusters doesn’t matter.</p>
+<p>On the other hand, panel data has a time-dependent structure as it involves repeated observations collected from the same subjects over time. Similarly, spatial data has a location-dependent structure, where observations are based on their geographical locations. In both these cases, the dependencies within the data are explicitly incorporated into the data analysis.</p>
+<p>Consider the <code>EmplUK</code> dataset as an example of clustered data. This dataset contains panel data on employment and wages for different industries in the United Kingdom from 1977 to 1987, as discussed earlier in the <a href="data-categorization.html#panel-data">panel data</a> section:</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="data-categorization.html#cb258-1" tabindex="-1"></a><span class="co"># Display a few rows of the EmplUK dataset</span></span>
+<span id="cb258-2"><a href="data-categorization.html#cb258-2" tabindex="-1"></a>EmplUK[<span class="dv">19</span><span class="sc">:</span><span class="dv">25</span>, ]</span></code></pre></div>
+<pre><code>##    firm year sector    emp    wage capital   output
+## 19    3 1981      7 19.570 24.8714  6.2136  99.5581
+## 20    3 1982      7 18.125 24.8447  5.7146  98.6151
+## 21    3 1983      7 16.850 28.9077  7.3431 100.0301
+## 22    4 1977      8 26.160 14.8283  8.4902 118.2223
+## 23    4 1978      8 26.740 14.8379  8.7420 120.1551
+## 24    4 1979      8 27.280 14.8756  9.1869 118.8319
+## 25    4 1980      8 27.830 15.2332  9.4036 111.9164</code></pre>
+<p>The <code>EmplUK</code> dataset is clustered by industry, suggesting that observations within the same industry may exhibit similar employment patterns or be influenced by industry-specific factors. Depending on the research question and context, the <code>EmplUK</code> dataset could be treated as either panel data or clustered data.</p>
+<p>When analyzing the <code>EmplUK</code> dataset to understand employment and wage variations across different industries over time, treating it as panel data is appropriate. In this context, each industry is a distinct unit in the panel data framework, and using panel data models allows researchers to study variations in employment and wages over time and across industries, accounting for both time effects and industry-specific effects.</p>
+<p>In a different context, the <code>EmplUK</code> dataset could be treated as clustered data. Here, the interest lies in understanding the variation and potential correlations within each industry. The clusters here are the industries themselves, and observations within each industry might be more similar to each other due to industry-specific factors such as common economic conditions, regulations, or labor market dynamics. Treating the data as clustered acknowledges the correlation within each cluster (industry) but does not model this correlation explicitly.</p>
+<p>Hence, the choice between treating the <code>EmplUK</code> dataset as panel data or clustered data depends on the research question.</p>
+<p>When working with clustered data, it is vital to use statistical techniques that account for the correlation within clusters. Common techniques include the use of cluster-robust standard errors, fixed effects models, or random effects models.</p>
+</div>
+</div>
+<div id="conclusion-data-categorization" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">11.7</span> Conclusion<a href="data-categorization.html#conclusion-data-categorization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this chapter, we’ve developed a comprehensive vocabulary for understanding and categorizing data. The classifications include whether the data is described in words or numbers (qualitative or quantitative), the quantifiable values the data can assume (discrete or continuous), the scale of measurement (nominal, ordinal, interval, or ratio), its relational form (index vs. absolute data), its temporal nature (stock or flow), and its dimensions (cross-sectional, time-series, panel, spatial, and clustered). Together, these classifications provide us with a robust framework to approach and interpret different types of data that we encounter in economic analysis.</p>
+<p>Each of these categories has unique characteristics that require specific analytical methods and considerations. For example, time-series data are analyzed differently from cross-sectional data, considering their inherent temporal order and potential autocorrelation. Similarly, data transformations, such as logarithmic or difference transformations, may be more applicable or meaningful to certain types of data than others.</p>
+<p>In the following chapters, we will apply this vocabulary to economic indicators and the transformations thereof. We will discuss how each economic indicator fits into these categories and how specific data transformations can enhance our understanding of these indicators. Remember, the appropriate transformation depends on the specific type of data and the research question at hand, so our newly established vocabulary will prove invaluable.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="economic-indicators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-transformation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["daer.pdf", "PDF"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
