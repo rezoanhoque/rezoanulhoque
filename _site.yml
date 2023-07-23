@@ -1,0 +1,36 @@
+name: "my-website"
+output_dir: "."
+navbar:
+  type: inverse
+  title: "<span  style='font-size: 36px'> <span style='color: black'>Julian F. Ludwig</span></span>"
+  right:
+  - href: https://www.linkedin.com/in/julianfludwig
+    icon: fa-linkedin
+  - href: https://github.com/j-ludwig
+    icon: fa-github
+  - href: https://twitter.com/julianfludwig
+    icon: fa-twitter
+  - href: https://scholar.google.com/citations?hl=de&user=AfUsLZQAAAAJ
+    icon: glyphicon-education
+  - href: https://www.depts.ttu.edu/economics/faculty/Ludwig
+    icon: fa-building
+output:
+  html_document:
+    includes:
+      # after_body: ttuicon.html
+      # in_header: ttuicon.html
+    css: "styles.css" 
+    toc: true
+    toc_float: true  
+    toc_depth: 3
+    theme: lumen
+    highlight: default # the looks of r-code-chunk
+
+
+# favorite theme: lumen,, default, journal
+
+
+
+
+
+
