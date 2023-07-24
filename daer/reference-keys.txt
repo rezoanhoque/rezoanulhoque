@@ -48,6 +48,7 @@ fig:consumption-smoothing-level
 fig:consumption-smoothing-log
 tab:consumption-smoothing-table
 fig:MI2000
+fig:beliefs-matter
 software-overview
 software-installation
 install-r

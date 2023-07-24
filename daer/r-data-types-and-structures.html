@@ -982,9 +982,9 @@ Tab on output or arbitrary whitespace on input
 <pre><code>## # A tibble: 3 × 4
 ##   name     id   age sex  
 ##   &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;
-## 1 a         5    31 M    
-## 2 b         1    62 F    
-## 3 c         3    57 F</code></pre>
+## 1 a         4    67 M    
+## 2 b         2    29 F    
+## 3 c         1    58 F</code></pre>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="r-data-types-and-structures.html#cb94-1" tabindex="-1"></a><span class="fu">class</span>(tib)</span></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <p>One advantage of tibbles is that they make it easy to calculate and create new columns. Here’s an example:</p>
@@ -993,9 +993,9 @@ Tab on output or arbitrary whitespace on input
 <pre><code>## # A tibble: 3 × 5
 ##   name     id   age sex   idvage
 ##   &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;dbl&gt;
-## 1 a         5    31 M     0.161 
-## 2 b         1    62 F     0.0161
-## 3 c         3    57 F     0.0526</code></pre>
+## 1 a         4    67 M     0.0597
+## 2 b         2    29 F     0.0690
+## 3 c         1    58 F     0.0172</code></pre>
 <p>Unlike regular data frames, tibbles allow non-standard column names. You can use special characters or numbers as column names. Here’s an example:</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="r-data-types-and-structures.html#cb98-1" tabindex="-1"></a><span class="fu">tibble</span>(<span class="st">`</span><span class="at">:)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;smile&quot;</span>, <span class="st">`</span><span class="at"> </span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;space&quot;</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;number&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
@@ -1046,9 +1046,9 @@ Tab on output or arbitrary whitespace on input
 <span id="cb106-8"><a href="r-data-types-and-structures.html#cb106-8" tabindex="-1"></a>                 <span class="at">sex =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>)))</span>
 <span id="cb106-9"><a href="r-data-types-and-structures.html#cb106-9" tabindex="-1"></a>dt</span></code></pre></div>
 <pre><code>##    name id age sex
-## 1:    a  2  53   M
-## 2:    b  5  51   F
-## 3:    c  3  56   F</code></pre>
+## 1:    a  2  59   M
+## 2:    b  1  58   F
+## 3:    c  5  38   F</code></pre>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="r-data-types-and-structures.html#cb108-1" tabindex="-1"></a><span class="fu">class</span>(dt)</span></code></pre></div>
 <pre><code>## [1] &quot;data.table&quot; &quot;data.frame&quot;</code></pre>
 <p>Columns in a data table can be referenced directly, and new variables can be created using the <code>:=</code> operator:</p>
@@ -1056,26 +1056,26 @@ Tab on output or arbitrary whitespace on input
 <span id="cb110-2"><a href="r-data-types-and-structures.html#cb110-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dt) <span class="co"># create a data frame for comparison</span></span>
 <span id="cb110-3"><a href="r-data-types-and-structures.html#cb110-3" tabindex="-1"></a>df[df<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span>, ] <span class="co"># select with data frame</span></span></code></pre></div>
 <pre><code>##   name id age sex
-## 1    a  2  53   M</code></pre>
+## 1    a  2  59   M</code></pre>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="r-data-types-and-structures.html#cb112-1" tabindex="-1"></a>dt[sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span>, ] <span class="co"># select with data table</span></span></code></pre></div>
 <pre><code>##    name id age sex
-## 1:    a  2  53   M</code></pre>
+## 1:    a  2  59   M</code></pre>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="r-data-types-and-structures.html#cb114-1" tabindex="-1"></a><span class="co"># Variable assignment with data frame vs. data table:</span></span>
 <span id="cb114-2"><a href="r-data-types-and-structures.html#cb114-2" tabindex="-1"></a>df<span class="sc">$</span>id_over_age <span class="ot">&lt;-</span> df<span class="sc">$</span>id <span class="sc">/</span> df<span class="sc">$</span>age <span class="co"># assign with data frame</span></span>
 <span id="cb114-3"><a href="r-data-types-and-structures.html#cb114-3" tabindex="-1"></a>dt[, id_over_age <span class="sc">:=</span> id <span class="sc">/</span> age] <span class="co"># assign with data table</span></span></code></pre></div>
 <p>You can select multiple variables with a list:</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="r-data-types-and-structures.html#cb115-1" tabindex="-1"></a>dt[, <span class="fu">list</span>(sex, age)]</span></code></pre></div>
 <pre><code>##    sex age
-## 1:   M  53
-## 2:   F  51
-## 3:   F  56</code></pre>
+## 1:   M  59
+## 2:   F  58
+## 3:   F  38</code></pre>
 <p>Multiple variables can be assigned simultaneously, where the LHS of the <code>:=</code> operator is a character vector of new variable names, and the RHS is a list of operations:</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="r-data-types-and-structures.html#cb117-1" tabindex="-1"></a>dt[, <span class="fu">c</span>(<span class="st">&quot;id_times_age&quot;</span>, <span class="st">&quot;id_plus_age&quot;</span>) <span class="sc">:=</span> <span class="fu">list</span>(id <span class="sc">*</span> age, id <span class="sc">+</span> age)]</span>
 <span id="cb117-2"><a href="r-data-types-and-structures.html#cb117-2" tabindex="-1"></a>dt</span></code></pre></div>
 <pre><code>##    name id age sex id_over_age id_times_age id_plus_age
-## 1:    a  2  53   M  0.03773585          106          55
-## 2:    b  5  51   F  0.09803922          255          56
-## 3:    c  3  56   F  0.05357143          168          59</code></pre>
+## 1:    a  2  59   M  0.03389831          118          61
+## 2:    b  1  58   F  0.01724138           58          59
+## 3:    c  5  38   F  0.13157895          190          43</code></pre>
 <p>Many operations in data analysis need to be done by group (e.g. calculating average unemployment by year). In such cases, data table introduces a third dimension to perform these operations. Specifically, the data table syntax is <code>DT[i,j,by]</code> with options to</p>
 <ul>
 <li>subset rows using <code>i</code> (which rows?),</li>
@@ -1085,25 +1085,25 @@ Tab on output or arbitrary whitespace on input
 <p>Here is an example:</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="r-data-types-and-structures.html#cb119-1" tabindex="-1"></a><span class="co"># Produce table with average age by sex:</span></span>
 <span id="cb119-2"><a href="r-data-types-and-structures.html#cb119-2" tabindex="-1"></a>dt[, <span class="fu">mean</span>(age), by <span class="ot">=</span> sex]</span></code></pre></div>
-<pre><code>##    sex   V1
-## 1:   M 53.0
-## 2:   F 53.5</code></pre>
+<pre><code>##    sex V1
+## 1:   M 59
+## 2:   F 48</code></pre>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="r-data-types-and-structures.html#cb121-1" tabindex="-1"></a><span class="co"># Do the same but name the columns &quot;Gender&quot; and &quot;Age by Gender&quot;:</span></span>
 <span id="cb121-2"><a href="r-data-types-and-structures.html#cb121-2" tabindex="-1"></a>dt[, <span class="fu">list</span>(<span class="st">`</span><span class="at">Age by Gender</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">mean</span>(age)), by <span class="ot">=</span> <span class="fu">list</span>(<span class="at">Gender =</span> sex)]</span></code></pre></div>
 <pre><code>##    Gender Age by Gender
-## 1:      M          53.0
-## 2:      F          53.5</code></pre>
+## 1:      M            59
+## 2:      F            48</code></pre>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="r-data-types-and-structures.html#cb123-1" tabindex="-1"></a><span class="co"># Assign a new variable with average age by sex named &quot;age_by_sex&quot;:</span></span>
 <span id="cb123-2"><a href="r-data-types-and-structures.html#cb123-2" tabindex="-1"></a>dt[, age_by_sex <span class="sc">:=</span> <span class="fu">mean</span>(age), by <span class="ot">=</span> sex]</span>
 <span id="cb123-3"><a href="r-data-types-and-structures.html#cb123-3" tabindex="-1"></a>dt</span></code></pre></div>
 <pre><code>##    name id age sex id_over_age id_times_age id_plus_age
-## 1:    a  2  53   M  0.03773585          106          55
-## 2:    b  5  51   F  0.09803922          255          56
-## 3:    c  3  56   F  0.05357143          168          59
+## 1:    a  2  59   M  0.03389831          118          61
+## 2:    b  1  58   F  0.01724138           58          59
+## 3:    c  5  38   F  0.13157895          190          43
 ##    age_by_sex
-## 1:       53.0
-## 2:       53.5
-## 3:       53.5</code></pre>
+## 1:         59
+## 2:         48
+## 3:         48</code></pre>
 <p>For additional information about data tables and their powerful features, check out the <a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html" target="_blank">Intro to Data Table</a> documentation and this <a href="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/datatable_Cheat_Sheet_R.pdf" target="_blank">cheat sheet</a> for <code>data.table</code> functions. Furthermore, <a href="https://learn.datacamp.com/" target="_blank">DataCamp</a> provides several courses on <code>data.table</code>, such as:</p>
 <ul>
 <li><a href="https://learn.datacamp.com/courses/data-manipulation-with-datatable-in-r">Data Manipulation with data.table in R</a></li>
