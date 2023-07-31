@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 Data Transformation | Economic Data Analysis</title>
+  <meta name="description" content="12 Data Transformation | Economic Data Analysis" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 Data Transformation | Economic Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 Data Transformation | Economic Data Analysis" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-07-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-categorization.html"/>
+<link rel="next" href="data-aggregation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html">Data Analysis for Economic Research</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><em>Preface</em></a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#author"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#book-navigation"><i class="fa fa-check"></i>Book Navigation</a></li>
+</ul></li>
+<li class="part"><span><b>Module I</b></span></li>
+<li class="chapter" data-level="" data-path="module-i.html"><a href="module-i.html"><i class="fa fa-check"></i><em>Introduction to R for Economic Research</em></a></li>
+<li class="chapter" data-level="1" data-path="software-overview.html"><a href="software-overview.html"><i class="fa fa-check"></i><b>1</b> Software Overview</a></li>
+<li class="chapter" data-level="2" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i><b>2</b> Software Installation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="software-installation.html"><a href="software-installation.html#install-r"><i class="fa fa-check"></i><b>2.1</b> Install R</a></li>
+<li class="chapter" data-level="2.2" data-path="software-installation.html"><a href="software-installation.html#install-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="software-installation.html"><a href="software-installation.html#install-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Install R Markdown</a></li>
+<li class="chapter" data-level="2.4" data-path="software-installation.html"><a href="software-installation.html#install-latex"><i class="fa fa-check"></i><b>2.4</b> Install LaTeX</a></li>
+<li class="chapter" data-level="2.5" data-path="software-installation.html"><a href="software-installation.html#install-r-packages"><i class="fa fa-check"></i><b>2.5</b> Install R Packages</a></li>
+<li class="chapter" data-level="2.6" data-path="software-installation.html"><a href="software-installation.html#step-test"><i class="fa fa-check"></i><b>2.6</b> 18-Step Test</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rstudio-interface.html"><a href="rstudio-interface.html"><i class="fa fa-check"></i><b>3</b> RStudio Interface</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="rstudio-interface.html"><a href="rstudio-interface.html#rstudio-sections"><i class="fa fa-check"></i><b>3.1</b> RStudio Sections</a></li>
+<li class="chapter" data-level="3.2" data-path="rstudio-interface.html"><a href="rstudio-interface.html#r-scripts"><i class="fa fa-check"></i><b>3.2</b> R Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html"><i class="fa fa-check"></i><b>4</b> R Data Types and Structures</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#scalar"><i class="fa fa-check"></i><b>4.1</b> Scalar</a></li>
+<li class="chapter" data-level="4.2" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#vector"><i class="fa fa-check"></i><b>4.2</b> Vector</a></li>
+<li class="chapter" data-level="4.3" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#matrix-matrix"><i class="fa fa-check"></i><b>4.3</b> Matrix (<code>matrix</code>)</a></li>
+<li class="chapter" data-level="4.4" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#list-list"><i class="fa fa-check"></i><b>4.4</b> List (<code>list</code>)</a></li>
+<li class="chapter" data-level="4.5" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#data.frame"><i class="fa fa-check"></i><b>4.5</b> Data Frame (<code>data.frame</code>)</a></li>
+<li class="chapter" data-level="4.6" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#tibble"><i class="fa fa-check"></i><b>4.6</b> Tibble (<code>tbl_df</code>)</a></li>
+<li class="chapter" data-level="4.7" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#data-table-data.table"><i class="fa fa-check"></i><b>4.7</b> Data Table (<code>data.table</code>)</a></li>
+<li class="chapter" data-level="4.8" data-path="r-data-types-and-structures.html"><a href="r-data-types-and-structures.html#xts"><i class="fa fa-check"></i><b>4.8</b> Extensible Time Series (<code>xts</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html"><i class="fa fa-check"></i><b>5</b> Importing Data in R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#working-directory"><i class="fa fa-check"></i><b>5.1</b> Working Directory</a></li>
+<li class="chapter" data-level="5.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#yield-curve"><i class="fa fa-check"></i><b>5.2</b> Yield Curve</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-csv-file"><i class="fa fa-check"></i><b>5.2.1</b> Import CSV File</a></li>
+<li class="chapter" data-level="5.2.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-historical-yields"><i class="fa fa-check"></i><b>5.2.2</b> Plotting Historical Yields</a></li>
+<li class="chapter" data-level="5.2.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-yield-curve"><i class="fa fa-check"></i><b>5.2.3</b> Plotting Yield Curve</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#michigan-survey"><i class="fa fa-check"></i><b>5.3</b> Michigan Survey</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-tsv-file"><i class="fa fa-check"></i><b>5.3.1</b> Import TSV File</a></li>
+<li class="chapter" data-level="5.3.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-consumer-indices"><i class="fa fa-check"></i><b>5.3.2</b> Plotting Consumer Indices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#tealbook"><i class="fa fa-check"></i><b>5.4</b> Tealbook</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#import-excel-workbook"><i class="fa fa-check"></i><b>5.4.1</b> Import Excel Workbook</a></li>
+<li class="chapter" data-level="5.4.2" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#nowcast-and-backcast"><i class="fa fa-check"></i><b>5.4.2</b> Nowcast and Backcast</a></li>
+<li class="chapter" data-level="5.4.3" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#information-date-and-realization-date"><i class="fa fa-check"></i><b>5.4.3</b> Information Date and Realization Date</a></li>
+<li class="chapter" data-level="5.4.4" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-forecasts"><i class="fa fa-check"></i><b>5.4.4</b> Plotting Forecasts</a></li>
+<li class="chapter" data-level="5.4.5" data-path="importing-data-in-r.html"><a href="importing-data-in-r.html#plotting-forecast-errors"><i class="fa fa-check"></i><b>5.4.5</b> Plotting Forecast Errors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html"><i class="fa fa-check"></i><b>6</b> Downloading Data in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#web-api"><i class="fa fa-check"></i><b>6.1</b> Web API</a></li>
+<li class="chapter" data-level="6.2" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#using-getsymbols"><i class="fa fa-check"></i><b>6.2</b> Using <code>getSymbols()</code></a></li>
+<li class="chapter" data-level="6.3" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#using-quandl"><i class="fa fa-check"></i><b>6.3</b> Using <code>Quandl()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#saving-data"><i class="fa fa-check"></i><b>6.4</b> Saving Data</a></li>
+<li class="chapter" data-level="6.5" data-path="downloading-data-in-r.html"><a href="downloading-data-in-r.html#summary-and-resources"><i class="fa fa-check"></i><b>6.5</b> Summary and Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Writing Reports with R Markdown</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#creating-an-r-markdown-document"><i class="fa fa-check"></i><b>7.1</b> Creating an R Markdown Document</a></li>
+<li class="chapter" data-level="7.2" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#yaml-header"><i class="fa fa-check"></i><b>7.2</b> YAML Header</a></li>
+<li class="chapter" data-level="7.3" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#markdown-syntax"><i class="fa fa-check"></i><b>7.3</b> Markdown Syntax</a></li>
+<li class="chapter" data-level="7.4" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#r-chunks"><i class="fa fa-check"></i><b>7.4</b> R Chunks</a></li>
+<li class="chapter" data-level="7.5" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#embedding-r-variables-into-text"><i class="fa fa-check"></i><b>7.5</b> Embedding R Variables into Text</a></li>
+<li class="chapter" data-level="7.6" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#latex-syntax-for-math"><i class="fa fa-check"></i><b>7.6</b> LaTeX Syntax for Math</a></li>
+<li class="chapter" data-level="7.7" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#printing-tables"><i class="fa fa-check"></i><b>7.7</b> Printing Tables</a></li>
+<li class="chapter" data-level="7.8" data-path="writing-reports-with-r-markdown.html"><a href="writing-reports-with-r-markdown.html#summary-and-resources-1"><i class="fa fa-check"></i><b>7.8</b> Summary and Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html"><i class="fa fa-check"></i><b>8</b> Learning R with DataCamp</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#preparing-for-the-course"><i class="fa fa-check"></i><b>8.1</b> Preparing for the Course</a></li>
+<li class="chapter" data-level="8.2" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#xp-system-and-course-completion"><i class="fa fa-check"></i><b>8.2</b> XP System and Course Completion</a></li>
+<li class="chapter" data-level="8.3" data-path="learning-r-with-datacamp.html"><a href="learning-r-with-datacamp.html#developing-your-skills"><i class="fa fa-check"></i><b>8.3</b> Developing Your Skills</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html"><i class="fa fa-check"></i><b>9</b> Data Report on Yield Curve</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#preparations"><i class="fa fa-check"></i><b>9.1</b> Preparations</a></li>
+<li class="chapter" data-level="9.2" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#data-guidelines"><i class="fa fa-check"></i><b>9.2</b> Data Guidelines</a></li>
+<li class="chapter" data-level="9.3" data-path="data-report-on-yield-curve.html"><a href="data-report-on-yield-curve.html#r-markdown-guidelines"><i class="fa fa-check"></i><b>9.3</b> R Markdown Guidelines</a></li>
+</ul></li>
+<li class="part"><span><b>Module II</b></span></li>
+<li class="chapter" data-level="" data-path="module-ii.html"><a href="module-ii.html"><i class="fa fa-check"></i><em>Traditional Economic Indicators</em></a></li>
+<li class="chapter" data-level="10" data-path="economic-indicators.html"><a href="economic-indicators.html"><i class="fa fa-check"></i><b>10</b> Economic Indicators</a></li>
+<li class="chapter" data-level="11" data-path="data-categorization.html"><a href="data-categorization.html"><i class="fa fa-check"></i><b>11</b> Data Categorization</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="data-categorization.html"><a href="data-categorization.html#qualitative-vs.-quantitative"><i class="fa fa-check"></i><b>11.1</b> Qualitative vs. Quantitative</a></li>
+<li class="chapter" data-level="11.2" data-path="data-categorization.html"><a href="data-categorization.html#discrete-vs.-continuous"><i class="fa fa-check"></i><b>11.2</b> Discrete vs. Continuous</a></li>
+<li class="chapter" data-level="11.3" data-path="data-categorization.html"><a href="data-categorization.html#levels-of-measurement"><i class="fa fa-check"></i><b>11.3</b> Levels of Measurement</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="data-categorization.html"><a href="data-categorization.html#nominal-scale-variables"><i class="fa fa-check"></i><b>11.3.1</b> Nominal Scale Variables</a></li>
+<li class="chapter" data-level="11.3.2" data-path="data-categorization.html"><a href="data-categorization.html#ordinal-scale-variables"><i class="fa fa-check"></i><b>11.3.2</b> Ordinal Scale Variables</a></li>
+<li class="chapter" data-level="11.3.3" data-path="data-categorization.html"><a href="data-categorization.html#interval-scale-variables"><i class="fa fa-check"></i><b>11.3.3</b> Interval Scale Variables</a></li>
+<li class="chapter" data-level="11.3.4" data-path="data-categorization.html"><a href="data-categorization.html#ratio-scale-variables"><i class="fa fa-check"></i><b>11.3.4</b> Ratio Scale Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="data-categorization.html"><a href="data-categorization.html#index-vs.-absolute-data"><i class="fa fa-check"></i><b>11.4</b> Index vs. Absolute Data</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="data-categorization.html"><a href="data-categorization.html#index-data"><i class="fa fa-check"></i><b>11.4.1</b> Index Data</a></li>
+<li class="chapter" data-level="11.4.2" data-path="data-categorization.html"><a href="data-categorization.html#absolute-data"><i class="fa fa-check"></i><b>11.4.2</b> Absolute Data</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="data-categorization.html"><a href="data-categorization.html#stock-vs.-flow"><i class="fa fa-check"></i><b>11.5</b> Stock vs. Flow</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="data-categorization.html"><a href="data-categorization.html#stock-variables"><i class="fa fa-check"></i><b>11.5.1</b> Stock Variables</a></li>
+<li class="chapter" data-level="11.5.2" data-path="data-categorization.html"><a href="data-categorization.html#flow-variables"><i class="fa fa-check"></i><b>11.5.2</b> Flow Variables</a></li>
+<li class="chapter" data-level="11.5.3" data-path="data-categorization.html"><a href="data-categorization.html#accounting"><i class="fa fa-check"></i><b>11.5.3</b> Accounting</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="data-categorization.html"><a href="data-categorization.html#data-dimensions"><i class="fa fa-check"></i><b>11.6</b> Data Dimensions</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="data-categorization.html"><a href="data-categorization.html#cross-sectional-data"><i class="fa fa-check"></i><b>11.6.1</b> Cross-Sectional Data</a></li>
+<li class="chapter" data-level="11.6.2" data-path="data-categorization.html"><a href="data-categorization.html#time-series-data"><i class="fa fa-check"></i><b>11.6.2</b> Time Series Data</a></li>
+<li class="chapter" data-level="11.6.3" data-path="data-categorization.html"><a href="data-categorization.html#panel-data"><i class="fa fa-check"></i><b>11.6.3</b> Panel Data</a></li>
+<li class="chapter" data-level="11.6.4" data-path="data-categorization.html"><a href="data-categorization.html#spatial-data"><i class="fa fa-check"></i><b>11.6.4</b> Spatial Data</a></li>
+<li class="chapter" data-level="11.6.5" data-path="data-categorization.html"><a href="data-categorization.html#clustered-data"><i class="fa fa-check"></i><b>11.6.5</b> Clustered Data</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="data-categorization.html"><a href="data-categorization.html#conclusion-data-categorization"><i class="fa fa-check"></i><b>11.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>12</b> Data Transformation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-transformation.html"><a href="data-transformation.html#example-data"><i class="fa fa-check"></i><b>12.1</b> Example Data</a></li>
+<li class="chapter" data-level="12.2" data-path="data-transformation.html"><a href="data-transformation.html#growth"><i class="fa fa-check"></i><b>12.2</b> Growth</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-growth-rates"><i class="fa fa-check"></i><b>12.2.1</b> Definition</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-transformation.html"><a href="data-transformation.html#log-approximation"><i class="fa fa-check"></i><b>12.2.2</b> Log Approximation</a></li>
+<li class="chapter" data-level="12.2.3" data-path="data-transformation.html"><a href="data-transformation.html#relativity"><i class="fa fa-check"></i><b>12.2.3</b> Relativity</a></li>
+<li class="chapter" data-level="12.2.4" data-path="data-transformation.html"><a href="data-transformation.html#return-and-inflation"><i class="fa fa-check"></i><b>12.2.4</b> Return and Inflation</a></li>
+<li class="chapter" data-level="12.2.5" data-path="data-transformation.html"><a href="data-transformation.html#applicability-growth"><i class="fa fa-check"></i><b>12.2.5</b> Applicability</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-transformation.html"><a href="data-transformation.html#differentiation"><i class="fa fa-check"></i><b>12.3</b> Differentiation</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-differentiation"><i class="fa fa-check"></i><b>12.3.1</b> Definition</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-transformation.html"><a href="data-transformation.html#pp"><i class="fa fa-check"></i><b>12.3.2</b> Percentage Points (pp)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="data-transformation.html"><a href="data-transformation.html#bp"><i class="fa fa-check"></i><b>12.3.3</b> Basis Points (bp)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-transformation.html"><a href="data-transformation.html#log"><i class="fa fa-check"></i><b>12.4</b> Natural Logarithm</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-natural-logarithm"><i class="fa fa-check"></i><b>12.4.1</b> Definition</a></li>
+<li class="chapter" data-level="12.4.2" data-path="data-transformation.html"><a href="data-transformation.html#motivation-natural-logarithm"><i class="fa fa-check"></i><b>12.4.2</b> Motivation</a></li>
+<li class="chapter" data-level="12.4.3" data-path="data-transformation.html"><a href="data-transformation.html#applicability-natural-logarithm"><i class="fa fa-check"></i><b>12.4.3</b> Applicability</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="data-transformation.html"><a href="data-transformation.html#ratio"><i class="fa fa-check"></i><b>12.5</b> Ratio</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="data-transformation.html"><a href="data-transformation.html#definition-ratio"><i class="fa fa-check"></i><b>12.5.1</b> Definition</a></li>
+<li class="chapter" data-level="12.5.2" data-path="data-transformation.html"><a href="data-transformation.html#per-capita"><i class="fa fa-check"></i><b>12.5.2</b> Per Capita</a></li>
+<li class="chapter" data-level="12.5.3" data-path="data-transformation.html"><a href="data-transformation.html#real-vs.-nominal"><i class="fa fa-check"></i><b>12.5.3</b> Real vs. Nominal</a></li>
+<li class="chapter" data-level="12.5.4" data-path="data-transformation.html"><a href="data-transformation.html#growth-of-ratios"><i class="fa fa-check"></i><b>12.5.4</b> Growth of Ratios</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="data-transformation.html"><a href="data-transformation.html#gap"><i class="fa fa-check"></i><b>12.6</b> Gap</a></li>
+<li class="chapter" data-level="12.7" data-path="data-transformation.html"><a href="data-transformation.html#filtering"><i class="fa fa-check"></i><b>12.7</b> Filtering</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="data-transformation.html"><a href="data-transformation.html#frequency-filtering"><i class="fa fa-check"></i><b>12.7.1</b> Frequency Filtering</a></li>
+<li class="chapter" data-level="12.7.2" data-path="data-transformation.html"><a href="data-transformation.html#detrending"><i class="fa fa-check"></i><b>12.7.2</b> Detrending</a></li>
+<li class="chapter" data-level="12.7.3" data-path="data-transformation.html"><a href="data-transformation.html#seasonal-adjustment"><i class="fa fa-check"></i><b>12.7.3</b> Seasonal Adjustment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-aggregation.html"><a href="data-aggregation.html"><i class="fa fa-check"></i><b>13</b> Data Aggregation</a></li>
+<li class="chapter" data-level="14" data-path="data-source.html"><a href="data-source.html"><i class="fa fa-check"></i><b>14</b> Data Source</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="data-source.html"><a href="data-source.html#bureau-of-economic-analysis-bea"><i class="fa fa-check"></i><b>14.1</b> Bureau of Economic Analysis (BEA)</a></li>
+<li class="chapter" data-level="14.2" data-path="data-source.html"><a href="data-source.html#u.s.-census-bureau"><i class="fa fa-check"></i><b>14.2</b> U.S. Census Bureau</a></li>
+<li class="chapter" data-level="14.3" data-path="data-source.html"><a href="data-source.html#bureau-of-labor-statistics-bls"><i class="fa fa-check"></i><b>14.3</b> Bureau of Labor Statistics (BLS)</a></li>
+<li class="chapter" data-level="14.4" data-path="data-source.html"><a href="data-source.html#federal-reserve-board-of-governors"><i class="fa fa-check"></i><b>14.4</b> Federal Reserve Board of Governors</a></li>
+<li class="chapter" data-level="14.5" data-path="data-source.html"><a href="data-source.html#u.s.-department-of-the-treasury"><i class="fa fa-check"></i><b>14.5</b> U.S. Department of the Treasury</a></li>
+<li class="chapter" data-level="14.6" data-path="data-source.html"><a href="data-source.html#financial-market-exchanges"><i class="fa fa-check"></i><b>14.6</b> Financial Market Exchanges</a></li>
+<li class="chapter" data-level="14.7" data-path="data-source.html"><a href="data-source.html#federal-reserve-economic-data-fred"><i class="fa fa-check"></i><b>14.7</b> Federal Reserve Economic Data (FRED)</a></li>
+<li class="chapter" data-level="14.8" data-path="data-source.html"><a href="data-source.html#u.s.-department-of-agriculture-economic-research-service-ers"><i class="fa fa-check"></i><b>14.8</b> U.S. Department of Agriculture Economic Research Service (ERS)</a></li>
+<li class="chapter" data-level="14.9" data-path="data-source.html"><a href="data-source.html#bloomberg"><i class="fa fa-check"></i><b>14.9</b> Bloomberg</a></li>
+<li class="chapter" data-level="14.10" data-path="data-source.html"><a href="data-source.html#yahoo-finance"><i class="fa fa-check"></i><b>14.10</b> Yahoo Finance</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="temporal-patterns.html"><a href="temporal-patterns.html"><i class="fa fa-check"></i><b>15</b> Temporal Patterns</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#time-series-data-1"><i class="fa fa-check"></i><b>15.1</b> Time Series Data</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#definition"><i class="fa fa-check"></i><b>15.1.1</b> Definition</a></li>
+<li class="chapter" data-level="15.1.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#features"><i class="fa fa-check"></i><b>15.1.2</b> Features</a></li>
+<li class="chapter" data-level="15.1.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#visualization"><i class="fa fa-check"></i><b>15.1.3</b> Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#trend"><i class="fa fa-check"></i><b>15.2</b> Trend</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#sustained-growth"><i class="fa fa-check"></i><b>15.2.1</b> Sustained Growth</a></li>
+<li class="chapter" data-level="15.2.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#decrease-in-poverty"><i class="fa fa-check"></i><b>15.2.2</b> Decrease in Poverty</a></li>
+<li class="chapter" data-level="15.2.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#aging-population"><i class="fa fa-check"></i><b>15.2.3</b> Aging Population</a></li>
+<li class="chapter" data-level="15.2.4" data-path="temporal-patterns.html"><a href="temporal-patterns.html#productivity-labor-trade-off"><i class="fa fa-check"></i><b>15.2.4</b> Productivity-Labor Trade-Off</a></li>
+<li class="chapter" data-level="15.2.5" data-path="temporal-patterns.html"><a href="temporal-patterns.html#trend-inflation"><i class="fa fa-check"></i><b>15.2.5</b> Trend Inflation</a></li>
+<li class="chapter" data-level="15.2.6" data-path="temporal-patterns.html"><a href="temporal-patterns.html#decline-in-labor-share"><i class="fa fa-check"></i><b>15.2.6</b> Decline in Labor Share</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonality"><i class="fa fa-check"></i><b>15.3</b> Seasonality</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#holiday-season"><i class="fa fa-check"></i><b>15.3.1</b> Holiday Season</a></li>
+<li class="chapter" data-level="15.3.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonal-weather"><i class="fa fa-check"></i><b>15.3.2</b> Seasonal Weather</a></li>
+<li class="chapter" data-level="15.3.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#seasonal-employment"><i class="fa fa-check"></i><b>15.3.3</b> Seasonal Employment</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="temporal-patterns.html"><a href="temporal-patterns.html#business-cycle"><i class="fa fa-check"></i><b>15.4</b> Business Cycle</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="temporal-patterns.html"><a href="temporal-patterns.html#costs-of-business-cycles"><i class="fa fa-check"></i><b>15.4.1</b> Costs of Business Cycles</a></li>
+<li class="chapter" data-level="15.4.2" data-path="temporal-patterns.html"><a href="temporal-patterns.html#cyclicality-and-timing"><i class="fa fa-check"></i><b>15.4.2</b> Cyclicality and Timing</a></li>
+<li class="chapter" data-level="15.4.3" data-path="temporal-patterns.html"><a href="temporal-patterns.html#consumption-smoothing"><i class="fa fa-check"></i><b>15.4.3</b> Consumption Smoothing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="regional-patterns.html"><a href="regional-patterns.html"><i class="fa fa-check"></i><b>16</b> Regional Patterns</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="regional-patterns.html"><a href="regional-patterns.html#county-level"><i class="fa fa-check"></i><b>16.1</b> County-Level</a></li>
+<li class="chapter" data-level="16.2" data-path="regional-patterns.html"><a href="regional-patterns.html#state-level"><i class="fa fa-check"></i><b>16.2</b> State-Level</a></li>
+<li class="chapter" data-level="16.3" data-path="regional-patterns.html"><a href="regional-patterns.html#country-level"><i class="fa fa-check"></i><b>16.3</b> Country-Level</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="causal-relationships.html"><a href="causal-relationships.html"><i class="fa fa-check"></i><b>17</b> Causal Relationships</a></li>
+<li class="chapter" data-level="18" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html"><i class="fa fa-check"></i><b>18</b> Data Report on Traditional Economic Indicators</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#preparations-2"><i class="fa fa-check"></i><b>18.1</b> Preparations</a></li>
+<li class="chapter" data-level="18.2" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#data-guidelines-2"><i class="fa fa-check"></i><b>18.2</b> Data Guidelines</a></li>
+<li class="chapter" data-level="18.3" data-path="data-report-on-traditional-economic-indicators.html"><a href="data-report-on-traditional-economic-indicators.html#r-markdown-guidelines-2"><i class="fa fa-check"></i><b>18.3</b> R Markdown Guidelines</a></li>
+</ul></li>
+<li class="part"><span><b>Module III</b></span></li>
+<li class="chapter" data-level="" data-path="module-iii.html"><a href="module-iii.html"><i class="fa fa-check"></i><em>Survey- and Text-Based Economic Indicators</em></a></li>
+<li class="chapter" data-level="19" data-path="why-subjective-information-matters.html"><a href="why-subjective-information-matters.html"><i class="fa fa-check"></i><b>19</b> Why Subjective Information Matters</a></li>
+<li class="chapter" data-level="20" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html"><i class="fa fa-check"></i><b>20</b> Michigan Consumer Survey</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#introduction-1"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+<li class="chapter" data-level="20.2" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#conducting-the-survey"><i class="fa fa-check"></i><b>20.2</b> Conducting the Survey</a></li>
+<li class="chapter" data-level="20.3" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#michigan-consumer-indices"><i class="fa fa-check"></i><b>20.3</b> Michigan Consumer Indices</a>
+<ul>
+<li class="chapter" data-level="20.3.1" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#index-of-consumer-sentiment-ics"><i class="fa fa-check"></i><b>20.3.1</b> Index of Consumer Sentiment (ICS)</a></li>
+<li class="chapter" data-level="20.3.2" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#index-of-current-economic-conditions-icc"><i class="fa fa-check"></i><b>20.3.2</b> Index of Current Economic Conditions (ICC)</a></li>
+<li class="chapter" data-level="20.3.3" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#index-of-consumer-expectations-ice"><i class="fa fa-check"></i><b>20.3.3</b> Index of Consumer Expectations (ICE)</a></li>
+<li class="chapter" data-level="20.3.4" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#importing-in-r"><i class="fa fa-check"></i><b>20.3.4</b> Importing in R</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#creating-custom-consumer-indices"><i class="fa fa-check"></i><b>20.4</b> Creating Custom Consumer Indices</a></li>
+<li class="chapter" data-level="20.5" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#importing-and-cleaning-individual-level-surveys"><i class="fa fa-check"></i><b>20.5</b> Importing and Cleaning Individual-Level Surveys</a>
+<ul>
+<li class="chapter" data-level="20.5.1" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#data-source-1"><i class="fa fa-check"></i><b>20.5.1</b> Data Source</a></li>
+<li class="chapter" data-level="20.5.2" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#data-labels"><i class="fa fa-check"></i><b>20.5.2</b> Data Labels</a></li>
+<li class="chapter" data-level="20.5.3" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#importing-the-data-set"><i class="fa fa-check"></i><b>20.5.3</b> Importing the Data Set</a></li>
+<li class="chapter" data-level="20.5.4" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#long-format"><i class="fa fa-check"></i><b>20.5.4</b> Long Format</a></li>
+<li class="chapter" data-level="20.5.5" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#saving-the-data"><i class="fa fa-check"></i><b>20.5.5</b> Saving the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#exploring-individual-level-data"><i class="fa fa-check"></i><b>20.6</b> Exploring Individual-Level Data</a></li>
+<li class="chapter" data-level="20.7" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#replicate-ics"><i class="fa fa-check"></i><b>20.7</b> Replicate ICS</a></li>
+<li class="chapter" data-level="20.8" data-path="michigan-consumer-survey.html"><a href="michigan-consumer-survey.html#conclusion"><i class="fa fa-check"></i><b>20.8</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="real-time-and-forecaster-data.html"><a href="real-time-and-forecaster-data.html"><i class="fa fa-check"></i><b>21</b> Real-Time and Forecaster Data</a></li>
+<li class="chapter" data-level="22" data-path="text-based-economic-indicators.html"><a href="text-based-economic-indicators.html"><i class="fa fa-check"></i><b>22</b> Text-Based Economic Indicators</a></li>
+<li class="chapter" data-level="23" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html"><i class="fa fa-check"></i><b>23</b> Data Report on Survey- and Text-Based Economic Indicators</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#preparations-3"><i class="fa fa-check"></i><b>23.1</b> Preparations</a></li>
+<li class="chapter" data-level="23.2" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#data-guidelines-3"><i class="fa fa-check"></i><b>23.2</b> Data Guidelines</a></li>
+<li class="chapter" data-level="23.3" data-path="data-report-on-survey--and-text-based-economic-indicators.html"><a href="data-report-on-survey--and-text-based-economic-indicators.html#r-markdown-guidelines-3"><i class="fa fa-check"></i><b>23.3</b> R Markdown Guidelines</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.julianfludwig.com/" target="blank">Julian F. Ludwig</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Economic Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-transformation" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">12</span> Data Transformation<a href="data-transformation.html#data-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In Economics and Finance, it is common to transform raw data into meaningful indicators. One common transformation is per capita GDP, where a country’s GDP is divided by its population. This gives a more comparable measure of economic performance across different countries. Similarly, inflation transforms the price index into a growth rate of prices, which helps us understand price distortions, interest rates, and evaluate monetary policy. While these transformations enhance data comparability, they can also introduce complexity. This chapter explores common data transformations in Economics and Finance and offers insights on their interpretation.</p>
+<p>Throughout this chapter, we will explore the following transformed measures:</p>
+<ul>
+<li><a href="data-transformation.html#growth">Growth</a>: This term refers to how an economic variable changes compared to its original value over a set period. Often, it’s expressed as a percentage.</li>
+<li><a href="data-transformation.html#differentiation">Differentiation</a>: Differentiation measures the change between an economic variable’s current value and its preceding value. This offers insights into the degree and direction of change.</li>
+<li><a href="data-transformation.html#log">Natural Logarithm (Log)</a>: Logarithms have many uses, like simplifying data that shows exponential growth or quantifying proportional changes.</li>
+<li><a href="data-transformation.html#ratio">Ratio</a>: Ratio measures calculate the ratio between two variables, such as per capita GDP or unemployment rate. They provide information on the relative size or magnitude of one variable in relation to another.</li>
+<li><a href="data-transformation.html#gap">Gap</a>: Gap measures calculate the distance between two variables, highlighting disparities.</li>
+<li><a href="data-transformation.html#filtering">Filtering</a>: These measures remove noise or specific fluctuations from the data, providing a clearer view of specific patterns.</li>
+</ul>
+<p>By the end of this chapter, you will gain a solid understanding of these transformations and learn how to correctly interpret each one. But before we dive into the details, let’s first prepare some <a href="data-transformation.html#example-data">example data</a> that we’ll use to illustrate these transformations throughout this chapter.</p>
+<div id="example-data" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Example Data<a href="data-transformation.html#example-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For our example data, we leverage key macroeconomic indicators from the U.S. economy, which we source from the <a href="https://fred.stlouisfed.org/" target="_blank">FRED</a> database maintained by the Federal Reserve Bank of St. Louis. These indicators provide critical insights into the economic state of the nation, informing various financial, investment, and policy decisions.</p>
+<p>The following indicators will be used as examples, where the symbols in parenthesis represent the FRED symbols for downloading the data in R:</p>
+<ul>
+<li><strong>Gross Domestic Product (GDP)</strong> (<code>GDP</code>): This metric denotes the total market value of all the finished goods and services produced in the United States in a specific time period.</li>
+<li><strong>Unemployment Rate</strong> (<code>UNRATE</code>): This measures the percentage of the total U.S. labor force that is unemployed but actively seeking employment and willing to work.</li>
+<li><strong>GDP Deflator (Aggregate Price Level)</strong> (<code>GDPDEF</code>): This is a measure of the price level of all domestically produced, final goods and services in the United States.</li>
+<li><strong>3-Month Treasury Bill Rate</strong> (<code>TB3MS</code>): This represents the return on investment for the U.S. government’s short-term debt obligation that matures in three months.</li>
+<li><strong>NASDAQ Composite Index</strong> (<code>NASDAQCOM</code>): This encompasses a broad range of the securities listed on the NASDAQ stock market and is typically viewed as an indicator of the performance of technology and growth companies.</li>
+<li><strong>Population</strong> (<code>B230RC0Q173SBEA</code>): This refers to the total number of individuals residing within the United States.</li>
+</ul>
+<p>We employ the <code>getSymbols()</code> function from the <code>quantmod</code> package in R to access the data. This function enables direct data download as delineated in Chapter <a href="downloading-data-in-r.html#downloading-data-in-r">6</a>. To use the <code>getSymbols()</code> function for data download, set the <code>Symbols</code> parameter of the function as <code>"GDP"</code> or <code>"UNRATE"</code> (the characters enclosed within the parentheses) and the <code>src</code> (source) parameter as <code>"FRED"</code>, corresponding to the FRED website:</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="data-transformation.html#cb260-1" tabindex="-1"></a><span class="co"># Load quantmod package</span></span>
+<span id="cb260-2"><a href="data-transformation.html#cb260-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;quantmod&quot;</span>)</span>
+<span id="cb260-3"><a href="data-transformation.html#cb260-3" tabindex="-1"></a></span>
+<span id="cb260-4"><a href="data-transformation.html#cb260-4" tabindex="-1"></a><span class="co"># Start date</span></span>
+<span id="cb260-5"><a href="data-transformation.html#cb260-5" tabindex="-1"></a>start_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;1971-02-05&quot;</span>)</span>
+<span id="cb260-6"><a href="data-transformation.html#cb260-6" tabindex="-1"></a></span>
+<span id="cb260-7"><a href="data-transformation.html#cb260-7" tabindex="-1"></a><span class="co"># Download data</span></span>
+<span id="cb260-8"><a href="data-transformation.html#cb260-8" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">&quot;GDP&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>, <span class="at">from =</span> start_date)</span>
+<span id="cb260-9"><a href="data-transformation.html#cb260-9" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">&quot;UNRATE&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>, <span class="at">from =</span> start_date)</span>
+<span id="cb260-10"><a href="data-transformation.html#cb260-10" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">&quot;GDPDEF&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>, <span class="at">from =</span> start_date)</span>
+<span id="cb260-11"><a href="data-transformation.html#cb260-11" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">&quot;TB3MS&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>, <span class="at">from =</span> start_date)</span>
+<span id="cb260-12"><a href="data-transformation.html#cb260-12" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">&quot;NASDAQCOM&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>, <span class="at">from =</span> start_date)</span>
+<span id="cb260-13"><a href="data-transformation.html#cb260-13" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">&quot;B230RC0Q173SBEA&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>, <span class="at">from =</span> start_date)</span>
+<span id="cb260-14"><a href="data-transformation.html#cb260-14" tabindex="-1"></a></span>
+<span id="cb260-15"><a href="data-transformation.html#cb260-15" tabindex="-1"></a><span class="co"># De-annualize GDP &amp; use quarterly instead of monthly index</span></span>
+<span id="cb260-16"><a href="data-transformation.html#cb260-16" tabindex="-1"></a>GDP <span class="ot">&lt;-</span> GDP <span class="sc">/</span> <span class="dv">4</span></span>
+<span id="cb260-17"><a href="data-transformation.html#cb260-17" tabindex="-1"></a><span class="fu">index</span>(GDP) <span class="ot">&lt;-</span> <span class="fu">as.yearqtr</span>(<span class="fu">index</span>(GDP))</span>
+<span id="cb260-18"><a href="data-transformation.html#cb260-18" tabindex="-1"></a></span>
+<span id="cb260-19"><a href="data-transformation.html#cb260-19" tabindex="-1"></a><span class="co"># Remove missing NASDAQCOM values</span></span>
+<span id="cb260-20"><a href="data-transformation.html#cb260-20" tabindex="-1"></a>NASDAQCOM <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(NASDAQCOM)</span></code></pre></div>
+<pre><code>## [1] &quot;GDP&quot;
+## [1] &quot;UNRATE&quot;
+## [1] &quot;GDPDEF&quot;
+## [1] &quot;TB3MS&quot;
+## [1] &quot;NASDAQCOM&quot;
+## [1] &quot;B230RC0Q173SBEA&quot;</code></pre>
+<p>The code block above, as discussed in Chapter <a href="downloading-data-in-r.html#downloading-data-in-r">6</a>, is responsible for data acquisition. The line <code>start_date &lt;- as.Date("1971-02-05")</code> initializes a variable <code>start_date</code> with the date value of February 5, 1971. The function <code>as.Date()</code> converts the string input <code>"1971-02-05"</code> into a format that R can interpret and manipulate as a date object. This conversion process is explained in Chapter <a href="r-data-types-and-structures.html#r-data-types-and-structures">4</a>. Within the <code>getSymbols()</code> function, the argument <code>from = start_date</code> stipulates that data should be retrieved starting from the date encapsulated in the <code>start_date</code> variable, which in this instance is from February 5, 1971 onward. The data fetched by this function is returned as <code>xts</code> objects, a time series data format described in Chapter <a href="r-data-types-and-structures.html#xts">4.8</a>.</p>
+<p>The following code block visualizes the data:</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="data-transformation.html#cb262-1" tabindex="-1"></a><span class="co"># Put all plots into one</span></span>
+<span id="cb262-2"><a href="data-transformation.html#cb262-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="at">rows =</span> <span class="dv">3</span>, <span class="at">columns =</span> <span class="dv">2</span>), </span>
+<span id="cb262-3"><a href="data-transformation.html#cb262-3" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="at">b =</span> <span class="dv">2</span>, <span class="at">l =</span> <span class="dv">4</span>, <span class="at">t =</span> <span class="dv">2</span>, <span class="at">r =</span> <span class="dv">1</span>))</span>
+<span id="cb262-4"><a href="data-transformation.html#cb262-4" tabindex="-1"></a></span>
+<span id="cb262-5"><a href="data-transformation.html#cb262-5" tabindex="-1"></a><span class="co"># Plot U.S. macro indicators, SA = seasonally adjusted</span></span>
+<span id="cb262-6"><a href="data-transformation.html#cb262-6" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> GDP, <span class="at">main =</span> <span class="st">&quot;Gross Domestic Product (GDP)&quot;</span>, </span>
+<span id="cb262-7"><a href="data-transformation.html#cb262-7" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Billion-USD, SA&quot;</span>)</span>
+<span id="cb262-8"><a href="data-transformation.html#cb262-8" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> UNRATE, <span class="at">main =</span> <span class="st">&quot;Unemployment Rate&quot;</span>, </span>
+<span id="cb262-9"><a href="data-transformation.html#cb262-9" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Percent, SA&quot;</span>)</span>
+<span id="cb262-10"><a href="data-transformation.html#cb262-10" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> GDPDEF, <span class="at">main =</span> <span class="st">&quot;GDP Deflator (Aggregate Price Level)&quot;</span>, </span>
+<span id="cb262-11"><a href="data-transformation.html#cb262-11" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Index, 2012 = 100, SA&quot;</span>)</span>
+<span id="cb262-12"><a href="data-transformation.html#cb262-12" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> TB3MS, <span class="at">main =</span> <span class="st">&quot;3-Month Treasury Rate&quot;</span>, </span>
+<span id="cb262-13"><a href="data-transformation.html#cb262-13" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Percent&quot;</span>)</span>
+<span id="cb262-14"><a href="data-transformation.html#cb262-14" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> NASDAQCOM, <span class="at">main =</span> <span class="st">&quot;Nasdaq Composite Index&quot;</span>, </span>
+<span id="cb262-15"><a href="data-transformation.html#cb262-15" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Index, Feb 2, 1971 = 100&quot;</span>)</span>
+<span id="cb262-16"><a href="data-transformation.html#cb262-16" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> B230RC0Q173SBEA, <span class="at">main =</span> <span class="st">&quot;Population&quot;</span>, </span>
+<span id="cb262-17"><a href="data-transformation.html#cb262-17" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Thousands&quot;</span>)</span></code></pre></div>
+<p>The above code block uses two main functions:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>par()</code>: This is a base R function used to set or query graphical parameters. Parameters can be set for the duration of a single R session and influence the visual aspect of your plots. Here, it’s being used in two ways:</p>
+<ul>
+<li><p><code>mfrow = c(rows = 3, columns = 2)</code>: This sets up the plotting area as a matrix of 3 rows and 2 columns. This means up to six plots can be displayed on the same plotting area, arranged in three rows and two columns.</p></li>
+<li><p><code>mar = c(b = 2, l = 4, t = 2, r = 1)</code>: This is setting the margin sizes around the plots. The <code>mar</code> parameter takes a numeric vector of length 4, indicating the margin size for the bottom, left, top, and right sides of the plot. The numbers are the line widths for the margins.</p></li>
+</ul></li>
+<li><p><code>plot.zoo()</code>: This function comes from the <code>zoo</code> package in R, which is a package for working with ordered observations like time series data such as <code>xts</code> objects. The <code>plot.zoo()</code> function is used to create time series plots.</p>
+<ul>
+<li><p><code>x =</code>: This parameter is used to pass the time series data you want to plot. For example, <code>x = GDP</code> means it’s plotting the GDP data.</p></li>
+<li><p><code>main =</code>: This is used to set the title of each plot.</p></li>
+<li><p><code>xlab = ""</code> and <code>ylab =</code>: These are used to set the labels for the x and y axes. In this case, the x-axis labels are left blank (<code>""</code>), and the y-axis labels are set to various units of measurement relevant to the data being plotted.</p></li>
+</ul></li>
+</ol>
+<p>In summary, this script is creating a <span class="math inline">\(3\times 2\)</span>-matrix of time series plots for six different macroeconomic indicators with specific title and y-axis labels, and specific margin sizes around each plot.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:example-data"></span>
+<img src="_main_files/figure-html/example-data-1.png" alt="Example Data" width="80%" />
+<p class="caption">
+Figure 12.1: Example Data
+</p>
+</div>
+<p>Figure <a href="data-transformation.html#fig:example-data">12.1</a> displays the six economic indicators selected to demonstrate the various transformations covered in this chapter. The Gross Domestic Product (<code>GDP</code>) quantifies the U.S. total economic output in billions of U.S. dollars. This GDP series undergoes seasonal adjustment (SA), a transformation discussed in Chapter <a href="data-transformation.html#seasonal-adjustment">12.7.3</a>. The Unemployment Rate (<code>UNRATE</code>), depicted as a percentage, signifies the fraction of the U.S. workforce actively seeking employment but currently unemployed; this series is also seasonally adjusted (SA). The GDP deflator (<code>GDPDEF</code>) measures the aggregate price level in the U.S. and is conveyed as an index number standardized to the average of 2012 Q1 - Q4 equating to 100, which is also seasonally adjusted (SA). See Chapter @ref(index-vs.-absolute-data) for an overview on index measures. The 3-Month Treasury Bill Rate (<code>TB3MS</code>), measured as an annual percentage rate, represents the yield on investments in short-term U.S. government debt obligations. The NASDAQ Composite Index (<code>NASDAQCOM</code>) captures the performance of over 3,000 listed equities on the NASDAQ stock market, reflected through a market capitalization-weighted index value, where the index is normalized to 100 on February 2, 1971. Lastly, Population (<code>B230RC0Q173SBEA</code>) lists the number of people living in the United States, reported in thousands of people.</p>
+</div>
+<div id="growth" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Growth<a href="data-transformation.html#growth" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="definition-growth-rates" class="section level3 hasAnchor" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Definition<a href="data-transformation.html#definition-growth-rates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>growth rate</strong> or <strong>%-change</strong> is the relative increase or decrease in a variable from one time period to the next, typically expressed as a percentage:
+<span class="math display">\[
+\%\Delta x_t =\frac{x_t-x_{t-1}}{x_{t-1}}
+=100 \left( \frac{x_t-x_{t-1}}{x_{t-1}} \right) \%
+\]</span>
+Here, <span class="math inline">\(t\)</span> represents the current period, and <span class="math inline">\(t-1\)</span> denotes the preceding period.</p>
+<p>Consider the U.S. GDP growth rate in 2023 Q2 as an example. It’s calculated as follows:
+<span class="math display">\[
+\begin{aligned}
+\text{GDP Growth}_{2023 Q2}
+= &amp;\
+\frac{
+\text{GDP}_{2023 Q2}
+-
+\text{GDP}_{2023 Q1}
+}{
+\text{GDP}_{2023 Q1}
+}
+\\
+= &amp;\
+\frac{
+6709
+\ \text{Billion USD}
+-
+6632
+\ \text{Billion USD}
+}{
+6632
+\ \text{Billion USD}
+}
+\\
+= &amp;\
+1.15 \%
+\end{aligned}
+\]</span>
+This illustrates that growth rates aren’t influenced by the units of measurement: billion USD, a point we’ll delve into later in Chapter <a href="data-transformation.html#relativity">12.2.3</a>.</p>
+</div>
+<div id="log-approximation" class="section level3 hasAnchor" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Log Approximation<a href="data-transformation.html#log-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Growth rates can be approximated using the difference in the natural logarithm of the series:
+<span class="math display">\[
+\frac{x_t-x_{t-1}}{x_{t-1}}
+\approx \ln(x_{t})- \ln(x_{t-1})
+= 100 \Big( \ln(x_{t})- \ln(x_{t-1}) \Big) \%
+\]</span>
+This approximation is accurate as long as growth rates remain small. However, the approximation loses precision when growth rates exceed 20% or -20%.</p>
+<p>To illustrate this, let’s plot the growth rate of GDP alongside the difference in its log values in percent:</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="data-transformation.html#cb263-1" tabindex="-1"></a><span class="co"># Compute GDP growth in percent and its log approximation</span></span>
+<span id="cb263-2"><a href="data-transformation.html#cb263-2" tabindex="-1"></a>GDP_growth <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (GDP <span class="sc">-</span> <span class="fu">lag.xts</span>(GDP)) <span class="sc">/</span> <span class="fu">lag.xts</span>(GDP)</span>
+<span id="cb263-3"><a href="data-transformation.html#cb263-3" tabindex="-1"></a>GDP_logdiff <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">log</span>(GDP) <span class="sc">-</span> <span class="fu">lag.xts</span>(<span class="fu">log</span>(GDP)))</span>
+<span id="cb263-4"><a href="data-transformation.html#cb263-4" tabindex="-1"></a></span>
+<span id="cb263-5"><a href="data-transformation.html#cb263-5" tabindex="-1"></a><span class="co"># Plot the two series</span></span>
+<span id="cb263-6"><a href="data-transformation.html#cb263-6" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> <span class="fu">merge</span>(GDP_growth, GDP_logdiff), <span class="at">plot.type =</span> <span class="st">&quot;single&quot;</span>, </span>
+<span id="cb263-7"><a href="data-transformation.html#cb263-7" tabindex="-1"></a>         <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="fl">1.5</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb263-8"><a href="data-transformation.html#cb263-8" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;%&quot;</span>)</span>
+<span id="cb263-9"><a href="data-transformation.html#cb263-9" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Real GDP Growth&quot;</span>, <span class="st">&quot;Log Difference&quot;</span>), </span>
+<span id="cb263-10"><a href="data-transformation.html#cb263-10" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="fl">1.5</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb263-11"><a href="data-transformation.html#cb263-11" tabindex="-1"></a>       <span class="at">horiz =</span> <span class="cn">TRUE</span>, <span class="at">bty =</span> <span class="st">&#39;n&#39;</span>)</span></code></pre></div>
+<p>This code block computes two different forms of growth for the GDP time series and plots them together for comparison:</p>
+<ul>
+<li><p><code>GDP_growth &lt;- 100 * (GDP - lag.xts(GDP)) / lag.xts(GDP)</code>: This line of code computes the percentage growth of the GDP, which is the difference between the current and previous GDP values, divided by the previous GDP value. The <code>lag.xts(GDP)</code> function generates a new series where each data point is shifted one time unit into the future, effectively getting the GDP value from the previous time period. This is then multiplied by 100 to convert it into a percentage. The result is stored in the variable <code>GDP_growth</code>.</p></li>
+<li><p><code>GDP_logdiff &lt;- 100 * (log(GDP) - lag.xts(log(GDP)))</code>: This line of code calculates the log difference of GDP. It first applies a natural logarithm transformation to the GDP (<code>log(GDP)</code>) and then computes the difference with the lagged log-transformed GDP (<code>lag.xts(log(GDP))</code>). This log difference approximates the growth rate when the changes in GDP are relatively small. The result is then multiplied by 100 to convert it into a percentage. The result is stored in the variable <code>GDP_logdiff</code>.</p></li>
+<li><p><code>plot.zoo()</code>: This function is used to create a time series plot. The <code>x = merge(GDP_growth, GDP_logdiff)</code> argument tells the function to plot the two series together. The <code>plot.type = "single"</code> argument makes both series appear on a single plot. The <code>col = c(5, 1)</code> argument sets the color of the two lines (5 for magenta and 1 for black), <code>lwd = c(5, 1.5)</code> sets the line width, and <code>lty = c(1, 2)</code> sets the line type (1 for solid, 2 for dashed). The <code>xlab</code> and <code>ylab</code> arguments are used to label the x and y-axes, respectively.</p></li>
+<li><p><code>legend()</code>: This function adds a legend to the plot. The <code>"topleft"</code> argument places the legend at the top left corner of the plot. The <code>legend = c("Real GDP Growth", "Log Difference")</code> argument specifies the names of the series. The remaining arguments (<code>col</code>, <code>lwd</code>, <code>lty</code>, <code>horiz</code>, and <code>bty</code>) set the color, line width, line type, horizontal layout, and box type of the legend, respectively.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gdp-growth-log"></span>
+<img src="_main_files/figure-html/gdp-growth-log-1.png" alt="GDP Growth and Log Approximation" width="80%" />
+<p class="caption">
+Figure 12.2: GDP Growth and Log Approximation
+</p>
+</div>
+<p>Figure <a href="data-transformation.html#fig:gdp-growth-log">12.2</a> generated from this code block shows the real GDP growth and the log difference of GDP over time, providing a visual comparison of these two methods of computing growth. As quarterly GDP growth in the U.S. has remained relatively stable, the log approximation aligns almost perfectly with the actual growth rate.</p>
+</div>
+<div id="relativity" class="section level3 hasAnchor" number="12.2.3">
+<h3><span class="header-section-number">12.2.3</span> Relativity<a href="data-transformation.html#relativity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Growth rates <strong>eliminate</strong> the <strong>units of measurement</strong>, making it easier to compare variables of different scales or units. When we examine economic performance using GDP growth, for example, we don’t need to standardize each country’s GDP into a single currency. This is because growth rates focus on the proportional changes, not the absolute values. Thus, regardless of whether the GDP is measured in US dollars, Euros, or any other currency, the GDP growth rate can be directly compared across countries.</p>
+<p>Additionally, growth rates provide a <strong>relative measure</strong>, measuring the change with respect to an initial level. This feature makes it an effective tool for comparing economies of different sizes. For instance, a small economy might have a lower absolute GDP than a larger one, but it could be growing at a significantly faster pace. Therefore, using growth rates allows us to observe this relative performance more clearly, irrespective of the initial level of GDP.</p>
+</div>
+<div id="return-and-inflation" class="section level3 hasAnchor" number="12.2.4">
+<h3><span class="header-section-number">12.2.4</span> Return and Inflation<a href="data-transformation.html#return-and-inflation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Note that when the concept of “growth rate” is applied to prices, it’s often referred to as “return” or “inflation.” The choice of terminology depends on the context. In the financial world, when we discuss the percentage increase in the price of a financial asset such as a stock or a bond over time, we usually refer to the growth rate as a <strong>return</strong>. This usage reflects the perspective of investors who buy assets with the expectation that their value will increase over time, thus yielding a positive return on their investment.</p>
+<p>The term <strong>inflation</strong> refers to the overall increase in prices in an economy. When economists calculate the rate at which the general level of prices for goods and services is rising, and subsequently, the purchasing power of currency is falling, they refer to this as the inflation rate.</p>
+<p>Despite this terminology, both return and inflation fundamentally represent a form of growth rate, but applied in different contexts.</p>
+<p>Now, let’s compute and plot the growth rates of the prices from the <a href="data-transformation.html#example-data">example data</a> using their log approximation:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="data-transformation.html#cb264-1" tabindex="-1"></a><span class="co"># Compute growth rates of prices using log approximation</span></span>
+<span id="cb264-2"><a href="data-transformation.html#cb264-2" tabindex="-1"></a>Inflation <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">log</span>(GDPDEF) <span class="sc">-</span> <span class="fu">lag.xts</span>(<span class="fu">log</span>(GDPDEF)))</span>
+<span id="cb264-3"><a href="data-transformation.html#cb264-3" tabindex="-1"></a>Nasdaq_return <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">log</span>(NASDAQCOM) <span class="sc">-</span> <span class="fu">lag.xts</span>(<span class="fu">log</span>(NASDAQCOM)))</span>
+<span id="cb264-4"><a href="data-transformation.html#cb264-4" tabindex="-1"></a></span>
+<span id="cb264-5"><a href="data-transformation.html#cb264-5" tabindex="-1"></a><span class="co"># Put all plots into one</span></span>
+<span id="cb264-6"><a href="data-transformation.html#cb264-6" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="at">rows =</span> <span class="dv">2</span>, <span class="at">columns =</span> <span class="dv">1</span>), </span>
+<span id="cb264-7"><a href="data-transformation.html#cb264-7" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="at">b =</span> <span class="dv">2</span>, <span class="at">l =</span> <span class="dv">4</span>, <span class="at">t =</span> <span class="dv">2</span>, <span class="at">r =</span> <span class="dv">1</span>))</span>
+<span id="cb264-8"><a href="data-transformation.html#cb264-8" tabindex="-1"></a></span>
+<span id="cb264-9"><a href="data-transformation.html#cb264-9" tabindex="-1"></a><span class="co"># Plot growth rates of prices</span></span>
+<span id="cb264-10"><a href="data-transformation.html#cb264-10" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> Inflation, <span class="at">main =</span> <span class="st">&quot;U.S. Inflation&quot;</span>, </span>
+<span id="cb264-11"><a href="data-transformation.html#cb264-11" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;%&quot;</span>)</span>
+<span id="cb264-12"><a href="data-transformation.html#cb264-12" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> Nasdaq_return, <span class="at">main =</span> <span class="st">&quot;Nasdaq Stock Market Return&quot;</span>, </span>
+<span id="cb264-13"><a href="data-transformation.html#cb264-13" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;%&quot;</span>)</span></code></pre></div>
+<p>The functions used in the above code chunk have been explained earlier in Chapters <a href="data-transformation.html#definition-growth-rates">12.2.1</a> and <a href="data-transformation.html#log-approximation">12.2.2</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:price-growth"></span>
+<img src="_main_files/figure-html/price-growth-1.png" alt="Growth Rate of Prices" width="80%" />
+<p class="caption">
+Figure 12.3: Growth Rate of Prices
+</p>
+</div>
+<p>Figure <a href="data-transformation.html#fig:price-growth">12.3</a> is the output of this code block. It displays the growth rate of two price indices: the GDP deflator and the Nasdaq composite index. Since the GDP deflator measures overall price changes in an economy, its growth rate is referred to as inflation. Since the Nasdaq indices represent assets that can be invested in, the growth rates of these prices are termed as returns.</p>
+</div>
+<div id="applicability-growth" class="section level3 hasAnchor" number="12.2.5">
+<h3><span class="header-section-number">12.2.5</span> Applicability<a href="data-transformation.html#applicability-growth" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Not all data are suitable for transformation into growth rates. Growth rates are most meaningful for <a href="data-categorization.html#ratio-scale-variables">ratio scale variables</a>, which measure quantities that have a clear, absolute zero and uniform intervals between numbers (see Chapter <a href="data-categorization.html#levels-of-measurement">11.3</a> for an overview on nominal, ordinal, interval, and ratio scale variables). In such cases, growth rates offer insights about the pace of a variable’s change over time. This is why we commonly see growth rates for economic output (GDP), prices, population, etc., quantities for which it makes sense to ask, “By what percentage did this quantity change?”</p>
+<p>Conversely, some variables, often percentages or rates themselves, are not meaningful to describe in terms of growth rates. Their movements over time are better described in terms of <a href="data-transformation.html#differentiation">differentiation</a>. This includes variables like unemployment rates, interest rates, or inflation rates.</p>
+<p>Specifically, if variables exhibit one or more of the following characteristics, computing growth rates may lead to more confusion than insight:</p>
+<ul>
+<li>They are expressed as a ratio or percentage.</li>
+<li>They don’t have a meaningful absolute zero.</li>
+<li>The difference between two values isn’t meaningful.</li>
+<li>The ratio of two values is usually not meaningful or not interpreted.</li>
+</ul>
+<p>This is a general guideline, and exceptions certainly exist, particularly when delving into specialized domains or specific use cases.</p>
+<p>Since the U.S. unemployment rate and the 3-month Treasury bill (T-bill) rate from the <a href="data-transformation.html#example-data">example data</a> are expressed in percentages, their growth rates are not calculated here. However, we will compute their first differences in Chapter <a href="data-transformation.html#differentiation">12.3</a>. Interestingly, the 3-month T-bill rate is, in fact, already a growth rate: the values in the time series represent the (annualized) returns of holding a 3-month T-bill until maturity at different dates.</p>
+</div>
+</div>
+<div id="differentiation" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Differentiation<a href="data-transformation.html#differentiation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="definition-differentiation" class="section level3 hasAnchor" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Definition<a href="data-transformation.html#definition-differentiation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>first difference</strong> signifies the variation in a variable from one time point to the subsequent one:
+<span class="math display">\[
+\Delta x_t =x_t-x_{t-1}
+\]</span>
+In this equation, <span class="math inline">\(t\)</span> symbolizes the current period, while <span class="math inline">\(t-1\)</span> signifies the preceding one.</p>
+<p>Take the first difference of U.S. GDP in 2023 Q2 for instance. It is computed as follows:
+<span class="math display">\[
+\begin{aligned}
+\Delta \text{GDP}_{2023 Q2}
+= &amp;\
+\text{GDP}_{2023 Q2}
+-
+\text{GDP}_{2023 Q1}
+\\
+= &amp;\
+6709
+\ \text{Billion USD}
+-
+6632
+\ \text{Billion USD}
+\\
+= &amp;\
+76.29 \ \text{Billion USD}
+\end{aligned}
+\]</span>
+This shows that in contrast with growth rates, differentiation does not remove the units of measurement, with the first difference still presented in billion USD. This could pose some challenges when the underlying unit is a percentage, as outlined in Chapter <a href="data-transformation.html#pp">12.3.2</a>.</p>
+<p>The <strong>second difference</strong> is the variation of the first difference:
+<span class="math display">\[
+\Delta^2 x_t =\Delta x_t-\Delta x_{t-1}
+\]</span>
+and the <strong><span class="math inline">\(k\)</span>th difference</strong> is the difference of the <span class="math inline">\((k-1)\)</span>th difference:
+<span class="math display">\[
+\Delta^k x_t =\Delta^{k-1} x_t-\Delta^{k-1} x_{t-1}
+\]</span></p>
+<p>Differentiation beyond the second difference is not commonly observed in Economics and Finance. Differentiation is frequently employed to eliminate trends in data to concentrate on business cycles.</p>
+</div>
+<div id="pp" class="section level3 hasAnchor" number="12.3.2">
+<h3><span class="header-section-number">12.3.2</span> Percentage Points (pp)<a href="data-transformation.html#pp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As noted, the units of measurements do not disappear when differentiating. This could create confusion when the underlying unit of measurement is a percentage, for example, when obtaining the first difference of an unemployment rate. This confusion occurs because if the unemployment rate increases by 5%, it implies that the growth is 5%, rather than the difference being 5%. That’s why the term <strong>percentage points</strong> was devised, to avert this confusion. Adding “points” to “percentage” clarifies that it is not 5% growth but rather the first difference is 5%.</p>
+<p>Formally, a <strong>percent change (%-change)</strong> is a relative measure, demonstrating the change in one value relative to its initial value (see Chapter <a href="data-transformation.html#growth">12.2</a>):
+<span class="math display">\[
+\% \Delta Y_t =100 \left( \frac{Y_t-Y_{t-1}}{Y_{t-1}} \right) \%
+=100 \left( \frac{5\%-4\%}{4\%} \right) \%
+=25\%
+\]</span>
+while <strong>percentage point change (pp-change)</strong> is an absolute measure, reflecting the difference between two percentage values:
+<span class="math display">\[
+\Delta Y_t =Y_t-Y_{t-1}
+=5\%-4\%=1pp
+\]</span>
+In this context, <span class="math inline">\(Y_t\)</span> is a measure represented in percentages, like the unemployment rate, inflation, GDP growth, stock return, or interest rate. The example illustrates that moving from 4% to 5% is a 25% increase, but only a 1pp increase; therefore, confusing these two units of measurements can cause significant errors.</p>
+<p>To illustrate, let’s calculate both the %-change and pp-change of the unemployment rate from the <a href="data-transformation.html#example-data">example-data</a>, and compare the two measures. Note, however, that as per Chapter <a href="data-transformation.html#growth">12.2</a>, it is unusual to compute growth rates (%-change) of measures expressed in percent; hence, when writing about %-change of unemployment, the reader will be confused, and likely believe you mixed up %-change with pp-change; thus, I do not recommend actually calculating the %-change of the unemployment rate in practice. This is purely for illustrative purposes:</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="data-transformation.html#cb265-1" tabindex="-1"></a><span class="co"># Compute %-change of unemployment rate</span></span>
+<span id="cb265-2"><a href="data-transformation.html#cb265-2" tabindex="-1"></a>UNRATE_percent_pp <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (UNRATE <span class="sc">-</span> <span class="fu">lag.xts</span>(UNRATE)) <span class="sc">/</span> UNRATE</span>
+<span id="cb265-3"><a href="data-transformation.html#cb265-3" tabindex="-1"></a><span class="fu">names</span>(UNRATE_percent_pp) <span class="ot">&lt;-</span> <span class="st">&quot;percent&quot;</span></span>
+<span id="cb265-4"><a href="data-transformation.html#cb265-4" tabindex="-1"></a></span>
+<span id="cb265-5"><a href="data-transformation.html#cb265-5" tabindex="-1"></a><span class="co"># Compute pp-change of unemployment rate</span></span>
+<span id="cb265-6"><a href="data-transformation.html#cb265-6" tabindex="-1"></a>UNRATE_percent_pp<span class="sc">$</span>pp <span class="ot">&lt;-</span> UNRATE <span class="sc">-</span> <span class="fu">lag.xts</span>(UNRATE)</span>
+<span id="cb265-7"><a href="data-transformation.html#cb265-7" tabindex="-1"></a></span>
+<span id="cb265-8"><a href="data-transformation.html#cb265-8" tabindex="-1"></a><span class="co"># Put all plots into one</span></span>
+<span id="cb265-9"><a href="data-transformation.html#cb265-9" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="at">rows =</span> <span class="dv">2</span>, <span class="at">columns =</span> <span class="dv">1</span>), </span>
+<span id="cb265-10"><a href="data-transformation.html#cb265-10" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="at">b =</span> <span class="dv">2</span>, <span class="at">l =</span> <span class="dv">4</span>, <span class="at">t =</span> <span class="dv">2</span>, <span class="at">r =</span> <span class="dv">1</span>))</span>
+<span id="cb265-11"><a href="data-transformation.html#cb265-11" tabindex="-1"></a></span>
+<span id="cb265-12"><a href="data-transformation.html#cb265-12" tabindex="-1"></a><span class="co"># Plot %-change and pp-change of unemployment rate</span></span>
+<span id="cb265-13"><a href="data-transformation.html#cb265-13" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> UNRATE_percent_pp, <span class="at">plot.type =</span> <span class="st">&quot;single&quot;</span>,</span>
+<span id="cb265-14"><a href="data-transformation.html#cb265-14" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;% vs. pp&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Change in Unemployment Rate&quot;</span>, </span>
+<span id="cb265-15"><a href="data-transformation.html#cb265-15" tabindex="-1"></a>         <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">22</span>, <span class="dv">22</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">1</span>))</span>
+<span id="cb265-16"><a href="data-transformation.html#cb265-16" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;%-change&quot;</span>, <span class="st">&quot;pp-change&quot;</span>),</span>
+<span id="cb265-17"><a href="data-transformation.html#cb265-17" tabindex="-1"></a>      <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">1</span>), <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb265-18"><a href="data-transformation.html#cb265-18" tabindex="-1"></a></span>
+<span id="cb265-19"><a href="data-transformation.html#cb265-19" tabindex="-1"></a><span class="co"># Zoom in using the ylim-input</span></span>
+<span id="cb265-20"><a href="data-transformation.html#cb265-20" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> UNRATE_percent_pp,  <span class="at">plot.type =</span> <span class="st">&quot;single&quot;</span>,</span>
+<span id="cb265-21"><a href="data-transformation.html#cb265-21" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;% vs. pp&quot;</span>, <span class="at">main =</span> <span class="st">&quot;(Zoomed In)&quot;</span>, </span>
+<span id="cb265-22"><a href="data-transformation.html#cb265-22" tabindex="-1"></a>         <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">2.2</span>, <span class="fl">2.2</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">1</span>))</span>
+<span id="cb265-23"><a href="data-transformation.html#cb265-23" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;%-change&quot;</span>, <span class="st">&quot;pp-change&quot;</span>),</span>
+<span id="cb265-24"><a href="data-transformation.html#cb265-24" tabindex="-1"></a>      <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">1</span>), <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>The functions used in the above code chunk have been explained earlier in Chapters <a href="data-transformation.html#definition-growth-rates">12.2.1</a> and <a href="data-transformation.html#log-approximation">12.2.2</a>. What we haven’t used before is the <code>ylim</code> input, here <code>ylim = c(-22, 22)</code>, which defines the limits of the y-axis and allows to zoom in. Note that the <code>xlim</code> input does the same for limiting the x-axis.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:percent-pp-change"></span>
+<img src="_main_files/figure-html/percent-pp-change-1.png" alt="Percent vs. Percentage Point Change of Unemployment Rate" width="80%" />
+<p class="caption">
+Figure 12.4: Percent vs. Percentage Point Change of Unemployment Rate
+</p>
+</div>
+<p>Figure <a href="data-transformation.html#fig:percent-pp-change">12.4</a> plots the %-change and pp-change of the unemployment rate. The variance of the %-change is significantly larger than that of the pp-change because the unemployment rates are one or two-digit numbers, so an increase results in a larger relative increase than an absolute increase. Note that if the underlying time series were three or higher digit numbers, it would be reversed: the variance of the pp-change would be larger than that of the %-change.</p>
+</div>
+<div id="bp" class="section level3 hasAnchor" number="12.3.3">
+<h3><span class="header-section-number">12.3.3</span> Basis Points (bp)<a href="data-transformation.html#bp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Changes in economic and financial data, particularly at a high frequency, often appear in small increments. For instance, monthly changes in interest rates often involve subtle shifts like 0.04pp or -0.24pp. For clarity and ease of reading, these changes are commonly expressed in basis points (bp) rather than percentage points (pp), with 1pp equivalent to 100bp.</p>
+<p>To formalize, a <strong>basis point (bp) change</strong> is calculated by multiplying the difference between two percentage values by 100:
+<span class="math display">\[
+\Delta Y_t = 100 \left(Y_t-Y_{t-1}\right)
+=5\%-4\%=1pp=100bp
+\]</span>
+In this formula, <span class="math inline">\(Y_t\)</span> represents a measure in percentages, like stock returns or interest rates.</p>
+<p>Now, let’s compute the basis point change for the 3-month Treasury bill rate and visualize it:</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="data-transformation.html#cb266-1" tabindex="-1"></a><span class="co"># Calculate basis point (bp) change in 3-month T-bill rate</span></span>
+<span id="cb266-2"><a href="data-transformation.html#cb266-2" tabindex="-1"></a>dTB3MS_bp <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (TB3MS <span class="sc">-</span> <span class="fu">lag.xts</span>(TB3MS))</span>
+<span id="cb266-3"><a href="data-transformation.html#cb266-3" tabindex="-1"></a></span>
+<span id="cb266-4"><a href="data-transformation.html#cb266-4" tabindex="-1"></a><span class="co"># Plot the time series</span></span>
+<span id="cb266-5"><a href="data-transformation.html#cb266-5" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> dTB3MS_bp[<span class="st">&quot;1990/&quot;</span>], <span class="at">plot.type =</span> <span class="st">&quot;single&quot;</span>,</span>
+<span id="cb266-6"><a href="data-transformation.html#cb266-6" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Basis Point (bp)&quot;</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">150</span>, <span class="dv">150</span>),</span>
+<span id="cb266-7"><a href="data-transformation.html#cb266-7" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;Change in 3-Month Treasury Bill Rate&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bp-change"></span>
+<img src="_main_files/figure-html/bp-change-1.png" alt="Basis Point Changes in 3-Month Treasury Bill Rate" width="80%" />
+<p class="caption">
+Figure 12.5: Basis Point Changes in 3-Month Treasury Bill Rate
+</p>
+</div>
+<p>As shown in Figure <a href="data-transformation.html#fig:bp-change">12.5</a>, the bp-change of the 3-month T-bill rate demonstrates that U.S. interest rates typically exhibit gradual increases during economic boom periods and sharp declines during recessions, leading to larger negative changes.</p>
+</div>
+</div>
+<div id="log" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Natural Logarithm<a href="data-transformation.html#log" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="definition-natural-logarithm" class="section level3 hasAnchor" number="12.4.1">
+<h3><span class="header-section-number">12.4.1</span> Definition<a href="data-transformation.html#definition-natural-logarithm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>natural logarithm</strong>, often written as <span class="math inline">\(\ln(x)\)</span>, <span class="math inline">\(\log_e(x)\)</span>, or <span class="math inline">\(\log(x)\)</span>, is the inverse operation to exponentiation with base <span class="math inline">\(e\)</span>, where <span class="math inline">\(e\)</span> is the <strong>natural base</strong> or <strong>Euler’s number</strong> and approximately equal to <span class="math inline">\(2.7182818\)</span>. In other words, if <span class="math inline">\(y = e^x\)</span>, then <span class="math inline">\(x = \ln(y)\)</span>, which defines the natural logarithm.</p>
+<p>This relationship can be expressed as:
+<span class="math display">\[
+\ln(e^x) = x
+\]</span>
+and
+<span class="math display">\[
+e^{\ln(x)} = x
+\]</span>
+These equations hold true for any positive number <span class="math inline">\(x\)</span>. The natural logarithm function <span class="math inline">\(\ln(x)\)</span> is the power to which <span class="math inline">\(e\)</span> must be raised to get <span class="math inline">\(x\)</span>.</p>
+<p>Here’s an example of how you can calculate the natural logarithm in R:</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="data-transformation.html#cb267-1" tabindex="-1"></a><span class="co"># Calculate the natural logarithm of e (which should be 1)</span></span>
+<span id="cb267-2"><a href="data-transformation.html#cb267-2" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">exp</span>(<span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>And here’s how you could calculate the natural logarithm of an array of numbers:</p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="data-transformation.html#cb269-1" tabindex="-1"></a><span class="co"># Create an array of numbers</span></span>
+<span id="cb269-2"><a href="data-transformation.html#cb269-2" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb269-3"><a href="data-transformation.html#cb269-3" tabindex="-1"></a></span>
+<span id="cb269-4"><a href="data-transformation.html#cb269-4" tabindex="-1"></a><span class="co"># Calculate the natural logarithm of the array of numbers</span></span>
+<span id="cb269-5"><a href="data-transformation.html#cb269-5" tabindex="-1"></a><span class="fu">log</span>(numbers)</span></code></pre></div>
+<pre><code>## [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379</code></pre>
+<p>Now, consider trying to find the natural logarithm of zero, <span class="math inline">\(\ln(0)\)</span>. Is there a power to which you can raise <span class="math inline">\(e\)</span> to get zero? The answer is no. Even if we raise <span class="math inline">\(e\)</span> to a very large negative power, the result approaches zero, but never quite gets there. This is why <span class="math inline">\(\ln(0)\)</span> is considered undefined or negative infinity if such number is defined:</p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="data-transformation.html#cb271-1" tabindex="-1"></a><span class="co"># Calculate the natural logarithm of zero</span></span>
+<span id="cb271-2"><a href="data-transformation.html#cb271-2" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] -Inf</code></pre>
+<p>Next, consider trying to find the natural logarithm of a negative number. The constant <span class="math inline">\(e\)</span> raised to any real number always results in a positive value. Therefore, there’s no real number that you can raise <span class="math inline">\(e\)</span> to that would result in a negative number. Because of this, the natural logarithm of a negative number is considered undefined when dealing with real numbers:</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="data-transformation.html#cb273-1" tabindex="-1"></a><span class="co"># Calculate the natural logarithm of a negative number</span></span>
+<span id="cb273-2"><a href="data-transformation.html#cb273-2" tabindex="-1"></a><span class="fu">log</span>(<span class="sc">-</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## Warning in log(-5): NaNs produced</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<p>The natural logarithm has many useful properties. For example, one such property is that the natural logarithm of a product equals the sum of the natural logarithms of each individual number:
+<span class="math display">\[
+\ln(ab) = \ln(a) + \ln(b)
+\]</span></p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="data-transformation.html#cb276-1" tabindex="-1"></a><span class="co"># ln(ab) = ln(a) + ln(b)</span></span>
+<span id="cb276-2"><a href="data-transformation.html#cb276-2" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">3</span> <span class="sc">*</span> <span class="dv">4</span>)</span>
+<span id="cb276-3"><a href="data-transformation.html#cb276-3" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">3</span>) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 2.484907
+## [1] 2.484907</code></pre>
+<p>Another property is that the natural logarithm of a number raised to a power is the product of the power and the natural logarithm of the number:
+<span class="math display">\[
+\ln(a^n) = n \ln(a)
+\]</span></p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="data-transformation.html#cb278-1" tabindex="-1"></a><span class="co"># ln(a^n) = n * ln(a)</span></span>
+<span id="cb278-2"><a href="data-transformation.html#cb278-2" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">3</span><span class="sc">^</span><span class="dv">4</span>)</span>
+<span id="cb278-3"><a href="data-transformation.html#cb278-3" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 4.394449
+## [1] 4.394449</code></pre>
+<p>These unique properties of natural logarithm make it particularly valuable in simplifying mathematical expressions and solving exponential and logarithmic equations.</p>
+</div>
+<div id="motivation-natural-logarithm" class="section level3 hasAnchor" number="12.4.2">
+<h3><span class="header-section-number">12.4.2</span> Motivation<a href="data-transformation.html#motivation-natural-logarithm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Logarithmic measures</strong> aid in making the visualization and interpretation of exponentially growing data simpler. For instance, stock prices, which often exhibit exponential growth, can make long-term historical data appear flat when graphed. Using a logarithmic transformation can convert this exponential growth into linear growth, thus making patterns and shifts over time more evident. Logarithmic measures are also easy to interpret as changes in the log approximate the growth rate (as discussed in Chapter <a href="data-transformation.html#log-approximation">12.2.2</a>).</p>
+<p>To illustrate this, let’s graph the Nasdaq composite index from the <a href="data-transformation.html#example-data">example-data</a> and its natural log:</p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="data-transformation.html#cb280-1" tabindex="-1"></a><span class="co"># Calculate natural logarithm of Nasdaq composite index</span></span>
+<span id="cb280-2"><a href="data-transformation.html#cb280-2" tabindex="-1"></a>Nasdaq_log <span class="ot">&lt;-</span> <span class="fu">log</span>(NASDAQCOM)</span>
+<span id="cb280-3"><a href="data-transformation.html#cb280-3" tabindex="-1"></a></span>
+<span id="cb280-4"><a href="data-transformation.html#cb280-4" tabindex="-1"></a><span class="co"># Set up subplots</span></span>
+<span id="cb280-5"><a href="data-transformation.html#cb280-5" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="at">rows =</span> <span class="dv">2</span>, <span class="at">columns =</span> <span class="dv">1</span>), </span>
+<span id="cb280-6"><a href="data-transformation.html#cb280-6" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="at">b =</span> <span class="dv">2</span>, <span class="at">l =</span> <span class="dv">4</span>, <span class="at">t =</span> <span class="dv">2</span>, <span class="at">r =</span> <span class="dv">1</span>))</span>
+<span id="cb280-7"><a href="data-transformation.html#cb280-7" tabindex="-1"></a></span>
+<span id="cb280-8"><a href="data-transformation.html#cb280-8" tabindex="-1"></a><span class="co"># Plot original time series</span></span>
+<span id="cb280-9"><a href="data-transformation.html#cb280-9" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> NASDAQCOM,</span>
+<span id="cb280-10"><a href="data-transformation.html#cb280-10" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Index, Feb 2, 1971 = 100&quot;</span>,</span>
+<span id="cb280-11"><a href="data-transformation.html#cb280-11" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;Nasdaq Composite Index&quot;</span>)</span>
+<span id="cb280-12"><a href="data-transformation.html#cb280-12" tabindex="-1"></a></span>
+<span id="cb280-13"><a href="data-transformation.html#cb280-13" tabindex="-1"></a><span class="co"># Plot natural log of time series</span></span>
+<span id="cb280-14"><a href="data-transformation.html#cb280-14" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> Nasdaq_log,</span>
+<span id="cb280-15"><a href="data-transformation.html#cb280-15" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Log&quot;</span>,</span>
+<span id="cb280-16"><a href="data-transformation.html#cb280-16" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;Log of Nasdaq Composite Index&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:log-transformation"></span>
+<img src="_main_files/figure-html/log-transformation-1.png" alt="Log Transformation of Nasdaq Composite Index" width="80%" />
+<p class="caption">
+Figure 12.6: Log Transformation of Nasdaq Composite Index
+</p>
+</div>
+<p>Figure <a href="data-transformation.html#fig:log-transformation">12.6</a> shows that the Nasdaq stock market index appears stagnant in the early sample. However, the logarithmic transformation uncovers significant growth and contraction periods throughout the sample, highlighting the changes in the earlier years. This is because stock prices often demonstrate exponential growth, with value increasing proportional to the current value. Therefore, even substantial %-changes early in a stock’s history may appear small due to a lower starting price. In contrast, smaller %-changes later on appear large because they started from a higher price. This can distort how we view a stock’s past ups and downs.</p>
+<p>The second panel of Figure <a href="data-transformation.html#fig:log-transformation">12.6</a> presents the natural logarithm of the Nasdaq stock market index. This transformation helps visualize the exponential growth in stock prices as a linear increase, with the slope of the line representing the growth rate. Crucially, changes in the log of the price correspond directly to percentage changes in the price. For instance, a 0.01 increase in the log price equates to a 1% rise in the original price (see Chapter <a href="data-transformation.html#log-approximation">12.2.2</a>). This characteristic enables a direct comparison of price changes over time, aiding in the interpretation of these shifts in terms of relative growth or contraction.</p>
+<p>You might wonder why we plot the log of a series, which interprets change as growth rate, instead of directly plotting the growth rate. This is because the natural logarithm of a variable often offers more insight into long-term trends than the growth rate itself. To understand this better, use the fact that changes in the log approximate the growth rate. As a result, the log series embodies the <strong>cumulated growth rates</strong> – the sum of all growth rates from the beginning of the dataset to the present. When the growth rate fluctuates extensively, it can be tough to discern whether positive or negative growth rates predominate over time. However, when you plot the logarithm, these growth rates are cumulative, making it clear whether a variable is growing or not.</p>
+<p>Let’s compare the growth rate and the natural logarithm of the Nasdaq composite index from the <a href="data-transformation.html#example-data">example-data</a> to demonstrate this:</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="data-transformation.html#cb281-1" tabindex="-1"></a><span class="co"># Calculate growth rate of Nasdaq composite index</span></span>
+<span id="cb281-2"><a href="data-transformation.html#cb281-2" tabindex="-1"></a>Nasdaq_return <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">log</span>(NASDAQCOM) <span class="sc">-</span> <span class="fu">lag.xts</span>(<span class="fu">log</span>(NASDAQCOM)))</span>
+<span id="cb281-3"><a href="data-transformation.html#cb281-3" tabindex="-1"></a></span>
+<span id="cb281-4"><a href="data-transformation.html#cb281-4" tabindex="-1"></a><span class="co"># Set up subplots</span></span>
+<span id="cb281-5"><a href="data-transformation.html#cb281-5" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="at">rows =</span> <span class="dv">2</span>, <span class="at">columns =</span> <span class="dv">1</span>), </span>
+<span id="cb281-6"><a href="data-transformation.html#cb281-6" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="at">b =</span> <span class="dv">2</span>, <span class="at">l =</span> <span class="dv">4</span>, <span class="at">t =</span> <span class="dv">2</span>, <span class="at">r =</span> <span class="dv">1</span>))</span>
+<span id="cb281-7"><a href="data-transformation.html#cb281-7" tabindex="-1"></a></span>
+<span id="cb281-8"><a href="data-transformation.html#cb281-8" tabindex="-1"></a><span class="co"># Plot growth rate</span></span>
+<span id="cb281-9"><a href="data-transformation.html#cb281-9" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> Nasdaq_return,</span>
+<span id="cb281-10"><a href="data-transformation.html#cb281-10" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;%&quot;</span>,</span>
+<span id="cb281-11"><a href="data-transformation.html#cb281-11" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;Nasdaq Stock Market Return (Growth Rate)&quot;</span>)</span>
+<span id="cb281-12"><a href="data-transformation.html#cb281-12" tabindex="-1"></a></span>
+<span id="cb281-13"><a href="data-transformation.html#cb281-13" tabindex="-1"></a><span class="co"># Plot natural log</span></span>
+<span id="cb281-14"><a href="data-transformation.html#cb281-14" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> Nasdaq_log,</span>
+<span id="cb281-15"><a href="data-transformation.html#cb281-15" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Log&quot;</span>,</span>
+<span id="cb281-16"><a href="data-transformation.html#cb281-16" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;Log of Nasdaq Composite Index (Cumulated Growth Rate)&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:log-vs-growth"></span>
+<img src="_main_files/figure-html/log-vs-growth-1.png" alt="Growth vs. Log of Nasdaq Composite Index" width="80%" />
+<p class="caption">
+Figure 12.7: Growth vs. Log of Nasdaq Composite Index
+</p>
+</div>
+<p>The first panel of figure <a href="data-transformation.html#fig:log-vs-growth">12.7</a> shows the highly volatile stock market returns (growth rate), making it difficult to assess overall performance. The second panel, on the other hand, depicts the log transformation of the Nasdaq stock market index. This transformation accumulates the stock market returns from the first panel from the beginning to the current period on the x-axis. It clearly shows whether stock prices grow or contract over time, providing a more reliable perspective on the market’s performance.</p>
+</div>
+<div id="applicability-natural-logarithm" class="section level3 hasAnchor" number="12.4.3">
+<h3><span class="header-section-number">12.4.3</span> Applicability<a href="data-transformation.html#applicability-natural-logarithm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Not all data are suitable for transformation into natural logarithm. Essentially, if the concept of a growth rate is nonsensical or irrelevant for the data at hand, then it would also be inappropriate to compute its natural logarithm. This is because the natural logarithm essentially represents cumulative growth rates, and therefore presupposes that a concept of ‘growth’ is meaningful for the data in question. Specific cases where the application of the growth rate may or may not be appropriate are discussed in Chapter <a href="data-transformation.html#applicability-growth">12.2.5</a>.</p>
+</div>
+</div>
+<div id="ratio" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Ratio<a href="data-transformation.html#ratio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="definition-ratio" class="section level3 hasAnchor" number="12.5.1">
+<h3><span class="header-section-number">12.5.1</span> Definition<a href="data-transformation.html#definition-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A <strong>ratio</strong> is a mathematical expression that represents the relationship between two quantities or variables, represented as a fraction. It’s often used to provide insights into relative magnitudes or proportions between the two variables.</p>
+<p>Ratio measures can be calculated as follows:
+<span class="math display">\[
+\text{Ratio Measure} = \frac{\text{Variable 1}}{\text{Variable 2}}
+\]</span></p>
+<p>Ratio measures can provide useful insights into how the two variables relate to each other. For instance, a company’s debt-to-equity ratio compares its total debt to its total equity, offering a sense of the company’s financial leverage. A high debt-to-equity ratio might indicate a risky financial situation, whereas a lower ratio may suggest a more stable financial position.</p>
+<p>In the financial sector, another common ratio measure is the price-to-earnings (P/E) ratio. This ratio compares a company’s stock price to its earnings per share, giving investors a sense of how much they’re paying for each dollar of earnings.</p>
+<p>It’s important to clarify that the term “ratio” defined in this context is not to be confused with “ratio scale” variables defined in Chapter <a href="data-categorization.html#ratio-scale-variables">11.3.4</a>. The “ratio” in the current context refers to the mathematical comparison of two quantities, “a to b”. On the other hand, a “ratio scale” variable refers to a type of variable where the difference between any two values is meaningful and it has a true zero point. This means that zero indicates the absence of the quantity being measured, and ratios between numbers on the scale are meaningful. Therefore, despite sharing a common term, these two concepts have fundamental differences. However, calculating a ratio measure only makes sense if the underlying variables are indeed ratio scale variables.</p>
+</div>
+<div id="per-capita" class="section level3 hasAnchor" number="12.5.2">
+<h3><span class="header-section-number">12.5.2</span> Per Capita<a href="data-transformation.html#per-capita" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Per capita measures</strong> are a specific type of ratio measure that calculate the average value of a particular variable per person within a given population. These measures are typically obtained by dividing a macroeconomic variable, such as Gross Domestic Product (GDP) or income, by the population size of a region:
+<span class="math display">\[
+\text{Per Capita Measure} = \frac{\text{Variable}}{\text{Population Size}}
+\]</span></p>
+<p>Per capita measures play a significant role in economics and finance. One prominent example is GDP per capita, which calculates the average economic output per person in a country. This measure enables meaningful comparisons of the average standard of living and economic well-being across nations, regardless of population size. It provides insights into the relative well-being of individuals within different countries.</p>
+<p>In the field of finance, per capita measures are also valuable. For instance, credit card debt per capita offers insights into the average debt burden carried by individuals in a specific region. By dividing the total credit card debt by the population, analysts can assess the average level of indebtedness and make comparisons across different areas. This measure helps in understanding the credit behavior and financial health of individuals within various regions.</p>
+<p>To calculate GDP per capita in the U.S., we divide the GDP series (<code>GDP</code>) of the <a href="data-transformation.html#example-data">example-data</a> by the population (<code>B230RC0Q173SBEA</code>) of the country:</p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="data-transformation.html#cb282-1" tabindex="-1"></a><span class="co"># Compute GDP per capita</span></span>
+<span id="cb282-2"><a href="data-transformation.html#cb282-2" tabindex="-1"></a>GDP_per_capita <span class="ot">&lt;-</span> ((<span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>) <span class="sc">*</span> GDP) <span class="sc">/</span> (<span class="dv">1000</span> <span class="sc">*</span> B230RC0Q173SBEA)</span></code></pre></div>
+<p>For example, U.S. GDP per capita in 2023 Q2 is calculated as follows:
+<span class="math display">\[
+\begin{aligned}
+\text{GDP Per Capita}_{2023 Q2}
+= &amp;\
+\frac{
+\text{GDP}_{2023 Q2}
+}{
+\text{Population}_{2023 Q2}
+}
+\\
+= &amp;\
+\frac{
+6,709
+\ \text{Billion USD}
+}{
+335,019
+\ \text{Thousands}
+}
+\\
+= &amp;\
+\frac{
+6,708,738,250,000
+\ \text{USD}
+}{
+335,019,000
+}
+\\
+= &amp;\
+20,024.95
+\ \text{USD}
+\end{aligned}
+\]</span>
+This division yields the average economic output per person in USD. Therefore, in the U.S., the average income per person was 20,024.95 USD in 2023 Q2, taking into account all sources of income, including wages, dividends, and profits.</p>
+<p>Next, let’s visualize GDP per capita:</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="data-transformation.html#cb283-1" tabindex="-1"></a><span class="co"># Plot GDP per capita</span></span>
+<span id="cb283-2"><a href="data-transformation.html#cb283-2" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> GDP_per_capita,</span>
+<span id="cb283-3"><a href="data-transformation.html#cb283-3" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;USD&quot;</span>,</span>
+<span id="cb283-4"><a href="data-transformation.html#cb283-4" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;GDP Per Capita in the United States&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gdp-per-capita"></span>
+<img src="_main_files/figure-html/gdp-per-capita-1.png" alt="GDP Per Capita in the United States" width="80%" />
+<p class="caption">
+Figure 12.8: GDP Per Capita in the United States
+</p>
+</div>
+<p>Figure <a href="data-transformation.html#fig:gdp-per-capita">12.8</a> illustrates GDP per capita in the United States, representing the average income per person in USD over time. The plot shows a consistent increase in average income, indicating economic growth. However, it’s important to note that prices have also steadily increased during this period. Therefore, to accurately evaluate changes in the standard of living, it becomes necessary to consider these price changes. In the next chapter, we will delve into the concept of real measures, which account for such changes and provide a more accurate representation of living standards.</p>
+</div>
+<div id="real-vs.-nominal" class="section level3 hasAnchor" number="12.5.3">
+<h3><span class="header-section-number">12.5.3</span> Real vs. Nominal<a href="data-transformation.html#real-vs.-nominal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Real measures</strong> are ratio measures that adjust for changes in prices by dividing the variable by the price index. In contrast, <strong>nominal measures</strong> are the counterparts of real measures, remaining unadjusted for inflation:
+<span class="math display">\[
+\text{Real Measure} = 100 \left(\frac{\text{Nominal Measure}}{\text{Price Index}} \right)
+\]</span>
+In this equation, the ratio is multiplied by 100 due to the normalization of price indices at 100 during a specific period. For example, if the price index is normalized at 100 in 2012, then the real measure is interpreted as the nominal measure in terms of 2012 prices.</p>
+<p>Real variables measure the physical quantity of goods and services by accounting for changes in the price level. They provide a more accurate representation of economic trends. Examples include real GDP, real income, and real wages. These measures eliminate the impact of price changes, enabling comparisons of economic performance over time or across regions.</p>
+<p>On the other hand, nominal measures, which are not adjusted for price changes, represent the monetary value of goods and services at current prices. Hence, unlike real values that adjust for inflation, nominal values do not.</p>
+<p>It’s essential to distinguish between the “nominal measure” discussed here and the “nominal scale” variables outlined in Chapter <a href="data-categorization.html#nominal-scale-variables">11.3.1</a>. In this context, “nominal measure” refers to values not adjusted for price changes, whereas “nominal scale” variables are a type of categorical data where different categories do not indicate any order or hierarchy.</p>
+<p>To calculate real GDP in the U.S., the GDP series (<code>GDP</code>) of the <a href="data-transformation.html#example-data">example-data</a> is divided by a price index - specifically, the U.S. GDP deflator index (<code>GDPDEF</code>):</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="data-transformation.html#cb284-1" tabindex="-1"></a><span class="co"># Compute real GDP</span></span>
+<span id="cb284-2"><a href="data-transformation.html#cb284-2" tabindex="-1"></a>RGDP <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> GDP <span class="sc">/</span> GDPDEF</span></code></pre></div>
+<p>The resulting data is returned as an <code>xts</code> object. You can compare the real GDP measure <code>RGDP</code> with the nominal measure <code>GDP</code>, which is the GDP measure unadjusted for price changes:</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="data-transformation.html#cb285-1" tabindex="-1"></a><span class="co"># Merge nominal and real GDP</span></span>
+<span id="cb285-2"><a href="data-transformation.html#cb285-2" tabindex="-1"></a>GDP_nominal_real <span class="ot">&lt;-</span> <span class="fu">merge</span>(GDP, RGDP)</span>
+<span id="cb285-3"><a href="data-transformation.html#cb285-3" tabindex="-1"></a></span>
+<span id="cb285-4"><a href="data-transformation.html#cb285-4" tabindex="-1"></a><span class="co"># Print merged data</span></span>
+<span id="cb285-5"><a href="data-transformation.html#cb285-5" tabindex="-1"></a><span class="fu">tail</span>(GDP_nominal_real)</span></code></pre></div>
+<pre><code>##              GDP    GDP.1
+## 2022 Q1 6185.120 4981.011
+## 2022 Q2 6312.119 4973.815
+## 2022 Q3 6430.985 5013.671
+## 2022 Q4 6534.498 5045.633
+## 2023 Q1 6632.444 5070.675
+## 2023 Q2 6708.738 5101.004</code></pre>
+<p>Visualize the two GDP series using the <code>plot.zoo()</code> function:</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="data-transformation.html#cb287-1" tabindex="-1"></a><span class="co"># Plot nominal vs. real GDP</span></span>
+<span id="cb287-2"><a href="data-transformation.html#cb287-2" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> GDP_nominal_real, <span class="at">plot.type =</span> <span class="st">&quot;single&quot;</span>,</span>
+<span id="cb287-3"><a href="data-transformation.html#cb287-3" tabindex="-1"></a>         <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb287-4"><a href="data-transformation.html#cb287-4" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;Nominal vs. Real GDP in the United States&quot;</span>,</span>
+<span id="cb287-5"><a href="data-transformation.html#cb287-5" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Billions of USD&quot;</span>)</span>
+<span id="cb287-6"><a href="data-transformation.html#cb287-6" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Nominal GDP&quot;</span>, <span class="st">&quot;Real GDP&quot;</span>), </span>
+<span id="cb287-7"><a href="data-transformation.html#cb287-7" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:real-gdp"></span>
+<img src="_main_files/figure-html/real-gdp-1.png" alt="Nominal vs. Real GDP in the United States" width="80%" />
+<p class="caption">
+Figure 12.9: Nominal vs. Real GDP in the United States
+</p>
+</div>
+<p>Figure <a href="data-transformation.html#fig:real-gdp">12.9</a> displayes U.S. GDP for each quarter since 1947, contrasting the nominal and real measures. In 2012, nominal and real GDP align because the real GDP is defined in terms of 2012 prices, and the nominal GDP (measured in current prices) is also based on 2012 prices for that year. The fact that nominal GDP has grown more than real GDP reflects the influence of inflation, which causes nominal GDP to inflate while real GDP provides a more accurate measure of economic growth.</p>
+<p>In summary, <strong>nominal GDP</strong> quantifies the total value of goods and services produced within an economy, calculated using the market prices at the time of measurement. As such, if prices increase due to inflation, nominal GDP might rise even without an actual increase in goods and services produced. Conversely, <strong>real GDP</strong> adjusts for inflation and represents economic output in terms of “constant prices” from a chosen base year - like calculating today’s economic output as if prices had remained at their 2012 levels. This inflation-adjusted measure enables more accurate comparisons of economic growth over different periods.</p>
+</div>
+<div id="growth-of-ratios" class="section level3 hasAnchor" number="12.5.4">
+<h3><span class="header-section-number">12.5.4</span> Growth of Ratios<a href="data-transformation.html#growth-of-ratios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>growth rate of a ratio</strong> can be calculated based on the growth rate of the variables that form it.</p>
+<p>Define <span class="math inline">\(x_t = y_t/p_t\)</span> as the ratio of interest (e.g., real GDP), <span class="math inline">\(y_t\)</span> as the numerator (e.g., nominal GDP), and <span class="math inline">\(p_t\)</span> as the denominator (e.g., the price level). The growth rate of the ratio can then be formulated as follows:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\%\Delta x_{t} = &amp;\ \frac{x_{t} -x_{t-1}}{x_{t-1}} =\frac{\frac{y_{t}}{p_{t}} -\frac{y_{t-1}}{p_{t-1}}}{\frac{y_{t-1}}{p_{t-1}}} =\frac{p_{t-1}}{p_{t}}\frac{y_{t}}{y_{t-1}} -1=\frac{1+\%\Delta y_{t}}{1+\%\Delta p_{t}} -1
+\end{aligned}
+\]</span></p>
+<p>This formula links the growth rate of the ratio measure <span class="math inline">\(\%\Delta x_t\)</span> with the growth rates of the constituent variables <span class="math inline">\(\%\Delta y_t\)</span> and <span class="math inline">\(\%\Delta p_t\)</span>.</p>
+<p>Consider the case of real versus nominal growth, yielding the following equation:</p>
+<p><span class="math display">\[
+\begin{aligned}
+1+\text{Real Growth}_{t} = &amp;\ \frac{1+\text{Nominal Growth}_{t}}{1+\text{Inflation}_{t}}
+\end{aligned}
+\]</span></p>
+<p>Another approach to approximate the growth rate of a ratio is through the use of logarithms:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\%\Delta x_{t} \approx  &amp;\ \ln( x_{t}) -\ln( x_{t-1})\\
+= &amp;\ \ln\left(\frac{y_{t}}{p_{t}}\right) -\ln\left(\frac{y_{t-1}}{p_{t-1}}\right)\\
+= &amp;\ \Bigl(\ln( y_{t}) -\ln( y_{t-1})\Bigr) -\Bigl(\ln( p_{t}) -\ln( p_{t-1})\Bigr)\\
+= &amp;\ \%\Delta y_{t} -\%\Delta p_{t}
+\end{aligned}
+\]</span></p>
+<p>The growth rate of the ratio measure is approximately the difference between the growth rates of the two underlying variables. In terms of real growth, this yields the following approximation:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{Real Growth}_{t} \approx  &amp;\ \text{Nominal Growth}_{t} -\text{Inflation}_{t}
+\end{aligned}
+\]</span></p>
+<p>To illustrate, consider the interest rate as a nominal growth variable. The interest rate is a growth rate when it serves as a discount rate or yield to maturity, as illustrated by the 3-month Treasury bill data from the <a href="data-transformation.html#example-data">example-data</a> section, which captures the total return on a security over a year. However, if the interest rate is understood as a coupon rate that doesn’t account for capital gain, then the interest rate is not a growth rate. The above formula can then be used to calculate the (ex-post) <strong>real interest rate</strong>, representing the return on the security in real terms:
+<span class="math display">\[
+r_t \approx i_t - \pi_t
+\]</span>
+Where <span class="math inline">\(r_t\)</span> is the real interest rate, <span class="math inline">\(i_t\)</span> is the (nominal) interest rate, and <span class="math inline">\(\pi_t\)</span> is the inflation rate. The real interest rate is essentially the quantity of goods and services one could purchase in a year by holding this security for that duration.</p>
+<p>Applying this to data:</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="data-transformation.html#cb288-1" tabindex="-1"></a><span class="co"># Compute ex post real interest rates</span></span>
+<span id="cb288-2"><a href="data-transformation.html#cb288-2" tabindex="-1"></a>Inflation_annual_rate <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">*</span> Inflation</span>
+<span id="cb288-3"><a href="data-transformation.html#cb288-3" tabindex="-1"></a>EXPOSTREAL <span class="ot">&lt;-</span> TB3MS <span class="sc">-</span> Inflation_annual_rate</span>
+<span id="cb288-4"><a href="data-transformation.html#cb288-4" tabindex="-1"></a></span>
+<span id="cb288-5"><a href="data-transformation.html#cb288-5" tabindex="-1"></a><span class="co"># Plot ex post real interest rate</span></span>
+<span id="cb288-6"><a href="data-transformation.html#cb288-6" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> <span class="fu">na.omit</span>(<span class="fu">merge</span>(TB3MS, Inflation_annual_rate, EXPOSTREAL)),</span>
+<span id="cb288-7"><a href="data-transformation.html#cb288-7" tabindex="-1"></a>         <span class="at">plot.type =</span> <span class="st">&quot;single&quot;</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">16</span>, <span class="dv">16</span>), </span>
+<span id="cb288-8"><a href="data-transformation.html#cb288-8" tabindex="-1"></a>         <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="fl">1.5</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>), </span>
+<span id="cb288-9"><a href="data-transformation.html#cb288-9" tabindex="-1"></a>         <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb288-10"><a href="data-transformation.html#cb288-10" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;Real 3-Month Treasury Bill Rate&quot;</span>)</span>
+<span id="cb288-11"><a href="data-transformation.html#cb288-11" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;bottomleft&quot;</span>, </span>
+<span id="cb288-12"><a href="data-transformation.html#cb288-12" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Nominal Rate&quot;</span>, <span class="st">&quot;Inflation&quot;</span>, <span class="st">&quot;Real Rate&quot;</span>), </span>
+<span id="cb288-13"><a href="data-transformation.html#cb288-13" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="fl">1.5</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>), </span>
+<span id="cb288-14"><a href="data-transformation.html#cb288-14" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">&#39;n&#39;</span>, <span class="at">horiz =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb288-15"><a href="data-transformation.html#cb288-15" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:real-rate"></span>
+<img src="_main_files/figure-html/real-rate-1.png" alt="Real 3-Month Treasury Bill Rate" width="80%" />
+<p class="caption">
+Figure 12.10: Real 3-Month Treasury Bill Rate
+</p>
+</div>
+<p>Figure <a href="data-transformation.html#fig:real-rate">12.10</a> shows that real and nominal rates typically move in tandem, but not always. For example, in the 1970s, even though the nominal rates in the U.S. were high, the real rates were surprisingly low, and sometimes even negative. If you just looked at the high nominal rates, you might think it was tough to get credit because it was costly to borrow. However, the negative real rates tell us that this was not actually the case.</p>
+</div>
+</div>
+<div id="gap" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">12.6</span> Gap<a href="data-transformation.html#gap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <strong>gap</strong> is a term that refers to the difference between two variables. You can calculate a gap measure as follows:
+<span class="math display">\[
+\text{Gap Measure} =  \text{Variable 1} - \text{Variable 2}
+\]</span></p>
+<p>This gap measure might be referred to by different names, depending on the context. For example, in Finance, the term <strong>spread</strong> is used to indicate the gap between two interest rates. In the field of Economics, the term <strong>disparity</strong> is often used to describe the gap between the highest and lowest income levels within a population or group, while the gap between revenues and expenditures is known as <strong>net</strong> revenue.</p>
+</div>
+<div id="filtering" class="section level2 hasAnchor" number="12.7">
+<h2><span class="header-section-number">12.7</span> Filtering<a href="data-transformation.html#filtering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Filtering techniques play a vital role in the fields of economics and finance by helping to extract meaningful insights from noisy data. They are primarily used to isolate certain components of time-series data such as trends, cycles, or seasonal patterns. This chapter will introduce and delve into the concepts of <a href="data-transformation.html#frequency-filtering">filtering specific frequencies</a>, <a href="data-transformation.html#detrending">detrending</a>, and <a href="data-transformation.html#seasonal-adjustment">seasonal adjustment</a>.</p>
+<div id="frequency-filtering" class="section level3 hasAnchor" number="12.7.1">
+<h3><span class="header-section-number">12.7.1</span> Frequency Filtering<a href="data-transformation.html#frequency-filtering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In some instances, analysts are interested in isolating components of a time series that oscillate at specific frequencies. For example, business cycle analysis often focuses on fluctuations that recur every 2 to 8 years. To isolate these components, one can apply filters that attenuate (reduce the amplitude of) frequencies outside this range.</p>
+<p>A well-known filter in economics is the band-pass filter, which only allows frequencies within a certain band to pass through. The Baxter-King filter, for instance, is a widely used band-pass filter in economics. Another popular approach is the wavelet transform, which can provide a time-varying view of different frequencies.</p>
+</div>
+<div id="detrending" class="section level3 hasAnchor" number="12.7.2">
+<h3><span class="header-section-number">12.7.2</span> Detrending<a href="data-transformation.html#detrending" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Detrending is another important tool for analyzing time series data. In many economic series, there is often a long-term trend or direction in which the series is headed, such as the general upward trend of GDP or stock market indices. Detrending is the process of removing this underlying trend to study the cyclical and irregular components of the series.</p>
+<p>Several methods exist for detrending data, from simple approaches such as subtracting the linear trend estimated by least squares, to more sophisticated methods like the Hodrick-Prescott (HP) filter, which estimates and removes a smooth trend component.</p>
+</div>
+<div id="seasonal-adjustment" class="section level3 hasAnchor" number="12.7.3">
+<h3><span class="header-section-number">12.7.3</span> Seasonal Adjustment<a href="data-transformation.html#seasonal-adjustment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In many economic time series, patterns tend to repeat at regular intervals. This repetition is referred to as seasonality. Examples include increased retail sales during the holiday season, or fluctuations in employment rates due to seasonal industries. Seasonal adjustment is the process of removing these recurring patterns to better understand the underlying trend and cyclical behavior of the series.</p>
+<p>Methods for seasonal adjustment include moving-average methods, like the Census Bureau’s X-13ARIMA-SEATS, and model-based methods such as the popular STL (Seasonal and Trend decomposition using Loess) procedure. By implementing these techniques, researchers and policymakers can make more accurate comparisons over time and across different series, free from the distortion of seasonal effects.</p>
+<p>For instance, consider <strong>seasonally adjusted (SA) GDP</strong>. It is a modified GDP measure that eliminates seasonal variation effects like holidays, weather patterns, or specific events. These adjustments allow economists to focus on analyzing underlying economic trends and business cycles. For example, in a seasonally adjusted GDP series, a significant increase in output from Q3 to Q4 can be attributed to actual economic growth rather than the higher consumption typically associated with holiday seasons.</p>
+<p>Seasonally adjusted GDP data can be obtained from various sources, including government statistical agencies or international organizations. In the United States, the Bureau of Economic Analysis (BEA) provides seasonally adjusted GDP data, which can be accessed through the BEA website or economic data platforms like FRED. In R, there are packages available that perform such seasonal adjustment. The <code>stats</code> package offers functions such as <code>decompose()</code> and <code>stl()</code> for seasonal decomposition and filtering, while the <code>seasonal</code> package provides tools for estimating and removing seasonal components from time series data. These packages enable users to perform seasonal adjustment by analyzing the time series patterns of the same series or incorporating information from related series, such as export or import data. However, it is recommended to first check for pre-existing seasonally adjusted data available from the BEA or other reliable sources before attempting to create your own adjustments, as they may have access to more advanced tools and methodologies.</p>
+<p>In the <a href="example-data">example data</a>, the GDP series (<code>GDP</code>) is already seasonally adjusted, the common default option, as most economists focus more on business cycles than seasonal cycles. To access non-seasonally adjusted U.S. GDP data, visit <a href="https://fred.stlouisfed.org/">FRED</a> and search “U.S. GDP”. The first suggestion would be “Gross Domestic Product” subtitled “Billions of Dollars, Quarterly, Seasonally Adjusted Annual Rate”. Although this is the correct variable, we require the original, not seasonally adjusted (NSA) GDP series. To retrieve this, click on “6 other formats”, and select “Quarterly, Millions of Dollars, Not Seasonally Adjusted”. The resulting graph will be titled “Gross Domestic Product (NA000334Q)”. To download the data, use the <code>getSymbols()</code> function with <code>Symbols</code> parameter as <code>"NA000334Q"</code> and the <code>src</code> (source) parameter as <code>"FRED"</code>:</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="data-transformation.html#cb289-1" tabindex="-1"></a><span class="co"># Download GDP: Quarterly, Millions of Dollars, Not Seasonally Adjusted</span></span>
+<span id="cb289-2"><a href="data-transformation.html#cb289-2" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">&quot;NA000334Q&quot;</span>, <span class="at">src =</span> <span class="st">&quot;FRED&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;NA000334Q&quot;</code></pre>
+<p>After rescaling the non-seasonally adjusted GDP to billions, we can compare the seasonally adjusted (SA) GDP measure <code>GDP</code> with the non-seasonally adjusted (NSA) measure <code>NA000334Q</code>:</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="data-transformation.html#cb291-1" tabindex="-1"></a><span class="co"># Rescale the not seasonally adjusted GDP to billions</span></span>
+<span id="cb291-2"><a href="data-transformation.html#cb291-2" tabindex="-1"></a>GDP_nsa <span class="ot">&lt;-</span> NA000334Q <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb291-3"><a href="data-transformation.html#cb291-3" tabindex="-1"></a></span>
+<span id="cb291-4"><a href="data-transformation.html#cb291-4" tabindex="-1"></a><span class="co"># Merge seasonally adjusted and not seasonally adjusted GDP</span></span>
+<span id="cb291-5"><a href="data-transformation.html#cb291-5" tabindex="-1"></a>GDP_sa_nsa <span class="ot">&lt;-</span> <span class="fu">merge</span>(GDP, GDP_nsa)</span>
+<span id="cb291-6"><a href="data-transformation.html#cb291-6" tabindex="-1"></a></span>
+<span id="cb291-7"><a href="data-transformation.html#cb291-7" tabindex="-1"></a><span class="co"># Print merged data</span></span>
+<span id="cb291-8"><a href="data-transformation.html#cb291-8" tabindex="-1"></a><span class="fu">tail</span>(GDP_sa_nsa)</span></code></pre></div>
+<pre><code>##              GDP NA000334Q
+## 2022 Q1 6185.120  6010.733
+## 2022 Q2 6312.119  6352.982
+## 2022 Q3 6430.985  6439.154
+## 2022 Q4 6534.498  6655.020
+## 2023 Q1 6632.444  6481.468
+## 2023 Q2 6708.738  6763.209</code></pre>
+<p>Visualization of both GDP series:</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="data-transformation.html#cb293-1" tabindex="-1"></a><span class="co"># Plot U.S. seasonally adjusted vs. not seasonally adjusted GDP</span></span>
+<span id="cb293-2"><a href="data-transformation.html#cb293-2" tabindex="-1"></a><span class="fu">plot.zoo</span>(<span class="at">x =</span> GDP_sa_nsa[<span class="st">&quot;1970/&quot;</span>], <span class="at">plot.type =</span> <span class="st">&quot;single&quot;</span>,</span>
+<span id="cb293-3"><a href="data-transformation.html#cb293-3" tabindex="-1"></a>         <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>),</span>
+<span id="cb293-4"><a href="data-transformation.html#cb293-4" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;SA vs. NSA U.S. GDP&quot;</span>,</span>
+<span id="cb293-5"><a href="data-transformation.html#cb293-5" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Billions of USD&quot;</span>)</span>
+<span id="cb293-6"><a href="data-transformation.html#cb293-6" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Seasonally Adjusted (SA)&quot;</span>, <span class="st">&quot;Not Seasonally Adjusted (NSA)&quot;</span>), </span>
+<span id="cb293-7"><a href="data-transformation.html#cb293-7" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">1</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gdp-sa"></span>
+<img src="_main_files/figure-html/gdp-sa-1.png" alt="SA vs. NSA U.S. GDP" width="80%" />
+<p class="caption">
+Figure 12.11: SA vs. NSA U.S. GDP
+</p>
+</div>
+<p>Figure <a href="data-transformation.html#fig:gdp-sa">12.11</a> displays U.S. GDP for each quarter since 1970, comparing the seasonally adjusted with the not seasonally adjusted measure. The seasonally adjusted GDP series removes the effects of seasonal variations, allowing for a clearer analysis of underlying trends and business cycles. On the other hand, the not seasonally adjusted GDP series reflects the raw, unadjusted data and includes the impact of seasonal variations. This series provides a more detailed view of the quarterly fluctuations in economic activity, which can be influenced by factors like holiday spending or seasonal industries.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-categorization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-aggregation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["eda.pdf", "PDF"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
