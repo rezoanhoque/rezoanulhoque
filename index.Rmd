@@ -1,5 +1,5 @@
 ---
-pagetitle: Julian F. Ludwig
+pagetitle: Mohammad Rezoanul Hoque
 ---
 
 
@@ -18,17 +18,16 @@ htmltools::img(src = knitr::include_graphics("photos/Julian oval.png"),
 
 
 
-Assistant Professor \
+PhD student in Economics \
 Department of Economics \
 Texas Tech University \
-253 Holden Hall \
 Lubbock, TX 79409
 
 <br>
 
 ##### Office: [253 Holden Hall](http://www.ttu.edu/map/?b=Holden%20Hall){target="_blank"}
 
-##### Email: julian.ludwig@ttu.edu
+##### Email: homohamm@ttu.edu
 
 ##### CV: [[PDF](cv/2020.06.26 CV Julian Ludwig.pdf){target="_blank"}]
 
